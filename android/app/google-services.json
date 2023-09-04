@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "740459610244",
+    "project_id": "flickmemo-app",
+    "storage_bucket": "flickmemo-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:740459610244:android:b358414affe96dea6082d1",
+        "android_client_info": {
+          "package_name": "com.example.flickmemo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "740459610244-ec9qsn353aij7c7q35msqlf7085ju1j1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA9Tdn7KWhWAnt9ZKaIweKK_kT1QNeJZ4M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "740459610244-ec9qsn353aij7c7q35msqlf7085ju1j1.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "740459610244-3n8d0gu8ief4j592qn16akjlmkrrmvm7.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.flickmemo"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

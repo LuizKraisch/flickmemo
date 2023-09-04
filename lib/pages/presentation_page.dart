@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:flickmemo/services/auth_service.dart';
 
 class PresentationPage extends StatelessWidget {
   const PresentationPage({super.key});
@@ -62,7 +63,9 @@ class MainContainer extends StatelessWidget {
               Center(
                 child: Padding(
                   padding: const EdgeInsets.fromLTRB(0, 10, 0, 0),
-                  child: LoginButton(),
+                  child: LoginButton(
+                    onPressed: () => AuthService().signIn(),
+                  ),
                 ),
               ),
             ],
@@ -74,8 +77,10 @@ class MainContainer extends StatelessWidget {
 }
 
 class LoginButton extends StatelessWidget {
+  final Function()? onPressed;
   const LoginButton({
     super.key,
+    required this.onPressed,
   });
 
   @override
@@ -88,7 +93,7 @@ class LoginButton extends StatelessWidget {
           shape: StadiumBorder(),
           backgroundColor: Colors.white,
         ),
-        onPressed: () {},
+        onPressed: onPressed,
         icon: Image.asset('assets/logos/google-g-logo.png', height: 25),
         label: Text(
           "Continue with Google",
