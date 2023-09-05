@@ -41,8 +41,8 @@ class MainContainer extends StatelessWidget {
             children: [
               Padding(
                 padding: const EdgeInsets.fromLTRB(0, 10, 0, 10),
-                child:
-                    Image.asset('assets/logos/flickmemo-logo.png', height: 30),
+                child: Image.asset('assets/logos/flickmemo-logo-small.png',
+                    height: 30),
               ),
               Text(
                 "Review films you've watched. Save those you want to see.",

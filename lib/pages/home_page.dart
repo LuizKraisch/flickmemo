@@ -56,33 +56,45 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color(0xff131417),
-      body: Center(
-        child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-          CircleAvatar(
-            radius: 50,
-            backgroundImage: NetworkImage(currentUser?.photoURL as String),
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        bottomOpacity: 0.0,
+        elevation: 0.0,
+        title: Image.asset(
+          'assets/logos/flickmemo-short-logo.png',
+          height: 30,
+        ),
+        actions: [
+          Container(
+            margin: const EdgeInsets.fromLTRB(0, 0, 35, 0),
+            child: GestureDetector(
+                onTap: () => showAlertDialog(context),
+                child: CircleAvatar(
+                  backgroundImage:
+                      NetworkImage(currentUser?.photoURL as String),
+                )),
           ),
+        ],
+      ),
+      body: Center(
+        child: Column(children: [
           SizedBox(height: 10),
           Text(
             "Hey! ${currentUser?.displayName}",
             style: GoogleFonts.poppins(
               color: Colors.white,
               fontWeight: FontWeight.w600,
-              fontSize: 22,
+              fontSize: 25,
             ),
           ),
-          SizedBox(height: 5),
           Text(
-            "Logged in as: ${currentUser?.email}",
+            "Here are some recommendations for you.",
             style: GoogleFonts.poppins(
               color: Colors.white,
               fontWeight: FontWeight.w400,
-              fontSize: 15,
+              fontSize: 13,
             ),
           ),
-          TextButton(
-              onPressed: () => showAlertDialog(context),
-              child: Text('Log Out')),
         ]),
       ),
     );
