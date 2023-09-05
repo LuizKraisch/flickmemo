@@ -81,7 +81,8 @@ class _HomePageState extends State<HomePage> {
             ),
           ),
           TextButton(
-              onPressed: () => showAlertDialog(context), child: Text('Log Out'))
+              onPressed: () => showAlertDialog(context),
+              child: Text('Log Out')),
         ]),
       ),
     );
