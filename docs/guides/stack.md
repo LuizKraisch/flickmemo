@@ -4,8 +4,8 @@ Here's some information about Flickmemo's tech stack. This session is being writ
 
 ### Mobile App:
 
- - Flutter;
- - Dart;
+ - Flutter (3.13.2);
+ - Dart (3.1.0);
  - Firebase.
 
 ### API:

@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://github.com/LuizKraisch/flickmemo/blob/main/docs/assets/github-presentation.png">
+  <img src="docs/assets/github-presentation.png">
 </p>
 
 <img src="https://img.shields.io/badge/status-in_progress-blue?style=for-the-badge"> <img src="https://img.shields.io/github/license/Ileriayo/markdown-badges?style=for-the-badge">
@@ -7,6 +7,8 @@
 <img src="https://img.shields.io/badge/Flutter-53b7f7?style=for-the-badge&logo=flutter&logoColor=white">
 <img src="https://img.shields.io/badge/Dart-0075ba?style=for-the-badge&logo=dart&logoColor=white">
 <img src="https://img.shields.io/badge/Firebase-FFA000?style=for-the-badge&logo=firebase&logoColor=white">
+<img src="https://img.shields.io/badge/App Store-000000?style=for-the-badge&logo=apple&logoColor=white">
+<img src="https://img.shields.io/badge/Google Play-DB4437?style=for-the-badge&logo=google-play&logoColor=white">
 
 ## About the App
 
