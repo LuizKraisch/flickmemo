@@ -2,7 +2,9 @@ import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flickmemo/pages/auth_page.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flickmemo/pages/home_page.dart';
-import 'package:flickmemo/pages/presentation_page.dart';
+import 'package:flickmemo/pages/login_page.dart';
+import 'package:flickmemo/pages/profile_page.dart';
+import 'package:flickmemo/pages/search_page.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'firebase_options.dart';
@@ -30,8 +32,10 @@ class FlickmemoApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         home: const AuthPage(),
         routes: {
-          '/presentation-page': (context) => const PresentationPage(),
+          '/login-page': (context) => const LoginPage(),
           '/home-page': (context) => const HomePage(),
+          '/search-page': (context) => const SearchPage(),
+          '/profile-page': (context) => const ProfilePage(),
         });
   }
 }
