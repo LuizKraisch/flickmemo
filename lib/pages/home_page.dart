@@ -1,7 +1,7 @@
+import 'package:appinio_swiper/appinio_swiper.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -11,91 +11,122 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  int currentIndex = 0;
   final currentUser = FirebaseAuth.instance.currentUser;
 
-  void signOut() {
-    FirebaseAuth.instance.signOut();
+  void onSwap(int index) {
+    setState(() {
+      currentIndex = index;
+    });
   }
 
-  void showAlertDialog(BuildContext context) {
-    showCupertinoDialog(
-        context: context,
-        builder: (BuildContext ctx) {
-          return Theme(
-            data: ThemeData.dark(),
-            child: CupertinoAlertDialog(
-              title: const Text('Logging out?'),
-              content: const Text('Are you sure you want to log out?'),
-              actions: [
-                CupertinoDialogAction(
-                  onPressed: () {
-                    setState(() {
-                      Navigator.of(context).pop();
-                      signOut();
-                    });
-                  },
-                  isDefaultAction: true,
-                  isDestructiveAction: true,
-                  child: const Text('Yes'),
-                ),
-                CupertinoDialogAction(
-                  onPressed: () {
-                    Navigator.of(context).pop();
-                  },
-                  isDefaultAction: false,
-                  isDestructiveAction: false,
-                  child: const Text('No'),
-                )
-              ],
-            ),
-          );
-        });
+  void onFinish() {
+    print('Reached the end!');
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color(0xff131417),
-      appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        bottomOpacity: 0.0,
-        elevation: 0.0,
-        title: Image.asset(
-          'assets/logos/flickmemo-short-logo.png',
-          height: 30,
-        ),
-        actions: [
-          Container(
-            margin: const EdgeInsets.fromLTRB(0, 0, 35, 0),
-            child: GestureDetector(
-                onTap: () => showAlertDialog(context),
-                child: CircleAvatar(
-                  backgroundImage:
-                      NetworkImage(currentUser?.photoURL as String),
-                )),
+      body: Column(
+        children: [
+          SizedBox(height: 70),
+          Padding(
+            padding: const EdgeInsets.fromLTRB(30, 0, 30, 0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Image.asset(
+                  'assets/logos/flickmemo-short-logo.png',
+                  width: 45,
+                ),
+                GestureDetector(
+                    onTap: () => Scaffold.of(context).openDrawer(),
+                    child: CircleAvatar(
+                      radius: 20,
+                      backgroundImage:
+                          NetworkImage(currentUser?.photoURL as String),
+                      backgroundColor: Colors.transparent,
+                    )),
+              ],
+            ),
+          ),
+          SizedBox(height: 10),
+          Column(children: [
+            SizedBox(height: 10),
+            Text(
+              "Hey, ${currentUser?.displayName}!",
+              style: GoogleFonts.poppins(
+                color: Colors.white,
+                fontWeight: FontWeight.w600,
+                fontSize: 25,
+              ),
+            ),
+            Text(
+              "Here are some recommendations for you.",
+              style: GoogleFonts.poppins(
+                color: Colors.white,
+                fontWeight: FontWeight.w400,
+                fontSize: 13,
+              ),
+            ),
+          ]),
+          SizedBox(
+            height: MediaQuery.of(context).size.height * 0.60,
+            width: MediaQuery.of(context).size.width * 0.95,
+            child: AppinioSwiper(
+              cardsCount: 10,
+              onSwipe: (index, AppinioSwiperDirection direction) {
+                onSwap(index);
+              },
+              swipeOptions:
+                  AppinioSwipeOptions.only(left: true, right: true, top: true),
+              cardsBuilder: (BuildContext context, int index) {
+                return Container(
+                  alignment: Alignment.center,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(20),
+                    color: Color(0xff1D1F24),
+                    boxShadow: [
+                      BoxShadow(
+                          color: Colors.black.withOpacity(0.2),
+                          spreadRadius: 3,
+                          blurRadius: 10,
+                          offset: Offset(0, 3)),
+                    ],
+                  ),
+                  child: Text(
+                    index.toString(),
+                    style: GoogleFonts.poppins(
+                      color: Colors.white,
+                      fontWeight: FontWeight.w500,
+                      fontSize: 17,
+                    ),
+                  ),
+                );
+              },
+              onEnd: () => onFinish(),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.fromLTRB(60, 22, 60, 0),
+            child: TweenAnimationBuilder<double>(
+              duration: const Duration(milliseconds: 250),
+              curve: Curves.easeInOut,
+              tween: Tween<double>(
+                begin: 0,
+                end: currentIndex.toDouble(),
+              ),
+              builder: (context, value, _) => LinearProgressIndicator(
+                minHeight: 8,
+                value: value / 10,
+                backgroundColor: Color(0xff383C46),
+                borderRadius: BorderRadius.circular(10),
+                valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
+              ),
+            ),
           ),
         ],
-      ),
-      body: Center(
-        child: Column(children: [
-          SizedBox(height: 10),
-          Text(
-            "Hey! ${currentUser?.displayName}",
-            style: GoogleFonts.poppins(
-              color: Colors.white,
-              fontWeight: FontWeight.w600,
-              fontSize: 25,
-            ),
-          ),
-          Text(
-            "Here are some recommendations for you.",
-            style: GoogleFonts.poppins(
-              color: Colors.white,
-              fontWeight: FontWeight.w400,
-              fontSize: 13,
-            ),
-          ),
-        ]),
       ),
     );
   }
