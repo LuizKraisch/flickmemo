@@ -19,6 +19,7 @@ dependencies:
   google_sign_in: ^6.1.5
   google_nav_bar: ^5.0.6
   font_awesome_flutter: ^10.5.0
+  appinio_swiper: ^2.0.3
 
 dev_dependencies:
   flutter_test:

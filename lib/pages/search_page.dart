@@ -55,7 +55,7 @@ class _SearchPageState extends State<SearchPage> {
                     ),
                     hintText: 'Try for names like La La Land, WALL-E...',
                     hintStyle: TextStyle(
-                      fontSize: 15.0,
+                      fontSize: 13.0,
                       color: Color(0xff585F6F),
                       fontFamily: GoogleFonts.poppins().fontFamily,
                     ),
