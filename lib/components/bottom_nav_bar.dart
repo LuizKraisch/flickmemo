@@ -4,8 +4,9 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 
 class BottomNavBar extends StatelessWidget {
-  void Function(int)? onTabChange;
-  BottomNavBar({super.key, required this.onTabChange});
+  final void Function(int)? onTabChange;
+
+  const BottomNavBar({super.key, required this.onTabChange});
 
   @override
   Widget build(BuildContext context) {

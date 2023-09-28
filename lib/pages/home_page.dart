@@ -1,5 +1,8 @@
 import 'package:appinio_swiper/appinio_swiper.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flickmemo/components/home_page_header.dart';
+import 'package:flickmemo/components/movie_card.dart';
+import 'package:flickmemo/components/progress_bar.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter/material.dart';
 
@@ -31,26 +34,9 @@ class _HomePageState extends State<HomePage> {
       body: Column(
         children: [
           SizedBox(height: 70),
-          Padding(
-            padding: const EdgeInsets.fromLTRB(30, 0, 30, 0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Image.asset(
-                  'assets/logos/flickmemo-short-logo.png',
-                  width: 45,
-                ),
-                GestureDetector(
-                    onTap: () => Scaffold.of(context).openDrawer(),
-                    child: CircleAvatar(
-                      radius: 20,
-                      backgroundImage:
-                          NetworkImage(currentUser?.photoURL as String),
-                      backgroundColor: Colors.transparent,
-                    )),
-              ],
-            ),
-          ),
+          HomePageHeader(
+              currentUser: currentUser,
+              onProfileTap: () => Scaffold.of(context).openDrawer()),
           SizedBox(height: 10),
           Column(children: [
             SizedBox(height: 10),
@@ -82,50 +68,12 @@ class _HomePageState extends State<HomePage> {
               swipeOptions:
                   AppinioSwipeOptions.only(left: true, right: true, top: true),
               cardsBuilder: (BuildContext context, int index) {
-                return Container(
-                  alignment: Alignment.center,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(20),
-                    color: Color(0xff1D1F24),
-                    boxShadow: [
-                      BoxShadow(
-                          color: Colors.black.withOpacity(0.2),
-                          spreadRadius: 3,
-                          blurRadius: 10,
-                          offset: Offset(0, 3)),
-                    ],
-                  ),
-                  child: Text(
-                    index.toString(),
-                    style: GoogleFonts.poppins(
-                      color: Colors.white,
-                      fontWeight: FontWeight.w500,
-                      fontSize: 17,
-                    ),
-                  ),
-                );
+                return MovieCard();
               },
               onEnd: () => onFinish(),
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.fromLTRB(60, 22, 60, 0),
-            child: TweenAnimationBuilder<double>(
-              duration: const Duration(milliseconds: 250),
-              curve: Curves.easeInOut,
-              tween: Tween<double>(
-                begin: 0,
-                end: currentIndex.toDouble(),
-              ),
-              builder: (context, value, _) => LinearProgressIndicator(
-                minHeight: 8,
-                value: value / 10,
-                backgroundColor: Color(0xff383C46),
-                borderRadius: BorderRadius.circular(10),
-                valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
-              ),
-            ),
-          ),
+          ProgressBar(currentIndex: currentIndex),
         ],
       ),
     );
