@@ -2,7 +2,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class SideDrawer extends StatefulWidget {
   const SideDrawer({super.key});
@@ -72,15 +71,11 @@ class _SideDrawerState extends State<SideDrawer> {
                 padding: const EdgeInsets.fromLTRB(10, 0, 0, 0),
                 child: ListTile(
                   minLeadingWidth: 10,
-                  leading:
-                      FaIcon(FontAwesomeIcons.language, color: Colors.white),
+                  leading: FaIcon(FontAwesomeIcons.language,
+                      color: Theme.of(context).colorScheme.outline),
                   title: Text(
                     "Change language",
-                    style: GoogleFonts.poppins(
-                      color: Colors.white,
-                      fontWeight: FontWeight.w600,
-                      fontSize: 15,
-                    ),
+                    style: Theme.of(context).textTheme.labelSmall,
                   ),
                   onTap: () {}, // TODO: Add language selector
                 ),
@@ -90,14 +85,10 @@ class _SideDrawerState extends State<SideDrawer> {
                 child: ListTile(
                   minLeadingWidth: 10,
                   leading: FaIcon(FontAwesomeIcons.arrowRightFromBracket,
-                      color: Colors.white),
+                      color: Theme.of(context).colorScheme.outline),
                   title: Text(
                     "Sign out",
-                    style: GoogleFonts.poppins(
-                      color: Colors.white,
-                      fontWeight: FontWeight.w600,
-                      fontSize: 15,
-                    ),
+                    style: Theme.of(context).textTheme.labelSmall,
                   ),
                   onTap: () => showAlertDialog(context),
                 ),
@@ -112,14 +103,11 @@ class _SideDrawerState extends State<SideDrawer> {
                   padding: const EdgeInsets.fromLTRB(10, 0, 0, 0),
                   child: ListTile(
                     minLeadingWidth: 10,
-                    leading: FaIcon(FontAwesomeIcons.code, color: Colors.white),
+                    leading: FaIcon(FontAwesomeIcons.code,
+                        color: Theme.of(context).colorScheme.outline),
                     title: Text(
                       "Talk with the developer",
-                      style: GoogleFonts.poppins(
-                        color: Colors.white,
-                        fontWeight: FontWeight.w600,
-                        fontSize: 15,
-                      ),
+                      style: Theme.of(context).textTheme.labelSmall,
                     ),
                     onTap: () {}, // TODO: Add malito link
                   ),

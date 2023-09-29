@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class MovieCard extends StatelessWidget {
   const MovieCard({
@@ -12,10 +11,10 @@ class MovieCard extends StatelessWidget {
       alignment: Alignment.center,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20),
-        color: Color(0xff1D1F24),
+        color: Theme.of(context).colorScheme.secondary,
         boxShadow: [
           BoxShadow(
-              color: Colors.black.withOpacity(0.2),
+              color: Theme.of(context).colorScheme.background.withOpacity(0.2),
               spreadRadius: 3,
               blurRadius: 10,
               offset: Offset(0, 3)),
@@ -23,11 +22,7 @@ class MovieCard extends StatelessWidget {
       ),
       child: Text(
         'Omgggg this is a movie!',
-        style: GoogleFonts.poppins(
-          color: Colors.white,
-          fontWeight: FontWeight.w500,
-          fontSize: 17,
-        ),
+        style: Theme.of(context).textTheme.bodySmall,
       ),
     );
   }

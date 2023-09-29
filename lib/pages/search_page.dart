@@ -12,10 +12,10 @@ class _SearchPageState extends State<SearchPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xff131417),
+      backgroundColor: Theme.of(context).colorScheme.background,
       body: CustomScrollView(slivers: [
         SliverAppBar(
-          backgroundColor: Color(0xff1D1F24),
+          backgroundColor: Theme.of(context).colorScheme.secondary,
           floating: true,
           expandedHeight: 120,
           flexibleSpace: FlexibleSpaceBar(background: SearchHeader()),
@@ -25,7 +25,9 @@ class _SearchPageState extends State<SearchPage> {
               padding: EdgeInsets.all(20.0),
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(20),
-                child: Container(height: 400, color: Color(0xff1D1F24)),
+                child: Container(
+                    height: 400,
+                    color: Theme.of(context).colorScheme.secondary),
               )),
         ),
         SliverToBoxAdapter(
@@ -33,7 +35,9 @@ class _SearchPageState extends State<SearchPage> {
               padding: EdgeInsets.all(20.0),
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(20),
-                child: Container(height: 400, color: Color(0xff1D1F24)),
+                child: Container(
+                    height: 400,
+                    color: Theme.of(context).colorScheme.secondary),
               )),
         ),
       ]),
