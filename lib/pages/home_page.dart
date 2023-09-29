@@ -23,10 +23,6 @@ class _HomePageState extends State<HomePage> {
     });
   }
 
-  void onFinish() {
-    print('Reached the end!');
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -70,7 +66,7 @@ class _HomePageState extends State<HomePage> {
               cardsBuilder: (BuildContext context, int index) {
                 return MovieCard();
               },
-              onEnd: () => onFinish(),
+              onEnd: () {},
             ),
           ),
           ProgressBar(currentIndex: currentIndex),
