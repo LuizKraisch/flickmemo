@@ -30,20 +30,20 @@ class ProfileHeader extends StatelessWidget {
                     currentUser?.displayName as String,
                     style: Theme.of(context).textTheme.displaySmall,
                   ),
+                  SizedBox(width: 5),
                   Text(
                     "User since August, 2023",
-                    style: Theme.of(context).textTheme.labelSmall,
+                    style: Theme.of(context).textTheme.headlineSmall,
                   ),
                 ],
               ),
             ],
           ),
-          SizedBox(height: 30),
+          SizedBox(height: 20),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Text(
                     "243",
@@ -51,22 +51,20 @@ class ProfileHeader extends StatelessWidget {
                   ),
                   Text(
                     "Films",
-                    style: Theme.of(context).textTheme.labelSmall,
+                    style: Theme.of(context).textTheme.headlineSmall,
                   )
                 ],
               ),
               Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Text("12", style: Theme.of(context).textTheme.displaySmall),
                   Text(
                     "Reviews",
-                    style: Theme.of(context).textTheme.labelSmall,
+                    style: Theme.of(context).textTheme.headlineSmall,
                   )
                 ],
               ),
               Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Text(
                     "213",
@@ -74,7 +72,7 @@ class ProfileHeader extends StatelessWidget {
                   ),
                   Text(
                     "Watchlist",
-                    style: Theme.of(context).textTheme.labelSmall,
+                    style: Theme.of(context).textTheme.headlineSmall,
                   )
                 ],
               )

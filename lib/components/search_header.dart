@@ -13,7 +13,7 @@ class SearchHeader extends StatelessWidget {
       children: [
         SizedBox(height: 70),
         Text("Search by the movie's title",
-            style: Theme.of(context).textTheme.labelSmall),
+            style: Theme.of(context).textTheme.headlineMedium),
         SizedBox(height: 10),
         SizedBox(
           width: 325.0,
@@ -38,8 +38,6 @@ class SearchInput extends StatelessWidget {
         filled: true,
         fillColor: Theme.of(context).colorScheme.surfaceVariant,
         border: OutlineInputBorder(
-          borderSide: BorderSide(
-              color: Theme.of(context).colorScheme.onBackground, width: 0.0),
           borderRadius: BorderRadius.circular(100.0),
         ),
         prefixIcon: Icon(

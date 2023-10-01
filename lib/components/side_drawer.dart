@@ -75,7 +75,7 @@ class _SideDrawerState extends State<SideDrawer> {
                       color: Theme.of(context).colorScheme.outline),
                   title: Text(
                     "Change language",
-                    style: Theme.of(context).textTheme.labelSmall,
+                    style: Theme.of(context).textTheme.headlineSmall,
                   ),
                   onTap: () {}, // TODO: Add language selector
                 ),
@@ -88,7 +88,7 @@ class _SideDrawerState extends State<SideDrawer> {
                       color: Theme.of(context).colorScheme.outline),
                   title: Text(
                     "Sign out",
-                    style: Theme.of(context).textTheme.labelSmall,
+                    style: Theme.of(context).textTheme.headlineSmall,
                   ),
                   onTap: () => showAlertDialog(context),
                 ),
@@ -107,7 +107,7 @@ class _SideDrawerState extends State<SideDrawer> {
                         color: Theme.of(context).colorScheme.outline),
                     title: Text(
                       "Talk with the developer",
-                      style: Theme.of(context).textTheme.labelSmall,
+                      style: Theme.of(context).textTheme.headlineSmall,
                     ),
                     onTap: () {}, // TODO: Add malito link
                   ),

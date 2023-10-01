@@ -20,7 +20,7 @@ class _ProfilePageState extends State<ProfilePage> {
         SliverAppBar(
           backgroundColor: Theme.of(context).colorScheme.secondary,
           floating: true,
-          expandedHeight: 200,
+          expandedHeight: 180,
           flexibleSpace: FlexibleSpaceBar(
               background: Padding(
             padding: const EdgeInsets.fromLTRB(30, 80, 30, 0),
