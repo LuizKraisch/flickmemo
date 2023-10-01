@@ -1,6 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class ProfileHeader extends StatelessWidget {
   const ProfileHeader({
@@ -20,8 +19,7 @@ class ProfileHeader extends StatelessWidget {
             children: [
               CircleAvatar(
                 radius: 30,
-                backgroundImage:
-                    NetworkImage(currentUser?.photoURL as String),
+                backgroundImage: NetworkImage(currentUser?.photoURL as String),
                 backgroundColor: Colors.transparent,
               ),
               SizedBox(width: 15),
@@ -30,88 +28,51 @@ class ProfileHeader extends StatelessWidget {
                 children: [
                   Text(
                     currentUser?.displayName as String,
-                    style: GoogleFonts.poppins(
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 20,
-                    ),
+                    style: Theme.of(context).textTheme.displaySmall,
                   ),
+                  SizedBox(width: 5),
                   Text(
                     "User since August, 2023",
-                    style: GoogleFonts.poppins(
-                      color: Colors.white,
-                      fontWeight: FontWeight.w500,
-                      fontSize: 15,
-                    ),
+                    style: Theme.of(context).textTheme.headlineSmall,
                   ),
                 ],
               ),
             ],
           ),
-          SizedBox(height: 30),
+          SizedBox(height: 20),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Text(
                     "243",
-                    style: GoogleFonts.poppins(
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 18,
-                    ),
+                    style: Theme.of(context).textTheme.displaySmall,
                   ),
                   Text(
                     "Films",
-                    style: GoogleFonts.poppins(
-                      color: Colors.white,
-                      fontWeight: FontWeight.w500,
-                      fontSize: 15,
-                    ),
+                    style: Theme.of(context).textTheme.headlineSmall,
                   )
                 ],
               ),
               Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Text(
-                    "12",
-                    style: GoogleFonts.poppins(
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 18,
-                    ),
-                  ),
+                  Text("12", style: Theme.of(context).textTheme.displaySmall),
                   Text(
                     "Reviews",
-                    style: GoogleFonts.poppins(
-                      color: Colors.white,
-                      fontWeight: FontWeight.w500,
-                      fontSize: 15,
-                    ),
+                    style: Theme.of(context).textTheme.headlineSmall,
                   )
                 ],
               ),
               Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Text(
                     "213",
-                    style: GoogleFonts.poppins(
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 18,
-                    ),
+                    style: Theme.of(context).textTheme.displaySmall,
                   ),
                   Text(
                     "Watchlist",
-                    style: GoogleFonts.poppins(
-                      color: Colors.white,
-                      fontWeight: FontWeight.w500,
-                      fontSize: 15,
-                    ),
+                    style: Theme.of(context).textTheme.headlineSmall,
                   )
                 ],
               )

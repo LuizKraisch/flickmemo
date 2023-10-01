@@ -1,6 +1,5 @@
 import 'package:flickmemo/components/login_button.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:flickmemo/services/auth_service.dart';
 
 class LoginPage extends StatelessWidget {
@@ -9,7 +8,7 @@ class LoginPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xff131417),
+      backgroundColor: Theme.of(context).colorScheme.background,
       body: Column(
         children: [
           Padding(
@@ -47,19 +46,11 @@ class MainContainer extends StatelessWidget {
               ),
               Text(
                 "Review films you've watched. Save those you want to see.",
-                style: GoogleFonts.poppins(
-                  color: Colors.white,
-                  fontWeight: FontWeight.w600,
-                  fontSize: 22,
-                ),
+                style: Theme.of(context).textTheme.displayMedium,
               ),
               Text(
                 "Welcome to Flickmemo. Let's start your lists!",
-                style: GoogleFonts.poppins(
-                  color: Colors.white,
-                  fontWeight: FontWeight.w400,
-                  fontSize: 16,
-                ),
+                style: Theme.of(context).textTheme.bodySmall,
               ),
               Center(
                 child: Padding(

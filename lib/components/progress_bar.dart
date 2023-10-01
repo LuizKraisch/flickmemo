@@ -22,9 +22,10 @@ class ProgressBar extends StatelessWidget {
         builder: (context, value, _) => LinearProgressIndicator(
           minHeight: 8,
           value: value / 10,
-          backgroundColor: Color(0xff383C46),
+          backgroundColor: Theme.of(context).colorScheme.surfaceVariant,
           borderRadius: BorderRadius.circular(10),
-          valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
+          valueColor: AlwaysStoppedAnimation<Color>(
+              Theme.of(context).colorScheme.outline),
         ),
       ),
     );

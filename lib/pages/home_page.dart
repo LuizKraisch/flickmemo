@@ -3,7 +3,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flickmemo/components/home_page_header.dart';
 import 'package:flickmemo/components/movie_card.dart';
 import 'package:flickmemo/components/progress_bar.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
@@ -26,7 +25,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xff131417),
+      backgroundColor: Theme.of(context).colorScheme.background,
       body: Column(
         children: [
           SizedBox(height: 70),
@@ -38,19 +37,11 @@ class _HomePageState extends State<HomePage> {
             SizedBox(height: 10),
             Text(
               "Hey, ${currentUser?.displayName}!",
-              style: GoogleFonts.poppins(
-                color: Colors.white,
-                fontWeight: FontWeight.w600,
-                fontSize: 25,
-              ),
+              style: Theme.of(context).textTheme.displayMedium,
             ),
             Text(
               "Here are some recommendations for you.",
-              style: GoogleFonts.poppins(
-                color: Colors.white,
-                fontWeight: FontWeight.w400,
-                fontSize: 13,
-              ),
+              style: Theme.of(context).textTheme.titleSmall,
             ),
           ]),
           SizedBox(

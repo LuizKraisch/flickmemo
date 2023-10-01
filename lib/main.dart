@@ -5,6 +5,7 @@ import 'package:flickmemo/pages/home_page.dart';
 import 'package:flickmemo/pages/login_page.dart';
 import 'package:flickmemo/pages/profile_page.dart';
 import 'package:flickmemo/pages/search_page.dart';
+import 'package:flickmemo/theme/theme.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'firebase_options.dart';
@@ -30,6 +31,7 @@ class FlickmemoApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
+        theme: defaultTheme,
         home: const AuthPage(),
         routes: {
           '/login-page': (context) => const LoginPage(),
