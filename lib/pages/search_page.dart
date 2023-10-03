@@ -1,3 +1,4 @@
+import 'package:flickmemo/components/movie_box.dart';
 import 'package:flickmemo/components/search_header.dart';
 import 'package:flutter/material.dart';
 
@@ -17,27 +18,20 @@ class _SearchPageState extends State<SearchPage> {
         SliverAppBar(
           backgroundColor: Theme.of(context).colorScheme.secondary,
           floating: true,
-          expandedHeight: 120,
+          expandedHeight: 130,
           flexibleSpace: FlexibleSpaceBar(background: SearchHeader()),
         ),
         SliverToBoxAdapter(
           child: Padding(
               padding: EdgeInsets.all(20.0),
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(20),
-                child: Container(
-                    height: 400,
-                    color: Theme.of(context).colorScheme.secondary),
-              )),
-        ),
-        SliverToBoxAdapter(
-          child: Padding(
-              padding: EdgeInsets.all(20.0),
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(20),
-                child: Container(
-                    height: 400,
-                    color: Theme.of(context).colorScheme.secondary),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text("Trending Movies",
+                      style: Theme.of(context).textTheme.headlineMedium),
+                  SizedBox(height: 15),
+                  MovieBox(),
+                ],
               )),
         ),
       ]),

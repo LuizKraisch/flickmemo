@@ -67,6 +67,7 @@ class _SideDrawerState extends State<SideDrawer> {
                   ),
                 ),
               ),
+              SizedBox(height: 20),
               Padding(
                 padding: const EdgeInsets.fromLTRB(10, 0, 0, 0),
                 child: ListTile(

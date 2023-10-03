@@ -14,7 +14,7 @@ class SearchHeader extends StatelessWidget {
         SizedBox(height: 70),
         Text("Search by the movie's title",
             style: Theme.of(context).textTheme.headlineMedium),
-        SizedBox(height: 10),
+        SizedBox(height: 15),
         SizedBox(
           width: 325.0,
           height: 45.0,

@@ -3,22 +3,28 @@ import 'package:google_fonts/google_fonts.dart';
 
 ThemeData defaultTheme = ThemeData(
   colorScheme: ColorScheme.fromSeed(
-    seedColor: Color(0xff582FFE),
-    brightness: Brightness.dark,
-    surface: Color(0xff582FFE),
-    background: Color(0xff131417),
-    primary: Color(0xff582FFE),
-    secondary: Color(0xff1D1F24),
-    outline: Colors.white,
-    inverseSurface: Colors.grey,
-    surfaceVariant: Color(0xff383C46),
-    onBackground: Color(0xff585F6F),
-  ),
+      seedColor: Color(0xff582FFE),
+      brightness: Brightness.dark,
+      surface: Color(0xff582FFE),
+      background: Color(0xff131417),
+      primary: Color(0xff582FFE),
+      secondary: Color(0xff1D1F24),
+      outline: Colors.white,
+      inverseSurface: Colors.grey,
+      surfaceVariant: Color(0xff383C46),
+      onBackground: Color(0xff585F6F),
+      scrim: Color(0xffFFD700)),
   textTheme: TextTheme(
       titleSmall: GoogleFonts.poppins(
         color: Colors.white,
         fontWeight: FontWeight.w400,
         fontSize: 13,
+      ),
+      titleMedium: GoogleFonts.poppins(
+        color: Colors.white,
+        fontWeight: FontWeight.w400,
+        fontStyle: FontStyle.italic,
+        fontSize: 11,
       ),
       bodySmall: GoogleFonts.poppins(
         color: Colors.white,
