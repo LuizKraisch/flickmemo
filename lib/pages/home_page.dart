@@ -3,6 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flickmemo/components/home_page_header.dart';
 import 'package:flickmemo/components/movie_card.dart';
 import 'package:flickmemo/components/progress_bar.dart';
+import 'package:flickmemo/services/auth_service.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
@@ -30,13 +31,13 @@ class _HomePageState extends State<HomePage> {
         children: [
           SizedBox(height: 70),
           HomePageHeader(
-              currentUser: currentUser,
+              profilePhotoURL: currentFlickmemoUser?.photoURL ?? '',
               onProfileTap: () => Scaffold.of(context).openDrawer()),
           SizedBox(height: 10),
           Column(children: [
             SizedBox(height: 10),
             Text(
-              "Hey, ${currentUser?.displayName}!",
+              "Hey, ${currentFlickmemoUser?.firstName}!",
               style: Theme.of(context).textTheme.displayMedium,
             ),
             Text(
