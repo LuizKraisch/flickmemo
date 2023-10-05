@@ -32,7 +32,7 @@ class FlickmemoApp extends StatelessWidget {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
         theme: defaultTheme,
-        home: const AuthPage(),
+        home: AuthPage(),
         routes: {
           '/login-page': (context) => const LoginPage(),
           '/home-page': (context) => const HomePage(),

@@ -1,12 +1,17 @@
 import 'package:appinio_swiper/appinio_swiper.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flickmemo/components/home_page_header.dart';
 import 'package:flickmemo/components/movie_card.dart';
 import 'package:flickmemo/components/progress_bar.dart';
+import 'package:flickmemo/models/flickmemo_user.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
-  const HomePage({super.key});
+  final FlickmemoUser? currentFlickmemoUser;
+
+  const HomePage({
+    this.currentFlickmemoUser,
+    Key? key,
+  }) : super(key: key);
 
   @override
   State<HomePage> createState() => _HomePageState();
@@ -14,7 +19,13 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   int currentIndex = 0;
-  final currentUser = FirebaseAuth.instance.currentUser;
+  FlickmemoUser? currentFlickmemoUser;
+
+  @override
+  void initState() {
+    super.initState();
+    currentFlickmemoUser = widget.currentFlickmemoUser;
+  }
 
   void onSwap(int index) {
     setState(() {
@@ -30,13 +41,13 @@ class _HomePageState extends State<HomePage> {
         children: [
           SizedBox(height: 70),
           HomePageHeader(
-              currentUser: currentUser,
+              profilePhotoURL: currentFlickmemoUser?.photoURL ?? '',
               onProfileTap: () => Scaffold.of(context).openDrawer()),
           SizedBox(height: 10),
           Column(children: [
             SizedBox(height: 10),
             Text(
-              "Hey, ${currentUser?.displayName}!",
+              "Hey, ${currentFlickmemoUser?.firstName}!",
               style: Theme.of(context).textTheme.displayMedium,
             ),
             Text(

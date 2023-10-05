@@ -1,4 +1,4 @@
-import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flickmemo/controllers/flickmemo_user_stream_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -12,7 +12,8 @@ class SideDrawer extends StatefulWidget {
 
 class _SideDrawerState extends State<SideDrawer> {
   void signOut() {
-    FirebaseAuth.instance.signOut();
+    final userController = FlickmemoUserStreamController();
+    userController.dispose();
   }
 
   void showAlertDialog(BuildContext context) {

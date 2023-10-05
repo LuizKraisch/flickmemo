@@ -39,6 +39,11 @@ ThemeData defaultTheme = ThemeData(
       displayMedium: GoogleFonts.poppins(
         color: Colors.white,
         fontWeight: FontWeight.w600,
+        fontSize: 22,
+      ),
+      displayLarge: GoogleFonts.poppins(
+        color: Colors.white,
+        fontWeight: FontWeight.w600,
         fontSize: 25,
       ),
       headlineSmall: GoogleFonts.poppins(

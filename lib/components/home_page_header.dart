@@ -1,14 +1,13 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class HomePageHeader extends StatelessWidget {
   const HomePageHeader({
     super.key,
-    required this.currentUser,
+    required this.profilePhotoURL,
     required this.onProfileTap,
   });
 
-  final User? currentUser;
+  final String profilePhotoURL;
   final void Function() onProfileTap;
 
   @override
@@ -26,7 +25,7 @@ class HomePageHeader extends StatelessWidget {
               onTap: onProfileTap,
               child: CircleAvatar(
                 radius: 20,
-                backgroundImage: NetworkImage(currentUser?.photoURL as String),
+                backgroundImage: NetworkImage(profilePhotoURL),
                 backgroundColor: Colors.transparent,
               )),
         ],
