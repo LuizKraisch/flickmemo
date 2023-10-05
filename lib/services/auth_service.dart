@@ -10,9 +10,9 @@ class AuthService {
   FlickmemoUser? currentFlickmemoUser;
   final userController = FlickmemoUserStreamController();
 
-  getFlickmemoUser(userData) async {
+  getFlickmemoUser(User? userData) async {
     final Map<String, dynamic> flickmemoUserData = {
-      "uid": userData.uid,
+      "uid": userData!.uid,
       "email": userData.email,
       "firstName": userData.displayName,
       "lastName": 'yay',
