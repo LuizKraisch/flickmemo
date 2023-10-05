@@ -4,27 +4,24 @@ import 'package:flutter/material.dart';
 import 'package:flickmemo/pages/base_page.dart';
 import 'package:flickmemo/pages/login_page.dart';
 
-final flickmemoUserStreamController = FlickmemoUserStreamController();
-
 class AuthPage extends StatelessWidget {
-  const AuthPage({super.key});
+  AuthPage({super.key});
+
+  final userController = FlickmemoUserStreamController();
 
   @override
   Widget build(BuildContext context) {
     return StreamBuilder<FlickmemoUser?>(
-      stream: flickmemoUserStreamController.flickmemoUserStream,
-      builder: (context, snapshot) {
-        if (snapshot.connectionState == ConnectionState.waiting) {
-          return Center(child: CircularProgressIndicator());
-        } else if (snapshot.hasError) {
-          return Text("Error: ${snapshot.error}");
+      stream: userController.userStream,
+      builder: (BuildContext context, AsyncSnapshot<FlickmemoUser?> snapshot) {
+        final currentFlickmemoUser = snapshot.data;
+
+        if (currentFlickmemoUser != null) {
+          return BasePage(
+            currentFlickmemoUser: currentFlickmemoUser,
+          );
         } else {
-          final currentUser = snapshot.data;
-          if (currentUser != null) {
-            return BasePage();
-          } else {
-            return LoginPage();
-          }
+          return LoginPage();
         }
       },
     );

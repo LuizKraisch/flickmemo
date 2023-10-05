@@ -6,10 +6,10 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flickmemo/models/flickmemo_user.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
-FlickmemoUser? currentFlickmemoUser;
-final flickmemoUserStreamController = FlickmemoUserStreamController();
-
 class AuthService {
+  FlickmemoUser? currentFlickmemoUser;
+  final userController = FlickmemoUserStreamController();
+
   getFlickmemoUser(userData) async {
     final Map<String, dynamic> flickmemoUserData = {
       "uid": userData.uid,
@@ -57,6 +57,6 @@ class AuthService {
     final userData = FirebaseAuth.instance.currentUser;
 
     currentFlickmemoUser = await getFlickmemoUser(userData);
-    flickmemoUserStreamController.updateUserInStream(currentFlickmemoUser);
+    userController.addUser(currentFlickmemoUser);
   }
 }

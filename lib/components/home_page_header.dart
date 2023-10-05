@@ -1,4 +1,3 @@
-import 'package:flickmemo/models/flickmemo_user.dart';
 import 'package:flutter/material.dart';
 
 class HomePageHeader extends StatelessWidget {

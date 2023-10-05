@@ -6,13 +6,14 @@ class FlickmemoUser {
   final String email;
   final String photoURL;
 
-  const FlickmemoUser(
-      {required this.internalID,
-      required this.token,
-      required this.firstName,
-      required this.lastName,
-      required this.email,
-      required this.photoURL});
+  const FlickmemoUser({
+    required this.internalID,
+    required this.token,
+    required this.firstName,
+    required this.lastName,
+    required this.email,
+    required this.photoURL,
+  });
 
   factory FlickmemoUser.fromJson(Map<String, dynamic> json) {
     return FlickmemoUser(
