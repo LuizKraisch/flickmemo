@@ -1,13 +1,13 @@
-import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flickmemo/models/flickmemo_user.dart';
 import 'package:flutter/material.dart';
 
 class ProfileHeader extends StatelessWidget {
   const ProfileHeader({
     super.key,
-    required this.currentUser,
+    required this.currentFlickmemoUser,
   });
 
-  final User? currentUser;
+  final FlickmemoUser? currentFlickmemoUser;
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +19,8 @@ class ProfileHeader extends StatelessWidget {
             children: [
               CircleAvatar(
                 radius: 30,
-                backgroundImage: NetworkImage(currentUser?.photoURL as String),
+                backgroundImage:
+                    NetworkImage(currentFlickmemoUser?.photoURL as String),
                 backgroundColor: Colors.transparent,
               ),
               SizedBox(width: 15),
@@ -27,7 +28,7 @@ class ProfileHeader extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    currentUser?.displayName as String,
+                    currentFlickmemoUser?.firstName as String,
                     style: Theme.of(context).textTheme.displaySmall,
                   ),
                   SizedBox(width: 5),

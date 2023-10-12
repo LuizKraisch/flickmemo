@@ -1,8 +1,12 @@
+import 'package:flickmemo/models/movie.dart';
 import 'package:flutter/material.dart';
 
 class MoviePoster extends StatelessWidget {
+  final Movie movie;
+
   const MoviePoster({
     super.key,
+    required this.movie,
   });
 
   @override
@@ -14,7 +18,7 @@ class MoviePoster extends StatelessWidget {
         borderRadius: BorderRadius.circular(15),
         image: DecorationImage(
             image: NetworkImage(
-                'https://www.themoviedb.org/t/p/original/uDO8zWDhfWwoFdKS4fzkUJt0Rf0.jpg'),
+                'https://www.themoviedb.org/t/p/original/${movie.posterPath}'),
             fit: BoxFit.cover),
         boxShadow: [
           BoxShadow(
@@ -24,6 +28,9 @@ class MoviePoster extends StatelessWidget {
               offset: Offset(0, 3)),
         ],
       ),
+      child: Text(movie.title,
+          textAlign: TextAlign.center,
+          style: Theme.of(context).textTheme.bodySmall),
     );
   }
 }

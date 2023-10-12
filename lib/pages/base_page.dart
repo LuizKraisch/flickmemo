@@ -38,8 +38,8 @@ class _BasePageState extends State<BasePage> {
   Widget build(BuildContext context) {
     final List<Widget> pages = [
       HomePage(currentFlickmemoUser: currentFlickmemoUser),
-      const SearchPage(),
-      const ProfilePage(),
+      SearchPage(currentFlickmemoUser: currentFlickmemoUser),
+      ProfilePage(currentFlickmemoUser: currentFlickmemoUser),
     ];
 
     return Scaffold(

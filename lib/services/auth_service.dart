@@ -1,6 +1,5 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
-
 import 'package:flickmemo/controllers/flickmemo_user_stream_controller.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flickmemo/models/flickmemo_user.dart';

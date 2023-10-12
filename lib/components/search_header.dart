@@ -33,7 +33,7 @@ class SearchInput extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextField(
-      textAlignVertical: TextAlignVertical.bottom,
+      textAlignVertical: TextAlignVertical.center,
       decoration: InputDecoration(
         filled: true,
         fillColor: Theme.of(context).colorScheme.surfaceVariant,
@@ -45,14 +45,14 @@ class SearchInput extends StatelessWidget {
           color: Theme.of(context).colorScheme.onBackground,
           size: 15,
         ),
-        prefixIconConstraints: BoxConstraints(
-          minWidth: 40,
-        ),
+        isDense: true,
+        contentPadding: EdgeInsets.all(0),
         hintText: 'Try for names like La La Land, WALL-E...',
         hintStyle: TextStyle(
           fontSize: 13.0,
           color: Theme.of(context).colorScheme.onBackground,
           fontFamily: GoogleFonts.poppins().fontFamily,
+          fontStyle: FontStyle.normal,
         ),
         focusedBorder: OutlineInputBorder(
           borderSide: BorderSide(
