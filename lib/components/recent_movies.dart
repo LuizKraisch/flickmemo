@@ -7,7 +7,7 @@ import 'package:flutter/material.dart';
 class RecentMovies extends StatefulWidget {
   final FlickmemoUser? currentFlickmemoUser;
 
-  RecentMovies({super.key, this.currentFlickmemoUser});
+  const RecentMovies({super.key, this.currentFlickmemoUser});
 
   @override
   State<RecentMovies> createState() => _RecentMoviesState();

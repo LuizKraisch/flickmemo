@@ -7,7 +7,7 @@ import 'package:flutter/material.dart';
 class FavoriteMovies extends StatefulWidget {
   final FlickmemoUser? currentFlickmemoUser;
 
-  FavoriteMovies({super.key, this.currentFlickmemoUser});
+  const FavoriteMovies({super.key, this.currentFlickmemoUser});
 
   @override
   State<FavoriteMovies> createState() => _FavoriteMoviesState();
