@@ -3,7 +3,10 @@ import 'package:flickmemo/components/home_page_header.dart';
 import 'package:flickmemo/components/movie_card.dart';
 import 'package:flickmemo/components/progress_bar.dart';
 import 'package:flickmemo/models/flickmemo_user.dart';
+import 'package:flickmemo/models/movie.dart';
+import 'package:flickmemo/services/movie_service.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class HomePage extends StatefulWidget {
   final FlickmemoUser? currentFlickmemoUser;
@@ -19,12 +22,26 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   int currentIndex = 0;
+  int totalItems = 20;
   FlickmemoUser? currentFlickmemoUser;
+  Future<List<Movie>>? _moviesFuture;
 
   @override
   void initState() {
     super.initState();
     currentFlickmemoUser = widget.currentFlickmemoUser;
+    _moviesFuture = _fetchDiscoverMovies();
+  }
+
+  Future<List<Movie>> _fetchDiscoverMovies() async {
+    try {
+      MovieService movieService = MovieService();
+      final result =
+          await movieService.getDiscoverMovies(widget.currentFlickmemoUser);
+      return result;
+    } catch (error) {
+      throw Exception('Failed to find movie data.');
+    }
   }
 
   void onSwap(int index) {
@@ -58,20 +75,49 @@ class _HomePageState extends State<HomePage> {
           SizedBox(
             height: MediaQuery.of(context).size.height * 0.60,
             width: MediaQuery.of(context).size.width * 0.95,
-            child: AppinioSwiper(
-              cardsCount: 10,
-              onSwipe: (index, AppinioSwiperDirection direction) {
-                onSwap(index);
+            child: FutureBuilder<List<Movie>>(
+              future: _moviesFuture,
+              builder: (context, snapshot) {
+                totalItems = snapshot.data?.length ?? 20;
+                if (snapshot.connectionState == ConnectionState.waiting) {
+                  return Center(child: CircularProgressIndicator());
+                } else if (snapshot.hasError) {
+                  return Text('Error: ${snapshot.error}');
+                } else {
+                  final movies = snapshot.data ?? [];
+                  if (movies.isEmpty) {
+                    return Center(
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          SizedBox(height: 20),
+                          Icon(FontAwesomeIcons.film, size: 40),
+                          SizedBox(height: 10),
+                          Text("There are no movies to show",
+                              style:
+                                  Theme.of(context).textTheme.headlineMedium),
+                        ],
+                      ),
+                    );
+                  } else {
+                    return AppinioSwiper(
+                      cardsCount: movies.length,
+                      onSwipe: (index, AppinioSwiperDirection direction) {
+                        onSwap(index);
+                      },
+                      swipeOptions: AppinioSwipeOptions.only(
+                          left: true, right: true, top: true),
+                      cardsBuilder: (BuildContext context, int index) {
+                        return MovieCard(movie: movies[index]);
+                      },
+                    );
+                  }
+                }
               },
-              swipeOptions:
-                  AppinioSwipeOptions.only(left: true, right: true, top: true),
-              cardsBuilder: (BuildContext context, int index) {
-                return MovieCard();
-              },
-              onEnd: () {},
             ),
           ),
-          ProgressBar(currentIndex: currentIndex),
+          ProgressBar(currentIndex: currentIndex, totalItems: totalItems),
         ],
       ),
     );

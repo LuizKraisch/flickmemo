@@ -51,9 +51,17 @@ class MovieBox extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisAlignment: MainAxisAlignment.end,
                       children: [
-                        Text(
-                          movie.title,
-                          style: Theme.of(context).textTheme.displayMedium,
+                        ConstrainedBox(
+                          constraints: BoxConstraints(
+                            minWidth: 200.0,
+                            maxWidth: 260.0,
+                            minHeight: 30.0,
+                            maxHeight: 100.0,
+                          ),
+                          child: Text(
+                            movie.title,
+                            style: Theme.of(context).textTheme.displayMedium,
+                          ),
                         ),
                         SizedBox(width: 10),
                         Text(

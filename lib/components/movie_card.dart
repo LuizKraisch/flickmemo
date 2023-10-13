@@ -1,9 +1,13 @@
+import 'package:flickmemo/models/movie.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class MovieCard extends StatelessWidget {
+  final Movie movie;
+
   const MovieCard({
     super.key,
+    required this.movie,
   });
 
   @override
@@ -14,7 +18,7 @@ class MovieCard extends StatelessWidget {
         borderRadius: BorderRadius.circular(20),
         image: DecorationImage(
             image: NetworkImage(
-                'https://www.themoviedb.org/t/p/original/uDO8zWDhfWwoFdKS4fzkUJt0Rf0.jpg'),
+                'https://www.themoviedb.org/t/p/original/${movie.posterPath}'),
             fit: BoxFit.cover),
         boxShadow: [
           BoxShadow(
@@ -38,36 +42,63 @@ class MovieCard extends StatelessWidget {
           ),
           Padding(
             padding: const EdgeInsets.all(20.0),
-            child: Column(
-                mainAxisAlignment: MainAxisAlignment.end,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Row(
-                    children: [
-                      Text(
-                        "La La Land",
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    ConstrainedBox(
+                      constraints: BoxConstraints(
+                        minWidth: 200.0,
+                        maxWidth: 235.0,
+                        minHeight: 30.0,
+                        maxHeight: 100.0,
+                      ),
+                      child: Text(
+                        movie.title,
                         style: Theme.of(context).textTheme.displayMedium,
                       ),
-                      SizedBox(width: 5),
-                      Icon(FontAwesomeIcons.solidStar,
-                          color: Theme.of(context).colorScheme.scrim, size: 20),
-                      SizedBox(width: 5),
-                      Text(
-                        "7.2",
-                        style: Theme.of(context).textTheme.bodySmall,
-                      )
-                    ],
-                  ),
-                  Text(
-                    "2016 • Drama, Romance",
-                    style: Theme.of(context).textTheme.titleSmall,
-                  ),
-                  SizedBox(width: 10),
-                  Text(
-                    "Here's to the fools who dream.",
-                    style: Theme.of(context).textTheme.titleMedium,
-                  )
-                ]),
+                    ),
+                    Text(
+                      "${DateTime.parse(movie.releaseDate).year.toString()} • Drama, Romance",
+                      style: Theme.of(context).textTheme.titleSmall,
+                    ),
+                    SizedBox(width: 10),
+                    ConstrainedBox(
+                      constraints: BoxConstraints(
+                        minWidth: 200.0,
+                        maxWidth: 235.0,
+                        minHeight: 30.0,
+                        maxHeight: 30.0,
+                      ),
+                      child: Text(
+                        movie.overview,
+                        style: Theme.of(context).textTheme.titleMedium,
+                      ),
+                    ),
+                  ],
+                ),
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    Row(
+                      children: [
+                        Icon(FontAwesomeIcons.solidStar,
+                            color: Theme.of(context).colorScheme.scrim,
+                            size: 20),
+                        SizedBox(width: 5),
+                        Text(
+                          movie.voteAverage.toString(),
+                          style: Theme.of(context).textTheme.bodySmall,
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ],
+            ),
           ),
         ],
       ),

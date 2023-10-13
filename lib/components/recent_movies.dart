@@ -1,8 +1,9 @@
 import 'package:flickmemo/components/movie_poster.dart';
 import 'package:flickmemo/models/flickmemo_user.dart';
 import 'package:flickmemo/models/movie.dart';
-import 'package:flickmemo/services/movie_service.dart';
+import 'package:flickmemo/services/user_service.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class RecentMovies extends StatefulWidget {
   final FlickmemoUser? currentFlickmemoUser;
@@ -25,9 +26,9 @@ class _RecentMoviesState extends State<RecentMovies> {
 
   Future<List<Movie>> _fetchRecentMovies() async {
     try {
-      MovieService movieService = MovieService();
+      UserService userService = UserService();
       final result =
-          await movieService.getFavoriteMovies(widget.currentFlickmemoUser);
+          await userService.getRecentMovies(widget.currentFlickmemoUser);
       _moviesCount = result.length;
       return result;
     } catch (error) {
@@ -60,21 +61,38 @@ class _RecentMoviesState extends State<RecentMovies> {
                   return Text('Error: ${snapshot.error}');
                 } else {
                   final movies = snapshot.data ?? [];
-                  return Padding(
-                    padding: const EdgeInsets.fromLTRB(0, 0, 0, 15),
-                    child: GridView.count(
-                      padding: EdgeInsets.only(top: 15),
-                      physics: NeverScrollableScrollPhysics(),
-                      childAspectRatio: (itemWidth / itemHeight),
-                      crossAxisCount: 3,
-                      children: movies.map((movie) {
-                        return Padding(
-                          padding: const EdgeInsets.only(right: 10),
-                          child: MoviePoster(movie: movie),
-                        );
-                      }).toList(),
-                    ),
-                  );
+                  if (movies.isEmpty) {
+                    return Center(
+                      child: Column(
+                        children: [
+                          SizedBox(height: 20),
+                          Icon(FontAwesomeIcons.film, size: 40),
+                          SizedBox(height: 10),
+                          Text("There are no recent movies",
+                              style:
+                                  Theme.of(context).textTheme.headlineMedium),
+                          Text("Start watching!",
+                              style: Theme.of(context).textTheme.bodySmall),
+                        ],
+                      ),
+                    );
+                  } else {
+                    return Padding(
+                      padding: const EdgeInsets.fromLTRB(0, 0, 0, 15),
+                      child: GridView.count(
+                        padding: EdgeInsets.only(top: 15),
+                        physics: NeverScrollableScrollPhysics(),
+                        childAspectRatio: (itemWidth / itemHeight),
+                        crossAxisCount: 3,
+                        children: movies.map((movie) {
+                          return Padding(
+                            padding: const EdgeInsets.only(right: 10),
+                            child: MoviePoster(movie: movie),
+                          );
+                        }).toList(),
+                      ),
+                    );
+                  }
                 }
               },
             ),

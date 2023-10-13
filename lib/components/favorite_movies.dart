@@ -1,8 +1,9 @@
 import 'package:flickmemo/components/movie_poster.dart';
 import 'package:flickmemo/models/flickmemo_user.dart';
 import 'package:flickmemo/models/movie.dart';
-import 'package:flickmemo/services/movie_service.dart';
+import 'package:flickmemo/services/user_service.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class FavoriteMovies extends StatefulWidget {
   final FlickmemoUser? currentFlickmemoUser;
@@ -24,9 +25,9 @@ class _FavoriteMoviesState extends State<FavoriteMovies> {
 
   Future<List<Movie>> _fetchFavoriteMovies() async {
     try {
-      MovieService movieService = MovieService();
+      UserService userService = UserService();
       final result =
-          await movieService.getFavoriteMovies(widget.currentFlickmemoUser);
+          await userService.getFavoriteMovies(widget.currentFlickmemoUser);
       return result;
     } catch (error) {
       throw Exception('Failed to find movie data.');
@@ -53,18 +54,35 @@ class _FavoriteMoviesState extends State<FavoriteMovies> {
                   return Text('Error: ${snapshot.error}');
                 } else {
                   final movies = snapshot.data ?? [];
-                  return Padding(
-                    padding: const EdgeInsets.fromLTRB(0, 0, 0, 15),
-                    child: ListView(
-                      scrollDirection: Axis.horizontal,
-                      children: movies.map((movie) {
-                        return Padding(
-                          padding: const EdgeInsets.only(right: 10),
-                          child: MoviePoster(movie: movie),
-                        );
-                      }).toList(),
-                    ),
-                  );
+                  if (movies.isEmpty) {
+                    return Center(
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          SizedBox(height: 20),
+                          Icon(FontAwesomeIcons.solidStar, size: 40),
+                          SizedBox(height: 10),
+                          Text("There are no favorite movies",
+                              style:
+                                  Theme.of(context).textTheme.headlineMedium),
+                        ],
+                      ),
+                    );
+                  } else {
+                    return Padding(
+                      padding: const EdgeInsets.fromLTRB(0, 0, 0, 15),
+                      child: ListView(
+                        scrollDirection: Axis.horizontal,
+                        children: movies.map((movie) {
+                          return Padding(
+                            padding: const EdgeInsets.only(right: 10),
+                            child: MoviePoster(movie: movie),
+                          );
+                        }).toList(),
+                      ),
+                    );
+                  }
                 }
               },
             ),
