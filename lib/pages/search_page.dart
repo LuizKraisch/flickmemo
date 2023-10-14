@@ -4,6 +4,7 @@ import 'package:flickmemo/models/flickmemo_user.dart';
 import 'package:flickmemo/models/movie.dart';
 import 'package:flickmemo/services/movie_service.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class SearchPage extends StatefulWidget {
   final FlickmemoUser? currentFlickmemoUser;
@@ -18,22 +19,27 @@ class SearchPage extends StatefulWidget {
 }
 
 class _SearchPageState extends State<SearchPage> {
+  int totalItems = 20;
   MovieService movieService = MovieService();
   FlickmemoUser? currentFlickmemoUser;
-  List<Movie>? movies;
+  Future<List<Movie>>? _moviesFuture;
 
   @override
   void initState() {
     super.initState();
     currentFlickmemoUser = widget.currentFlickmemoUser;
+    _moviesFuture = _fetchTrendingMovies();
+  }
 
-    movieService.getTrendingMovies(currentFlickmemoUser).then((result) {
-      setState(() {
-        movies = result;
-      });
-    }).catchError((error) {
+  Future<List<Movie>> _fetchTrendingMovies() async {
+    try {
+      MovieService movieService = MovieService();
+      final result =
+          await movieService.getTrendingMovies(widget.currentFlickmemoUser);
+      return result;
+    } catch (error) {
       throw Exception('Failed to find movie data.');
-    });
+    }
   }
 
   @override
@@ -55,17 +61,59 @@ class _SearchPageState extends State<SearchPage> {
                 children: [
                   Text("Trending Movies",
                       style: Theme.of(context).textTheme.headlineMedium),
+                  SizedBox(height: 3),
+                  Text("Get in touch with the latest releases.",
+                      style: Theme.of(context).textTheme.titleSmall),
                   SizedBox(height: 15),
                   SizedBox(
-                    height:
-                        ((movies?.isNotEmpty ?? false ? movies!.length : 10) *
-                            210),
-                    child: ListView.builder(
-                      padding: EdgeInsets.only(top: 0),
-                      physics: NeverScrollableScrollPhysics(),
-                      itemCount: movies?.length ?? 0,
-                      itemBuilder: (context, index) {
-                        return MovieBox(movie: movies![index]);
+                    height: totalItems * 210,
+                    child: FutureBuilder<List<Movie>>(
+                      future: _moviesFuture,
+                      builder: (context, snapshot) {
+                        totalItems = snapshot.data?.length ?? 20;
+                        if (snapshot.connectionState ==
+                            ConnectionState.waiting) {
+                          return Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: const [
+                              Padding(
+                                padding: EdgeInsets.only(top: 80.0),
+                                child: CircularProgressIndicator(),
+                              ),
+                            ],
+                          );
+                        } else if (snapshot.hasError) {
+                          return Text('Error: ${snapshot.error}');
+                        } else {
+                          final movies = snapshot.data ?? [];
+                          if (movies.isEmpty) {
+                            return Center(
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  SizedBox(height: 20),
+                                  Icon(FontAwesomeIcons.film, size: 40),
+                                  SizedBox(height: 10),
+                                  Text("There are no movies to show",
+                                      style: Theme.of(context)
+                                          .textTheme
+                                          .headlineMedium),
+                                ],
+                              ),
+                            );
+                          } else {
+                            return ListView.builder(
+                              padding: EdgeInsets.only(top: 0),
+                              physics: NeverScrollableScrollPhysics(),
+                              itemCount: movies.length,
+                              itemBuilder: (context, index) {
+                                return MovieBox(movie: movies![index]);
+                              },
+                            );
+                          }
+                        }
                       },
                     ),
                   ),

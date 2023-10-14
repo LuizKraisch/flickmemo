@@ -15,6 +15,7 @@ class MovieBox extends StatelessWidget {
         height: 200,
         alignment: Alignment.center,
         decoration: BoxDecoration(
+          color: Colors.grey.shade900,
           borderRadius: BorderRadius.circular(20),
           image: DecorationImage(
               image: NetworkImage(

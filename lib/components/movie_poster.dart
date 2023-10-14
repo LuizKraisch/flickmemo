@@ -15,6 +15,7 @@ class MoviePoster extends StatelessWidget {
       width: 110,
       alignment: Alignment.center,
       decoration: BoxDecoration(
+        color: Colors.grey.shade900,
         borderRadius: BorderRadius.circular(15),
         image: DecorationImage(
             image: NetworkImage(

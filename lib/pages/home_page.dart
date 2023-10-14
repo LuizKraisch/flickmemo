@@ -44,6 +44,10 @@ class _HomePageState extends State<HomePage> {
     }
   }
 
+  bool allCardsSwapped() {
+    return currentIndex == totalItems;
+  }
+
   void onSwap(int index) {
     setState(() {
       currentIndex = index;
@@ -101,16 +105,41 @@ class _HomePageState extends State<HomePage> {
                       ),
                     );
                   } else {
-                    return AppinioSwiper(
-                      cardsCount: movies.length,
-                      onSwipe: (index, AppinioSwiperDirection direction) {
-                        onSwap(index);
-                      },
-                      swipeOptions: AppinioSwipeOptions.only(
-                          left: true, right: true, top: true),
-                      cardsBuilder: (BuildContext context, int index) {
-                        return MovieCard(movie: movies[index]);
-                      },
+                    return Stack(
+                      children: [
+                        AppinioSwiper(
+                          cardsCount: movies.length,
+                          onSwipe: (index, AppinioSwiperDirection direction) {
+                            onSwap(index);
+                          },
+                          swipeOptions: AppinioSwipeOptions.only(
+                              left: true, right: true, top: true),
+                          cardsBuilder: (BuildContext context, int index) {
+                            return MovieCard(movie: movies[index]);
+                          },
+                        ),
+                        if (allCardsSwapped())
+                          Center(
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                SizedBox(height: 20),
+                                Icon(FontAwesomeIcons.clapperboard, size: 40),
+                                SizedBox(height: 10),
+                                Text("Wow, we ran out of movies!",
+                                    style: Theme.of(context)
+                                        .textTheme
+                                        .headlineMedium),
+                                SizedBox(height: 3),
+                                Text(
+                                    "Touch the button below to reload the discover.",
+                                    style:
+                                        Theme.of(context).textTheme.titleSmall),
+                              ],
+                            ),
+                          ),
+                      ],
                     );
                   }
                 }

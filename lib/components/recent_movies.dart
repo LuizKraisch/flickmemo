@@ -65,14 +65,12 @@ class _RecentMoviesState extends State<RecentMovies> {
                     return Center(
                       child: Column(
                         children: [
-                          SizedBox(height: 20),
-                          Icon(FontAwesomeIcons.film, size: 40),
+                          SizedBox(height: 80),
+                          Icon(FontAwesomeIcons.solidClock, size: 40),
                           SizedBox(height: 10),
                           Text("There are no recent movies",
                               style:
                                   Theme.of(context).textTheme.headlineMedium),
-                          Text("Start watching!",
-                              style: Theme.of(context).textTheme.bodySmall),
                         ],
                       ),
                     );

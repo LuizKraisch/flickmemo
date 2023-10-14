@@ -60,7 +60,6 @@ class _FavoriteMoviesState extends State<FavoriteMovies> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
-                          SizedBox(height: 20),
                           Icon(FontAwesomeIcons.solidStar, size: 40),
                           SizedBox(height: 10),
                           Text("There are no favorite movies",

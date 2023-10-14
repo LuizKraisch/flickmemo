@@ -15,6 +15,7 @@ class MovieCard extends StatelessWidget {
     return Container(
       alignment: Alignment.center,
       decoration: BoxDecoration(
+        color: Colors.grey.shade900,
         borderRadius: BorderRadius.circular(20),
         image: DecorationImage(
             image: NetworkImage(
