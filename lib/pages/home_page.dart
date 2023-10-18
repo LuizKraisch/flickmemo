@@ -115,7 +115,7 @@ class _HomePageState extends State<HomePage> {
                           swipeOptions: AppinioSwipeOptions.only(
                               left: true, right: true, top: true),
                           cardsBuilder: (BuildContext context, int index) {
-                            return MovieCard(movie: movies[index]);
+                            return MovieCard(movie: movies[index], currentFlickmemoUser: currentFlickmemoUser);
                           },
                         ),
                         if (allCardsSwapped())

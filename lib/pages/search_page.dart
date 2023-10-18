@@ -109,7 +109,10 @@ class _SearchPageState extends State<SearchPage> {
                               physics: NeverScrollableScrollPhysics(),
                               itemCount: movies.length,
                               itemBuilder: (context, index) {
-                                return MovieBox(movie: movies![index]);
+                                return MovieBox(
+                                  movie: movies[index],
+                                  currentFlickmemoUser: currentFlickmemoUser,
+                                );
                               },
                             );
                           }

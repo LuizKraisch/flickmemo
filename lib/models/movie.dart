@@ -1,6 +1,6 @@
 class Movie {
   final String backdropPath;
-  final Set<String> genres;
+  //final List<String> genres;
   final String id;
   final String imdbID;
   final String originalLanguage;
@@ -9,7 +9,7 @@ class Movie {
   final String posterPath;
   final String releaseDate;
   final String runtime;
-  final String spokenLanguages;
+  //final List<String> spokenLanguages;
   final String status;
   final String tagline;
   final String title;
@@ -17,7 +17,7 @@ class Movie {
 
   const Movie({
     required this.backdropPath,
-    required this.genres,
+    //required this.genres,
     required this.id,
     required this.imdbID,
     required this.originalLanguage,
@@ -26,7 +26,7 @@ class Movie {
     required this.posterPath,
     required this.releaseDate,
     required this.runtime,
-    required this.spokenLanguages,
+    //required this.spokenLanguages,
     required this.status,
     required this.tagline,
     required this.title,
@@ -36,9 +36,7 @@ class Movie {
   factory Movie.fromJson(Map<String, dynamic> json) {
     return Movie(
       backdropPath: json['backdrop_path'] ?? '',
-      genres: {
-        '',
-      },
+      //genres: json['genres'] ?? [''],
       id: json['id']?.toString() ?? '',
       imdbID: json['imdb_id'] ?? '',
       originalLanguage: json['original_language'] ?? '',
@@ -46,8 +44,8 @@ class Movie {
       popularity: json['popularity']?.toString() ?? '',
       posterPath: json['poster_path'] ?? '',
       releaseDate: json['release_date'] ?? '',
-      runtime: json['runtime'] ?? '',
-      spokenLanguages: json['spoken_languages'] ?? '',
+      runtime: json['runtime']?.toString() ?? '',
+      //spokenLanguages: json['spoken_languages'] ?? [''],
       status: json['status'] ?? '',
       tagline: json['tagline'] ?? '',
       title: json['title'] ?? '',

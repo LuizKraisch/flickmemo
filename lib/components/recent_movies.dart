@@ -85,7 +85,10 @@ class _RecentMoviesState extends State<RecentMovies> {
                         children: movies.map((movie) {
                           return Padding(
                             padding: const EdgeInsets.only(right: 10),
-                            child: MoviePoster(movie: movie),
+                            child: MoviePoster(
+                              movie: movie,
+                              currentFlickmemoUser: widget.currentFlickmemoUser,
+                            ),
                           );
                         }).toList(),
                       ),

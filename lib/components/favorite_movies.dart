@@ -76,7 +76,10 @@ class _FavoriteMoviesState extends State<FavoriteMovies> {
                         children: movies.map((movie) {
                           return Padding(
                             padding: const EdgeInsets.only(right: 10),
-                            child: MoviePoster(movie: movie),
+                            child: MoviePoster(
+                              movie: movie,
+                              currentFlickmemoUser: widget.currentFlickmemoUser,
+                            ),
                           );
                         }).toList(),
                       ),
