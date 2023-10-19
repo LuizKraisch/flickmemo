@@ -1,3 +1,4 @@
+import 'package:flickmemo/components/bottom_movie_page.dart';
 import 'package:flickmemo/components/movie_page_body.dart';
 import 'package:flickmemo/components/movie_page_header.dart';
 import 'package:flickmemo/models/flickmemo_user.dart';
@@ -43,23 +44,46 @@ class _MoviePageState extends State<MoviePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      bottomNavigationBar: BottomMoviePage(
+          movie: movieData?["data"],
+          review: movieData?["review"],
+          currentFlickmemoUser: currentFlickmemoUser),
       backgroundColor: Theme.of(context).colorScheme.background,
       body: movieData != null
           ? CustomScrollView(slivers: [
               SliverAppBar(
+                pinned: true,
+                backgroundColor: Theme.of(context).colorScheme.secondary,
                 leading: IconButton(
-                    icon: Icon(FontAwesomeIcons.arrowLeft),
-                    onPressed: () {
-                      Navigator.pop(context);
-                    }),
-                backgroundColor: Color.fromARGB(105, 88, 47, 254),
+                  icon: Icon(FontAwesomeIcons.arrowLeft),
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                ),
+                actions: [
+                  Padding(
+                    padding: const EdgeInsets.only(right: 15.0),
+                    child: CircleAvatar(
+                      radius: 20,
+                      backgroundColor: Color.fromARGB(139, 60, 60, 60),
+                      child: IconButton(
+                        icon: const Icon(FontAwesomeIcons.solidBookmark,
+                            size: 20, color: Colors.white),
+                        onPressed: () => {},
+                      ),
+                    ),
+                  )
+                ],
                 floating: true,
                 expandedHeight: 500,
-                flexibleSpace:
-                    FlexibleSpaceBar(background: MoviePageHeader(movie: movieData?["data"])),
+                flexibleSpace: FlexibleSpaceBar(
+                  background: MoviePageHeader(movie: movieData?["data"]),
+                ),
               ),
               SliverToBoxAdapter(
-                child: MoviePageBody(movieData: movieData),
+                child: MoviePageBody(
+                    movieData: movieData,
+                    currentFlickmemoUser: currentFlickmemoUser),
               )
             ])
           : Center(
