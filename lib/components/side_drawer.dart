@@ -1,4 +1,5 @@
 import 'package:flickmemo/controllers/flickmemo_user_stream_controller.dart';
+import 'package:flickmemo/services/helpers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -111,7 +112,7 @@ class _SideDrawerState extends State<SideDrawer> {
                       "Talk with the developer",
                       style: Theme.of(context).textTheme.headlineSmall,
                     ),
-                    onTap: () {}, // TODO: Add malito link
+                    onTap: () => launchDeveloperEmail(),
                   ),
                 ),
               ],

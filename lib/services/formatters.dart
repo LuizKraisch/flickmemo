@@ -1,8 +1,20 @@
 import 'package:intl/intl.dart';
 
-String formatDate(String inputDate) {
+String formatProfileCreationDate(String inputDate) {
   final DateTime date = DateTime.parse(inputDate);
   final String formattedDate = DateFormat('MMMM, y').format(date);
+  return formattedDate;
+}
+
+String formatMovieReleaseDate(String inputDate) {
+  final DateTime date = DateTime.parse(inputDate);
+  final String formattedDate = DateFormat('d MMM, y').format(date);
+  return formattedDate;
+}
+
+String formatExternalReviewDate(String inputDate) {
+  final DateTime date = DateTime.parse(inputDate);
+  final String formattedDate = DateFormat('MMM d, y').format(date);
   return formattedDate;
 }
 

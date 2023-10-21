@@ -58,7 +58,7 @@ class _ProfileHeaderState extends State<ProfileHeader> {
                         ),
                         SizedBox(width: 5),
                         Text(
-                          "User since ${formatDate(user!.createdAt)}",
+                          "User since ${formatProfileCreationDate(user!.createdAt)}",
                           style: Theme.of(context).textTheme.headlineSmall,
                         ),
                       ],
