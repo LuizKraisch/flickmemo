@@ -15,10 +15,15 @@ class IMDbButton extends StatelessWidget {
     return GestureDetector(
       onTap: () => launchIMDbPage(imdbId),
       child: Row(
-        children: const [
+        children: [
           Icon(
             FontAwesomeIcons.imdb,
             size: 20,
+          ),
+          SizedBox(width: 3),
+          Text(
+            'Open page',
+            style: Theme.of(context).textTheme.titleSmall,
           ),
           SizedBox(width: 5),
           Icon(

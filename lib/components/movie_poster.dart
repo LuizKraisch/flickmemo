@@ -35,14 +35,18 @@ class MoviePoster extends StatelessWidget {
           borderRadius: BorderRadius.circular(15),
           image: DecorationImage(
               image: NetworkImage(
-                  'https://www.themoviedb.org/t/p/original/${movie.posterPath}'),
+                movie.posterPath.isNotEmpty
+                    ? 'https://www.themoviedb.org/t/p/original/${movie.posterPath}'
+                    : 'https://wallpapers.com/images/featured/solid-grey-ew5fya1gh2bgc49b.jpg',
+              ),
               fit: BoxFit.cover),
           boxShadow: [
             BoxShadow(
-                color: Theme.of(context).colorScheme.background.withOpacity(0.2),
-                spreadRadius: 3,
-                blurRadius: 10,
-                offset: Offset(0, 3)),
+              color: Theme.of(context).colorScheme.background.withOpacity(0.2),
+              spreadRadius: 3,
+              blurRadius: 10,
+              offset: Offset(0, 3),
+            ),
           ],
         ),
         child: Text(movie.title,

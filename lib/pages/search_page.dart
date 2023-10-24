@@ -51,7 +51,9 @@ class _SearchPageState extends State<SearchPage> {
           backgroundColor: Theme.of(context).colorScheme.secondary,
           floating: true,
           expandedHeight: 130,
-          flexibleSpace: FlexibleSpaceBar(background: SearchHeader()),
+          flexibleSpace: FlexibleSpaceBar(
+            background: SearchHeader(),
+          ),
         ),
         SliverToBoxAdapter(
           child: Padding(

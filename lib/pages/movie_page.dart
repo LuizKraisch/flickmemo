@@ -4,6 +4,7 @@ import 'package:flickmemo/components/movie_page_header.dart';
 import 'package:flickmemo/models/flickmemo_user.dart';
 import 'package:flickmemo/services/movie_service.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class MoviePage extends StatefulWidget {
@@ -44,10 +45,12 @@ class _MoviePageState extends State<MoviePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: BottomMoviePage(
-          movie: movieData?["data"],
-          review: movieData?["review"],
-          currentFlickmemoUser: currentFlickmemoUser),
+      bottomNavigationBar: movieData != null
+          ? BottomMoviePage(
+              movie: movieData?["data"],
+              review: movieData?["review"],
+              currentFlickmemoUser: currentFlickmemoUser)
+          : SizedBox(),
       backgroundColor: Theme.of(context).colorScheme.background,
       body: movieData != null
           ? CustomScrollView(slivers: [
@@ -72,9 +75,8 @@ class _MoviePageState extends State<MoviePage> {
                         onPressed: () => {},
                       ),
                     ),
-                  )
+                  ),
                 ],
-                floating: true,
                 expandedHeight: 500,
                 flexibleSpace: FlexibleSpaceBar(
                   background: MoviePageHeader(movie: movieData?["data"]),
@@ -82,12 +84,16 @@ class _MoviePageState extends State<MoviePage> {
               ),
               SliverToBoxAdapter(
                 child: MoviePageBody(
-                    movieData: movieData,
-                    currentFlickmemoUser: currentFlickmemoUser),
+                  movieData: movieData,
+                  currentFlickmemoUser: currentFlickmemoUser,
+                ),
               )
             ])
           : Center(
-              child: CircularProgressIndicator(),
+              child: SpinKitSquareCircle(
+                color: Theme.of(context).colorScheme.primary,
+                size: 50.0,
+              ),
             ),
     );
   }

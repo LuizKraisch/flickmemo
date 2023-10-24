@@ -42,11 +42,15 @@ class ExternalReviewBox extends StatelessWidget {
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text(
-                            review.authorDetails["name"] != ""
-                                ? review.authorDetails["name"]
-                                : 'TMDB User',
-                            style: Theme.of(context).textTheme.titleSmall,
+                          SizedBox(
+                            width: 180.0,
+                            child: Text(
+                              review.authorDetails["name"] != ""
+                                  ? review.authorDetails["name"]
+                                  : 'TMDB User',
+                              overflow: TextOverflow.ellipsis,
+                              style: Theme.of(context).textTheme.titleSmall,
+                            ),
                           ),
                           Text(
                             formatExternalReviewDate(review.createdAt),

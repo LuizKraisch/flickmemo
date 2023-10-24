@@ -154,13 +154,16 @@ class _MoviePageBodyState extends State<MoviePageBody> {
               : SizedBox(),
           widget.movieData?["externalReviews"].length > 0
               ? SizedBox(
-                  height: 420,
+                  height:
+                      widget.movieData?["externalReviews"].length.toDouble() *
+                          140,
                   child: Column(
                     children: [
-                      ...widget.movieData?["externalReviews"]
-                          .map<Widget>((review) {
-                        return ExternalReviewBox(review: review);
-                      }).toList(),
+                      ...widget.movieData?["externalReviews"].map<Widget>(
+                        (review) {
+                          return ExternalReviewBox(review: review);
+                        },
+                      ).toList(),
                     ],
                   ),
                 )

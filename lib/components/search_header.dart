@@ -32,36 +32,35 @@ class SearchInput extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return TextField(
-      textAlignVertical: TextAlignVertical.center,
-      decoration: InputDecoration(
-        filled: true,
-        fillColor: Theme.of(context).colorScheme.surfaceVariant,
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(100.0),
-        ),
-        prefixIcon: Icon(
-          FontAwesomeIcons.magnifyingGlass,
-          color: Theme.of(context).colorScheme.onBackground,
-          size: 15,
-        ),
-        isDense: true,
-        contentPadding: EdgeInsets.all(0),
-        hintText: 'Try for names like La La Land, WALL-E...',
-        hintStyle: TextStyle(
-          fontSize: 13.0,
-          color: Theme.of(context).colorScheme.onBackground,
-          fontFamily: GoogleFonts.poppins().fontFamily,
-          fontStyle: FontStyle.normal,
-        ),
-        focusedBorder: OutlineInputBorder(
-          borderSide: BorderSide(
-              color: Theme.of(context).colorScheme.surface, width: 2.0),
-          borderRadius: BorderRadius.circular(100.0),
-        ),
+    return Container(
+      padding: EdgeInsets.fromLTRB(0.0, 3.0, 15.0, 3.0),
+      decoration: BoxDecoration(
+        color: Color(0xff2B2D33),
+        borderRadius: BorderRadius.circular(100.0),
       ),
-      style: TextStyle(
-        color: Theme.of(context).colorScheme.outline,
+      child: TextField(
+        maxLines: null,
+        decoration: InputDecoration(
+          prefixIcon: Icon(
+            FontAwesomeIcons.magnifyingGlass,
+            color: Color.fromARGB(130, 255, 255, 255),
+            size: 15,
+          ),
+          border: InputBorder.none,
+          hintText: 'La La Land, WALL-E, Spider-Man...',
+          hintStyle: GoogleFonts.poppins(
+            fontSize: 14,
+            fontStyle: FontStyle.normal,
+            color: Color.fromARGB(130, 255, 255, 255),
+            fontWeight: FontWeight.w400,
+          ),
+        ),
+        style: GoogleFonts.poppins(
+          fontSize: 16,
+          fontStyle: FontStyle.normal,
+          color: Colors.white,
+          fontWeight: FontWeight.w400,
+        ),
       ),
     );
   }

@@ -17,6 +17,18 @@ class BottomMoviePage extends StatefulWidget {
 }
 
 class _BottomMoviePageState extends State<BottomMoviePage> {
+  FlickmemoUser? currentFlickmemoUser;
+  Movie? movie;
+  Review? userReview;
+
+  @override
+  void initState() {
+    super.initState();
+    currentFlickmemoUser = widget.currentFlickmemoUser;
+    movie = widget.movie;
+    userReview = widget.review;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -36,7 +48,11 @@ class _BottomMoviePageState extends State<BottomMoviePage> {
               context: context,
               backgroundColor: Colors.transparent,
               builder: (BuildContext context) {
-                return const ReviewModal();
+                return ReviewModal(
+                  movie: movie,
+                  review: userReview,
+                  currentFlickmemoUser: currentFlickmemoUser,
+                );
               },
             );
           },
