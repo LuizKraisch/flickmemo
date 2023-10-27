@@ -4,9 +4,11 @@ class ProgressBar extends StatelessWidget {
   const ProgressBar({
     super.key,
     required this.currentIndex,
+    required this.totalItems,
   });
 
   final int currentIndex;
+  final int totalItems;
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +23,7 @@ class ProgressBar extends StatelessWidget {
         ),
         builder: (context, value, _) => LinearProgressIndicator(
           minHeight: 8,
-          value: value / 10,
+          value: value / totalItems,
           backgroundColor: Theme.of(context).colorScheme.surfaceVariant,
           borderRadius: BorderRadius.circular(10),
           valueColor: AlwaysStoppedAnimation<Color>(

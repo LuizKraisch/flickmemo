@@ -1,4 +1,6 @@
 import 'package:flickmemo/controllers/flickmemo_user_stream_controller.dart';
+import 'package:flickmemo/pages/licenses_page.dart';
+import 'package:flickmemo/services/helpers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -86,6 +88,24 @@ class _SideDrawerState extends State<SideDrawer> {
                 padding: const EdgeInsets.fromLTRB(10, 0, 0, 0),
                 child: ListTile(
                   minLeadingWidth: 10,
+                  leading: FaIcon(FontAwesomeIcons.book,
+                      color: Theme.of(context).colorScheme.outline),
+                  title: Text(
+                    "Licenses",
+                    style: Theme.of(context).textTheme.headlineSmall,
+                  ),
+                  onTap: () => Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => LicensesPage(),
+                    ),
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.fromLTRB(10, 0, 0, 0),
+                child: ListTile(
+                  minLeadingWidth: 10,
                   leading: FaIcon(FontAwesomeIcons.arrowRightFromBracket,
                       color: Theme.of(context).colorScheme.outline),
                   title: Text(
@@ -94,7 +114,7 @@ class _SideDrawerState extends State<SideDrawer> {
                   ),
                   onTap: () => showAlertDialog(context),
                 ),
-              )
+              ),
             ]),
           ),
           Padding(
@@ -111,7 +131,7 @@ class _SideDrawerState extends State<SideDrawer> {
                       "Talk with the developer",
                       style: Theme.of(context).textTheme.headlineSmall,
                     ),
-                    onTap: () {}, // TODO: Add malito link
+                    onTap: () => launchDeveloperEmail(),
                   ),
                 ),
               ],
