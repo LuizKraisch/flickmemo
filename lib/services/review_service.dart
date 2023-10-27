@@ -27,7 +27,7 @@ class ReviewService {
       Map<String, dynamic> decodedResponse = json.decode(response.body);
       return Review.fromJson(decodedResponse);
     } else {
-      print('Error loading the review.');
+      throw Exception('Error when loading the review.');
     }
   }
 
@@ -62,20 +62,9 @@ class ReviewService {
     );
 
     if (response.statusCode == 200) {
-      print('Review added successfully.');
+      return true; // TODO: Return snack bar message
     } else {
-      // ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-      //   content: Text('Snackbar message'),
-      //   behavior: SnackBarBehavior.floating,
-      //   shape: RoundedRectangleBorder(
-      //     borderRadius: BorderRadius.circular(24),
-      //   ),
-      //   margin: EdgeInsets.only(
-      //     bottom: MediaQuery.of(context).size.height - 100,
-      //     right: 20,
-      //     left: 20,
-      //   ),
-      // ));
+      throw Exception('Error when adding the review.');
     }
   }
 
@@ -107,20 +96,9 @@ class ReviewService {
     );
 
     if (response.statusCode == 200) {
-      print('Review updated successfully.');
+      return true;
     } else {
-      // ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-      //   content: Text('Snackbar message'),
-      //   behavior: SnackBarBehavior.floating,
-      //   shape: RoundedRectangleBorder(
-      //     borderRadius: BorderRadius.circular(24),
-      //   ),
-      //   margin: EdgeInsets.only(
-      //     bottom: MediaQuery.of(context).size.height - 100,
-      //     right: 20,
-      //     left: 20,
-      //   ),
-      // ));
+      throw Exception('Error when updating the review.');
     }
   }
 
@@ -143,9 +121,9 @@ class ReviewService {
     );
 
     if (response.statusCode == 200) {
-      print('Review deleted.');
+      return true;
     } else {
-      print('Error loading the review.');
+      throw Exception('Error when deleting the review.');
     }
   }
 }
