@@ -3,7 +3,7 @@ import 'package:url_launcher/url_launcher.dart';
 Future<void> launchDeveloperEmail() async {
   final Uri emailLaunchUri = Uri(
     scheme: 'mailto',
-    path: 'luizkraisch22@gmail.com',
+    path: 'a@gmail.com', // TODO: Add variables file
     queryParameters: {
       'subject': 'Hello! I want to talk about Flickmemo',
       'body': 'Here you write a nice message for me :)',

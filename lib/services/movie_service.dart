@@ -76,8 +76,11 @@ class MovieService {
       Map<String, dynamic> decodedResponse = json.decode(response.body);
       return {
         "data": Movie.fromJson(decodedResponse["data"]),
-        "userReview": Review.fromJson(decodedResponse["user_review"]),
-        "externalReviews": decodedResponse["tmdb_reviews"].map((externalReviews) {
+        "userReview": decodedResponse["user_review"] != null
+            ? Review.fromJson(decodedResponse["user_review"])
+            : null,
+        "externalReviews":
+            decodedResponse["tmdb_reviews"].map((externalReviews) {
           return ExternalReview.fromJson(externalReviews);
         }).toList(),
         "similarMovies": decodedResponse["similar"].map((similarMovies) {

@@ -138,9 +138,10 @@ class _MoviePageBodyState extends State<MoviePageBody> {
             style: Theme.of(context).textTheme.displayMedium,
           ),
           SizedBox(height: 5),
-          widget.movieData?["userReview"].note != ""
+          widget.movieData?["userReview"] != null
               ? Column(
                   children: [
+                    UserReviewBox(review: widget.movieData?["userReview"]),
                     Padding(
                       padding: const EdgeInsets.all(10.0),
                       child: Container(
@@ -148,7 +149,6 @@ class _MoviePageBodyState extends State<MoviePageBody> {
                         color: Color.fromARGB(255, 76, 80, 90),
                       ),
                     ),
-                    UserReviewBox(review: widget.movieData?["userReview"]),
                   ],
                 )
               : SizedBox(),
@@ -167,29 +167,31 @@ class _MoviePageBodyState extends State<MoviePageBody> {
                     ],
                   ),
                 )
-              : Container(
-                  height: 80,
-                  width: 400,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(20),
-                    color: Color(0xff1D1F24),
-                  ),
-                  child: Padding(
-                    padding: const EdgeInsets.all(15.0),
-                    child: Column(children: [
-                      Icon(
-                        FontAwesomeIcons.triangleExclamation,
-                        color: Colors.grey.shade700,
-                      ),
-                      SizedBox(height: 5),
-                      Text(
-                        "There are no reviews to show.",
-                        style: Theme.of(context).textTheme.titleSmall,
-                      )
-                    ]),
+              : Padding(
+                  padding: const EdgeInsets.only(bottom: 20.0),
+                  child: Container(
+                    height: 80,
+                    width: 400,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(20),
+                      color: Color(0xff1D1F24),
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.all(15.0),
+                      child: Column(children: [
+                        Icon(
+                          FontAwesomeIcons.triangleExclamation,
+                          color: Colors.grey.shade700,
+                        ),
+                        SizedBox(height: 5),
+                        Text(
+                          "There are no reviews to show.",
+                          style: Theme.of(context).textTheme.titleSmall,
+                        )
+                      ]),
+                    ),
                   ),
                 ),
-          SizedBox(height: 20),
           Text(
             'Similar Movies',
             style: Theme.of(context).textTheme.displayMedium,

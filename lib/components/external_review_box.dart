@@ -2,6 +2,7 @@ import 'package:flickmemo/models/external_review.dart';
 import 'package:flickmemo/services/formatters.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class ExternalReviewBox extends StatelessWidget {
   final ExternalReview review;
@@ -54,7 +55,12 @@ class ExternalReviewBox extends StatelessWidget {
                           ),
                           Text(
                             formatExternalReviewDate(review.createdAt),
-                            style: Theme.of(context).textTheme.titleSmall,
+                            style: TextStyle(
+                              fontSize: 11,
+                              color: Colors.grey.shade400,
+                              fontWeight: FontWeight.w400,
+                              fontFamily: GoogleFonts.poppins().fontFamily,
+                            ),
                           ),
                         ],
                       ),
@@ -76,21 +82,14 @@ class ExternalReviewBox extends StatelessWidget {
                 ],
               ),
               SizedBox(height: 10),
-              Row(
-                children: [
-                  ConstrainedBox(
-                    constraints: BoxConstraints(
-                      minWidth: 200.0,
-                      maxWidth: 290.0,
-                      minHeight: 30.0,
-                      maxHeight: 50.0,
-                    ),
-                    child: Text(
-                      review.content,
-                      style: Theme.of(context).textTheme.titleMedium,
-                    ),
-                  ),
-                ],
+              SizedBox(
+                width: 300.0,
+                height: 50.0,
+                child: Text(
+                  formatExternalReviewContent(review.content),
+                  overflow: TextOverflow.ellipsis,
+                  style: Theme.of(context).textTheme.titleSmall,
+                ),
               ),
             ]),
           ),

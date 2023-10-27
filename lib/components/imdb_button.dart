@@ -22,7 +22,7 @@ class IMDbButton extends StatelessWidget {
           ),
           SizedBox(width: 3),
           Text(
-            'Open page',
+            'Visit',
             style: Theme.of(context).textTheme.titleSmall,
           ),
           SizedBox(width: 5),

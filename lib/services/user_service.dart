@@ -56,7 +56,7 @@ class UserService {
   getRecentMovies(FlickmemoUser? user) async {
     final Map<String, dynamic> flickmemoUserData = {
       "token": user!.token?["token"],
-      "google_user_uid": "VboqxtXSvPdJkRneDPWcrYdWDJk2",
+      "google_user_uid": user.googleUserUID,
       "internal_id": user.internalID,
     };
 

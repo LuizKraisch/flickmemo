@@ -48,7 +48,7 @@ class _MoviePageState extends State<MoviePage> {
       bottomNavigationBar: movieData != null
           ? BottomMoviePage(
               movie: movieData?["data"],
-              review: movieData?["review"],
+              review: movieData?["userReview"],
               currentFlickmemoUser: currentFlickmemoUser)
           : SizedBox(),
       backgroundColor: Theme.of(context).colorScheme.background,

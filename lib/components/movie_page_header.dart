@@ -62,7 +62,7 @@ class MoviePageHeader extends StatelessWidget {
               ),
               const SizedBox(height: 5.0),
               Text(
-                "${DateTime.parse(movie?.releaseDate as String).year.toString()} • Crime, Thiller",
+                "${formatMovieReleaseYear(movie?.releaseDate as String)} • Crime, Thiller",
                 style: Theme.of(context).textTheme.titleSmall,
               ),
               const SizedBox(height: 5.0),

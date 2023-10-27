@@ -1,21 +1,47 @@
 import 'package:intl/intl.dart';
 
+String formatMovieReleaseYear(String releaseDate) {
+  if (releaseDate != "") {
+    return DateTime.parse(releaseDate).year.toString();
+  }
+
+  return 'N/A';
+}
+
 String formatProfileCreationDate(String inputDate) {
-  final DateTime date = DateTime.parse(inputDate);
-  final String formattedDate = DateFormat('MMMM, y').format(date);
-  return formattedDate;
+  if (inputDate != "") {
+    final DateTime date = DateTime.parse(inputDate);
+    final String formattedDate = DateFormat('MMMM, y').format(date);
+    return formattedDate;
+  }
+
+  return 'N/A';
 }
 
 String formatMovieReleaseDate(String inputDate) {
-  final DateTime date = DateTime.parse(inputDate);
-  final String formattedDate = DateFormat('d MMM, y').format(date);
-  return formattedDate;
+  if (inputDate != "") {
+    final DateTime date = DateTime.parse(inputDate);
+    final String formattedDate = DateFormat('d MMM, y').format(date);
+    return formattedDate;
+  }
+
+  return 'N/A';
 }
 
 String formatExternalReviewDate(String inputDate) {
-  final DateTime date = DateTime.parse(inputDate);
-  final String formattedDate = DateFormat('MMM d, y').format(date);
-  return formattedDate;
+  if (inputDate != "") {
+    final DateTime date = DateTime.parse(inputDate);
+    final String formattedDate = DateFormat('MMM d, y').format(date);
+    return formattedDate;
+  }
+
+  return 'N/A';
+}
+
+String formatExternalReviewContent(String content) {
+  RegExp pattern = RegExp(r'[!@#\$%^&*()_+={}\[\]:;"\<>,.?/\\|]');
+
+  return content.replaceAll(pattern, '');
 }
 
 String formatRuntime(String inputRuntime) {

@@ -9,8 +9,12 @@ class BottomMoviePage extends StatefulWidget {
   final Movie? movie;
   final Review? review;
 
-  const BottomMoviePage(
-      {super.key, this.currentFlickmemoUser, this.movie, this.review});
+  const BottomMoviePage({
+    super.key,
+    this.currentFlickmemoUser,
+    this.movie,
+    this.review,
+  });
 
   @override
   State<BottomMoviePage> createState() => _BottomMoviePageState();
@@ -57,7 +61,7 @@ class _BottomMoviePageState extends State<BottomMoviePage> {
             );
           },
           child: Text(
-            "Review",
+            userReview == null ? "Review" : "Edit Review",
             style: Theme.of(context).textTheme.headlineMedium,
           ),
         ),
