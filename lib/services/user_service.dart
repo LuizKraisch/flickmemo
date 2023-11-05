@@ -1,19 +1,18 @@
 import 'dart:convert';
+import 'package:flickmemo/env.dart';
+import 'package:flickmemo/services/helpers.dart';
 import 'package:http/http.dart' as http;
 import 'package:flickmemo/models/movie.dart';
 import 'package:flickmemo/models/flickmemo_user.dart';
 
 class UserService {
+  String baseUsersUrl = '$baseApiUrl/api/v1/users';
+
   getUserInfo(FlickmemoUser? user) async {
-    final Map<String, dynamic> flickmemoUserData = {
-      "token": user!.token?["token"],
-      "google_user_uid": user.googleUserUID,
-      "internal_id": user.internalID,
-    };
+    String userParams = buildBaseUserParams(user);
 
     final response = await http.get(
-      Uri.parse(
-          'http://localhost:3000/api/v1/users/${flickmemoUserData['internal_id']}?accessToken=${flickmemoUserData['token']}&googleUserId=${flickmemoUserData['google_user_uid']}'),
+      Uri.parse('$baseUsersUrl/${user?.internalID}?$userParams'),
       headers: <String, String>{
         'Content-Type': 'application/json',
       },
@@ -28,15 +27,10 @@ class UserService {
   }
 
   getFavoriteMovies(FlickmemoUser? user) async {
-    final Map<String, dynamic> flickmemoUserData = {
-      "token": user!.token?["token"],
-      "google_user_uid": user.googleUserUID,
-      "internal_id": user.internalID,
-    };
+    String userParams = buildBaseUserParams(user);
 
     final response = await http.get(
-      Uri.parse(
-          'http://localhost:3000/api/v1/users/${flickmemoUserData['internal_id']}/favorites?accessToken=${flickmemoUserData['token']}&googleUserId=${flickmemoUserData['google_user_uid']}'),
+      Uri.parse('$baseUsersUrl/${user?.internalID}/favorites?$userParams'),
       headers: <String, String>{
         'Content-Type': 'application/json',
       },
@@ -54,15 +48,10 @@ class UserService {
   }
 
   getRecentMovies(FlickmemoUser? user) async {
-    final Map<String, dynamic> flickmemoUserData = {
-      "token": user!.token?["token"],
-      "google_user_uid": user.googleUserUID,
-      "internal_id": user.internalID,
-    };
+    String userParams = buildBaseUserParams(user);
 
     final response = await http.get(
-      Uri.parse(
-          'http://localhost:3000/api/v1/users/${flickmemoUserData['internal_id']}/recent?accessToken=${flickmemoUserData['token']}&googleUserId=${flickmemoUserData['google_user_uid']}'),
+      Uri.parse('$baseUsersUrl/${user?.internalID}/recent?$userParams'),
       headers: <String, String>{
         'Content-Type': 'application/json',
       },

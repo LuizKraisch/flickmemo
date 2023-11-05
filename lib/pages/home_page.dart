@@ -4,6 +4,8 @@ import 'package:flickmemo/components/movie_card.dart';
 import 'package:flickmemo/components/progress_bar.dart';
 import 'package:flickmemo/models/flickmemo_user.dart';
 import 'package:flickmemo/models/movie.dart';
+import 'package:flickmemo/pages/movie_page.dart';
+import 'package:flickmemo/services/helpers.dart';
 import 'package:flickmemo/services/movie_service.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -111,11 +113,19 @@ class _HomePageState extends State<HomePage> {
                           cardsCount: movies.length,
                           onSwipe: (index, AppinioSwiperDirection direction) {
                             onSwap(index);
+                            if (direction == AppinioSwiperDirection.right) {
+                              // TODO: Add to watchlist
+                              addToast("Movie added to your watchlist");
+                            }
                           },
                           swipeOptions: AppinioSwipeOptions.only(
-                              left: true, right: true, top: true),
+                            left: true,
+                            right: true,
+                          ),
                           cardsBuilder: (BuildContext context, int index) {
-                            return MovieCard(movie: movies[index], currentFlickmemoUser: currentFlickmemoUser);
+                            return MovieCard(
+                                movie: movies[index],
+                                currentFlickmemoUser: currentFlickmemoUser);
                           },
                         ),
                         if (allCardsSwapped())
@@ -133,7 +143,7 @@ class _HomePageState extends State<HomePage> {
                                         .headlineMedium),
                                 SizedBox(height: 3),
                                 Text(
-                                    "Touch the button below to reload the discover.",
+                                    "Try to re-enter the page to see more movies.",
                                     style:
                                         Theme.of(context).textTheme.titleSmall),
                               ],

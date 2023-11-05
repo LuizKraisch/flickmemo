@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'package:flickmemo/env.dart';
 import 'package:flickmemo/models/review.dart';
 import 'package:flickmemo/services/helpers.dart';
 import 'package:flutter/material.dart';
@@ -6,19 +7,16 @@ import 'package:http/http.dart' as http;
 import 'package:flickmemo/models/flickmemo_user.dart';
 
 class ReviewService {
+  String baseReviewsUrl = '$baseApiUrl/api/v1/reviews';
+
   getReview({
     required FlickmemoUser? user,
     required String reviewId,
   }) async {
-    final Map<String, dynamic> flickmemoUserData = {
-      "token": user!.token?["token"],
-      "google_user_uid": user.googleUserUID,
-      "internal_id": user.internalID,
-    };
+    String userParams = buildBaseUserParams(user);
 
     final response = await http.get(
-      Uri.parse(
-          'http://localhost:3000/api/v1/reviews/$reviewId?accessToken=${flickmemoUserData['token']}&googleUserId=${flickmemoUserData['google_user_uid']}'),
+      Uri.parse('$baseReviewsUrl/$reviewId?$userParams'),
       headers: <String, String>{
         'Content-Type': 'application/json',
       },
@@ -39,21 +37,15 @@ class ReviewService {
     required dynamic reviewData,
     required String movieId,
   }) async {
-    final Map<String, dynamic> flickmemoUserData = {
-      "token": user!.token?["token"],
-      "google_user_uid": user.googleUserUID,
-      "internal_id": user.internalID,
-    };
+    String userParams = buildBaseUserParams(user);
 
     final response = await http.post(
-      Uri.parse(
-          'http://localhost:3000/api/v1/reviews?accessToken=${flickmemoUserData['token']}&googleUserId=${flickmemoUserData['google_user_uid']}'),
+      Uri.parse('$baseReviewsUrl?$userParams'),
       headers: <String, String>{
         'Content-Type': 'application/json',
       },
       body: jsonEncode(<String, dynamic>{
         "review": {
-          "uuid": reviewData['uuid'],
           "score": reviewData['score'],
           "note": reviewData['note'],
           "note_has_spoilers": reviewData['noteHasSpoilers'],
@@ -76,15 +68,10 @@ class ReviewService {
     required FlickmemoUser? user,
     required dynamic reviewData,
   }) async {
-    final Map<String, dynamic> flickmemoUserData = {
-      "token": user!.token?["token"],
-      "google_user_uid": user.googleUserUID,
-      "internal_id": user.internalID,
-    };
+    String userParams = buildBaseUserParams(user);
 
     final response = await http.patch(
-      Uri.parse(
-          'http://localhost:3000/api/v1/reviews/${reviewData['uuid']}?accessToken=${flickmemoUserData['token']}&googleUserId=${flickmemoUserData['google_user_uid']}'),
+      Uri.parse('$baseReviewsUrl/${reviewData['uuid']}?$userParams'),
       headers: <String, String>{
         'Content-Type': 'application/json',
       },
@@ -110,15 +97,10 @@ class ReviewService {
     required FlickmemoUser? user,
     required String reviewId,
   }) async {
-    final Map<String, dynamic> flickmemoUserData = {
-      "token": user!.token?["token"],
-      "google_user_uid": user.googleUserUID,
-      "internal_id": user.internalID,
-    };
+    String userParams = buildBaseUserParams(user);
 
     final response = await http.delete(
-      Uri.parse(
-          'http://localhost:3000/api/v1/reviews/$reviewId?accessToken=${flickmemoUserData['token']}&googleUserId=${flickmemoUserData['google_user_uid']}'),
+      Uri.parse('$baseReviewsUrl/$reviewId?$userParams'),
       headers: <String, String>{
         'Content-Type': 'application/json',
       },

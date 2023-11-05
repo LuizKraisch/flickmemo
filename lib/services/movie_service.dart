@@ -1,20 +1,20 @@
 import 'dart:convert';
+import 'package:flickmemo/env.dart';
 import 'package:flickmemo/models/external_review.dart';
 import 'package:flickmemo/models/movie.dart';
 import 'package:flickmemo/models/review.dart';
+import 'package:flickmemo/services/helpers.dart';
 import 'package:http/http.dart' as http;
 import 'package:flickmemo/models/flickmemo_user.dart';
 
 class MovieService {
+  String baseMoviesUrl = '$baseApiUrl/api/v1/movies';
+
   getTrendingMovies(FlickmemoUser? user) async {
-    final Map<String, dynamic> flickmemoUserData = {
-      "token": user!.token?["token"],
-      "google_user_uid": user.googleUserUID,
-    };
+    String userParams = buildBaseUserParams(user);
 
     final response = await http.get(
-      Uri.parse(
-          'http://localhost:3000/api/v1/movies/trending?accessToken=${flickmemoUserData['token']}&googleUserId=${flickmemoUserData['google_user_uid']}'),
+      Uri.parse('$baseMoviesUrl/trending?$userParams'),
       headers: <String, String>{
         'Content-Type': 'application/json',
       },
@@ -32,15 +32,10 @@ class MovieService {
   }
 
   getDiscoverMovies(FlickmemoUser? user) async {
-    final Map<String, dynamic> flickmemoUserData = {
-      "token": user!.token?["token"],
-      "google_user_uid": "VboqxtXSvPdJkRneDPWcrYdWDJk2",
-      "internal_id": user.internalID,
-    };
+    String userParams = buildBaseUserParams(user);
 
     final response = await http.get(
-      Uri.parse(
-          'http://localhost:3000/api/v1/movies/discover?accessToken=${flickmemoUserData['token']}&googleUserId=${flickmemoUserData['google_user_uid']}'),
+      Uri.parse('$baseMoviesUrl/discover?$userParams'),
       headers: <String, String>{
         'Content-Type': 'application/json',
       },
@@ -58,15 +53,10 @@ class MovieService {
   }
 
   getMovieInfo(String movieId, FlickmemoUser? user) async {
-    final Map<String, dynamic> flickmemoUserData = {
-      "token": user!.token?["token"],
-      "google_user_uid": "VboqxtXSvPdJkRneDPWcrYdWDJk2",
-      "internal_id": user.internalID,
-    };
+    String userParams = buildBaseUserParams(user);
 
     final response = await http.get(
-      Uri.parse(
-          'http://localhost:3000/api/v1/movies/$movieId?accessToken=${flickmemoUserData['token']}&googleUserId=${flickmemoUserData['google_user_uid']}'),
+      Uri.parse('$baseMoviesUrl/$movieId?$userParams'),
       headers: <String, String>{
         'Content-Type': 'application/json',
       },
@@ -93,15 +83,10 @@ class MovieService {
   }
 
   getMovieBySearch(String query, FlickmemoUser? user) async {
-    final Map<String, dynamic> flickmemoUserData = {
-      "token": user!.token?["token"],
-      "google_user_uid": "VboqxtXSvPdJkRneDPWcrYdWDJk2",
-      "internal_id": user.internalID,
-    };
+    String userParams = buildBaseUserParams(user);
 
     final response = await http.get(
-      Uri.parse(
-          'http://localhost:3000/api/v1/movies/search?query=$query&accessToken=${flickmemoUserData['token']}&googleUserId=${flickmemoUserData['google_user_uid']}'),
+      Uri.parse('$baseMoviesUrl/search?query=$query&$userParams'),
       headers: <String, String>{
         'Content-Type': 'application/json',
       },

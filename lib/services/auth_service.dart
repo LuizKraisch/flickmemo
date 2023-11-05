@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'package:flickmemo/env.dart';
 import 'package:http/http.dart' as http;
 import 'package:flickmemo/controllers/flickmemo_user_stream_controller.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -19,7 +20,7 @@ class AuthService {
     };
 
     final response = await http.post(
-      Uri.parse('http://localhost:3000/api/v1/auth/access'),
+      Uri.parse('$baseApiUrl/api/v1/auth/access'),
       headers: <String, String>{
         'Content-Type': 'application/json',
       },
