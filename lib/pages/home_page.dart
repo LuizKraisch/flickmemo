@@ -1,14 +1,15 @@
 import 'package:appinio_swiper/appinio_swiper.dart';
+import 'package:flickmemo/components/error_info.dart';
 import 'package:flickmemo/components/home_page_header.dart';
 import 'package:flickmemo/components/movie_card.dart';
 import 'package:flickmemo/components/progress_bar.dart';
 import 'package:flickmemo/models/flickmemo_user.dart';
 import 'package:flickmemo/models/movie.dart';
-import 'package:flickmemo/pages/movie_page.dart';
 import 'package:flickmemo/services/helpers.dart';
 import 'package:flickmemo/services/movie_service.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:flickmemo/i18n/strings.g.dart';
 
 class HomePage extends StatefulWidget {
   final FlickmemoUser? currentFlickmemoUser;
@@ -70,11 +71,11 @@ class _HomePageState extends State<HomePage> {
           Column(children: [
             SizedBox(height: 10),
             Text(
-              "Hey, ${currentFlickmemoUser?.firstName}!",
+              t.homePage.title(name: currentFlickmemoUser!.firstName),
               style: Theme.of(context).textTheme.displayMedium,
             ),
             Text(
-              "Here are some recommendations for you.",
+              t.homePage.subtitle,
               style: Theme.of(context).textTheme.titleSmall,
             ),
           ]),
@@ -88,7 +89,9 @@ class _HomePageState extends State<HomePage> {
                 if (snapshot.connectionState == ConnectionState.waiting) {
                   return Center(child: CircularProgressIndicator());
                 } else if (snapshot.hasError) {
-                  return Text('Error: ${snapshot.error}');
+                  return Center(
+                    child: ErrorInfo(errorMessage: snapshot.error.toString()),
+                  );
                 } else {
                   final movies = snapshot.data ?? [];
                   if (movies.isEmpty) {
@@ -100,9 +103,10 @@ class _HomePageState extends State<HomePage> {
                           SizedBox(height: 20),
                           Icon(FontAwesomeIcons.film, size: 40),
                           SizedBox(height: 10),
-                          Text("There are no movies to show",
-                              style:
-                                  Theme.of(context).textTheme.headlineMedium),
+                          Text(
+                            t.homePage.movieCards.empty,
+                            style: Theme.of(context).textTheme.headlineMedium,
+                          ),
                         ],
                       ),
                     );
@@ -115,7 +119,7 @@ class _HomePageState extends State<HomePage> {
                             onSwap(index);
                             if (direction == AppinioSwiperDirection.right) {
                               // TODO: Add to watchlist
-                              addToast("Movie added to your watchlist");
+                              addToast(t.toast.movieAddedToWatchlist);
                             }
                           },
                           swipeOptions: AppinioSwipeOptions.only(
@@ -137,15 +141,17 @@ class _HomePageState extends State<HomePage> {
                                 SizedBox(height: 20),
                                 Icon(FontAwesomeIcons.clapperboard, size: 40),
                                 SizedBox(height: 10),
-                                Text("Wow, we ran out of movies!",
-                                    style: Theme.of(context)
-                                        .textTheme
-                                        .headlineMedium),
+                                Text(
+                                  t.homePage.movieCards.noMoreMovies.title,
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .headlineMedium,
+                                ),
                                 SizedBox(height: 3),
                                 Text(
-                                    "Try to re-enter the page to see more movies.",
-                                    style:
-                                        Theme.of(context).textTheme.titleSmall),
+                                  t.homePage.movieCards.noMoreMovies.subtitle,
+                                  style: Theme.of(context).textTheme.titleSmall,
+                                ),
                               ],
                             ),
                           ),

@@ -1,0 +1,94 @@
+{
+  "common": {
+    "bottomNavBar": {
+      "home": "Home",
+      "search": "Search",
+      "profile": "Profile"
+    },
+    "sideDrawer": {
+      "logOutDialog": {
+        "title": "Logging out",
+        "content": "Are you sure you want to log out?",
+        "cancel": "No",
+        "confirm": "Yes"
+      },
+      "options": {
+        "changeLanguage": "Change language",
+        "licenses": "Licenses",
+        "logOut": "Log out",
+        "developer": "Talk with the developer"
+      }
+    }
+  },
+  "toast": {
+    "movieAddedToWatchlist": "Movie added to your watchlist"
+  },
+  "loginPage": {
+    "title": "Review films you've watched. Save those you want to see.",
+    "subtitle": "Welcome to Flickmemo. Let's start your lists!",
+    "googleButton": "Continue with Google"
+  },
+  "homePage": {
+    "title": "Hey, $name!",
+    "subtitle": "Here are some recommendations for you.",
+    "movieCards": {
+      "error": "Oops, something went wrong! Please try again.",
+      "empty": "There are no movies to show",
+      "noMoreMovies": {
+        "title": "Wow, we ran out of movies!",
+        "subtitle": "Try to re-enter the page to see more movies."
+      }
+    }
+  },
+  "searchPage": {
+    "header": {
+      "title": "Search by the movie's title",
+      "searchBarPlaceholder": "Search for movies..."
+    },
+    "body": {
+      "title": "Trending Movies",
+      "subtitle": "Get in touch with the latest releases.",
+      "error": "Oops, something went wrong! Please try again.",
+      "empty": "There are no movies to show"
+    }
+  },
+  "profilePage": {
+    "header": {
+      "profileCreation": "User since $date",
+      "counts": {
+        "watched": "Watched",
+        "favorites": "Favorites",
+        "watchlist": "Watchlist"
+      }
+    },
+    "favoriteMovies": {
+      "title": "Favorite Movies",
+      "empty": "There are no favorite movies"
+    },
+    "recentMovies": {
+      "title": "Recent Movies",
+      "empty": "There are no recent movies"
+    }
+  },
+  "licensesPage": {
+    "title": "Licenças"
+  },
+  "moviePage": {
+    "body": {
+      "overview": {
+        "title": "Overview",
+        "readMore": "Read more",
+        "showLess": "Show less"
+      },
+      "stats": {
+        "popularity": "POPULARITY",
+        "imdbLink": "SEE IT ON IMDB",
+        "visitImdb": "Visit",
+        "releaseDate": "RELEASE DATE"
+      },
+      "reviews": "Reviews",
+      "similarMovies": "Similar Movies",
+      "emptyReviews": "There are no reviews to show."
+    }
+  }
+}

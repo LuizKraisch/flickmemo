@@ -1,3 +1,4 @@
+import 'package:flickmemo/i18n/strings.g.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -28,10 +29,19 @@ class BottomNavBar extends StatelessWidget {
                 fontFamily: GoogleFonts.poppins().fontFamily,
                 color: Colors.white,
                 fontWeight: FontWeight.bold),
-            tabs: const [
-              GButton(icon: FontAwesomeIcons.film, text: 'Home'),
-              GButton(icon: FontAwesomeIcons.magnifyingGlass, text: 'Search'),
-              GButton(icon: FontAwesomeIcons.solidUser, text: 'Profile'),
+            tabs: [
+              GButton(
+                icon: FontAwesomeIcons.film,
+                text: t.common.bottomNavBar.home,
+              ),
+              GButton(
+                icon: FontAwesomeIcons.magnifyingGlass,
+                text: t.common.bottomNavBar.search,
+              ),
+              GButton(
+                icon: FontAwesomeIcons.solidUser,
+                text: t.common.bottomNavBar.profile,
+              ),
             ]),
       ),
     );

@@ -1,4 +1,6 @@
+import 'package:flickmemo/components/error_info.dart';
 import 'package:flickmemo/components/movie_poster.dart';
+import 'package:flickmemo/i18n/strings.g.dart';
 import 'package:flickmemo/models/flickmemo_user.dart';
 import 'package:flickmemo/models/movie.dart';
 import 'package:flickmemo/services/user_service.dart';
@@ -39,8 +41,10 @@ class _FavoriteMoviesState extends State<FavoriteMovies> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text("Favorite Movies",
-            style: Theme.of(context).textTheme.headlineMedium),
+        Text(
+          t.profilePage.favoriteMovies.title,
+          style: Theme.of(context).textTheme.headlineMedium,
+        ),
         SizedBox(height: 15),
         SizedBox(
           height: 170,
@@ -51,7 +55,9 @@ class _FavoriteMoviesState extends State<FavoriteMovies> {
                 if (snapshot.connectionState == ConnectionState.waiting) {
                   return Center(child: CircularProgressIndicator());
                 } else if (snapshot.hasError) {
-                  return Text('Error: ${snapshot.error}');
+                  return Center(
+                    child: ErrorInfo(errorMessage: snapshot.error.toString()),
+                  );
                 } else {
                   final movies = snapshot.data ?? [];
                   if (movies.isEmpty) {
@@ -62,9 +68,10 @@ class _FavoriteMoviesState extends State<FavoriteMovies> {
                         children: [
                           Icon(FontAwesomeIcons.solidStar, size: 40),
                           SizedBox(height: 10),
-                          Text("There are no favorite movies",
-                              style:
-                                  Theme.of(context).textTheme.headlineMedium),
+                          Text(
+                            t.profilePage.favoriteMovies.empty,
+                            style: Theme.of(context).textTheme.headlineMedium,
+                          ),
                         ],
                       ),
                     );

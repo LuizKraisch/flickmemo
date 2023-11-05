@@ -1,0 +1,94 @@
+{
+  "common": {
+    "bottomNavBar": {
+      "home": "Início",
+      "search": "Pesquisar",
+      "profile": "Perfil"
+    },
+    "sideDrawer": {
+      "logOutDialog": {
+        "title": "Saindo da conta",
+        "content": "Tem certeza que deseja sair da conta?",
+        "cancel": "Não",
+        "confirm": "Sim"
+      },
+      "options": {
+        "changeLanguage": "Mudar idioma",
+        "licenses": "Licenças",
+        "logOut": "Sair",
+        "developer": "Falar com o desenvolvedor"
+      }
+    }
+  },
+  "toast": {
+    "movieAddedToWatchlist": "Filme adicionado à sua watchlist"
+  },
+  "loginPage": {
+    "title": "Faça reviews de filmes que você assistiu. Salve os que você quer assistir.",
+    "subtitle": "Boas-vindas ao Flickmemo. Vamos começas suas listas!",
+    "googleButton": "Continuar com Google"
+  },
+  "homePage": {
+    "title": "Olá, $name!",
+    "subtitle": "Aqui estão algumas recomendações para você.",
+    "movieCards": {
+      "error": "Oops, algo deu errado! Por favor, tente novamente.",
+      "empty": "Não existem filmes para exibir",
+      "noMoreMovies": {
+        "title": "Wow, ficamos sem filmes!",
+        "subtitle": "Tente reentrar na página para ver mais filmes."
+      }
+    }
+  },
+  "searchPage": {
+    "header": {
+      "title": "Pesquise pelo título do filme",
+      "searchBarPlaceholder": "Pesquise por filmes..."
+    },
+    "body": {
+      "title": "Filmes em alta",
+      "subtitle": "Fique atualizado com os últimos lançamentos.",
+      "error": "Oops, algo deu errado! Por favor, tente novamente.",
+      "empty": "Não há filmes para serem exibidos"
+    }
+  },
+  "profilePage": {
+    "header": {
+      "profileCreation": "Entrou em $date",
+      "counts": {
+        "watched": "Assistidos",
+        "favorites": "Favoritos",
+        "watchlist": "Vou assistir"
+      }
+    },
+    "favoriteMovies": {
+      "title": "Filmes favoritos",
+      "empty": "Não há filmes favoritos"
+    },
+    "recentMovies": {
+      "title": "Filmes recentes",
+      "empty": "Não há filmes recentes"
+    }
+  },
+  "licensesPage": {
+    "title": "Licenses"
+  },
+  "moviePage": {
+    "body": {
+      "overview": {
+        "title": "Sinopse",
+        "readMore": "Ler mais",
+        "showLess": "Mostrar menos"
+      },
+      "stats": {
+        "popularity": "POPULARIDADE",
+        "imdbLink": "VER NO IMDB",
+        "visitImdb": "Visitar",
+        "releaseDate": "LANÇAMENTO"
+      },
+      "reviews": "Reviews",
+      "similarMovies": "Filmes similares",
+      "emptyReviews": "Não há reviews para mostrar."
+    }
+  }
+}

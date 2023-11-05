@@ -1,4 +1,5 @@
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
+import 'package:flickmemo/i18n/strings.g.dart';
 import 'package:flickmemo/pages/auth_page.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flickmemo/pages/home_page.dart';
@@ -20,8 +21,10 @@ void main() async {
     FirebaseCrashlytics.instance.recordError(error, stack, fatal: true);
     return true;
   };
+  WidgetsFlutterBinding.ensureInitialized();
+  LocaleSettings.setLocale(AppLocale.pt); // TODO: set locale from button
 
-  runApp(const FlickmemoApp());
+  runApp(TranslationProvider(child: FlickmemoApp()));
 }
 
 class FlickmemoApp extends StatelessWidget {
@@ -30,14 +33,16 @@ class FlickmemoApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        debugShowCheckedModeBanner: false,
-        theme: defaultTheme,
-        home: AuthPage(),
-        routes: {
-          '/login-page': (context) => const LoginPage(),
-          '/home-page': (context) => const HomePage(),
-          '/search-page': (context) => const SearchPage(),
-          '/profile-page': (context) => const ProfilePage(),
-        });
+      locale: TranslationProvider.of(context).flutterLocale,
+      debugShowCheckedModeBanner: false,
+      theme: defaultTheme,
+      home: AuthPage(),
+      routes: {
+        '/login-page': (context) => const LoginPage(),
+        '/home-page': (context) => const HomePage(),
+        '/search-page': (context) => const SearchPage(),
+        '/profile-page': (context) => const ProfilePage(),
+      },
+    );
   }
 }

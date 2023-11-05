@@ -1,4 +1,5 @@
 import 'package:flickmemo/components/movie_poster.dart';
+import 'package:flickmemo/i18n/strings.g.dart';
 import 'package:flickmemo/models/flickmemo_user.dart';
 import 'package:flickmemo/models/movie.dart';
 import 'package:flickmemo/services/movie_service.dart';
@@ -23,6 +24,7 @@ class _SearchResultsPageState extends State<SearchResultsPage> {
   bool firstOpen = true;
   Future<List<Movie>>? _moviesFuture;
   List<Movie> movies = [];
+  String searchQuery = '';
 
   @override
   void initState() {
@@ -47,8 +49,6 @@ class _SearchResultsPageState extends State<SearchResultsPage> {
       firstOpen = false;
     });
   }
-
-  String searchQuery = '';
 
   @override
   Widget build(BuildContext context) {
@@ -89,7 +89,22 @@ class _SearchResultsPageState extends State<SearchResultsPage> {
               if (snapshot.connectionState == ConnectionState.waiting) {
                 return Center(child: CircularProgressIndicator());
               } else if (snapshot.hasError) {
-                return Text('Error: ${snapshot.error}');
+                return Center(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      SizedBox(height: 20),
+                      Icon(FontAwesomeIcons.circleExclamation, size: 40),
+                      SizedBox(height: 10),
+                      Text(
+                        t.homePage.movieCards.error,
+                        style: Theme.of(context).textTheme.headlineMedium,
+                      ),
+                      Text('${snapshot.error}'),
+                    ],
+                  ),
+                );
               } else {
                 movies = snapshot.data ?? [];
                 if (movies.isEmpty) {
@@ -101,10 +116,11 @@ class _SearchResultsPageState extends State<SearchResultsPage> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
-                          Icon(FontAwesomeIcons.clapperboard, size: 40),
+                          SizedBox(height: 20),
+                          Icon(FontAwesomeIcons.film, size: 40),
                           SizedBox(height: 10),
                           Text(
-                            "There are no movies to show.",
+                            t.searchPage.body.empty,
                             style: Theme.of(context).textTheme.headlineMedium,
                           ),
                         ],

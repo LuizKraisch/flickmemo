@@ -1,4 +1,5 @@
 import 'dart:ui';
+import 'package:flickmemo/env.dart';
 import 'package:flickmemo/models/movie.dart';
 import 'package:flickmemo/services/formatters.dart';
 import 'package:flutter/material.dart';
@@ -21,7 +22,7 @@ class MoviePageHeader extends StatelessWidget {
           colorFilter: ColorFilter.mode(
               Colors.black.withOpacity(0.5), BlendMode.dstATop),
           image: NetworkImage(
-              'https://www.themoviedb.org/t/p/original/${movie?.backdropPath}'),
+              '$tmdbImagesUrl/${movie?.backdropPath}'),
           fit: BoxFit.cover,
         ),
       ),
@@ -40,7 +41,7 @@ class MoviePageHeader extends StatelessWidget {
                   borderRadius: BorderRadius.circular(20),
                   image: DecorationImage(
                       image: NetworkImage(
-                          'https://www.themoviedb.org/t/p/original/${movie!.posterPath}'),
+                          '$tmdbImagesUrl/${movie!.posterPath}'),
                       fit: BoxFit.cover),
                   boxShadow: [
                     BoxShadow(
@@ -62,7 +63,7 @@ class MoviePageHeader extends StatelessWidget {
               ),
               const SizedBox(height: 5.0),
               Text(
-                "${formatMovieReleaseYear(movie?.releaseDate as String)} • Crime, Thiller",
+                "${formatMovieReleaseYear(movie?.releaseDate as String)} • Crime, Thiller", // TODO: API genres
                 style: Theme.of(context).textTheme.titleSmall,
               ),
               const SizedBox(height: 5.0),

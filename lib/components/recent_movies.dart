@@ -1,4 +1,6 @@
+import 'package:flickmemo/components/error_info.dart';
 import 'package:flickmemo/components/movie_poster.dart';
+import 'package:flickmemo/i18n/strings.g.dart';
 import 'package:flickmemo/models/flickmemo_user.dart';
 import 'package:flickmemo/models/movie.dart';
 import 'package:flickmemo/services/user_service.dart';
@@ -46,8 +48,10 @@ class _RecentMoviesState extends State<RecentMovies> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text("Recent Movies",
-            style: Theme.of(context).textTheme.headlineMedium),
+        Text(
+          t.profilePage.recentMovies.title,
+          style: Theme.of(context).textTheme.headlineMedium,
+        ),
         SizedBox(height: 15),
         SizedBox(
           height: (_moviesCount * 200),
@@ -58,7 +62,9 @@ class _RecentMoviesState extends State<RecentMovies> {
                 if (snapshot.connectionState == ConnectionState.waiting) {
                   return Center(child: CircularProgressIndicator());
                 } else if (snapshot.hasError) {
-                  return Text('Error: ${snapshot.error}');
+                  return Center(
+                    child: ErrorInfo(errorMessage: snapshot.error.toString()),
+                  );
                 } else {
                   final movies = snapshot.data ?? [];
                   if (movies.isEmpty) {
@@ -68,7 +74,7 @@ class _RecentMoviesState extends State<RecentMovies> {
                           SizedBox(height: 80),
                           Icon(FontAwesomeIcons.solidClock, size: 40),
                           SizedBox(height: 10),
-                          Text("There are no recent movies",
+                          Text(t.profilePage.recentMovies.title,
                               style:
                                   Theme.of(context).textTheme.headlineMedium),
                         ],

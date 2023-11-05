@@ -1,3 +1,4 @@
+import 'package:flickmemo/i18n/strings.g.dart';
 import 'package:flutter/material.dart';
 
 class LoginButton extends StatelessWidget {
@@ -20,7 +21,7 @@ class LoginButton extends StatelessWidget {
         onPressed: onPressed,
         icon: Image.asset('assets/logos/google-g-logo.png', height: 25),
         label: Text(
-          "Continue with Google",
+          t.loginPage.googleButton,
           style: Theme.of(context).textTheme.labelMedium,
         ));
   }

@@ -1,3 +1,4 @@
+import 'package:flickmemo/i18n/strings.g.dart';
 import 'package:flickmemo/models/flickmemo_user.dart';
 import 'package:flickmemo/pages/search_results_page.dart';
 import 'package:flutter/material.dart';
@@ -17,7 +18,7 @@ class SearchHeader extends StatelessWidget {
     return Column(
       children: [
         SizedBox(height: 70),
-        Text("Search by the movie's title",
+        Text(t.searchPage.header.title,
             style: Theme.of(context).textTheme.headlineMedium),
         SizedBox(height: 15),
         SizedBox(
@@ -49,7 +50,7 @@ class SearchHeader extends StatelessWidget {
                     ),
                   ),
                   Text(
-                    'Search for movies...',
+                    t.searchPage.header.searchBarPlaceholder,
                     style: GoogleFonts.poppins(
                       fontSize: 14,
                       fontStyle: FontStyle.normal,

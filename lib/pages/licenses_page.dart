@@ -1,3 +1,4 @@
+import 'package:flickmemo/i18n/strings.g.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -29,8 +30,10 @@ class LicensesPage extends StatelessWidget {
                 children: [
                   Icon(FontAwesomeIcons.book),
                   SizedBox(width: 10.0),
-                  Text('Licenses',
-                      style: Theme.of(context).textTheme.displayMedium),
+                  Text(
+                    t.licensesPage.title,
+                    style: Theme.of(context).textTheme.displayMedium,
+                  ),
                 ],
               ),
               SizedBox(height: 20),
