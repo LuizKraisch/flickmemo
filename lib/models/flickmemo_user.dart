@@ -28,7 +28,7 @@ class FlickmemoUser {
 
   factory FlickmemoUser.fromJson(Map<String, dynamic> json) {
     return FlickmemoUser(
-      internalID: json['internal_id'],
+      internalID: json['internal_id'] ?? '',
       googleUserUID: json['google_user_uid'],
       token: {
         "uuid": json['token']['uuid'],

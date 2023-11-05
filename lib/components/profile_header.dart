@@ -53,7 +53,7 @@ class _ProfileHeaderState extends State<ProfileHeader> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          user!.firstName,
+                          "${user!.firstName} ${user!.lastName}",
                           style: Theme.of(context).textTheme.displaySmall,
                         ),
                         SizedBox(width: 5),

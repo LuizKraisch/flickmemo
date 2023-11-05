@@ -1,3 +1,4 @@
+import 'package:flickmemo/services/helpers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -84,6 +85,8 @@ class _ReviewModalState extends State<ReviewModal> {
     if (formKey.currentState!.validate()) {
       widget.review != null ? updateReview() : createReview();
       Navigator.pop(context);
+    } else {
+      addToast("Please, fill all the mandatory fields");
     }
   }
 
@@ -100,6 +103,7 @@ class _ReviewModalState extends State<ReviewModal> {
       },
       movieId: movie!.uuid,
     );
+    addToast("Review saved");
   }
 
   void updateReview() {
@@ -114,6 +118,7 @@ class _ReviewModalState extends State<ReviewModal> {
         "favorite": userFavorite,
       },
     );
+    addToast("Review updated");
   }
 
   void removeReview() {
@@ -123,6 +128,7 @@ class _ReviewModalState extends State<ReviewModal> {
     );
     Navigator.pop(context);
     Navigator.pop(context);
+    addToast("Review removed");
   }
 
   @override

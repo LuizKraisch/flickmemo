@@ -91,4 +91,30 @@ class MovieService {
       throw Exception('Failed to find movie data.');
     }
   }
+
+  getMovieBySearch(String query, FlickmemoUser? user) async {
+    final Map<String, dynamic> flickmemoUserData = {
+      "token": user!.token?["token"],
+      "google_user_uid": "VboqxtXSvPdJkRneDPWcrYdWDJk2",
+      "internal_id": user.internalID,
+    };
+
+    final response = await http.get(
+      Uri.parse(
+          'http://localhost:3000/api/v1/movies/search?query=$query&accessToken=${flickmemoUserData['token']}&googleUserId=${flickmemoUserData['google_user_uid']}'),
+      headers: <String, String>{
+        'Content-Type': 'application/json',
+      },
+    );
+
+    if (response.statusCode == 200) {
+      List<dynamic> decodedResponse = json.decode(response.body)["results"];
+      List<dynamic> movies = decodedResponse.map((movieData) {
+        return Movie.fromJson(movieData);
+      }).toList();
+      return movies;
+    } else {
+      throw Exception('Failed to find movies related to the query.');
+    }
+  }
 }

@@ -1,10 +1,15 @@
+import 'package:flickmemo/models/flickmemo_user.dart';
+import 'package:flickmemo/pages/search_results_page.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class SearchHeader extends StatelessWidget {
+  final FlickmemoUser? currentFlickmemoUser;
+
   const SearchHeader({
     super.key,
+    this.currentFlickmemoUser,
   });
 
   @override
@@ -18,50 +23,46 @@ class SearchHeader extends StatelessWidget {
         SizedBox(
           width: 325.0,
           height: 45.0,
-          child: SearchInput(),
+          child: GestureDetector(
+            onTap: () => Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => SearchResultsPage(
+                    currentFlickmemoUser: currentFlickmemoUser),
+              ),
+            ),
+            child: Container(
+              padding: EdgeInsets.fromLTRB(0.0, 3.0, 15.0, 3.0),
+              decoration: BoxDecoration(
+                color: Color(0xff2B2D33),
+                borderRadius: BorderRadius.circular(100.0),
+              ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(left: 15.0, right: 10.0),
+                    child: Icon(
+                      FontAwesomeIcons.magnifyingGlass,
+                      color: Color.fromARGB(130, 255, 255, 255),
+                      size: 15,
+                    ),
+                  ),
+                  Text(
+                    'Search for movies...',
+                    style: GoogleFonts.poppins(
+                      fontSize: 14,
+                      fontStyle: FontStyle.normal,
+                      color: Color.fromARGB(130, 255, 255, 255),
+                      fontWeight: FontWeight.w400,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
         ),
       ],
-    );
-  }
-}
-
-class SearchInput extends StatelessWidget {
-  const SearchInput({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.fromLTRB(0.0, 3.0, 15.0, 3.0),
-      decoration: BoxDecoration(
-        color: Color(0xff2B2D33),
-        borderRadius: BorderRadius.circular(100.0),
-      ),
-      child: TextField(
-        maxLines: null,
-        decoration: InputDecoration(
-          prefixIcon: Icon(
-            FontAwesomeIcons.magnifyingGlass,
-            color: Color.fromARGB(130, 255, 255, 255),
-            size: 15,
-          ),
-          border: InputBorder.none,
-          hintText: 'La La Land, WALL-E, Spider-Man...',
-          hintStyle: GoogleFonts.poppins(
-            fontSize: 14,
-            fontStyle: FontStyle.normal,
-            color: Color.fromARGB(130, 255, 255, 255),
-            fontWeight: FontWeight.w400,
-          ),
-        ),
-        style: GoogleFonts.poppins(
-          fontSize: 16,
-          fontStyle: FontStyle.normal,
-          color: Colors.white,
-          fontWeight: FontWeight.w400,
-        ),
-      ),
     );
   }
 }

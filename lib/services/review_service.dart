@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'package:flickmemo/models/review.dart';
+import 'package:flickmemo/services/helpers.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:flickmemo/models/flickmemo_user.dart';
@@ -27,7 +28,8 @@ class ReviewService {
       Map<String, dynamic> decodedResponse = json.decode(response.body);
       return Review.fromJson(decodedResponse);
     } else {
-      throw Exception('Error when loading the review.');
+      addToast("Error when loading the review. Please, try again");
+      throw Exception('Error when loading the review');
     }
   }
 
@@ -62,8 +64,9 @@ class ReviewService {
     );
 
     if (response.statusCode == 200) {
-      return true; // TODO: Return snack bar message
+      return true;
     } else {
+      addToast("Error when adding the review. Please, try again");
       throw Exception('Error when adding the review.');
     }
   }
@@ -98,6 +101,7 @@ class ReviewService {
     if (response.statusCode == 200) {
       return true;
     } else {
+      addToast("Error when updating the review. Please, try again");
       throw Exception('Error when updating the review.');
     }
   }
@@ -123,6 +127,7 @@ class ReviewService {
     if (response.statusCode == 200) {
       return true;
     } else {
+      addToast("Error when deleting the review. Please, try again");
       throw Exception('Error when deleting the review.');
     }
   }

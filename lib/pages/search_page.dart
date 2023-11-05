@@ -52,7 +52,7 @@ class _SearchPageState extends State<SearchPage> {
           floating: true,
           expandedHeight: 130,
           flexibleSpace: FlexibleSpaceBar(
-            background: SearchHeader(),
+            background: SearchHeader(currentFlickmemoUser: widget.currentFlickmemoUser),
           ),
         ),
         SliverToBoxAdapter(

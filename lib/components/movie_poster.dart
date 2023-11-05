@@ -49,9 +49,11 @@ class MoviePoster extends StatelessWidget {
             ),
           ],
         ),
-        child: Text(movie.title,
-            textAlign: TextAlign.center,
-            style: Theme.of(context).textTheme.bodySmall),
+        child: movie.posterPath.isEmpty
+            ? Text(movie.title,
+                textAlign: TextAlign.center,
+                style: Theme.of(context).textTheme.bodySmall)
+            : SizedBox(),
       ),
     );
   }

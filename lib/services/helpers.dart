@@ -1,3 +1,5 @@
+import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 Future<void> launchDeveloperEmail() async {
@@ -24,4 +26,16 @@ Future<void> launchIMDbPage(String imdbId) async {
   } else {
     throw 'Could not launch IMDb page. Please, try again.';
   }
+}
+
+void addToast(String message) {
+  Fluttertoast.showToast(
+    msg: message,
+    toastLength: Toast.LENGTH_SHORT,
+    gravity: ToastGravity.BOTTOM,
+    timeInSecForIosWeb: 2,
+    backgroundColor: Color(0xff1D1F24),
+    textColor: Colors.white,
+    fontSize: 16.0,
+  );
 }
