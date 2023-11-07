@@ -1,3 +1,4 @@
+import 'package:flickmemo/i18n/strings.g.dart';
 import 'package:flickmemo/models/flickmemo_user.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
@@ -18,15 +19,15 @@ Future<void> launchDeveloperEmail() async {
     scheme: 'mailto',
     path: devEmail,
     queryParameters: {
-      'subject': 'Hello! I want to talk about Flickmemo',
-      'body': 'Here you write a nice message for me :)',
+      'subject': t.toast.helpers.emailSubject,
+      'body': t.toast.helpers.emailBody,
     },
   );
 
   if (await canLaunchUrl(emailLaunchUri)) {
     await launchUrl(emailLaunchUri);
   } else {
-    throw 'Could not launch email. Please, try again.';
+    addToast(t.toast.helpers.emailFailed);
   }
 }
 
@@ -35,7 +36,7 @@ Future<void> launchIMDbPage(String imdbId) async {
   if (await canLaunchUrl(imdbUrl)) {
     await launchUrl(imdbUrl);
   } else {
-    throw 'Could not launch IMDb page. Please, try again.';
+    addToast(t.toast.helpers.imdbFailed);
   }
 }
 

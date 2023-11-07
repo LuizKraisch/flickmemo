@@ -57,7 +57,7 @@ class MainContainer extends StatelessWidget {
                 child: Padding(
                   padding: const EdgeInsets.fromLTRB(0, 10, 0, 0),
                   child: LoginButton(
-                    onPressed: () => AuthService().signIn(),
+                    onPressed: () => AuthService(context).signIn(),
                   ),
                 ),
               ),

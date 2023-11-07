@@ -1,10 +1,11 @@
-import 'package:flickmemo/controllers/flickmemo_user_stream_controller.dart';
+import 'package:flickmemo/controllers/user_data.dart';
 import 'package:flickmemo/i18n/strings.g.dart';
 import 'package:flickmemo/pages/licenses_page.dart';
 import 'package:flickmemo/services/helpers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:provider/provider.dart';
 
 class SideDrawer extends StatefulWidget {
   const SideDrawer({super.key});
@@ -15,8 +16,8 @@ class SideDrawer extends StatefulWidget {
 
 class _SideDrawerState extends State<SideDrawer> {
   void signOut() {
-    final userController = FlickmemoUserStreamController();
-    userController.dispose();
+    final userData = Provider.of<UserData>(context, listen: false);
+    userData.removeUser();
   }
 
   void showAlertDialog(BuildContext context) {

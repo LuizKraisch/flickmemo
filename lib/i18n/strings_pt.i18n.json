@@ -21,7 +21,15 @@
     }
   },
   "toast": {
-    "movieAddedToWatchlist": "Filme adicionado à sua watchlist"
+    "movies": {
+      "movieAddedToWatchlist": "Filme adicionado à sua watchlist"
+    },
+    "helpers": {
+      "emailFailed": "Não foi possível abrir o e-mail. Por favor, tente novamente.",
+      "emailSubject": "Olá! Quero falar sobre o Flickmemo",
+      "emailBody": "Aqui você escreve uma mensagem legal para mim :)",
+      "imdbFailed": "Não foi possível acessar o IMDB. Por favor, tente novamente."
+    }
   },
   "loginPage": {
     "title": "Faça reviews de filmes que você assistiu. Salve os que você quer assistir.",
@@ -71,7 +79,7 @@
     }
   },
   "licensesPage": {
-    "title": "Licenses"
+    "title": "Licenças"
   },
   "moviePage": {
     "body": {

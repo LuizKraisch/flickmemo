@@ -29,6 +29,7 @@ dependencies:
   slang: ^3.25.0
   slang_flutter: ^3.25.0
   flutter_localization: ^0.1.14
+  provider: ^6.0.5
 
 dev_dependencies:
   flutter_test:

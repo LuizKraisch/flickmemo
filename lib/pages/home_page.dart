@@ -119,7 +119,7 @@ class _HomePageState extends State<HomePage> {
                             onSwap(index);
                             if (direction == AppinioSwiperDirection.right) {
                               // TODO: Add to watchlist
-                              addToast(t.toast.movieAddedToWatchlist);
+                              addToast(t.toast.movies.movieAddedToWatchlist);
                             }
                           },
                           swipeOptions: AppinioSwipeOptions.only(

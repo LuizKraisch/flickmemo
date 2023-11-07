@@ -21,8 +21,7 @@ class MoviePageHeader extends StatelessWidget {
         image: DecorationImage(
           colorFilter: ColorFilter.mode(
               Colors.black.withOpacity(0.5), BlendMode.dstATop),
-          image: NetworkImage(
-              '$tmdbImagesUrl/${movie?.backdropPath}'),
+          image: NetworkImage('$tmdbImagesUrl/${movie?.backdropPath}'),
           fit: BoxFit.cover,
         ),
       ),
@@ -40,8 +39,8 @@ class MoviePageHeader extends StatelessWidget {
                   color: Colors.grey.shade900,
                   borderRadius: BorderRadius.circular(20),
                   image: DecorationImage(
-                      image: NetworkImage(
-                          '$tmdbImagesUrl/${movie!.posterPath}'),
+                      image:
+                          NetworkImage('$tmdbImagesUrl/${movie!.posterPath}'),
                       fit: BoxFit.cover),
                   boxShadow: [
                     BoxShadow(
@@ -63,7 +62,7 @@ class MoviePageHeader extends StatelessWidget {
               ),
               const SizedBox(height: 5.0),
               Text(
-                "${formatMovieReleaseYear(movie?.releaseDate as String)} • Crime, Thiller", // TODO: API genres
+                "${formatMovieReleaseYear(movie?.releaseDate as String)} • ${movie?.genres.join(', ')}",
                 style: Theme.of(context).textTheme.titleSmall,
               ),
               const SizedBox(height: 5.0),

@@ -1,6 +1,6 @@
 class Movie {
   final String backdropPath;
-  //final List<String> genres;
+  final List<dynamic> genres;
   final String id;
   final String uuid;
   final String imdbID;
@@ -18,7 +18,7 @@ class Movie {
 
   const Movie({
     required this.backdropPath,
-    //required this.genres,
+    required this.genres,
     required this.id,
     required this.uuid,
     required this.imdbID,
@@ -38,7 +38,7 @@ class Movie {
   factory Movie.fromJson(Map<String, dynamic> json) {
     return Movie(
       backdropPath: json['backdrop_path'] ?? '',
-      //genres: json['genres'] ?? [''],
+      genres: json['genres'] ?? [''],
       id: json['id']?.toString() ?? '',
       uuid: json['uuid']?.toString() ?? '',
       imdbID: json['imdb_id'] ?? '',

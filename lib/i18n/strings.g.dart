@@ -4,9 +4,9 @@
 /// To regenerate, run: `dart run slang`
 ///
 /// Locales: 2
-/// Strings: 92 (46 per locale)
+/// Strings: 100 (50 per locale)
 ///
-/// Built on 2023-11-05 at 21:22 UTC
+/// Built on 2023-11-07 at 02:27 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -178,7 +178,8 @@ class _StringsToastEn {
 	final _StringsEn _root; // ignore: unused_field
 
 	// Translations
-	String get movieAddedToWatchlist => 'Movie added to your watchlist';
+	late final _StringsToastMoviesEn movies = _StringsToastMoviesEn._(_root);
+	late final _StringsToastHelpersEn helpers = _StringsToastHelpersEn._(_root);
 }
 
 // Path: loginPage
@@ -235,7 +236,7 @@ class _StringsLicensesPageEn {
 	final _StringsEn _root; // ignore: unused_field
 
 	// Translations
-	String get title => 'Licenças';
+	String get title => 'Licenses';
 }
 
 // Path: moviePage
@@ -269,6 +270,29 @@ class _StringsCommonSideDrawerEn {
 	// Translations
 	late final _StringsCommonSideDrawerLogOutDialogEn logOutDialog = _StringsCommonSideDrawerLogOutDialogEn._(_root);
 	late final _StringsCommonSideDrawerOptionsEn options = _StringsCommonSideDrawerOptionsEn._(_root);
+}
+
+// Path: toast.movies
+class _StringsToastMoviesEn {
+	_StringsToastMoviesEn._(this._root);
+
+	final _StringsEn _root; // ignore: unused_field
+
+	// Translations
+	String get movieAddedToWatchlist => 'Movie added to your watchlist';
+}
+
+// Path: toast.helpers
+class _StringsToastHelpersEn {
+	_StringsToastHelpersEn._(this._root);
+
+	final _StringsEn _root; // ignore: unused_field
+
+	// Translations
+	String get emailFailed => 'Could not launch email. Please, try again.';
+	String get emailSubject => 'Hello! I want to talk about Flickmemo';
+	String get emailBody => 'Here you write a nice message for me :)';
+	String get imdbFailed => 'Could not launch IMDb page. Please, try again.';
 }
 
 // Path: homePage.movieCards
@@ -481,7 +505,8 @@ class _StringsToastPt implements _StringsToastEn {
 	@override final _StringsPt _root; // ignore: unused_field
 
 	// Translations
-	@override String get movieAddedToWatchlist => 'Filme adicionado à sua watchlist';
+	@override late final _StringsToastMoviesPt movies = _StringsToastMoviesPt._(_root);
+	@override late final _StringsToastHelpersPt helpers = _StringsToastHelpersPt._(_root);
 }
 
 // Path: loginPage
@@ -538,7 +563,7 @@ class _StringsLicensesPagePt implements _StringsLicensesPageEn {
 	@override final _StringsPt _root; // ignore: unused_field
 
 	// Translations
-	@override String get title => 'Licenses';
+	@override String get title => 'Licenças';
 }
 
 // Path: moviePage
@@ -572,6 +597,29 @@ class _StringsCommonSideDrawerPt implements _StringsCommonSideDrawerEn {
 	// Translations
 	@override late final _StringsCommonSideDrawerLogOutDialogPt logOutDialog = _StringsCommonSideDrawerLogOutDialogPt._(_root);
 	@override late final _StringsCommonSideDrawerOptionsPt options = _StringsCommonSideDrawerOptionsPt._(_root);
+}
+
+// Path: toast.movies
+class _StringsToastMoviesPt implements _StringsToastMoviesEn {
+	_StringsToastMoviesPt._(this._root);
+
+	@override final _StringsPt _root; // ignore: unused_field
+
+	// Translations
+	@override String get movieAddedToWatchlist => 'Filme adicionado à sua watchlist';
+}
+
+// Path: toast.helpers
+class _StringsToastHelpersPt implements _StringsToastHelpersEn {
+	_StringsToastHelpersPt._(this._root);
+
+	@override final _StringsPt _root; // ignore: unused_field
+
+	// Translations
+	@override String get emailFailed => 'Não foi possível abrir o e-mail. Por favor, tente novamente.';
+	@override String get emailSubject => 'Olá! Quero falar sobre o Flickmemo';
+	@override String get emailBody => 'Aqui você escreve uma mensagem legal para mim :)';
+	@override String get imdbFailed => 'Não foi possível acessar o IMDB. Por favor, tente novamente.';
 }
 
 // Path: homePage.movieCards
@@ -748,7 +796,11 @@ extension on _StringsEn {
 			case 'common.sideDrawer.options.licenses': return 'Licenses';
 			case 'common.sideDrawer.options.logOut': return 'Log out';
 			case 'common.sideDrawer.options.developer': return 'Talk with the developer';
-			case 'toast.movieAddedToWatchlist': return 'Movie added to your watchlist';
+			case 'toast.movies.movieAddedToWatchlist': return 'Movie added to your watchlist';
+			case 'toast.helpers.emailFailed': return 'Could not launch email. Please, try again.';
+			case 'toast.helpers.emailSubject': return 'Hello! I want to talk about Flickmemo';
+			case 'toast.helpers.emailBody': return 'Here you write a nice message for me :)';
+			case 'toast.helpers.imdbFailed': return 'Could not launch IMDb page. Please, try again.';
 			case 'loginPage.title': return 'Review films you\'ve watched. Save those you want to see.';
 			case 'loginPage.subtitle': return 'Welcome to Flickmemo. Let\'s start your lists!';
 			case 'loginPage.googleButton': return 'Continue with Google';
@@ -772,7 +824,7 @@ extension on _StringsEn {
 			case 'profilePage.favoriteMovies.empty': return 'There are no favorite movies';
 			case 'profilePage.recentMovies.title': return 'Recent Movies';
 			case 'profilePage.recentMovies.empty': return 'There are no recent movies';
-			case 'licensesPage.title': return 'Licenças';
+			case 'licensesPage.title': return 'Licenses';
 			case 'moviePage.body.overview.title': return 'Overview';
 			case 'moviePage.body.overview.readMore': return 'Read more';
 			case 'moviePage.body.overview.showLess': return 'Show less';
@@ -802,7 +854,11 @@ extension on _StringsPt {
 			case 'common.sideDrawer.options.licenses': return 'Licenças';
 			case 'common.sideDrawer.options.logOut': return 'Sair';
 			case 'common.sideDrawer.options.developer': return 'Falar com o desenvolvedor';
-			case 'toast.movieAddedToWatchlist': return 'Filme adicionado à sua watchlist';
+			case 'toast.movies.movieAddedToWatchlist': return 'Filme adicionado à sua watchlist';
+			case 'toast.helpers.emailFailed': return 'Não foi possível abrir o e-mail. Por favor, tente novamente.';
+			case 'toast.helpers.emailSubject': return 'Olá! Quero falar sobre o Flickmemo';
+			case 'toast.helpers.emailBody': return 'Aqui você escreve uma mensagem legal para mim :)';
+			case 'toast.helpers.imdbFailed': return 'Não foi possível acessar o IMDB. Por favor, tente novamente.';
 			case 'loginPage.title': return 'Faça reviews de filmes que você assistiu. Salve os que você quer assistir.';
 			case 'loginPage.subtitle': return 'Boas-vindas ao Flickmemo. Vamos começas suas listas!';
 			case 'loginPage.googleButton': return 'Continuar com Google';
@@ -826,7 +882,7 @@ extension on _StringsPt {
 			case 'profilePage.favoriteMovies.empty': return 'Não há filmes favoritos';
 			case 'profilePage.recentMovies.title': return 'Filmes recentes';
 			case 'profilePage.recentMovies.empty': return 'Não há filmes recentes';
-			case 'licensesPage.title': return 'Licenses';
+			case 'licensesPage.title': return 'Licenças';
 			case 'moviePage.body.overview.title': return 'Sinopse';
 			case 'moviePage.body.overview.readMore': return 'Ler mais';
 			case 'moviePage.body.overview.showLess': return 'Mostrar menos';
