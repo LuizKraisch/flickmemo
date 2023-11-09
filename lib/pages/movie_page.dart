@@ -3,6 +3,7 @@ import 'package:flickmemo/components/movie_page_body.dart';
 import 'package:flickmemo/components/movie_page_header.dart';
 import 'package:flickmemo/models/flickmemo_user.dart';
 import 'package:flickmemo/services/movie_service.dart';
+import 'package:flickmemo/services/user_service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -25,6 +26,8 @@ class _MoviePageState extends State<MoviePage> {
   MovieService movieService = MovieService();
   FlickmemoUser? currentFlickmemoUser;
   Map<String, dynamic>? movieData;
+  bool isWatchlistLoading = false;
+  bool addedToWatchlist = false;
 
   @override
   void initState() {
@@ -36,9 +39,52 @@ class _MoviePageState extends State<MoviePage> {
         .then((result) {
       setState(() {
         movieData = result;
+        addedToWatchlist = movieData?["addedToUserWatchlist"] ?? false;
       });
     }).catchError((error) {
       throw Exception('Failed to find movie info.');
+    });
+  }
+
+  void handleWatchlist() {
+    setState(() {
+      isWatchlistLoading = true;
+    });
+
+    addedToWatchlist ? removeFromWatchlist() : addToWatchlist();
+  }
+
+  void addToWatchlist() async {
+    UserService userService = UserService();
+    userService
+        .addMovieToWatchlist(movieData?["data"].id, currentFlickmemoUser)
+        .then((result) {
+      setState(() {
+        addedToWatchlist = true;
+        isWatchlistLoading = false;
+      });
+    }).catchError((error) {
+      setState(() {
+        isWatchlistLoading = false;
+      });
+      throw Exception('Failed to handle watchlist.');
+    });
+  }
+
+  void removeFromWatchlist() async {
+    UserService userService = UserService();
+    userService
+        .removeMovieFromWatchlist(movieData?["data"].id, currentFlickmemoUser)
+        .then((result) {
+      setState(() {
+        addedToWatchlist = false;
+        isWatchlistLoading = false;
+      });
+    }).catchError((error) {
+      setState(() {
+        isWatchlistLoading = false;
+      });
+      throw Exception('Failed to handle watchlist.');
     });
   }
 
@@ -70,9 +116,22 @@ class _MoviePageState extends State<MoviePage> {
                       radius: 20,
                       backgroundColor: Color.fromARGB(139, 60, 60, 60),
                       child: IconButton(
-                        icon: const Icon(FontAwesomeIcons.solidBookmark,
-                            size: 20, color: Colors.white),
-                        onPressed: () => {},
+                        icon: isWatchlistLoading
+                            ? Container(
+                                width: 24,
+                                height: 24,
+                                padding: const EdgeInsets.all(2.0),
+                                child: const CircularProgressIndicator(
+                                  color: Colors.white,
+                                  strokeWidth: 3,
+                                ),
+                              )
+                            : addedToWatchlist
+                                ? const Icon(FontAwesomeIcons.solidBookmark,
+                                    size: 20, color: Colors.white)
+                                : const Icon(FontAwesomeIcons.bookmark,
+                                    size: 20, color: Colors.white),
+                        onPressed: () => handleWatchlist(),
                       ),
                     ),
                   ),

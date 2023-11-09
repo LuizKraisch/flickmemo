@@ -138,7 +138,7 @@ class _MoviePageBodyState extends State<MoviePageBody> {
             t.moviePage.body.reviews,
             style: Theme.of(context).textTheme.displayMedium,
           ),
-          SizedBox(height: 5),
+          SizedBox(height: 10),
           widget.movieData?["userReview"] != null
               ? Column(
                   children: [
@@ -193,11 +193,12 @@ class _MoviePageBodyState extends State<MoviePageBody> {
                     ),
                   ),
                 ),
+          SizedBox(height: 10),
           Text(
             t.moviePage.body.similarMovies,
             style: Theme.of(context).textTheme.displayMedium,
           ),
-          SizedBox(height: 5),
+          SizedBox(height: 10),
           Padding(
             padding: const EdgeInsets.fromLTRB(0, 0, 0, 15),
             child: SizedBox(

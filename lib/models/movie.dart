@@ -10,7 +10,6 @@ class Movie {
   final String posterPath;
   final String releaseDate;
   final String runtime;
-  //final List<String> spokenLanguages;
   final String status;
   final String tagline;
   final String title;
@@ -28,7 +27,6 @@ class Movie {
     required this.posterPath,
     required this.releaseDate,
     required this.runtime,
-    //required this.spokenLanguages,
     required this.status,
     required this.tagline,
     required this.title,
@@ -48,7 +46,6 @@ class Movie {
       posterPath: json['poster_path'] ?? '',
       releaseDate: json['release_date'] ?? '',
       runtime: json['runtime']?.toString() ?? '',
-      //spokenLanguages: json['spoken_languages'] ?? [''],
       status: json['status'] ?? '',
       tagline: json['tagline'] ?? '',
       title: json['title'] ?? '',

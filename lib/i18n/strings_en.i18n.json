@@ -22,7 +22,11 @@
   },
   "toast": {
     "movies": {
-      "movieAddedToWatchlist": "Movie added to your watchlist"
+      "movieAddedToWatchlist": "Movie added to your watchlist",
+      "movieAlreadyOnWatchlist": "This movie is already in your watchlist",
+      "failedtoAddToWatchlist": "Something went wrong when adding this movie to your watchlist. Please, try again",
+      "movieRemovedFromWatchlist": "Movie removed from your watchlist",
+      "failedtoRemoveFromWatchlist": "Something went wrong when removing this movie from your watchlist. Please, try again"
     },
     "helpers": {
       "emailFailed": "Could not launch email. Please, try again.",
@@ -75,6 +79,7 @@
     },
     "recentMovies": {
       "title": "Recent Movies",
+      "subtitle": "Your recent reviews and watchlist's movies",
       "empty": "There are no recent movies"
     }
   },

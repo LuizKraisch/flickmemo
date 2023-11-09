@@ -7,6 +7,7 @@ import 'package:flickmemo/models/flickmemo_user.dart';
 import 'package:flickmemo/models/movie.dart';
 import 'package:flickmemo/services/helpers.dart';
 import 'package:flickmemo/services/movie_service.dart';
+import 'package:flickmemo/services/user_service.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:flickmemo/i18n/strings.g.dart';
@@ -55,6 +56,11 @@ class _HomePageState extends State<HomePage> {
     setState(() {
       currentIndex = index;
     });
+  }
+
+  void handleAddWatchlist(String movieId) async {
+    UserService userService = UserService();
+    await userService.addMovieToWatchlist(movieId, currentFlickmemoUser);
   }
 
   @override
@@ -116,11 +122,10 @@ class _HomePageState extends State<HomePage> {
                         AppinioSwiper(
                           cardsCount: movies.length,
                           onSwipe: (index, AppinioSwiperDirection direction) {
-                            onSwap(index);
                             if (direction == AppinioSwiperDirection.right) {
-                              // TODO: Add to watchlist
-                              addToast(t.toast.movies.movieAddedToWatchlist);
+                              handleAddWatchlist(movies[index - 1].id);
                             }
+                            onSwap(index);
                           },
                           swipeOptions: AppinioSwipeOptions.only(
                             left: true,

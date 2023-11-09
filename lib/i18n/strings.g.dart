@@ -4,9 +4,9 @@
 /// To regenerate, run: `dart run slang`
 ///
 /// Locales: 2
-/// Strings: 100 (50 per locale)
+/// Strings: 110 (55 per locale)
 ///
-/// Built on 2023-11-07 at 02:27 UTC
+/// Built on 2023-11-09 at 01:26 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -280,6 +280,10 @@ class _StringsToastMoviesEn {
 
 	// Translations
 	String get movieAddedToWatchlist => 'Movie added to your watchlist';
+	String get movieAlreadyOnWatchlist => 'This movie is already in your watchlist';
+	String get failedtoAddToWatchlist => 'Something went wrong when adding this movie to your watchlist. Please, try again';
+	String get movieRemovedFromWatchlist => 'Movie removed from your watchlist';
+	String get failedtoRemoveFromWatchlist => 'Something went wrong when removing this movie from your watchlist. Please, try again';
 }
 
 // Path: toast.helpers
@@ -361,6 +365,7 @@ class _StringsProfilePageRecentMoviesEn {
 
 	// Translations
 	String get title => 'Recent Movies';
+	String get subtitle => 'Your recent reviews and watchlist\'s movies';
 	String get empty => 'There are no recent movies';
 }
 
@@ -516,7 +521,7 @@ class _StringsLoginPagePt implements _StringsLoginPageEn {
 	@override final _StringsPt _root; // ignore: unused_field
 
 	// Translations
-	@override String get title => 'Faça reviews de filmes que você assistiu. Salve os que você quer assistir.';
+	@override String get title => 'Organize seus filmes favoritos. Descubra novos.';
 	@override String get subtitle => 'Boas-vindas ao Flickmemo. Vamos começas suas listas!';
 	@override String get googleButton => 'Continuar com Google';
 }
@@ -607,6 +612,10 @@ class _StringsToastMoviesPt implements _StringsToastMoviesEn {
 
 	// Translations
 	@override String get movieAddedToWatchlist => 'Filme adicionado à sua watchlist';
+	@override String get movieAlreadyOnWatchlist => 'Este filme já está em sua watchlist';
+	@override String get failedtoAddToWatchlist => 'Ocorreu um erro ao adicionar o filme à sua watchlist. Por favor, tente novamente';
+	@override String get movieRemovedFromWatchlist => 'Filme removido da sua watchlist';
+	@override String get failedtoRemoveFromWatchlist => 'Ocorreu um erro ao remover o filme da sua watchlist. Por favor, tente novamente';
 }
 
 // Path: toast.helpers
@@ -688,6 +697,7 @@ class _StringsProfilePageRecentMoviesPt implements _StringsProfilePageRecentMovi
 
 	// Translations
 	@override String get title => 'Filmes recentes';
+	@override String get subtitle => 'Suas reviews mais recentes e filmes da watchlist';
 	@override String get empty => 'Não há filmes recentes';
 }
 
@@ -797,6 +807,10 @@ extension on _StringsEn {
 			case 'common.sideDrawer.options.logOut': return 'Log out';
 			case 'common.sideDrawer.options.developer': return 'Talk with the developer';
 			case 'toast.movies.movieAddedToWatchlist': return 'Movie added to your watchlist';
+			case 'toast.movies.movieAlreadyOnWatchlist': return 'This movie is already in your watchlist';
+			case 'toast.movies.failedtoAddToWatchlist': return 'Something went wrong when adding this movie to your watchlist. Please, try again';
+			case 'toast.movies.movieRemovedFromWatchlist': return 'Movie removed from your watchlist';
+			case 'toast.movies.failedtoRemoveFromWatchlist': return 'Something went wrong when removing this movie from your watchlist. Please, try again';
 			case 'toast.helpers.emailFailed': return 'Could not launch email. Please, try again.';
 			case 'toast.helpers.emailSubject': return 'Hello! I want to talk about Flickmemo';
 			case 'toast.helpers.emailBody': return 'Here you write a nice message for me :)';
@@ -823,6 +837,7 @@ extension on _StringsEn {
 			case 'profilePage.favoriteMovies.title': return 'Favorite Movies';
 			case 'profilePage.favoriteMovies.empty': return 'There are no favorite movies';
 			case 'profilePage.recentMovies.title': return 'Recent Movies';
+			case 'profilePage.recentMovies.subtitle': return 'Your recent reviews and watchlist\'s movies';
 			case 'profilePage.recentMovies.empty': return 'There are no recent movies';
 			case 'licensesPage.title': return 'Licenses';
 			case 'moviePage.body.overview.title': return 'Overview';
@@ -855,11 +870,15 @@ extension on _StringsPt {
 			case 'common.sideDrawer.options.logOut': return 'Sair';
 			case 'common.sideDrawer.options.developer': return 'Falar com o desenvolvedor';
 			case 'toast.movies.movieAddedToWatchlist': return 'Filme adicionado à sua watchlist';
+			case 'toast.movies.movieAlreadyOnWatchlist': return 'Este filme já está em sua watchlist';
+			case 'toast.movies.failedtoAddToWatchlist': return 'Ocorreu um erro ao adicionar o filme à sua watchlist. Por favor, tente novamente';
+			case 'toast.movies.movieRemovedFromWatchlist': return 'Filme removido da sua watchlist';
+			case 'toast.movies.failedtoRemoveFromWatchlist': return 'Ocorreu um erro ao remover o filme da sua watchlist. Por favor, tente novamente';
 			case 'toast.helpers.emailFailed': return 'Não foi possível abrir o e-mail. Por favor, tente novamente.';
 			case 'toast.helpers.emailSubject': return 'Olá! Quero falar sobre o Flickmemo';
 			case 'toast.helpers.emailBody': return 'Aqui você escreve uma mensagem legal para mim :)';
 			case 'toast.helpers.imdbFailed': return 'Não foi possível acessar o IMDB. Por favor, tente novamente.';
-			case 'loginPage.title': return 'Faça reviews de filmes que você assistiu. Salve os que você quer assistir.';
+			case 'loginPage.title': return 'Organize seus filmes favoritos. Descubra novos.';
 			case 'loginPage.subtitle': return 'Boas-vindas ao Flickmemo. Vamos começas suas listas!';
 			case 'loginPage.googleButton': return 'Continuar com Google';
 			case 'homePage.title': return ({required Object name}) => 'Olá, ${name}!';
@@ -881,6 +900,7 @@ extension on _StringsPt {
 			case 'profilePage.favoriteMovies.title': return 'Filmes favoritos';
 			case 'profilePage.favoriteMovies.empty': return 'Não há filmes favoritos';
 			case 'profilePage.recentMovies.title': return 'Filmes recentes';
+			case 'profilePage.recentMovies.subtitle': return 'Suas reviews mais recentes e filmes da watchlist';
 			case 'profilePage.recentMovies.empty': return 'Não há filmes recentes';
 			case 'licensesPage.title': return 'Licenças';
 			case 'moviePage.body.overview.title': return 'Sinopse';

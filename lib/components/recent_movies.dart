@@ -52,9 +52,13 @@ class _RecentMoviesState extends State<RecentMovies> {
           t.profilePage.recentMovies.title,
           style: Theme.of(context).textTheme.headlineMedium,
         ),
-        SizedBox(height: 15),
+        SizedBox(height: 3),
+        Text(
+          t.profilePage.recentMovies.subtitle,
+          style: Theme.of(context).textTheme.titleSmall,
+        ),
         SizedBox(
-          height: (_moviesCount * 200),
+          height: _moviesCount != 0 ? ((_moviesCount / 3).ceil() * 200.0) : 200,
           child: Scrollbar(
             child: FutureBuilder<List<Movie>>(
               future: _moviesFuture,
@@ -71,26 +75,28 @@ class _RecentMoviesState extends State<RecentMovies> {
                     return Center(
                       child: Column(
                         children: [
-                          SizedBox(height: 80),
-                          Icon(FontAwesomeIcons.solidClock, size: 40),
-                          SizedBox(height: 10),
-                          Text(t.profilePage.recentMovies.title,
-                              style:
-                                  Theme.of(context).textTheme.headlineMedium),
+                          SizedBox(height: 80.0),
+                          Icon(FontAwesomeIcons.solidClock, size: 40.0),
+                          SizedBox(height: 10.0),
+                          Text(
+                            t.profilePage.recentMovies.empty,
+                            style: Theme.of(context).textTheme.headlineMedium,
+                          ),
                         ],
                       ),
                     );
                   } else {
                     return Padding(
-                      padding: const EdgeInsets.fromLTRB(0, 0, 0, 15),
+                      padding: const EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 15.0),
                       child: GridView.count(
-                        padding: EdgeInsets.only(top: 15),
+                        padding: EdgeInsets.only(top: 15.0),
                         physics: NeverScrollableScrollPhysics(),
                         childAspectRatio: (itemWidth / itemHeight),
                         crossAxisCount: 3,
                         children: movies.map((movie) {
                           return Padding(
-                            padding: const EdgeInsets.only(right: 10),
+                            padding: const EdgeInsets.only(
+                                right: 10.0, bottom: 10.0),
                             child: MoviePoster(
                               movie: movie,
                               currentFlickmemoUser: widget.currentFlickmemoUser,

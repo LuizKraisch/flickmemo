@@ -22,7 +22,11 @@
   },
   "toast": {
     "movies": {
-      "movieAddedToWatchlist": "Filme adicionado à sua watchlist"
+      "movieAddedToWatchlist": "Filme adicionado à sua watchlist",
+      "movieAlreadyOnWatchlist": "Este filme já está em sua watchlist",
+      "failedtoAddToWatchlist": "Ocorreu um erro ao adicionar o filme à sua watchlist. Por favor, tente novamente",
+      "movieRemovedFromWatchlist": "Filme removido da sua watchlist",
+      "failedtoRemoveFromWatchlist": "Ocorreu um erro ao remover o filme da sua watchlist. Por favor, tente novamente"
     },
     "helpers": {
       "emailFailed": "Não foi possível abrir o e-mail. Por favor, tente novamente.",
@@ -32,7 +36,7 @@
     }
   },
   "loginPage": {
-    "title": "Faça reviews de filmes que você assistiu. Salve os que você quer assistir.",
+    "title": "Organize seus filmes favoritos. Descubra novos.",
     "subtitle": "Boas-vindas ao Flickmemo. Vamos começas suas listas!",
     "googleButton": "Continuar com Google"
   },
@@ -75,6 +79,7 @@
     },
     "recentMovies": {
       "title": "Filmes recentes",
+      "subtitle": "Suas reviews mais recentes e filmes da watchlist",
       "empty": "Não há filmes recentes"
     }
   },
