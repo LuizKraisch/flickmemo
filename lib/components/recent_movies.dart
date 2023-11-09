@@ -1,4 +1,6 @@
+import 'package:flickmemo/components/error_info.dart';
 import 'package:flickmemo/components/movie_poster.dart';
+import 'package:flickmemo/i18n/strings.g.dart';
 import 'package:flickmemo/models/flickmemo_user.dart';
 import 'package:flickmemo/models/movie.dart';
 import 'package:flickmemo/services/user_service.dart';
@@ -46,11 +48,17 @@ class _RecentMoviesState extends State<RecentMovies> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text("Recent Movies",
-            style: Theme.of(context).textTheme.headlineMedium),
-        SizedBox(height: 15),
+        Text(
+          t.profilePage.recentMovies.title,
+          style: Theme.of(context).textTheme.headlineMedium,
+        ),
+        SizedBox(height: 3),
+        Text(
+          t.profilePage.recentMovies.subtitle,
+          style: Theme.of(context).textTheme.titleSmall,
+        ),
         SizedBox(
-          height: (_moviesCount * 200),
+          height: _moviesCount != 0 ? ((_moviesCount / 3).ceil() * 200.0) : 200,
           child: Scrollbar(
             child: FutureBuilder<List<Movie>>(
               future: _moviesFuture,
@@ -58,33 +66,37 @@ class _RecentMoviesState extends State<RecentMovies> {
                 if (snapshot.connectionState == ConnectionState.waiting) {
                   return Center(child: CircularProgressIndicator());
                 } else if (snapshot.hasError) {
-                  return Text('Error: ${snapshot.error}');
+                  return Center(
+                    child: ErrorInfo(errorMessage: snapshot.error.toString()),
+                  );
                 } else {
                   final movies = snapshot.data ?? [];
                   if (movies.isEmpty) {
                     return Center(
                       child: Column(
                         children: [
-                          SizedBox(height: 80),
-                          Icon(FontAwesomeIcons.solidClock, size: 40),
-                          SizedBox(height: 10),
-                          Text("There are no recent movies",
-                              style:
-                                  Theme.of(context).textTheme.headlineMedium),
+                          SizedBox(height: 80.0),
+                          Icon(FontAwesomeIcons.solidClock, size: 40.0),
+                          SizedBox(height: 10.0),
+                          Text(
+                            t.profilePage.recentMovies.empty,
+                            style: Theme.of(context).textTheme.headlineMedium,
+                          ),
                         ],
                       ),
                     );
                   } else {
                     return Padding(
-                      padding: const EdgeInsets.fromLTRB(0, 0, 0, 15),
+                      padding: const EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 15.0),
                       child: GridView.count(
-                        padding: EdgeInsets.only(top: 15),
+                        padding: EdgeInsets.only(top: 15.0),
                         physics: NeverScrollableScrollPhysics(),
                         childAspectRatio: (itemWidth / itemHeight),
                         crossAxisCount: 3,
                         children: movies.map((movie) {
                           return Padding(
-                            padding: const EdgeInsets.only(right: 10),
+                            padding: const EdgeInsets.only(
+                                right: 10.0, bottom: 10.0),
                             child: MoviePoster(
                               movie: movie,
                               currentFlickmemoUser: widget.currentFlickmemoUser,

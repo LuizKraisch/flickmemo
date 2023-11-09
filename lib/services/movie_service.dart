@@ -66,6 +66,7 @@ class MovieService {
       Map<String, dynamic> decodedResponse = json.decode(response.body);
       return {
         "data": Movie.fromJson(decodedResponse["data"]),
+        "addedToUserWatchlist": decodedResponse["added_to_user_watchlist"],
         "userReview": decodedResponse["user_review"] != null
             ? Review.fromJson(decodedResponse["user_review"])
             : null,

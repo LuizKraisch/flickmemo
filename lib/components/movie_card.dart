@@ -79,9 +79,46 @@ class MovieCard extends StatelessWidget {
                           style: Theme.of(context).textTheme.displayMedium,
                         ),
                       ),
-                      Text(
-                        "${DateTime.parse(movie.releaseDate).year.toString()} • Drama, Romance",
-                        style: Theme.of(context).textTheme.titleSmall,
+                      Padding(
+                        padding: const EdgeInsets.only(top: 5.0, bottom: 5.0),
+                        child: Row(
+                          children: [
+                            Row(
+                              children: [
+                                Icon(
+                                  FontAwesomeIcons.calendar,
+                                  size: 15,
+                                ),
+                                SizedBox(width: 5),
+                                Text(
+                                  DateTime.parse(movie.releaseDate)
+                                      .year
+                                      .toString(),
+                                  style: Theme.of(context).textTheme.titleSmall,
+                                ),
+                              ],
+                            ),
+                            SizedBox(width: 5.0),
+                            Text(
+                              "•",
+                              style: Theme.of(context).textTheme.titleSmall,
+                            ),
+                            SizedBox(width: 5.0),
+                            Row(
+                              children: [
+                                Icon(
+                                  FontAwesomeIcons.fire,
+                                  size: 15,
+                                ),
+                                SizedBox(width: 5),
+                                Text(
+                                  movie.popularity,
+                                  style: Theme.of(context).textTheme.titleSmall,
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
                       ),
                       SizedBox(width: 10),
                       ConstrainedBox(

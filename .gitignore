@@ -43,5 +43,5 @@ app.*.map.json
 /android/app/profile
 /android/app/release
 
-# env file
-/lib/env.dart
+# Env file - For storing environment variables. Uncomment if needed.
+# /lib/env.dart

@@ -1,5 +1,6 @@
 import 'package:flickmemo/components/movie_box.dart';
 import 'package:flickmemo/components/search_header.dart';
+import 'package:flickmemo/i18n/strings.g.dart';
 import 'package:flickmemo/models/flickmemo_user.dart';
 import 'package:flickmemo/models/movie.dart';
 import 'package:flickmemo/services/movie_service.dart';
@@ -52,7 +53,8 @@ class _SearchPageState extends State<SearchPage> {
           floating: true,
           expandedHeight: 130,
           flexibleSpace: FlexibleSpaceBar(
-            background: SearchHeader(currentFlickmemoUser: widget.currentFlickmemoUser),
+            background:
+                SearchHeader(currentFlickmemoUser: widget.currentFlickmemoUser),
           ),
         ),
         SliverToBoxAdapter(
@@ -61,11 +63,15 @@ class _SearchPageState extends State<SearchPage> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text("Trending Movies",
-                      style: Theme.of(context).textTheme.headlineMedium),
+                  Text(
+                    t.searchPage.body.title,
+                    style: Theme.of(context).textTheme.headlineMedium,
+                  ),
                   SizedBox(height: 3),
-                  Text("Get in touch with the latest releases.",
-                      style: Theme.of(context).textTheme.titleSmall),
+                  Text(
+                    t.searchPage.body.subtitle,
+                    style: Theme.of(context).textTheme.titleSmall,
+                  ),
                   SizedBox(height: 15),
                   SizedBox(
                     height: totalItems * 210,
@@ -86,7 +92,25 @@ class _SearchPageState extends State<SearchPage> {
                             ],
                           );
                         } else if (snapshot.hasError) {
-                          return Text('Error: ${snapshot.error}');
+                          return Center(
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                SizedBox(height: 20),
+                                Icon(FontAwesomeIcons.circleExclamation,
+                                    size: 40),
+                                SizedBox(height: 10),
+                                Text(
+                                  t.homePage.movieCards.error,
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .headlineMedium,
+                                ),
+                                Text('${snapshot.error}'),
+                              ],
+                            ),
+                          );
                         } else {
                           final movies = snapshot.data ?? [];
                           if (movies.isEmpty) {
@@ -98,10 +122,12 @@ class _SearchPageState extends State<SearchPage> {
                                   SizedBox(height: 20),
                                   Icon(FontAwesomeIcons.film, size: 40),
                                   SizedBox(height: 10),
-                                  Text("There are no movies to show",
-                                      style: Theme.of(context)
-                                          .textTheme
-                                          .headlineMedium),
+                                  Text(
+                                    t.searchPage.body.empty,
+                                    style: Theme.of(context)
+                                        .textTheme
+                                        .headlineMedium,
+                                  ),
                                 ],
                               ),
                             );

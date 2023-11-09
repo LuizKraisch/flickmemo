@@ -1,4 +1,6 @@
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
+import 'package:flickmemo/controllers/user_data.dart';
+import 'package:flickmemo/i18n/strings.g.dart';
 import 'package:flickmemo/pages/auth_page.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flickmemo/pages/home_page.dart';
@@ -8,6 +10,7 @@ import 'package:flickmemo/pages/search_page.dart';
 import 'package:flickmemo/theme/theme.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'firebase_options.dart';
 
 void main() async {
@@ -20,8 +23,15 @@ void main() async {
     FirebaseCrashlytics.instance.recordError(error, stack, fatal: true);
     return true;
   };
+  WidgetsFlutterBinding.ensureInitialized();
+  LocaleSettings.setLocale(AppLocale.pt); // TODO: set locale from button
 
-  runApp(const FlickmemoApp());
+  runApp(MultiProvider(
+    providers: [
+      ChangeNotifierProvider(create: (context) => UserData()),
+    ],
+    child: TranslationProvider(child: FlickmemoApp()),
+  ));
 }
 
 class FlickmemoApp extends StatelessWidget {
@@ -30,14 +40,16 @@ class FlickmemoApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        debugShowCheckedModeBanner: false,
-        theme: defaultTheme,
-        home: AuthPage(),
-        routes: {
-          '/login-page': (context) => const LoginPage(),
-          '/home-page': (context) => const HomePage(),
-          '/search-page': (context) => const SearchPage(),
-          '/profile-page': (context) => const ProfilePage(),
-        });
+      locale: TranslationProvider.of(context).flutterLocale,
+      debugShowCheckedModeBanner: false,
+      theme: defaultTheme,
+      home: AuthPage(),
+      routes: {
+        '/login-page': (context) => const LoginPage(),
+        '/home-page': (context) => const HomePage(),
+        '/search-page': (context) => const SearchPage(),
+        '/profile-page': (context) => const ProfilePage(),
+      },
+    );
   }
 }

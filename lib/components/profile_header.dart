@@ -1,3 +1,4 @@
+import 'package:flickmemo/i18n/strings.g.dart';
 import 'package:flickmemo/models/flickmemo_user.dart';
 import 'package:flickmemo/services/formatters.dart';
 import 'package:flickmemo/services/user_service.dart';
@@ -58,7 +59,8 @@ class _ProfileHeaderState extends State<ProfileHeader> {
                         ),
                         SizedBox(width: 5),
                         Text(
-                          "User since ${formatProfileCreationDate(user!.createdAt)}",
+                          t.profilePage.header.profileCreation(
+                              date: formatProfileCreationDate(user!.createdAt)),
                           style: Theme.of(context).textTheme.headlineSmall,
                         ),
                       ],
@@ -76,7 +78,7 @@ class _ProfileHeaderState extends State<ProfileHeader> {
                           style: Theme.of(context).textTheme.displaySmall,
                         ),
                         Text(
-                          "Films",
+                          t.profilePage.header.counts.watched,
                           style: Theme.of(context).textTheme.headlineSmall,
                         )
                       ],
@@ -86,7 +88,7 @@ class _ProfileHeaderState extends State<ProfileHeader> {
                         Text(user!.favoritesCount.toString(),
                             style: Theme.of(context).textTheme.displaySmall),
                         Text(
-                          "Favorites",
+                          t.profilePage.header.counts.favorites,
                           style: Theme.of(context).textTheme.headlineSmall,
                         )
                       ],
@@ -98,7 +100,7 @@ class _ProfileHeaderState extends State<ProfileHeader> {
                           style: Theme.of(context).textTheme.displaySmall,
                         ),
                         Text(
-                          "Watchlist",
+                          t.profilePage.header.counts.watchlist,
                           style: Theme.of(context).textTheme.headlineSmall,
                         )
                       ],

@@ -3,6 +3,7 @@ import 'package:flickmemo/components/external_review_box.dart';
 import 'package:flickmemo/components/imdb_button.dart';
 import 'package:flickmemo/components/movie_poster.dart';
 import 'package:flickmemo/components/user_review_box.dart';
+import 'package:flickmemo/i18n/strings.g.dart';
 import 'package:flickmemo/models/flickmemo_user.dart';
 import 'package:flickmemo/services/formatters.dart';
 import 'package:flutter/material.dart';
@@ -32,14 +33,14 @@ class _MoviePageBodyState extends State<MoviePageBody> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            'Overview',
+            t.moviePage.body.overview.title,
             style: Theme.of(context).textTheme.displayMedium,
           ),
           SizedBox(height: 5),
           ExpandableText(
             widget.movieData?["data"].overview as String,
-            expandText: 'Read more',
-            collapseText: 'Show less',
+            expandText: t.moviePage.body.overview.readMore,
+            collapseText: t.moviePage.body.overview.showLess,
             maxLines: 3,
             linkColor: Colors.white,
             animation: true,
@@ -62,7 +63,7 @@ class _MoviePageBodyState extends State<MoviePageBody> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    "POPULARITY",
+                    t.moviePage.body.stats.popularity,
                     style: TextStyle(
                       fontSize: 11,
                       color: Colors.grey.shade400,
@@ -90,7 +91,7 @@ class _MoviePageBodyState extends State<MoviePageBody> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    "SEE IT ON IMDB",
+                    t.moviePage.body.stats.imdbLink,
                     style: TextStyle(
                       fontSize: 11,
                       color: Colors.grey.shade400,
@@ -106,7 +107,7 @@ class _MoviePageBodyState extends State<MoviePageBody> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    "RELEASE DATE",
+                    t.moviePage.body.stats.releaseDate,
                     style: TextStyle(
                       fontSize: 11,
                       color: Colors.grey.shade400,
@@ -134,10 +135,10 @@ class _MoviePageBodyState extends State<MoviePageBody> {
           ),
           SizedBox(height: 20),
           Text(
-            'Reviews',
+            t.moviePage.body.reviews,
             style: Theme.of(context).textTheme.displayMedium,
           ),
-          SizedBox(height: 5),
+          SizedBox(height: 10),
           widget.movieData?["userReview"] != null
               ? Column(
                   children: [
@@ -185,18 +186,19 @@ class _MoviePageBodyState extends State<MoviePageBody> {
                         ),
                         SizedBox(height: 5),
                         Text(
-                          "There are no reviews to show.",
+                          t.moviePage.body.emptyReviews,
                           style: Theme.of(context).textTheme.titleSmall,
                         )
                       ]),
                     ),
                   ),
                 ),
+          SizedBox(height: 10),
           Text(
-            'Similar Movies',
+            t.moviePage.body.similarMovies,
             style: Theme.of(context).textTheme.displayMedium,
           ),
-          SizedBox(height: 5),
+          SizedBox(height: 10),
           Padding(
             padding: const EdgeInsets.fromLTRB(0, 0, 0, 15),
             child: SizedBox(

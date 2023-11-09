@@ -1,4 +1,5 @@
 import 'package:flickmemo/components/login_button.dart';
+import 'package:flickmemo/i18n/strings.g.dart';
 import 'package:flutter/material.dart';
 import 'package:flickmemo/services/auth_service.dart';
 
@@ -45,18 +46,18 @@ class MainContainer extends StatelessWidget {
                     height: 30),
               ),
               Text(
-                "Review films you've watched. Save those you want to see.",
+                t.loginPage.title,
                 style: Theme.of(context).textTheme.displayMedium,
               ),
               Text(
-                "Welcome to Flickmemo. Let's start your lists!",
+                t.loginPage.subtitle,
                 style: Theme.of(context).textTheme.bodySmall,
               ),
               Center(
                 child: Padding(
                   padding: const EdgeInsets.fromLTRB(0, 10, 0, 0),
                   child: LoginButton(
-                    onPressed: () => AuthService().signIn(),
+                    onPressed: () => AuthService(context).signIn(),
                   ),
                 ),
               ),

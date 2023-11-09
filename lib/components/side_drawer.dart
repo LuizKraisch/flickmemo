@@ -1,9 +1,11 @@
-import 'package:flickmemo/controllers/flickmemo_user_stream_controller.dart';
+import 'package:flickmemo/controllers/user_data.dart';
+import 'package:flickmemo/i18n/strings.g.dart';
 import 'package:flickmemo/pages/licenses_page.dart';
 import 'package:flickmemo/services/helpers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:provider/provider.dart';
 
 class SideDrawer extends StatefulWidget {
   const SideDrawer({super.key});
@@ -14,8 +16,8 @@ class SideDrawer extends StatefulWidget {
 
 class _SideDrawerState extends State<SideDrawer> {
   void signOut() {
-    final userController = FlickmemoUserStreamController();
-    userController.dispose();
+    final userData = Provider.of<UserData>(context, listen: false);
+    userData.removeUser();
   }
 
   void showAlertDialog(BuildContext context) {
@@ -25,8 +27,8 @@ class _SideDrawerState extends State<SideDrawer> {
           return Theme(
             data: ThemeData.dark(),
             child: CupertinoAlertDialog(
-              title: const Text('Logging out?'),
-              content: const Text('Are you sure you want to log out?'),
+              title: Text(t.common.sideDrawer.logOutDialog.title),
+              content: Text(t.common.sideDrawer.logOutDialog.content),
               actions: [
                 CupertinoDialogAction(
                   onPressed: () {
@@ -37,7 +39,7 @@ class _SideDrawerState extends State<SideDrawer> {
                   },
                   isDefaultAction: true,
                   isDestructiveAction: true,
-                  child: const Text('Yes'),
+                  child: Text(t.common.sideDrawer.logOutDialog.confirm),
                 ),
                 CupertinoDialogAction(
                   onPressed: () {
@@ -45,7 +47,7 @@ class _SideDrawerState extends State<SideDrawer> {
                   },
                   isDefaultAction: false,
                   isDestructiveAction: false,
-                  child: const Text('No'),
+                  child: Text(t.common.sideDrawer.logOutDialog.cancel),
                 )
               ],
             ),
@@ -78,7 +80,7 @@ class _SideDrawerState extends State<SideDrawer> {
                   leading: FaIcon(FontAwesomeIcons.language,
                       color: Theme.of(context).colorScheme.outline),
                   title: Text(
-                    "Change language",
+                    t.common.sideDrawer.options.changeLanguage,
                     style: Theme.of(context).textTheme.headlineSmall,
                   ),
                   onTap: () {}, // TODO: Add language selector
@@ -91,7 +93,7 @@ class _SideDrawerState extends State<SideDrawer> {
                   leading: FaIcon(FontAwesomeIcons.book,
                       color: Theme.of(context).colorScheme.outline),
                   title: Text(
-                    "Licenses",
+                    t.common.sideDrawer.options.licenses,
                     style: Theme.of(context).textTheme.headlineSmall,
                   ),
                   onTap: () => Navigator.push(
@@ -109,7 +111,7 @@ class _SideDrawerState extends State<SideDrawer> {
                   leading: FaIcon(FontAwesomeIcons.arrowRightFromBracket,
                       color: Theme.of(context).colorScheme.outline),
                   title: Text(
-                    "Sign out",
+                    t.common.sideDrawer.options.logOut,
                     style: Theme.of(context).textTheme.headlineSmall,
                   ),
                   onTap: () => showAlertDialog(context),
@@ -128,7 +130,7 @@ class _SideDrawerState extends State<SideDrawer> {
                     leading: FaIcon(FontAwesomeIcons.code,
                         color: Theme.of(context).colorScheme.outline),
                     title: Text(
-                      "Talk with the developer",
+                      t.common.sideDrawer.options.developer,
                       style: Theme.of(context).textTheme.headlineSmall,
                     ),
                     onTap: () => launchDeveloperEmail(),

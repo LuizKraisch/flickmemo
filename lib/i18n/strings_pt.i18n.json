@@ -1,0 +1,107 @@
+{
+  "common": {
+    "bottomNavBar": {
+      "home": "Início",
+      "search": "Pesquisar",
+      "profile": "Perfil"
+    },
+    "sideDrawer": {
+      "logOutDialog": {
+        "title": "Saindo da conta",
+        "content": "Tem certeza que deseja sair da conta?",
+        "cancel": "Não",
+        "confirm": "Sim"
+      },
+      "options": {
+        "changeLanguage": "Mudar idioma",
+        "licenses": "Licenças",
+        "logOut": "Sair",
+        "developer": "Falar com o desenvolvedor"
+      }
+    }
+  },
+  "toast": {
+    "movies": {
+      "movieAddedToWatchlist": "Filme adicionado à sua watchlist",
+      "movieAlreadyOnWatchlist": "Este filme já está em sua watchlist",
+      "failedtoAddToWatchlist": "Ocorreu um erro ao adicionar o filme à sua watchlist. Por favor, tente novamente",
+      "movieRemovedFromWatchlist": "Filme removido da sua watchlist",
+      "failedtoRemoveFromWatchlist": "Ocorreu um erro ao remover o filme da sua watchlist. Por favor, tente novamente"
+    },
+    "helpers": {
+      "emailFailed": "Não foi possível abrir o e-mail. Por favor, tente novamente.",
+      "emailSubject": "Olá! Quero falar sobre o Flickmemo",
+      "emailBody": "Aqui você escreve uma mensagem legal para mim :)",
+      "imdbFailed": "Não foi possível acessar o IMDB. Por favor, tente novamente."
+    }
+  },
+  "loginPage": {
+    "title": "Organize seus filmes favoritos. Descubra novos.",
+    "subtitle": "Boas-vindas ao Flickmemo. Vamos começas suas listas!",
+    "googleButton": "Continuar com Google"
+  },
+  "homePage": {
+    "title": "Olá, $name!",
+    "subtitle": "Aqui estão algumas recomendações para você.",
+    "movieCards": {
+      "error": "Oops, algo deu errado! Por favor, tente novamente.",
+      "empty": "Não existem filmes para exibir",
+      "noMoreMovies": {
+        "title": "Wow, ficamos sem filmes!",
+        "subtitle": "Tente reentrar na página para ver mais filmes."
+      }
+    }
+  },
+  "searchPage": {
+    "header": {
+      "title": "Pesquise pelo título do filme",
+      "searchBarPlaceholder": "Pesquise por filmes..."
+    },
+    "body": {
+      "title": "Filmes em alta",
+      "subtitle": "Fique atualizado com os últimos lançamentos.",
+      "error": "Oops, algo deu errado! Por favor, tente novamente.",
+      "empty": "Não há filmes para serem exibidos"
+    }
+  },
+  "profilePage": {
+    "header": {
+      "profileCreation": "Entrou em $date",
+      "counts": {
+        "watched": "Assistidos",
+        "favorites": "Favoritos",
+        "watchlist": "Vou assistir"
+      }
+    },
+    "favoriteMovies": {
+      "title": "Filmes favoritos",
+      "empty": "Não há filmes favoritos"
+    },
+    "recentMovies": {
+      "title": "Filmes recentes",
+      "subtitle": "Suas reviews mais recentes e filmes da watchlist",
+      "empty": "Não há filmes recentes"
+    }
+  },
+  "licensesPage": {
+    "title": "Licenças"
+  },
+  "moviePage": {
+    "body": {
+      "overview": {
+        "title": "Sinopse",
+        "readMore": "Ler mais",
+        "showLess": "Mostrar menos"
+      },
+      "stats": {
+        "popularity": "POPULARIDADE",
+        "imdbLink": "VER NO IMDB",
+        "visitImdb": "Visitar",
+        "releaseDate": "LANÇAMENTO"
+      },
+      "reviews": "Reviews",
+      "similarMovies": "Filmes similares",
+      "emptyReviews": "Não há reviews para mostrar."
+    }
+  }
+}
