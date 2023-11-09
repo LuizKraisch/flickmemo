@@ -5,7 +5,6 @@ import 'package:flickmemo/components/movie_card.dart';
 import 'package:flickmemo/components/progress_bar.dart';
 import 'package:flickmemo/models/flickmemo_user.dart';
 import 'package:flickmemo/models/movie.dart';
-import 'package:flickmemo/services/helpers.dart';
 import 'package:flickmemo/services/movie_service.dart';
 import 'package:flickmemo/services/user_service.dart';
 import 'package:flutter/material.dart';
