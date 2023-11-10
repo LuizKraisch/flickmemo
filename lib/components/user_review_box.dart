@@ -22,7 +22,7 @@ class UserReviewBox extends StatelessWidget {
         color: Color(0xff1D1F24),
       ),
       child: Padding(
-        padding: const EdgeInsets.all(15.0),
+        padding: const EdgeInsets.all(12.0),
         child: Column(children: [
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -45,13 +45,55 @@ class UserReviewBox extends StatelessWidget {
               ),
               Row(
                 children: [
-                  Icon(FontAwesomeIcons.solidStar,
-                      color: Theme.of(context).colorScheme.scrim, size: 20),
-                  SizedBox(width: 5),
-                  Text(
-                    review.score.toString(),
-                    style: Theme.of(context).textTheme.bodySmall,
-                  ),
+                  review.favorite
+                      ? Container(
+                          width: 120,
+                          decoration: BoxDecoration(
+                            color: Colors.white.withOpacity(0.1),
+                            borderRadius: BorderRadius.circular(100),
+                          ),
+                          padding: EdgeInsets.all(5),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Icon(
+                                FontAwesomeIcons.solidHeart,
+                                color: Colors.red,
+                                size: 20,
+                              ),
+                              SizedBox(width: 5),
+                              Text(
+                                t.moviePage.body.favorite,
+                                style: Theme.of(context).textTheme.bodySmall,
+                              ),
+                            ],
+                          ),
+                        )
+                      : SizedBox(),
+                  SizedBox(width: 5.0),
+                  review.score != '0'
+                      ? Container(
+                          width: 60,
+                          decoration: BoxDecoration(
+                            color: Colors.white.withOpacity(0.1),
+                            borderRadius: BorderRadius.circular(100),
+                          ),
+                          padding: EdgeInsets.all(5),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Icon(FontAwesomeIcons.solidStar,
+                                  color: Theme.of(context).colorScheme.scrim,
+                                  size: 20),
+                              SizedBox(width: 6),
+                              Text(
+                                review.score,
+                                style: Theme.of(context).textTheme.bodySmall,
+                              ),
+                            ],
+                          ),
+                        )
+                      : SizedBox(),
                 ],
               ),
             ],

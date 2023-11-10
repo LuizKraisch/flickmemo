@@ -1,3 +1,4 @@
+import 'package:flickmemo/env.dart';
 import 'package:flickmemo/models/flickmemo_user.dart';
 import 'package:flickmemo/models/movie.dart';
 import 'package:flickmemo/pages/movie_page.dart';
@@ -36,7 +37,7 @@ class MoviePoster extends StatelessWidget {
           image: DecorationImage(
               image: NetworkImage(
                 movie.posterPath.isNotEmpty
-                    ? 'https://www.themoviedb.org/t/p/original/${movie.posterPath}'
+                    ? '$tmdbImagesUrl/${movie.posterPath}'
                     : 'https://wallpapers.com/images/featured/solid-grey-ew5fya1gh2bgc49b.jpg',
               ),
               fit: BoxFit.cover),

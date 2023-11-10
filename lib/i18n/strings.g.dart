@@ -4,9 +4,9 @@
 /// To regenerate, run: `dart run slang`
 ///
 /// Locales: 2
-/// Strings: 142 (71 per locale)
+/// Strings: 144 (72 per locale)
 ///
-/// Built on 2023-11-10 at 00:35 UTC
+/// Built on 2023-11-10 at 01:11 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -382,6 +382,7 @@ class _StringsMoviePageBodyEn {
 	late final _StringsMoviePageBodyStatsEn stats = _StringsMoviePageBodyStatsEn._(_root);
 	String get reviews => 'Reviews';
 	String get yourReview => 'Your review';
+	String get favorite => 'Favorite';
 	String get similarMovies => 'Similar Movies';
 	String get emptyReviews => 'There are no reviews to show.';
 }
@@ -780,6 +781,7 @@ class _StringsMoviePageBodyPt implements _StringsMoviePageBodyEn {
 	@override late final _StringsMoviePageBodyStatsPt stats = _StringsMoviePageBodyStatsPt._(_root);
 	@override String get reviews => 'Reviews';
 	@override String get yourReview => 'Sua review';
+	@override String get favorite => 'Favorito';
 	@override String get similarMovies => 'Filmes similares';
 	@override String get emptyReviews => 'Não há reviews para mostrar.';
 }
@@ -981,6 +983,7 @@ extension on _StringsEn {
 			case 'moviePage.body.stats.releaseDate': return 'RELEASE DATE';
 			case 'moviePage.body.reviews': return 'Reviews';
 			case 'moviePage.body.yourReview': return 'Your review';
+			case 'moviePage.body.favorite': return 'Favorite';
 			case 'moviePage.body.similarMovies': return 'Similar Movies';
 			case 'moviePage.body.emptyReviews': return 'There are no reviews to show.';
 			case 'moviePage.reviewModal.title': return 'Adding review for...';
@@ -1060,6 +1063,7 @@ extension on _StringsPt {
 			case 'moviePage.body.stats.releaseDate': return 'LANÇAMENTO';
 			case 'moviePage.body.reviews': return 'Reviews';
 			case 'moviePage.body.yourReview': return 'Sua review';
+			case 'moviePage.body.favorite': return 'Favorito';
 			case 'moviePage.body.similarMovies': return 'Filmes similares';
 			case 'moviePage.body.emptyReviews': return 'Não há reviews para mostrar.';
 			case 'moviePage.reviewModal.title': return 'Adicionando review para...';

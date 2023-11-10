@@ -23,7 +23,7 @@ class ExternalReviewBox extends StatelessWidget {
             color: Color(0xff1D1F24),
           ),
           child: Padding(
-            padding: const EdgeInsets.all(15.0),
+            padding: const EdgeInsets.all(12.0),
             child: Column(children: [
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -66,19 +66,31 @@ class ExternalReviewBox extends StatelessWidget {
                       ),
                     ],
                   ),
-                  Row(
-                    children: [
-                      Icon(FontAwesomeIcons.solidStar,
-                          color: Theme.of(context).colorScheme.scrim, size: 20),
-                      SizedBox(width: 5),
-                      Text(
-                        review.authorDetails["rating"] != null
-                            ? review.authorDetails["rating"].toString()
-                            : 'N/A',
-                        style: Theme.of(context).textTheme.bodySmall,
-                      ),
-                    ],
-                  ),
+                  Container(
+                    width: 70,
+                    decoration: BoxDecoration(
+                      color: Colors.white.withOpacity(0.1),
+                      borderRadius: BorderRadius.circular(100),
+                    ),
+                    padding: EdgeInsets.all(5),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Icon(
+                          FontAwesomeIcons.solidStar,
+                          color: Theme.of(context).colorScheme.scrim,
+                          size: 20,
+                        ),
+                        SizedBox(width: 6),
+                        Text(
+                          review.authorDetails["rating"] != null
+                              ? review.authorDetails["rating"].toString()
+                              : 'N/A',
+                          style: Theme.of(context).textTheme.bodySmall,
+                        ),
+                      ],
+                    ),
+                  )
                 ],
               ),
               SizedBox(height: 10),
@@ -86,7 +98,8 @@ class ExternalReviewBox extends StatelessWidget {
                 width: 300.00,
                 height: 50.00,
                 child: Text(
-                  formatExternalReviewContent(review.content), // TODO: Add separate place to show full review.
+                  formatExternalReviewContent(review
+                      .content), // TODO: Add separate place to show full review.
                   overflow: TextOverflow.ellipsis,
                   maxLines: 3,
                   style: Theme.of(context).textTheme.titleSmall,
