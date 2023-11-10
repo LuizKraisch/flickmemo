@@ -1,3 +1,4 @@
+import 'package:flickmemo/i18n/strings.g.dart';
 import 'package:flickmemo/services/helpers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
@@ -179,7 +180,7 @@ class _ReviewModalState extends State<ReviewModal> {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: <Widget>[
                                   Text(
-                                    'Adding review for...',
+                                    t.moviePage.reviewModal.title,
                                     style: GoogleFonts.poppins(
                                       fontSize: 16,
                                       color: Colors.white,
@@ -214,7 +215,7 @@ class _ReviewModalState extends State<ReviewModal> {
                           ),
                           SizedBox(height: 15.0),
                           Text(
-                            "Score",
+                            t.moviePage.reviewModal.fields.score,
                             style: GoogleFonts.poppins(
                               fontSize: 16,
                               color: Colors.white,
@@ -301,7 +302,8 @@ class _ReviewModalState extends State<ReviewModal> {
                                           ),
                                         ),
                                         Text(
-                                          'Favorite',
+                                          t.moviePage.reviewModal.buttons
+                                              .favorite,
                                           style: GoogleFonts.poppins(
                                             fontSize: 14,
                                             color: Colors.white,
@@ -347,7 +349,8 @@ class _ReviewModalState extends State<ReviewModal> {
                                                   ),
                                                 ),
                                                 Text(
-                                                  'Remove',
+                                                  t.moviePage.reviewModal
+                                                      .buttons.remove,
                                                   style: GoogleFonts.poppins(
                                                     fontSize: 14,
                                                     color: Colors.white,
@@ -366,7 +369,7 @@ class _ReviewModalState extends State<ReviewModal> {
                           Row(
                             children: [
                               Text(
-                                "Note",
+                                t.moviePage.reviewModal.fields.note,
                                 style: GoogleFonts.poppins(
                                   fontSize: 16,
                                   color: Colors.white,
@@ -377,7 +380,7 @@ class _ReviewModalState extends State<ReviewModal> {
                               Padding(
                                 padding: const EdgeInsets.only(top: 5.0),
                                 child: Text(
-                                  "Optional",
+                                  t.moviePage.reviewModal.fields.noteHint,
                                   style: TextStyle(
                                     fontSize: 11,
                                     color: Colors.grey.shade400,
@@ -414,7 +417,8 @@ class _ReviewModalState extends State<ReviewModal> {
                                 maxLines: null,
                                 decoration: InputDecoration(
                                   border: InputBorder.none,
-                                  hintText: 'Add a note...',
+                                  hintText: t.moviePage.reviewModal.fields
+                                      .notePlaceholder,
                                   hintStyle: GoogleFonts.poppins(
                                     fontSize: 16,
                                     fontStyle: FontStyle.normal,
@@ -453,7 +457,7 @@ class _ReviewModalState extends State<ReviewModal> {
                               ),
                               SizedBox(width: 8),
                               Text(
-                                'Note with spoilers',
+                                t.moviePage.reviewModal.fields.noteWithSpoilers,
                                 style: GoogleFonts.poppins(
                                   fontSize: 16,
                                   color: Colors.white,
@@ -475,7 +479,7 @@ class _ReviewModalState extends State<ReviewModal> {
                               ),
                               onPressed: () => submitReview(),
                               child: Text(
-                                "Save",
+                                t.moviePage.reviewModal.buttons.save,
                                 style:
                                     Theme.of(context).textTheme.headlineMedium,
                               ),
@@ -542,7 +546,7 @@ class ConfirmReviewRemovalModal extends StatelessWidget {
                     SizedBox(
                       width: 300.0,
                       child: Text(
-                        'Delete review?',
+                        t.moviePage.reviewModal.deleteReview.title,
                         overflow: TextOverflow.ellipsis,
                         style: GoogleFonts.poppins(
                           fontSize: 25,
@@ -554,7 +558,7 @@ class ConfirmReviewRemovalModal extends StatelessWidget {
                     SizedBox(
                       width: 300.0,
                       child: Text(
-                        'Are you sure you want to delete this review?',
+                        t.moviePage.reviewModal.deleteReview.subtitle,
                         style: GoogleFonts.poppins(
                           fontSize: 16,
                           color: Colors.white,
@@ -585,7 +589,7 @@ class ConfirmReviewRemovalModal extends StatelessWidget {
               ),
               onPressed: () => Navigator.pop(context),
               child: Text(
-                "No, Go Back",
+                t.moviePage.reviewModal.deleteReview.cancelButton,
                 style: GoogleFonts.poppins(
                   color: Color.fromARGB(255, 60, 60, 60),
                   fontWeight: FontWeight.w600,
@@ -605,7 +609,7 @@ class ConfirmReviewRemovalModal extends StatelessWidget {
                 removeReview();
               },
               child: Text(
-                "Yes, delete",
+                t.moviePage.reviewModal.deleteReview.confirmButton,
                 style: Theme.of(context).textTheme.headlineMedium,
               ),
             ),

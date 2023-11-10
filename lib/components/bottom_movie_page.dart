@@ -1,4 +1,5 @@
 import 'package:flickmemo/components/review_modal.dart';
+import 'package:flickmemo/i18n/strings.g.dart';
 import 'package:flickmemo/models/flickmemo_user.dart';
 import 'package:flickmemo/models/movie.dart';
 import 'package:flickmemo/models/review.dart';
@@ -61,7 +62,9 @@ class _BottomMoviePageState extends State<BottomMoviePage> {
             );
           },
           child: Text(
-            userReview == null ? "Review" : "Edit Review",
+            userReview == null
+                ? t.moviePage.footer.review
+                : t.moviePage.footer.editReview,
             style: Theme.of(context).textTheme.headlineMedium,
           ),
         ),

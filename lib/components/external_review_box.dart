@@ -83,14 +83,15 @@ class ExternalReviewBox extends StatelessWidget {
               ),
               SizedBox(height: 10),
               SizedBox(
-                width: 300.0,
-                height: 50.0,
+                width: 300.00,
+                height: 50.00,
                 child: Text(
-                  formatExternalReviewContent(review.content),
+                  formatExternalReviewContent(review.content), // TODO: Add separate place to show full review.
                   overflow: TextOverflow.ellipsis,
+                  maxLines: 3,
                   style: Theme.of(context).textTheme.titleSmall,
                 ),
-              ),
+              )
             ]),
           ),
         ),

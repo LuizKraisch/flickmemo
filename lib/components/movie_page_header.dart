@@ -66,11 +66,13 @@ class MoviePageHeader extends StatelessWidget {
                 style: Theme.of(context).textTheme.titleSmall,
               ),
               const SizedBox(height: 5.0),
-              Text(
-                movie?.tagline as String,
-                textAlign: TextAlign.center,
-                style: Theme.of(context).textTheme.titleMedium,
-              ),
+              movie?.tagline == ""
+                  ? Container()
+                  : Text(
+                      movie?.tagline as String,
+                      textAlign: TextAlign.center,
+                      style: Theme.of(context).textTheme.titleMedium,
+                    ),
               const SizedBox(height: 5.0),
               Center(
                 child: Row(

@@ -1,3 +1,4 @@
+import 'package:flickmemo/i18n/strings.g.dart';
 import 'package:flickmemo/models/review.dart';
 import 'package:flickmemo/services/formatters.dart';
 import 'package:flutter/material.dart';
@@ -29,7 +30,7 @@ class UserReviewBox extends StatelessWidget {
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text("Your Review",
+                  Text(t.moviePage.body.yourReview,
                       style: Theme.of(context).textTheme.headlineMedium),
                   Text(
                     formatExternalReviewDate(review.createdAt),

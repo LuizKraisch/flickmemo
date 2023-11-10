@@ -100,8 +100,34 @@
         "releaseDate": "LANÇAMENTO"
       },
       "reviews": "Reviews",
+      "yourReview": "Sua review",
       "similarMovies": "Filmes similares",
       "emptyReviews": "Não há reviews para mostrar."
+    },
+    "reviewModal": {
+      "title": "Adicionando review para...",
+      "fields": {
+        "score": "Nota",
+        "note": "Comentário",
+        "noteHint": "Opcional",
+        "notePlaceholder": "Escreva algo sobre esse filme...",
+        "noteWithSpoilers": "Comentário com spoilers"
+      },
+      "buttons": {
+        "save": "Salvar",
+        "favorite": "Favoritar",
+        "remove": "Excluir"
+      },
+      "deleteReview": {
+        "title": "Excluir review",
+        "subtitle": "Tem certeza que deseja excluir esta review?",
+        "cancelButton": "Não, volte",
+        "confirmButton": "Sim, excluia"
+      }
+    },
+    "footer": {
+      "review": "Review",
+      "editReview": "Editar Review"
     }
   }
 }

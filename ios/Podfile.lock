@@ -232,7 +232,7 @@ SPEC CHECKSUMS:
   Flutter: f04841e97a9d0b0a8025694d0796dd46242b2854
   flutter_localization: f43b18844a2b3d2c71fd64f04ffd6b1e64dd54d4
   flutter_native_splash: 52501b97d1c0a5f898d687f1646226c1f93c56ef
-  fluttertoast: fafc4fa4d01a6a9e4f772ecd190ffa525e9e2d9c
+  fluttertoast: 31b00dabfa7fb7bacd9e7dbee580d7a2ff4bf265
   google_sign_in_ios: 1256ff9d941db546373826966720b0c24804bcdd
   GoogleDataTransport: 54dee9d48d14580407f8f5fbf2f496e92437a2f2
   GoogleSignIn: 5651ce3a61e56ca864160e79b484cd9ed3f49b7a
@@ -249,4 +249,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: 70d9d25280d0dd177a5f637cdb0f0b0b12c6a189
 
-COCOAPODS: 1.11.3
+COCOAPODS: 1.14.2

@@ -121,16 +121,14 @@ class MovieCard extends StatelessWidget {
                         ),
                       ),
                       SizedBox(width: 10),
-                      ConstrainedBox(
-                        constraints: BoxConstraints(
-                          minWidth: 200.0,
-                          maxWidth: 235.0,
-                          minHeight: 30.0,
-                          maxHeight: 30.0,
-                        ),
+                      SizedBox(
+                        width: 235.00,
+                        height: 30.00,
                         child: Text(
                           movie.overview,
                           style: Theme.of(context).textTheme.titleMedium,
+                          overflow: TextOverflow.ellipsis,
+                          maxLines: 2,
                         ),
                       ),
                     ],

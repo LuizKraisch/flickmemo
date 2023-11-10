@@ -4,9 +4,9 @@
 /// To regenerate, run: `dart run slang`
 ///
 /// Locales: 2
-/// Strings: 110 (55 per locale)
+/// Strings: 142 (71 per locale)
 ///
-/// Built on 2023-11-09 at 01:26 UTC
+/// Built on 2023-11-10 at 00:35 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -247,6 +247,8 @@ class _StringsMoviePageEn {
 
 	// Translations
 	late final _StringsMoviePageBodyEn body = _StringsMoviePageBodyEn._(_root);
+	late final _StringsMoviePageReviewModalEn reviewModal = _StringsMoviePageReviewModalEn._(_root);
+	late final _StringsMoviePageFooterEn footer = _StringsMoviePageFooterEn._(_root);
 }
 
 // Path: common.bottomNavBar
@@ -379,8 +381,33 @@ class _StringsMoviePageBodyEn {
 	late final _StringsMoviePageBodyOverviewEn overview = _StringsMoviePageBodyOverviewEn._(_root);
 	late final _StringsMoviePageBodyStatsEn stats = _StringsMoviePageBodyStatsEn._(_root);
 	String get reviews => 'Reviews';
+	String get yourReview => 'Your review';
 	String get similarMovies => 'Similar Movies';
 	String get emptyReviews => 'There are no reviews to show.';
+}
+
+// Path: moviePage.reviewModal
+class _StringsMoviePageReviewModalEn {
+	_StringsMoviePageReviewModalEn._(this._root);
+
+	final _StringsEn _root; // ignore: unused_field
+
+	// Translations
+	String get title => 'Adding review for...';
+	late final _StringsMoviePageReviewModalFieldsEn fields = _StringsMoviePageReviewModalFieldsEn._(_root);
+	late final _StringsMoviePageReviewModalButtonsEn buttons = _StringsMoviePageReviewModalButtonsEn._(_root);
+	late final _StringsMoviePageReviewModalDeleteReviewEn deleteReview = _StringsMoviePageReviewModalDeleteReviewEn._(_root);
+}
+
+// Path: moviePage.footer
+class _StringsMoviePageFooterEn {
+	_StringsMoviePageFooterEn._(this._root);
+
+	final _StringsEn _root; // ignore: unused_field
+
+	// Translations
+	String get review => 'Review';
+	String get editReview => 'Edit Review';
 }
 
 // Path: common.sideDrawer.logOutDialog
@@ -455,6 +482,45 @@ class _StringsMoviePageBodyStatsEn {
 	String get imdbLink => 'SEE IT ON IMDB';
 	String get visitImdb => 'Visit';
 	String get releaseDate => 'RELEASE DATE';
+}
+
+// Path: moviePage.reviewModal.fields
+class _StringsMoviePageReviewModalFieldsEn {
+	_StringsMoviePageReviewModalFieldsEn._(this._root);
+
+	final _StringsEn _root; // ignore: unused_field
+
+	// Translations
+	String get score => 'Score';
+	String get note => 'Note';
+	String get noteHint => 'Optional';
+	String get notePlaceholder => 'Write something about this movie...';
+	String get noteWithSpoilers => 'Note with spoilers';
+}
+
+// Path: moviePage.reviewModal.buttons
+class _StringsMoviePageReviewModalButtonsEn {
+	_StringsMoviePageReviewModalButtonsEn._(this._root);
+
+	final _StringsEn _root; // ignore: unused_field
+
+	// Translations
+	String get save => 'Save';
+	String get favorite => 'Favorite';
+	String get remove => 'Remove';
+}
+
+// Path: moviePage.reviewModal.deleteReview
+class _StringsMoviePageReviewModalDeleteReviewEn {
+	_StringsMoviePageReviewModalDeleteReviewEn._(this._root);
+
+	final _StringsEn _root; // ignore: unused_field
+
+	// Translations
+	String get title => 'Delete review';
+	String get subtitle => 'Are you sure you want to delete this review?';
+	String get cancelButton => 'No, Go Back';
+	String get confirmButton => 'Yes, delete';
 }
 
 // Path: <root>
@@ -579,6 +645,8 @@ class _StringsMoviePagePt implements _StringsMoviePageEn {
 
 	// Translations
 	@override late final _StringsMoviePageBodyPt body = _StringsMoviePageBodyPt._(_root);
+	@override late final _StringsMoviePageReviewModalPt reviewModal = _StringsMoviePageReviewModalPt._(_root);
+	@override late final _StringsMoviePageFooterPt footer = _StringsMoviePageFooterPt._(_root);
 }
 
 // Path: common.bottomNavBar
@@ -711,8 +779,33 @@ class _StringsMoviePageBodyPt implements _StringsMoviePageBodyEn {
 	@override late final _StringsMoviePageBodyOverviewPt overview = _StringsMoviePageBodyOverviewPt._(_root);
 	@override late final _StringsMoviePageBodyStatsPt stats = _StringsMoviePageBodyStatsPt._(_root);
 	@override String get reviews => 'Reviews';
+	@override String get yourReview => 'Sua review';
 	@override String get similarMovies => 'Filmes similares';
 	@override String get emptyReviews => 'Não há reviews para mostrar.';
+}
+
+// Path: moviePage.reviewModal
+class _StringsMoviePageReviewModalPt implements _StringsMoviePageReviewModalEn {
+	_StringsMoviePageReviewModalPt._(this._root);
+
+	@override final _StringsPt _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'Adicionando review para...';
+	@override late final _StringsMoviePageReviewModalFieldsPt fields = _StringsMoviePageReviewModalFieldsPt._(_root);
+	@override late final _StringsMoviePageReviewModalButtonsPt buttons = _StringsMoviePageReviewModalButtonsPt._(_root);
+	@override late final _StringsMoviePageReviewModalDeleteReviewPt deleteReview = _StringsMoviePageReviewModalDeleteReviewPt._(_root);
+}
+
+// Path: moviePage.footer
+class _StringsMoviePageFooterPt implements _StringsMoviePageFooterEn {
+	_StringsMoviePageFooterPt._(this._root);
+
+	@override final _StringsPt _root; // ignore: unused_field
+
+	// Translations
+	@override String get review => 'Review';
+	@override String get editReview => 'Editar Review';
 }
 
 // Path: common.sideDrawer.logOutDialog
@@ -789,6 +882,45 @@ class _StringsMoviePageBodyStatsPt implements _StringsMoviePageBodyStatsEn {
 	@override String get releaseDate => 'LANÇAMENTO';
 }
 
+// Path: moviePage.reviewModal.fields
+class _StringsMoviePageReviewModalFieldsPt implements _StringsMoviePageReviewModalFieldsEn {
+	_StringsMoviePageReviewModalFieldsPt._(this._root);
+
+	@override final _StringsPt _root; // ignore: unused_field
+
+	// Translations
+	@override String get score => 'Nota';
+	@override String get note => 'Comentário';
+	@override String get noteHint => 'Opcional';
+	@override String get notePlaceholder => 'Escreva algo sobre esse filme...';
+	@override String get noteWithSpoilers => 'Comentário com spoilers';
+}
+
+// Path: moviePage.reviewModal.buttons
+class _StringsMoviePageReviewModalButtonsPt implements _StringsMoviePageReviewModalButtonsEn {
+	_StringsMoviePageReviewModalButtonsPt._(this._root);
+
+	@override final _StringsPt _root; // ignore: unused_field
+
+	// Translations
+	@override String get save => 'Salvar';
+	@override String get favorite => 'Favoritar';
+	@override String get remove => 'Excluir';
+}
+
+// Path: moviePage.reviewModal.deleteReview
+class _StringsMoviePageReviewModalDeleteReviewPt implements _StringsMoviePageReviewModalDeleteReviewEn {
+	_StringsMoviePageReviewModalDeleteReviewPt._(this._root);
+
+	@override final _StringsPt _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'Excluir review';
+	@override String get subtitle => 'Tem certeza que deseja excluir esta review?';
+	@override String get cancelButton => 'Não, volte';
+	@override String get confirmButton => 'Sim, excluia';
+}
+
 /// Flat map(s) containing all translations.
 /// Only for edge cases! For simple maps, use the map function of this library.
 
@@ -848,8 +980,24 @@ extension on _StringsEn {
 			case 'moviePage.body.stats.visitImdb': return 'Visit';
 			case 'moviePage.body.stats.releaseDate': return 'RELEASE DATE';
 			case 'moviePage.body.reviews': return 'Reviews';
+			case 'moviePage.body.yourReview': return 'Your review';
 			case 'moviePage.body.similarMovies': return 'Similar Movies';
 			case 'moviePage.body.emptyReviews': return 'There are no reviews to show.';
+			case 'moviePage.reviewModal.title': return 'Adding review for...';
+			case 'moviePage.reviewModal.fields.score': return 'Score';
+			case 'moviePage.reviewModal.fields.note': return 'Note';
+			case 'moviePage.reviewModal.fields.noteHint': return 'Optional';
+			case 'moviePage.reviewModal.fields.notePlaceholder': return 'Write something about this movie...';
+			case 'moviePage.reviewModal.fields.noteWithSpoilers': return 'Note with spoilers';
+			case 'moviePage.reviewModal.buttons.save': return 'Save';
+			case 'moviePage.reviewModal.buttons.favorite': return 'Favorite';
+			case 'moviePage.reviewModal.buttons.remove': return 'Remove';
+			case 'moviePage.reviewModal.deleteReview.title': return 'Delete review';
+			case 'moviePage.reviewModal.deleteReview.subtitle': return 'Are you sure you want to delete this review?';
+			case 'moviePage.reviewModal.deleteReview.cancelButton': return 'No, Go Back';
+			case 'moviePage.reviewModal.deleteReview.confirmButton': return 'Yes, delete';
+			case 'moviePage.footer.review': return 'Review';
+			case 'moviePage.footer.editReview': return 'Edit Review';
 			default: return null;
 		}
 	}
@@ -911,8 +1059,24 @@ extension on _StringsPt {
 			case 'moviePage.body.stats.visitImdb': return 'Visitar';
 			case 'moviePage.body.stats.releaseDate': return 'LANÇAMENTO';
 			case 'moviePage.body.reviews': return 'Reviews';
+			case 'moviePage.body.yourReview': return 'Sua review';
 			case 'moviePage.body.similarMovies': return 'Filmes similares';
 			case 'moviePage.body.emptyReviews': return 'Não há reviews para mostrar.';
+			case 'moviePage.reviewModal.title': return 'Adicionando review para...';
+			case 'moviePage.reviewModal.fields.score': return 'Nota';
+			case 'moviePage.reviewModal.fields.note': return 'Comentário';
+			case 'moviePage.reviewModal.fields.noteHint': return 'Opcional';
+			case 'moviePage.reviewModal.fields.notePlaceholder': return 'Escreva algo sobre esse filme...';
+			case 'moviePage.reviewModal.fields.noteWithSpoilers': return 'Comentário com spoilers';
+			case 'moviePage.reviewModal.buttons.save': return 'Salvar';
+			case 'moviePage.reviewModal.buttons.favorite': return 'Favoritar';
+			case 'moviePage.reviewModal.buttons.remove': return 'Excluir';
+			case 'moviePage.reviewModal.deleteReview.title': return 'Excluir review';
+			case 'moviePage.reviewModal.deleteReview.subtitle': return 'Tem certeza que deseja excluir esta review?';
+			case 'moviePage.reviewModal.deleteReview.cancelButton': return 'Não, volte';
+			case 'moviePage.reviewModal.deleteReview.confirmButton': return 'Sim, excluia';
+			case 'moviePage.footer.review': return 'Review';
+			case 'moviePage.footer.editReview': return 'Editar Review';
 			default: return null;
 		}
 	}

@@ -66,5 +66,6 @@ String formatRuntime(String inputRuntime) {
 String formatFloat(String float) {
   final double number = double.parse(float);
   final String formattedNumber = number.toStringAsFixed(1);
+
   return formattedNumber;
 }
