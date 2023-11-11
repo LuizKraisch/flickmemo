@@ -3,6 +3,7 @@ import 'package:flickmemo/models/flickmemo_user.dart';
 import 'package:flickmemo/services/formatters.dart';
 import 'package:flickmemo/services/user_service.dart';
 import 'package:flutter/material.dart';
+import 'package:loading_animation_widget/loading_animation_widget.dart';
 
 class ProfileHeader extends StatefulWidget {
   final FlickmemoUser? currentFlickmemoUser;
@@ -111,7 +112,10 @@ class _ProfileHeaderState extends State<ProfileHeader> {
             ),
           )
         : Center(
-            child: CircularProgressIndicator(),
+            child: LoadingAnimationWidget.fourRotatingDots(
+              color: Theme.of(context).colorScheme.primary,
+              size: 50.0,
+            ),
           );
   }
 }

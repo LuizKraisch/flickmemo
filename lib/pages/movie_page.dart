@@ -5,8 +5,8 @@ import 'package:flickmemo/models/flickmemo_user.dart';
 import 'package:flickmemo/services/movie_service.dart';
 import 'package:flickmemo/services/user_service.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:loading_animation_widget/loading_animation_widget.dart';
 
 class MoviePage extends StatefulWidget {
   final FlickmemoUser? currentFlickmemoUser;
@@ -121,9 +121,9 @@ class _MoviePageState extends State<MoviePage> {
                                 width: 24,
                                 height: 24,
                                 padding: const EdgeInsets.all(2.0),
-                                child: const CircularProgressIndicator(
+                                child: LoadingAnimationWidget.fourRotatingDots(
                                   color: Colors.white,
-                                  strokeWidth: 3,
+                                  size: 20.0,
                                 ),
                               )
                             : addedToWatchlist
@@ -149,7 +149,7 @@ class _MoviePageState extends State<MoviePage> {
               )
             ])
           : Center(
-              child: SpinKitSquareCircle(
+              child: LoadingAnimationWidget.fourRotatingDots(
                 color: Theme.of(context).colorScheme.primary,
                 size: 50.0,
               ),

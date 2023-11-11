@@ -6,6 +6,7 @@ import 'package:flickmemo/models/movie.dart';
 import 'package:flickmemo/services/user_service.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:loading_animation_widget/loading_animation_widget.dart';
 
 class RecentMovies extends StatefulWidget {
   final FlickmemoUser? currentFlickmemoUser;
@@ -64,7 +65,11 @@ class _RecentMoviesState extends State<RecentMovies> {
               future: _moviesFuture,
               builder: (context, snapshot) {
                 if (snapshot.connectionState == ConnectionState.waiting) {
-                  return Center(child: CircularProgressIndicator());
+                  return Center(
+                      child: LoadingAnimationWidget.fourRotatingDots(
+                    color: Theme.of(context).colorScheme.primary,
+                    size: 50.0,
+                  ));
                 } else if (snapshot.hasError) {
                   return Center(
                     child: ErrorInfo(errorMessage: snapshot.error.toString()),

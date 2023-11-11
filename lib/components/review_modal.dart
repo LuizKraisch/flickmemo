@@ -1,13 +1,13 @@
 import 'package:flickmemo/i18n/strings.g.dart';
 import 'package:flickmemo/services/helpers.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flickmemo/models/flickmemo_user.dart';
 import 'package:flickmemo/models/movie.dart';
 import 'package:flickmemo/models/review.dart';
 import 'package:flickmemo/services/review_service.dart';
+import 'package:loading_animation_widget/loading_animation_widget.dart';
 
 class ReviewModal extends StatefulWidget {
   final FlickmemoUser? currentFlickmemoUser;
@@ -490,7 +490,7 @@ class _ReviewModalState extends State<ReviewModal> {
                   ),
                 )
               : Center(
-                  child: SpinKitSquareCircle(
+                  child: LoadingAnimationWidget.fourRotatingDots(
                     color: Theme.of(context).colorScheme.primary,
                     size: 50.0,
                   ),

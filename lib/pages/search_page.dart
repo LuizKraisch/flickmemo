@@ -6,6 +6,7 @@ import 'package:flickmemo/models/movie.dart';
 import 'package:flickmemo/services/movie_service.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:loading_animation_widget/loading_animation_widget.dart';
 
 class SearchPage extends StatefulWidget {
   final FlickmemoUser? currentFlickmemoUser;
@@ -84,10 +85,13 @@ class _SearchPageState extends State<SearchPage> {
                           return Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             crossAxisAlignment: CrossAxisAlignment.start,
-                            children: const [
+                            children: [
                               Padding(
                                 padding: EdgeInsets.only(top: 80.0),
-                                child: CircularProgressIndicator(),
+                                child: LoadingAnimationWidget.fourRotatingDots(
+                                  color: Theme.of(context).colorScheme.primary,
+                                  size: 50.0,
+                                ),
                               ),
                             ],
                           );
