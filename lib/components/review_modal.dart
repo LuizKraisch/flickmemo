@@ -87,7 +87,7 @@ class _ReviewModalState extends State<ReviewModal> {
       widget.review != null ? updateReview() : createReview();
       Navigator.pop(context);
     } else {
-      addToast("Please, fill all the mandatory fields");
+      addToast(t.toast.review.fillAllTheFields);
     }
   }
 
@@ -102,9 +102,8 @@ class _ReviewModalState extends State<ReviewModal> {
         "noteHasSpoilers": formNoteHasSpoilers,
         "favorite": userFavorite,
       },
-      movieId: movie!.uuid,
+      movieId: movie!.id,
     );
-    addToast("Review saved");
   }
 
   void updateReview() {
@@ -119,7 +118,6 @@ class _ReviewModalState extends State<ReviewModal> {
         "favorite": userFavorite,
       },
     );
-    addToast("Review updated");
   }
 
   void removeReview() {
@@ -129,7 +127,6 @@ class _ReviewModalState extends State<ReviewModal> {
     );
     Navigator.pop(context);
     Navigator.pop(context);
-    addToast("Review removed");
   }
 
   @override
@@ -190,7 +187,9 @@ class _ReviewModalState extends State<ReviewModal> {
                                   SizedBox(
                                     width: 300.0,
                                     child: Text(
-                                      movie?.title ?? 'Movie Title',
+                                      movie?.title ??
+                                          t.moviePage.reviewModal
+                                              .movieTitlePlaceholder,
                                       overflow: TextOverflow.ellipsis,
                                       style: GoogleFonts.poppins(
                                         fontSize: 25,

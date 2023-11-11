@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'package:flickmemo/env.dart';
+import 'package:flickmemo/i18n/strings.g.dart';
 import 'package:flickmemo/models/review.dart';
 import 'package:flickmemo/services/helpers.dart';
 import 'package:flutter/material.dart';
@@ -26,7 +27,7 @@ class ReviewService {
       Map<String, dynamic> decodedResponse = json.decode(response.body);
       return Review.fromJson(decodedResponse);
     } else {
-      addToast("Error when loading the review. Please, try again");
+      addToast(t.toast.review.error);
       throw Exception('Error when loading the review');
     }
   }
@@ -56,9 +57,9 @@ class ReviewService {
     );
 
     if (response.statusCode == 200) {
-      return true;
+      addToast(t.toast.review.reviewSaved);
     } else {
-      addToast("Error when adding the review. Please, try again");
+      addToast(t.toast.review.error);
       throw Exception('Error when adding the review.');
     }
   }
@@ -86,9 +87,9 @@ class ReviewService {
     );
 
     if (response.statusCode == 200) {
-      return true;
+      addToast(t.toast.review.reviewUpdated);
     } else {
-      addToast("Error when updating the review. Please, try again");
+      addToast(t.toast.review.error);
       throw Exception('Error when updating the review.');
     }
   }
@@ -107,9 +108,9 @@ class ReviewService {
     );
 
     if (response.statusCode == 200) {
-      return true;
+      addToast(t.toast.review.reviewRemoved);
     } else {
-      addToast("Error when deleting the review. Please, try again");
+      addToast(t.toast.review.error);
       throw Exception('Error when deleting the review.');
     }
   }

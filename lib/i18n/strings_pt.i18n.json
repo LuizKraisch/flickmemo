@@ -17,6 +17,18 @@
         "licenses": "Licenças",
         "logOut": "Sair",
         "developer": "Falar com o desenvolvedor"
+      },
+      "languageDialog": {
+        "title": "Mudar o idioma",
+        "help": "Mudar o idioma também mudará o idioma dos dados externos dos filmes. A mudança será aplicada nas próximas requisições.",
+        "options": {
+          "en": "Usar Inglês",
+          "pt": "Usar Português"
+        },
+        "toasts": {
+          "portugueseConfirmation": "Language changed to Portuguese",
+          "englishConfirmation": "Language changed to English"
+        }
       }
     }
   },
@@ -33,6 +45,13 @@
       "emailSubject": "Olá! Quero falar sobre o Flickmemo",
       "emailBody": "Aqui você escreve uma mensagem legal para mim :)",
       "imdbFailed": "Não foi possível acessar o IMDB. Por favor, tente novamente."
+    },
+    "review": {
+      "fillAllTheFields": "Por favor, preencha todos os campos",
+      "reviewSaved": "Review salva",
+      "reviewUpdated": "Review atualizada",
+      "reviewRemoved": "Review excluía",
+      "error": "Ocorreu um erro com a review. Por favor, tente novamente"
     }
   },
   "loginPage": {
@@ -107,6 +126,7 @@
     },
     "reviewModal": {
       "title": "Adicionando review para...",
+      "movieTitlePlaceholder": "Título do filme",
       "fields": {
         "score": "Nota",
         "note": "Comentário",

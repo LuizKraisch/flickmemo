@@ -4,9 +4,9 @@
 /// To regenerate, run: `dart run slang`
 ///
 /// Locales: 2
-/// Strings: 144 (72 per locale)
+/// Strings: 168 (84 per locale)
 ///
-/// Built on 2023-11-10 at 01:11 UTC
+/// Built on 2023-11-11 at 04:17 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -180,6 +180,7 @@ class _StringsToastEn {
 	// Translations
 	late final _StringsToastMoviesEn movies = _StringsToastMoviesEn._(_root);
 	late final _StringsToastHelpersEn helpers = _StringsToastHelpersEn._(_root);
+	late final _StringsToastReviewEn review = _StringsToastReviewEn._(_root);
 }
 
 // Path: loginPage
@@ -272,6 +273,7 @@ class _StringsCommonSideDrawerEn {
 	// Translations
 	late final _StringsCommonSideDrawerLogOutDialogEn logOutDialog = _StringsCommonSideDrawerLogOutDialogEn._(_root);
 	late final _StringsCommonSideDrawerOptionsEn options = _StringsCommonSideDrawerOptionsEn._(_root);
+	late final _StringsCommonSideDrawerLanguageDialogEn languageDialog = _StringsCommonSideDrawerLanguageDialogEn._(_root);
 }
 
 // Path: toast.movies
@@ -299,6 +301,20 @@ class _StringsToastHelpersEn {
 	String get emailSubject => 'Hello! I want to talk about Flickmemo';
 	String get emailBody => 'Here you write a nice message for me :)';
 	String get imdbFailed => 'Could not launch IMDb page. Please, try again.';
+}
+
+// Path: toast.review
+class _StringsToastReviewEn {
+	_StringsToastReviewEn._(this._root);
+
+	final _StringsEn _root; // ignore: unused_field
+
+	// Translations
+	String get fillAllTheFields => 'Please, fill all the mandatory fields';
+	String get reviewSaved => 'Review saved';
+	String get reviewUpdated => 'Review updated';
+	String get reviewRemoved => 'Review removed';
+	String get error => 'Error when loading the review. Please, try again';
 }
 
 // Path: homePage.movieCards
@@ -395,6 +411,7 @@ class _StringsMoviePageReviewModalEn {
 
 	// Translations
 	String get title => 'Adding review for...';
+	String get movieTitlePlaceholder => 'Movie title';
 	late final _StringsMoviePageReviewModalFieldsEn fields = _StringsMoviePageReviewModalFieldsEn._(_root);
 	late final _StringsMoviePageReviewModalButtonsEn buttons = _StringsMoviePageReviewModalButtonsEn._(_root);
 	late final _StringsMoviePageReviewModalDeleteReviewEn deleteReview = _StringsMoviePageReviewModalDeleteReviewEn._(_root);
@@ -435,6 +452,19 @@ class _StringsCommonSideDrawerOptionsEn {
 	String get licenses => 'Licenses';
 	String get logOut => 'Log out';
 	String get developer => 'Talk with the developer';
+}
+
+// Path: common.sideDrawer.languageDialog
+class _StringsCommonSideDrawerLanguageDialogEn {
+	_StringsCommonSideDrawerLanguageDialogEn._(this._root);
+
+	final _StringsEn _root; // ignore: unused_field
+
+	// Translations
+	String get title => 'Change language';
+	String get help => 'Changing the language will also change the external movie data language. The change will be applied on the next requests.';
+	late final _StringsCommonSideDrawerLanguageDialogOptionsEn options = _StringsCommonSideDrawerLanguageDialogOptionsEn._(_root);
+	late final _StringsCommonSideDrawerLanguageDialogToastsEn toasts = _StringsCommonSideDrawerLanguageDialogToastsEn._(_root);
 }
 
 // Path: homePage.movieCards.noMoreMovies
@@ -524,6 +554,28 @@ class _StringsMoviePageReviewModalDeleteReviewEn {
 	String get confirmButton => 'Yes, delete';
 }
 
+// Path: common.sideDrawer.languageDialog.options
+class _StringsCommonSideDrawerLanguageDialogOptionsEn {
+	_StringsCommonSideDrawerLanguageDialogOptionsEn._(this._root);
+
+	final _StringsEn _root; // ignore: unused_field
+
+	// Translations
+	String get en => 'Use English';
+	String get pt => 'Use Portuguese';
+}
+
+// Path: common.sideDrawer.languageDialog.toasts
+class _StringsCommonSideDrawerLanguageDialogToastsEn {
+	_StringsCommonSideDrawerLanguageDialogToastsEn._(this._root);
+
+	final _StringsEn _root; // ignore: unused_field
+
+	// Translations
+	String get portugueseConfirmation => 'Idioma alterado para Português';
+	String get englishConfirmation => 'Idioma alterado para Inglês';
+}
+
 // Path: <root>
 class _StringsPt implements _StringsEn {
 
@@ -579,6 +631,7 @@ class _StringsToastPt implements _StringsToastEn {
 	// Translations
 	@override late final _StringsToastMoviesPt movies = _StringsToastMoviesPt._(_root);
 	@override late final _StringsToastHelpersPt helpers = _StringsToastHelpersPt._(_root);
+	@override late final _StringsToastReviewPt review = _StringsToastReviewPt._(_root);
 }
 
 // Path: loginPage
@@ -671,6 +724,7 @@ class _StringsCommonSideDrawerPt implements _StringsCommonSideDrawerEn {
 	// Translations
 	@override late final _StringsCommonSideDrawerLogOutDialogPt logOutDialog = _StringsCommonSideDrawerLogOutDialogPt._(_root);
 	@override late final _StringsCommonSideDrawerOptionsPt options = _StringsCommonSideDrawerOptionsPt._(_root);
+	@override late final _StringsCommonSideDrawerLanguageDialogPt languageDialog = _StringsCommonSideDrawerLanguageDialogPt._(_root);
 }
 
 // Path: toast.movies
@@ -698,6 +752,20 @@ class _StringsToastHelpersPt implements _StringsToastHelpersEn {
 	@override String get emailSubject => 'Olá! Quero falar sobre o Flickmemo';
 	@override String get emailBody => 'Aqui você escreve uma mensagem legal para mim :)';
 	@override String get imdbFailed => 'Não foi possível acessar o IMDB. Por favor, tente novamente.';
+}
+
+// Path: toast.review
+class _StringsToastReviewPt implements _StringsToastReviewEn {
+	_StringsToastReviewPt._(this._root);
+
+	@override final _StringsPt _root; // ignore: unused_field
+
+	// Translations
+	@override String get fillAllTheFields => 'Por favor, preencha todos os campos';
+	@override String get reviewSaved => 'Review salva';
+	@override String get reviewUpdated => 'Review atualizada';
+	@override String get reviewRemoved => 'Review excluía';
+	@override String get error => 'Ocorreu um erro com a review. Por favor, tente novamente';
 }
 
 // Path: homePage.movieCards
@@ -794,6 +862,7 @@ class _StringsMoviePageReviewModalPt implements _StringsMoviePageReviewModalEn {
 
 	// Translations
 	@override String get title => 'Adicionando review para...';
+	@override String get movieTitlePlaceholder => 'Título do filme';
 	@override late final _StringsMoviePageReviewModalFieldsPt fields = _StringsMoviePageReviewModalFieldsPt._(_root);
 	@override late final _StringsMoviePageReviewModalButtonsPt buttons = _StringsMoviePageReviewModalButtonsPt._(_root);
 	@override late final _StringsMoviePageReviewModalDeleteReviewPt deleteReview = _StringsMoviePageReviewModalDeleteReviewPt._(_root);
@@ -834,6 +903,19 @@ class _StringsCommonSideDrawerOptionsPt implements _StringsCommonSideDrawerOptio
 	@override String get licenses => 'Licenças';
 	@override String get logOut => 'Sair';
 	@override String get developer => 'Falar com o desenvolvedor';
+}
+
+// Path: common.sideDrawer.languageDialog
+class _StringsCommonSideDrawerLanguageDialogPt implements _StringsCommonSideDrawerLanguageDialogEn {
+	_StringsCommonSideDrawerLanguageDialogPt._(this._root);
+
+	@override final _StringsPt _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'Mudar o idioma';
+	@override String get help => 'Mudar o idioma também mudará o idioma dos dados externos dos filmes. A mudança será aplicada nas próximas requisições.';
+	@override late final _StringsCommonSideDrawerLanguageDialogOptionsPt options = _StringsCommonSideDrawerLanguageDialogOptionsPt._(_root);
+	@override late final _StringsCommonSideDrawerLanguageDialogToastsPt toasts = _StringsCommonSideDrawerLanguageDialogToastsPt._(_root);
 }
 
 // Path: homePage.movieCards.noMoreMovies
@@ -923,6 +1005,28 @@ class _StringsMoviePageReviewModalDeleteReviewPt implements _StringsMoviePageRev
 	@override String get confirmButton => 'Sim, excluia';
 }
 
+// Path: common.sideDrawer.languageDialog.options
+class _StringsCommonSideDrawerLanguageDialogOptionsPt implements _StringsCommonSideDrawerLanguageDialogOptionsEn {
+	_StringsCommonSideDrawerLanguageDialogOptionsPt._(this._root);
+
+	@override final _StringsPt _root; // ignore: unused_field
+
+	// Translations
+	@override String get en => 'Usar Inglês';
+	@override String get pt => 'Usar Português';
+}
+
+// Path: common.sideDrawer.languageDialog.toasts
+class _StringsCommonSideDrawerLanguageDialogToastsPt implements _StringsCommonSideDrawerLanguageDialogToastsEn {
+	_StringsCommonSideDrawerLanguageDialogToastsPt._(this._root);
+
+	@override final _StringsPt _root; // ignore: unused_field
+
+	// Translations
+	@override String get portugueseConfirmation => 'Language changed to Portuguese';
+	@override String get englishConfirmation => 'Language changed to English';
+}
+
 /// Flat map(s) containing all translations.
 /// Only for edge cases! For simple maps, use the map function of this library.
 
@@ -940,6 +1044,12 @@ extension on _StringsEn {
 			case 'common.sideDrawer.options.licenses': return 'Licenses';
 			case 'common.sideDrawer.options.logOut': return 'Log out';
 			case 'common.sideDrawer.options.developer': return 'Talk with the developer';
+			case 'common.sideDrawer.languageDialog.title': return 'Change language';
+			case 'common.sideDrawer.languageDialog.help': return 'Changing the language will also change the external movie data language. The change will be applied on the next requests.';
+			case 'common.sideDrawer.languageDialog.options.en': return 'Use English';
+			case 'common.sideDrawer.languageDialog.options.pt': return 'Use Portuguese';
+			case 'common.sideDrawer.languageDialog.toasts.portugueseConfirmation': return 'Idioma alterado para Português';
+			case 'common.sideDrawer.languageDialog.toasts.englishConfirmation': return 'Idioma alterado para Inglês';
 			case 'toast.movies.movieAddedToWatchlist': return 'Movie added to your watchlist';
 			case 'toast.movies.movieAlreadyOnWatchlist': return 'This movie is already in your watchlist';
 			case 'toast.movies.failedtoAddToWatchlist': return 'Something went wrong when adding this movie to your watchlist. Please, try again';
@@ -949,6 +1059,11 @@ extension on _StringsEn {
 			case 'toast.helpers.emailSubject': return 'Hello! I want to talk about Flickmemo';
 			case 'toast.helpers.emailBody': return 'Here you write a nice message for me :)';
 			case 'toast.helpers.imdbFailed': return 'Could not launch IMDb page. Please, try again.';
+			case 'toast.review.fillAllTheFields': return 'Please, fill all the mandatory fields';
+			case 'toast.review.reviewSaved': return 'Review saved';
+			case 'toast.review.reviewUpdated': return 'Review updated';
+			case 'toast.review.reviewRemoved': return 'Review removed';
+			case 'toast.review.error': return 'Error when loading the review. Please, try again';
 			case 'loginPage.title': return 'Review films you\'ve watched. Save those you want to see.';
 			case 'loginPage.subtitle': return 'Welcome to Flickmemo. Let\'s start your lists!';
 			case 'loginPage.googleButton': return 'Continue with Google';
@@ -987,6 +1102,7 @@ extension on _StringsEn {
 			case 'moviePage.body.similarMovies': return 'Similar Movies';
 			case 'moviePage.body.emptyReviews': return 'There are no reviews to show.';
 			case 'moviePage.reviewModal.title': return 'Adding review for...';
+			case 'moviePage.reviewModal.movieTitlePlaceholder': return 'Movie title';
 			case 'moviePage.reviewModal.fields.score': return 'Score';
 			case 'moviePage.reviewModal.fields.note': return 'Note';
 			case 'moviePage.reviewModal.fields.noteHint': return 'Optional';
@@ -1020,6 +1136,12 @@ extension on _StringsPt {
 			case 'common.sideDrawer.options.licenses': return 'Licenças';
 			case 'common.sideDrawer.options.logOut': return 'Sair';
 			case 'common.sideDrawer.options.developer': return 'Falar com o desenvolvedor';
+			case 'common.sideDrawer.languageDialog.title': return 'Mudar o idioma';
+			case 'common.sideDrawer.languageDialog.help': return 'Mudar o idioma também mudará o idioma dos dados externos dos filmes. A mudança será aplicada nas próximas requisições.';
+			case 'common.sideDrawer.languageDialog.options.en': return 'Usar Inglês';
+			case 'common.sideDrawer.languageDialog.options.pt': return 'Usar Português';
+			case 'common.sideDrawer.languageDialog.toasts.portugueseConfirmation': return 'Language changed to Portuguese';
+			case 'common.sideDrawer.languageDialog.toasts.englishConfirmation': return 'Language changed to English';
 			case 'toast.movies.movieAddedToWatchlist': return 'Filme adicionado à sua watchlist';
 			case 'toast.movies.movieAlreadyOnWatchlist': return 'Este filme já está em sua watchlist';
 			case 'toast.movies.failedtoAddToWatchlist': return 'Ocorreu um erro ao adicionar o filme à sua watchlist. Por favor, tente novamente';
@@ -1029,6 +1151,11 @@ extension on _StringsPt {
 			case 'toast.helpers.emailSubject': return 'Olá! Quero falar sobre o Flickmemo';
 			case 'toast.helpers.emailBody': return 'Aqui você escreve uma mensagem legal para mim :)';
 			case 'toast.helpers.imdbFailed': return 'Não foi possível acessar o IMDB. Por favor, tente novamente.';
+			case 'toast.review.fillAllTheFields': return 'Por favor, preencha todos os campos';
+			case 'toast.review.reviewSaved': return 'Review salva';
+			case 'toast.review.reviewUpdated': return 'Review atualizada';
+			case 'toast.review.reviewRemoved': return 'Review excluía';
+			case 'toast.review.error': return 'Ocorreu um erro com a review. Por favor, tente novamente';
 			case 'loginPage.title': return 'Organize seus filmes favoritos. Descubra novos.';
 			case 'loginPage.subtitle': return 'Boas-vindas ao Flickmemo. Vamos começas suas listas!';
 			case 'loginPage.googleButton': return 'Continuar com Google';
@@ -1067,6 +1194,7 @@ extension on _StringsPt {
 			case 'moviePage.body.similarMovies': return 'Filmes similares';
 			case 'moviePage.body.emptyReviews': return 'Não há reviews para mostrar.';
 			case 'moviePage.reviewModal.title': return 'Adicionando review para...';
+			case 'moviePage.reviewModal.movieTitlePlaceholder': return 'Título do filme';
 			case 'moviePage.reviewModal.fields.score': return 'Nota';
 			case 'moviePage.reviewModal.fields.note': return 'Comentário';
 			case 'moviePage.reviewModal.fields.noteHint': return 'Opcional';

@@ -72,14 +72,14 @@ class ExternalReviewBox extends StatelessWidget {
                       color: Colors.white.withOpacity(0.1),
                       borderRadius: BorderRadius.circular(100),
                     ),
-                    padding: EdgeInsets.all(5),
+                    padding: EdgeInsets.all(3),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Icon(
                           FontAwesomeIcons.solidStar,
                           color: Theme.of(context).colorScheme.scrim,
-                          size: 20,
+                          size: 15,
                         ),
                         SizedBox(width: 6),
                         Text(

@@ -17,6 +17,18 @@
         "licenses": "Licenses",
         "logOut": "Log out",
         "developer": "Talk with the developer"
+      },
+      "languageDialog": {
+        "title": "Change language",
+        "help": "Changing the language will also change the external movie data language. The change will be applied on the next requests.",
+        "options": {
+          "en": "Use English",
+          "pt": "Use Portuguese"
+        },
+        "toasts": {
+          "portugueseConfirmation": "Idioma alterado para Português",
+          "englishConfirmation": "Idioma alterado para Inglês"
+        }
       }
     }
   },
@@ -33,6 +45,13 @@
       "emailSubject": "Hello! I want to talk about Flickmemo",
       "emailBody": "Here you write a nice message for me :)",
       "imdbFailed": "Could not launch IMDb page. Please, try again."
+    },
+    "review": {
+      "fillAllTheFields": "Please, fill all the mandatory fields",
+      "reviewSaved": "Review saved",
+      "reviewUpdated": "Review updated",
+      "reviewRemoved": "Review removed",
+      "error": "Error when loading the review. Please, try again"
     }
   },
   "loginPage": {
@@ -107,6 +126,7 @@
     },
     "reviewModal": {
       "title": "Adding review for...",
+      "movieTitlePlaceholder": "Movie title",
       "fields": {
         "score": "Score",
         "note": "Note",

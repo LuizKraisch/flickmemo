@@ -144,7 +144,10 @@ class _MoviePageBodyState extends State<MoviePageBody> {
                   children: [
                     UserReviewBox(review: widget.movieData?["userReview"]),
                     Padding(
-                      padding: const EdgeInsets.all(10.0),
+                      padding: const EdgeInsets.symmetric(
+                        vertical: 15.0,
+                        horizontal: 15.0,
+                      ),
                       child: Container(
                         height: 0.5,
                         color: Color.fromARGB(255, 76, 80, 90),

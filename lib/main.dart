@@ -7,6 +7,7 @@ import 'package:flickmemo/pages/home_page.dart';
 import 'package:flickmemo/pages/login_page.dart';
 import 'package:flickmemo/pages/profile_page.dart';
 import 'package:flickmemo/pages/search_page.dart';
+import 'package:flickmemo/providers/language_provider.dart';
 import 'package:flickmemo/theme/theme.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -23,11 +24,14 @@ void main() async {
     FirebaseCrashlytics.instance.recordError(error, stack, fatal: true);
     return true;
   };
-  WidgetsFlutterBinding.ensureInitialized();
-  LocaleSettings.setLocale(AppLocale.pt); // TODO: set locale from button
+
+  var languageProvider = LanguageProvider();
+  LocaleSettings.setLocale(languageProvider
+      .convertLocaleToAppLocale(languageProvider.currentLocale));
 
   runApp(MultiProvider(
     providers: [
+      ChangeNotifierProvider.value(value: languageProvider),
       ChangeNotifierProvider(create: (context) => UserData()),
     ],
     child: TranslationProvider(child: FlickmemoApp()),
