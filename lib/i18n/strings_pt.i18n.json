@@ -55,7 +55,7 @@
     }
   },
   "loginPage": {
-    "title": "Organize seus filmes favoritos. Descubra novos.",
+    "title": "Organize seus filmes favoritos e descubra novos.",
     "subtitle": "Boas-vindas ao Flickmemo. Vamos começas suas listas!",
     "googleButton": "Continuar com Google"
   },
@@ -80,7 +80,7 @@
       "title": "Filmes em alta",
       "subtitle": "Fique atualizado com os últimos lançamentos.",
       "error": "Oops, algo deu errado! Por favor, tente novamente.",
-      "empty": "Não há filmes para serem exibidos"
+      "empty": "Nenhum filme foi encontrado"
     }
   },
   "profilePage": {

@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 class FlickmemoUser {
   final String internalID;
   final String? googleUserUID;
@@ -56,5 +58,21 @@ class FlickmemoUser {
       favoritesCount: json['favorites_count'],
       watchlistCount: json['watchlist_count'],
     );
+  }
+
+  String toJson() {
+    return jsonEncode({
+      'internal_id': internalID,
+      'google_user_uid': googleUserUID,
+      'token': token,
+      'first_name': firstName,
+      'last_name': lastName,
+      'email': email,
+      'photo_url': photoURL,
+      'created_at': createdAt,
+      'watched_count': watchedCount,
+      'favorites_count': favoritesCount,
+      'watchlist_count': watchlistCount,
+    });
   }
 }

@@ -124,7 +124,8 @@ class _SearchPageState extends State<SearchPage> {
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
                                   SizedBox(height: 20),
-                                  Icon(FontAwesomeIcons.film, size: 40),
+                                  Icon(FontAwesomeIcons.magnifyingGlass,
+                                      size: 40),
                                   SizedBox(height: 10),
                                   Text(
                                     t.searchPage.body.empty,

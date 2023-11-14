@@ -1,4 +1,4 @@
-import 'package:flickmemo/controllers/user_data.dart';
+import 'package:flickmemo/helpers/auth_helper.dart';
 import 'package:flickmemo/i18n/strings.g.dart';
 import 'package:flickmemo/pages/licenses_page.dart';
 import 'package:flickmemo/providers/language_provider.dart';
@@ -18,8 +18,7 @@ class SideDrawer extends StatefulWidget {
 
 class _SideDrawerState extends State<SideDrawer> {
   void signOut() {
-    final userData = Provider.of<UserData>(context, listen: false);
-    userData.removeUser();
+    AuthHelper.deleteFlickmemoUser();
   }
 
   void showAlertDialog(BuildContext context) {
