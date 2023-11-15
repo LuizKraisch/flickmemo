@@ -6,7 +6,7 @@
 /// Locales: 2
 /// Strings: 168 (84 per locale)
 ///
-/// Built on 2023-11-11 at 04:17 UTC
+/// Built on 2023-11-13 at 21:12 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -350,7 +350,7 @@ class _StringsSearchPageBodyEn {
 	String get title => 'Trending Movies';
 	String get subtitle => 'Get in touch with the latest releases.';
 	String get error => 'Oops, something went wrong! Please try again.';
-	String get empty => 'There are no movies to show';
+	String get empty => 'No movies found';
 }
 
 // Path: profilePage.header
@@ -641,7 +641,7 @@ class _StringsLoginPagePt implements _StringsLoginPageEn {
 	@override final _StringsPt _root; // ignore: unused_field
 
 	// Translations
-	@override String get title => 'Organize seus filmes favoritos. Descubra novos.';
+	@override String get title => 'Organize seus filmes favoritos e descubra novos.';
 	@override String get subtitle => 'Boas-vindas ao Flickmemo. Vamos começas suas listas!';
 	@override String get googleButton => 'Continuar com Google';
 }
@@ -801,7 +801,7 @@ class _StringsSearchPageBodyPt implements _StringsSearchPageBodyEn {
 	@override String get title => 'Filmes em alta';
 	@override String get subtitle => 'Fique atualizado com os últimos lançamentos.';
 	@override String get error => 'Oops, algo deu errado! Por favor, tente novamente.';
-	@override String get empty => 'Não há filmes para serem exibidos';
+	@override String get empty => 'Nenhum filme foi encontrado';
 }
 
 // Path: profilePage.header
@@ -1078,7 +1078,7 @@ extension on _StringsEn {
 			case 'searchPage.body.title': return 'Trending Movies';
 			case 'searchPage.body.subtitle': return 'Get in touch with the latest releases.';
 			case 'searchPage.body.error': return 'Oops, something went wrong! Please try again.';
-			case 'searchPage.body.empty': return 'There are no movies to show';
+			case 'searchPage.body.empty': return 'No movies found';
 			case 'profilePage.header.profileCreation': return ({required Object date}) => 'User since ${date}';
 			case 'profilePage.header.counts.watched': return 'Watched';
 			case 'profilePage.header.counts.favorites': return 'Favorites';
@@ -1156,7 +1156,7 @@ extension on _StringsPt {
 			case 'toast.review.reviewUpdated': return 'Review atualizada';
 			case 'toast.review.reviewRemoved': return 'Review excluía';
 			case 'toast.review.error': return 'Ocorreu um erro com a review. Por favor, tente novamente';
-			case 'loginPage.title': return 'Organize seus filmes favoritos. Descubra novos.';
+			case 'loginPage.title': return 'Organize seus filmes favoritos e descubra novos.';
 			case 'loginPage.subtitle': return 'Boas-vindas ao Flickmemo. Vamos começas suas listas!';
 			case 'loginPage.googleButton': return 'Continuar com Google';
 			case 'homePage.title': return ({required Object name}) => 'Olá, ${name}!';
@@ -1170,7 +1170,7 @@ extension on _StringsPt {
 			case 'searchPage.body.title': return 'Filmes em alta';
 			case 'searchPage.body.subtitle': return 'Fique atualizado com os últimos lançamentos.';
 			case 'searchPage.body.error': return 'Oops, algo deu errado! Por favor, tente novamente.';
-			case 'searchPage.body.empty': return 'Não há filmes para serem exibidos';
+			case 'searchPage.body.empty': return 'Nenhum filme foi encontrado';
 			case 'profilePage.header.profileCreation': return ({required Object date}) => 'Entrou em ${date}';
 			case 'profilePage.header.counts.watched': return 'Assistidos';
 			case 'profilePage.header.counts.favorites': return 'Favoritos';

@@ -80,7 +80,7 @@
       "title": "Trending Movies",
       "subtitle": "Get in touch with the latest releases.",
       "error": "Oops, something went wrong! Please try again.",
-      "empty": "There are no movies to show"
+      "empty": "No movies found"
     }
   },
   "profilePage": {

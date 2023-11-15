@@ -1,5 +1,4 @@
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
-import 'package:flickmemo/controllers/user_data.dart';
 import 'package:flickmemo/i18n/strings.g.dart';
 import 'package:flickmemo/pages/auth_page.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -11,7 +10,6 @@ import 'package:flickmemo/providers/language_provider.dart';
 import 'package:flickmemo/theme/theme.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'firebase_options.dart';
 
 void main() async {
@@ -29,13 +27,7 @@ void main() async {
   LocaleSettings.setLocale(languageProvider
       .convertLocaleToAppLocale(languageProvider.currentLocale));
 
-  runApp(MultiProvider(
-    providers: [
-      ChangeNotifierProvider.value(value: languageProvider),
-      ChangeNotifierProvider(create: (context) => UserData()),
-    ],
-    child: TranslationProvider(child: FlickmemoApp()),
-  ));
+  runApp(TranslationProvider(child: FlickmemoApp()));
 }
 
 class FlickmemoApp extends StatelessWidget {

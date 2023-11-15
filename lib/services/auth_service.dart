@@ -1,12 +1,11 @@
 import 'dart:convert';
-import 'package:flickmemo/controllers/user_data.dart';
+import 'package:flickmemo/helpers/auth_helper.dart';
 import 'package:flickmemo/env.dart';
 import 'package:flutter/widgets.dart';
 import 'package:http/http.dart' as http;
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flickmemo/models/flickmemo_user.dart';
 import 'package:google_sign_in/google_sign_in.dart';
-import 'package:provider/provider.dart';
 
 class AuthService {
   FlickmemoUser? currentFlickmemoUser;
@@ -47,7 +46,7 @@ class AuthService {
     }
   }
 
-  signIn() async {
+  Future<FlickmemoUser?> signIn() async {
     final GoogleSignInAccount? gUser = await GoogleSignIn().signIn();
     final GoogleSignInAuthentication gAuth = await gUser!.authentication;
 
@@ -59,10 +58,10 @@ class AuthService {
     await FirebaseAuth.instance.signInWithCredential(credential);
 
     final userData = FirebaseAuth.instance.currentUser;
-    // ignore: use_build_context_synchronously
-    final userDataProvider = Provider.of<UserData>(context, listen: false);
 
     currentFlickmemoUser = await getFlickmemoUser(userData);
-    userDataProvider.setUser(currentFlickmemoUser);
+    await AuthHelper.saveFlickmemoUser(currentFlickmemoUser);
+
+    return currentFlickmemoUser;
   }
 }
