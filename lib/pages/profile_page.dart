@@ -29,19 +29,22 @@ class _ProfilePageState extends State<ProfilePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Theme.of(context).colorScheme.background,
-      body: CustomScrollView(slivers: [
-        SliverAppBar(
-          backgroundColor: Theme.of(context).colorScheme.secondary,
-          floating: true,
-          expandedHeight: 180,
-          flexibleSpace: FlexibleSpaceBar(
+      body: CustomScrollView(
+        slivers: [
+          SliverAppBar(
+            backgroundColor: Theme.of(context).colorScheme.secondary,
+            floating: true,
+            expandedHeight: 180,
+            flexibleSpace: FlexibleSpaceBar(
               background: Padding(
-            padding: const EdgeInsets.fromLTRB(30, 80, 30, 0),
-            child: ProfileHeader(currentFlickmemoUser: currentFlickmemoUser),
-          )),
-        ),
-        SliverToBoxAdapter(
-          child: Padding(
+                padding: const EdgeInsets.fromLTRB(30, 80, 30, 0),
+                child:
+                    ProfileHeader(currentFlickmemoUser: currentFlickmemoUser),
+              ),
+            ),
+          ),
+          SliverToBoxAdapter(
+            child: Padding(
               padding: EdgeInsets.all(20.0),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -50,9 +53,11 @@ class _ProfilePageState extends State<ProfilePage> {
                   SizedBox(height: 10),
                   RecentMovies(currentFlickmemoUser: currentFlickmemoUser),
                 ],
-              )),
-        )
-      ]),
+              ),
+            ),
+          ),
+        ],
+      ),
     );
   }
 }

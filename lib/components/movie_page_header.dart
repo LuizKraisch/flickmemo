@@ -64,6 +64,7 @@ class MoviePageHeader extends StatelessWidget {
               Text(
                 "${formatMovieReleaseYear(movie?.releaseDate as String)} • ${movie?.genres.join(', ')}",
                 style: Theme.of(context).textTheme.titleSmall,
+                textAlign: TextAlign.center,
               ),
               const SizedBox(height: 5.0),
               movie?.tagline == ""

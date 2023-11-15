@@ -6,7 +6,7 @@
 /// Locales: 2
 /// Strings: 172 (86 per locale)
 ///
-/// Built on 2023-11-15 at 03:18 UTC
+/// Built on 2023-11-15 at 18:03 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -476,7 +476,7 @@ class _StringsHomePageMovieCardsNoMoreMoviesEn {
 
 	// Translations
 	String get title => 'Wow, we ran out of movies!';
-	String get subtitle => 'Try to re-enter the page to see more movies';
+	String get subtitle => 'Use the button below to see more recomendations';
 }
 
 // Path: profilePage.header.counts
@@ -929,7 +929,7 @@ class _StringsHomePageMovieCardsNoMoreMoviesPt implements _StringsHomePageMovieC
 
 	// Translations
 	@override String get title => 'Wow, ficamos sem filmes!';
-	@override String get subtitle => 'Tente reentrar na página para ver mais filmes.';
+	@override String get subtitle => 'Use o botão abaixo para ver mais recomendações';
 }
 
 // Path: profilePage.header.counts
@@ -1076,7 +1076,7 @@ extension on _StringsEn {
 			case 'homePage.movieCards.error': return 'Oops, something went wrong! Please try again.';
 			case 'homePage.movieCards.empty': return 'There are no movies to show';
 			case 'homePage.movieCards.noMoreMovies.title': return 'Wow, we ran out of movies!';
-			case 'homePage.movieCards.noMoreMovies.subtitle': return 'Try to re-enter the page to see more movies';
+			case 'homePage.movieCards.noMoreMovies.subtitle': return 'Use the button below to see more recomendations';
 			case 'searchPage.header.title': return 'Search by the movie\'s title';
 			case 'searchPage.header.searchBarPlaceholder': return 'Search for movies...';
 			case 'searchPage.body.title': return 'Trending Movies';
@@ -1170,7 +1170,7 @@ extension on _StringsPt {
 			case 'homePage.movieCards.error': return 'Oops, algo deu errado! Por favor, tente novamente.';
 			case 'homePage.movieCards.empty': return 'Não existem filmes para exibir';
 			case 'homePage.movieCards.noMoreMovies.title': return 'Wow, ficamos sem filmes!';
-			case 'homePage.movieCards.noMoreMovies.subtitle': return 'Tente reentrar na página para ver mais filmes.';
+			case 'homePage.movieCards.noMoreMovies.subtitle': return 'Use o botão abaixo para ver mais recomendações';
 			case 'searchPage.header.title': return 'Pesquise pelo título do filme';
 			case 'searchPage.header.searchBarPlaceholder': return 'Pesquise por filmes...';
 			case 'searchPage.body.title': return 'Filmes em alta';

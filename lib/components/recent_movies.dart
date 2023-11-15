@@ -59,7 +59,7 @@ class _RecentMoviesState extends State<RecentMovies> {
           style: Theme.of(context).textTheme.titleSmall,
         ),
         SizedBox(
-          height: _moviesCount != 0 ? ((_moviesCount / 3).ceil() * 200.0) : 200,
+          height: _moviesCount != 0 ? ((_moviesCount / 3).ceil() * 200.0) : 400,
           child: Scrollbar(
             child: FutureBuilder<List<Movie>>(
               future: _moviesFuture,

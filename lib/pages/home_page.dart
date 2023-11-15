@@ -10,6 +10,7 @@ import 'package:flickmemo/services/user_service.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:flickmemo/i18n/strings.g.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
 
 class HomePage extends StatefulWidget {
@@ -46,6 +47,13 @@ class _HomePageState extends State<HomePage> {
     } catch (error) {
       throw Exception('Failed to find movie data.');
     }
+  }
+
+  void handleDiscoverReload() {
+    setState(() {
+      currentIndex = 0;
+      _moviesFuture = _fetchDiscoverMovies();
+    });
   }
 
   bool allCardsSwapped() {
@@ -161,6 +169,25 @@ class _HomePageState extends State<HomePage> {
                                   t.homePage.movieCards.noMoreMovies.subtitle,
                                   style: Theme.of(context).textTheme.titleSmall,
                                 ),
+                                SizedBox(height: 5),
+                                ElevatedButton(
+                                  onPressed: () => handleDiscoverReload(),
+                                  style: ElevatedButton.styleFrom(
+                                    backgroundColor: Colors.white,
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(
+                                          20.0), // Rounded corners
+                                    ),
+                                  ),
+                                  child: Text(
+                                    'Recarregar',
+                                    style: GoogleFonts.poppins(
+                                      color: Color(0xff1D1F24),
+                                      fontWeight: FontWeight.w500,
+                                      fontSize: 14,
+                                    ),
+                                  ),
+                                )
                               ],
                             ),
                           ),

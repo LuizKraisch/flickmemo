@@ -121,16 +121,18 @@ class MovieCard extends StatelessWidget {
                         ),
                       ),
                       SizedBox(width: 10),
-                      SizedBox(
-                        width: 235.00,
-                        height: 30.00,
-                        child: Text(
-                          movie.overview,
-                          style: Theme.of(context).textTheme.titleMedium,
-                          overflow: TextOverflow.ellipsis,
-                          maxLines: 2,
-                        ),
-                      ),
+                      movie.overview != ""
+                          ? SizedBox(
+                              width: 235.00,
+                              height: 30.00,
+                              child: Text(
+                                movie.overview,
+                                style: Theme.of(context).textTheme.titleMedium,
+                                overflow: TextOverflow.ellipsis,
+                                maxLines: 2,
+                              ),
+                            )
+                          : SizedBox(),
                     ],
                   ),
                   Column(

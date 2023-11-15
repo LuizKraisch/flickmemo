@@ -15,49 +15,50 @@ ThemeData defaultTheme = ThemeData(
       onBackground: Color(0xff585F6F),
       scrim: Color(0xffFFD700)),
   textTheme: TextTheme(
-      titleSmall: GoogleFonts.poppins(
-        color: Colors.white,
-        fontWeight: FontWeight.w400,
-        fontSize: 13,
-      ),
-      titleMedium: GoogleFonts.poppins(
-        color: Colors.white,
-        fontWeight: FontWeight.w400,
-        fontSize: 11,
-      ),
-      bodySmall: GoogleFonts.poppins(
-        color: Colors.white,
-        fontWeight: FontWeight.w400,
-        fontSize: 16,
-      ),
-      displaySmall: GoogleFonts.poppins(
-        color: Colors.white,
-        fontWeight: FontWeight.bold,
-        fontSize: 18,
-      ),
-      displayMedium: GoogleFonts.poppins(
-        color: Colors.white,
-        fontWeight: FontWeight.w600,
-        fontSize: 22,
-      ),
-      displayLarge: GoogleFonts.poppins(
-        color: Colors.white,
-        fontWeight: FontWeight.w600,
-        fontSize: 25,
-      ),
-      headlineSmall: GoogleFonts.poppins(
-        color: Colors.white,
-        fontWeight: FontWeight.w400,
-        fontSize: 14,
-      ),
-      headlineMedium: GoogleFonts.poppins(
-        color: Colors.white,
-        fontWeight: FontWeight.w600,
-        fontSize: 16,
-      ),
-      labelMedium: GoogleFonts.poppins(
-        color: Color(0xff1D1F24),
-        fontWeight: FontWeight.w600,
-        fontSize: 16,
-      )),
+    titleSmall: GoogleFonts.poppins(
+      color: Colors.white,
+      fontWeight: FontWeight.w400,
+      fontSize: 13,
+    ),
+    titleMedium: GoogleFonts.poppins(
+      color: Colors.white,
+      fontWeight: FontWeight.w400,
+      fontSize: 11,
+    ),
+    bodySmall: GoogleFonts.poppins(
+      color: Colors.white,
+      fontWeight: FontWeight.w400,
+      fontSize: 16,
+    ),
+    displaySmall: GoogleFonts.poppins(
+      color: Colors.white,
+      fontWeight: FontWeight.bold,
+      fontSize: 18,
+    ),
+    displayMedium: GoogleFonts.poppins(
+      color: Colors.white,
+      fontWeight: FontWeight.w600,
+      fontSize: 22,
+    ),
+    displayLarge: GoogleFonts.poppins(
+      color: Colors.white,
+      fontWeight: FontWeight.w600,
+      fontSize: 25,
+    ),
+    headlineSmall: GoogleFonts.poppins(
+      color: Colors.white,
+      fontWeight: FontWeight.w400,
+      fontSize: 14,
+    ),
+    headlineMedium: GoogleFonts.poppins(
+      color: Colors.white,
+      fontWeight: FontWeight.w600,
+      fontSize: 16,
+    ),
+    labelMedium: GoogleFonts.poppins(
+      color: Color(0xff1D1F24),
+      fontWeight: FontWeight.w600,
+      fontSize: 16,
+    ),
+  ),
 );

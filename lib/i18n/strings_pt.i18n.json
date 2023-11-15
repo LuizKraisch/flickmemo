@@ -67,7 +67,7 @@
       "empty": "Não existem filmes para exibir",
       "noMoreMovies": {
         "title": "Wow, ficamos sem filmes!",
-        "subtitle": "Tente reentrar na página para ver mais filmes."
+        "subtitle": "Use o botão abaixo para ver mais recomendações"
       }
     }
   },

@@ -67,7 +67,7 @@
       "empty": "There are no movies to show",
       "noMoreMovies": {
         "title": "Wow, we ran out of movies!",
-        "subtitle": "Try to re-enter the page to see more movies"
+        "subtitle": "Use the button below to see more recomendations"
       }
     }
   },
