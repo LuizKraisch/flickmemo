@@ -19,6 +19,7 @@ class BasePage extends StatefulWidget {
 }
 
 class _BasePageState extends State<BasePage> {
+  late PageController _pageController;
   int _selectedIndex = 0;
   FlickmemoUser? currentFlickmemoUser;
 
@@ -26,12 +27,15 @@ class _BasePageState extends State<BasePage> {
   void initState() {
     super.initState();
     currentFlickmemoUser = widget.currentFlickmemoUser;
+    _pageController = PageController(initialPage: _selectedIndex);
   }
 
   void navigateBottomBar(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
+    _pageController.animateToPage(
+      index,
+      duration: Duration(milliseconds: 300),
+      curve: Curves.fastEaseInToSlowEaseOut,
+    );
   }
 
   @override
@@ -45,10 +49,24 @@ class _BasePageState extends State<BasePage> {
     return Scaffold(
       backgroundColor: Color(0xff131417),
       drawer: const SideDrawer(),
-      body: pages[_selectedIndex],
+      body: PageView(
+        controller: _pageController,
+        children: pages,
+        onPageChanged: (index) {
+          setState(() {
+            _selectedIndex = index;
+          });
+        },
+      ),
       bottomNavigationBar: BottomNavBar(
         onTabChange: (index) => navigateBottomBar(index),
       ),
     );
+  }
+
+  @override
+  void dispose() {
+    _pageController.dispose();
+    super.dispose();
   }
 }
