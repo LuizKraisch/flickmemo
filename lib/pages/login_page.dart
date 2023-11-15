@@ -3,22 +3,70 @@ import 'package:flickmemo/i18n/strings.g.dart';
 import 'package:flickmemo/pages/base_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flickmemo/services/auth_service.dart';
+import 'package:loading_animation_widget/loading_animation_widget.dart';
 
-class LoginPage extends StatelessWidget {
+class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
+
+  @override
+  _LoginPageState createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
+  bool _loading = false;
+
+  void _setLoading(bool loading) {
+    setState(() {
+      _loading = loading;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Theme.of(context).colorScheme.background,
-      body: Column(
+      body: Stack(
         children: [
-          Padding(
-            padding: const EdgeInsets.fromLTRB(0, 50, 0, 0),
-            child:
-                Image.asset('assets/images/app-presentation.png', height: 500),
+          Column(
+            children: [
+              Padding(
+                padding: const EdgeInsets.fromLTRB(0, 50, 0, 0),
+                child: Image.asset(
+                  'assets/images/app-presentation.png',
+                  height: 500,
+                ),
+              ),
+              MainContainer(
+                setLoading: _setLoading,
+              ),
+            ],
           ),
-          MainContainer(),
+          Visibility(
+            visible: _loading,
+            child: Center(
+              child: Container(
+                decoration: BoxDecoration(
+                  color: Theme.of(context).colorScheme.background,
+                  borderRadius: BorderRadius.circular(10.0),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.black.withOpacity(0.2),
+                      spreadRadius: 2.0,
+                      blurRadius: 5.0,
+                      offset: Offset(0, 2),
+                    ),
+                  ],
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.all(15.0),
+                  child: LoadingAnimationWidget.fourRotatingDots(
+                    color: Theme.of(context).colorScheme.primary,
+                    size: 50.0,
+                  ),
+                ),
+              ),
+            ),
+          ),
         ],
       ),
     );
@@ -26,10 +74,30 @@ class LoginPage extends StatelessWidget {
 }
 
 class MainContainer extends StatelessWidget {
-  const MainContainer({super.key});
+  final Function(bool) setLoading;
+
+  const MainContainer({required this.setLoading, super.key});
 
   @override
   Widget build(BuildContext context) {
+    void logIn() async {
+      setLoading(true);
+      try {
+        var flickmemoUser = await AuthService(context).signIn();
+        // ignore: use_build_context_synchronously
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(
+            builder: (context) => BasePage(
+              currentFlickmemoUser: flickmemoUser,
+            ),
+          ),
+        );
+      } finally {
+        setLoading(false);
+      }
+    }
+
     return Padding(
       padding: EdgeInsets.fromLTRB(30, 0, 30, 0),
       child: Column(
@@ -58,18 +126,7 @@ class MainContainer extends StatelessWidget {
                 child: Padding(
                   padding: const EdgeInsets.fromLTRB(0, 10, 0, 0),
                   child: LoginButton(
-                    onPressed: () async {
-                      var flickmemoUser = await AuthService(context).signIn();
-                      // ignore: use_build_context_synchronously
-                      Navigator.pushReplacement(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => BasePage(
-                            currentFlickmemoUser: flickmemoUser,
-                          ),
-                        ),
-                      );
-                    },
+                    onPressed: () => logIn(),
                   ),
                 ),
               ),
