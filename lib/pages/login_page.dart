@@ -9,15 +9,15 @@ class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
 
   @override
-  _LoginPageState createState() => _LoginPageState();
+  LoginPageState createState() => LoginPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
-  bool _loading = false;
+class LoginPageState extends State<LoginPage> {
+  bool loading = false;
 
-  void _setLoading(bool loading) {
+  void _setLoading(bool loadingValue) {
     setState(() {
-      _loading = loading;
+      loading = loadingValue;
     });
   }
 
@@ -42,7 +42,7 @@ class _LoginPageState extends State<LoginPage> {
             ],
           ),
           Visibility(
-            visible: _loading,
+            visible: loading,
             child: Center(
               child: Container(
                 decoration: BoxDecoration(
