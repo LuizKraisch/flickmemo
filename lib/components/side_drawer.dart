@@ -1,6 +1,7 @@
 import 'package:flickmemo/helpers/auth_helper.dart';
 import 'package:flickmemo/i18n/strings.g.dart';
 import 'package:flickmemo/pages/licenses_page.dart';
+import 'package:flickmemo/pages/login_page.dart';
 import 'package:flickmemo/providers/language_provider.dart';
 import 'package:flickmemo/services/helpers.dart';
 import 'package:flutter/material.dart';
@@ -19,6 +20,10 @@ class SideDrawer extends StatefulWidget {
 class _SideDrawerState extends State<SideDrawer> {
   void signOut() {
     AuthHelper.deleteFlickmemoUser();
+    Navigator.pushReplacement(
+      context,
+      MaterialPageRoute(builder: (context) => LoginPage()),
+    );
   }
 
   void showAlertDialog(BuildContext context) {

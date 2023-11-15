@@ -1,5 +1,6 @@
 import 'package:flickmemo/components/login_button.dart';
 import 'package:flickmemo/i18n/strings.g.dart';
+import 'package:flickmemo/pages/base_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flickmemo/services/auth_service.dart';
 
@@ -57,7 +58,18 @@ class MainContainer extends StatelessWidget {
                 child: Padding(
                   padding: const EdgeInsets.fromLTRB(0, 10, 0, 0),
                   child: LoginButton(
-                    onPressed: () => AuthService(context).signIn(),
+                    onPressed: () async {
+                      var flickmemoUser = await AuthService(context).signIn();
+                      // ignore: use_build_context_synchronously
+                      Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => BasePage(
+                            currentFlickmemoUser: flickmemoUser,
+                          ),
+                        ),
+                      );
+                    },
                   ),
                 ),
               ),

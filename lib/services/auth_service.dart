@@ -46,7 +46,7 @@ class AuthService {
     }
   }
 
-  signIn() async {
+  Future<FlickmemoUser?> signIn() async {
     final GoogleSignInAccount? gUser = await GoogleSignIn().signIn();
     final GoogleSignInAuthentication gAuth = await gUser!.authentication;
 
@@ -61,5 +61,7 @@ class AuthService {
 
     currentFlickmemoUser = await getFlickmemoUser(userData);
     await AuthHelper.saveFlickmemoUser(currentFlickmemoUser);
+
+    return currentFlickmemoUser;
   }
 }
