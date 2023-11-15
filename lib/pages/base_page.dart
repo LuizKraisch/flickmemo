@@ -50,6 +50,7 @@ class _BasePageState extends State<BasePage> {
       backgroundColor: Color(0xff131417),
       drawer: const SideDrawer(),
       body: PageView(
+        physics: NeverScrollableScrollPhysics(),
         controller: _pageController,
         children: pages,
         onPageChanged: (index) {
