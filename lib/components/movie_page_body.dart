@@ -37,25 +37,34 @@ class _MoviePageBodyState extends State<MoviePageBody> {
             style: Theme.of(context).textTheme.displayMedium,
           ),
           SizedBox(height: 5),
-          ExpandableText(
-            widget.movieData?["data"].overview as String,
-            expandText: t.moviePage.body.overview.readMore,
-            collapseText: t.moviePage.body.overview.showLess,
-            maxLines: 3,
-            linkColor: Colors.white,
-            animation: true,
-            collapseOnTextTap: true,
-            style: TextStyle(
-              fontSize: 14,
-              fontWeight: FontWeight.w400,
-              fontFamily: GoogleFonts.poppins().fontFamily,
-            ),
-            linkStyle: TextStyle(
-              fontSize: 14,
-              fontWeight: FontWeight.bold,
-              decoration: TextDecoration.underline,
-            ),
-          ),
+          widget.movieData?["data"].overview != ""
+              ? ExpandableText(
+                  widget.movieData?["data"].overview as String,
+                  expandText: t.moviePage.body.overview.readMore,
+                  collapseText: t.moviePage.body.overview.showLess,
+                  maxLines: 3,
+                  linkColor: Colors.white,
+                  animation: true,
+                  collapseOnTextTap: true,
+                  style: TextStyle(
+                    fontSize: 14,
+                    fontWeight: FontWeight.w400,
+                    fontFamily: GoogleFonts.poppins().fontFamily,
+                  ),
+                  linkStyle: TextStyle(
+                    fontSize: 14,
+                    fontWeight: FontWeight.bold,
+                    decoration: TextDecoration.underline,
+                  ),
+                )
+              : Text(
+                  t.moviePage.body.overview.empty,
+                  style: TextStyle(
+                    fontSize: 14,
+                    fontWeight: FontWeight.w400,
+                    fontFamily: GoogleFonts.poppins().fontFamily,
+                  ),
+                ),
           SizedBox(height: 20),
           Row(
             children: [
@@ -202,25 +211,51 @@ class _MoviePageBodyState extends State<MoviePageBody> {
             style: Theme.of(context).textTheme.displayMedium,
           ),
           SizedBox(height: 10),
-          Padding(
-            padding: const EdgeInsets.fromLTRB(0, 0, 0, 15),
-            child: SizedBox(
-              height: 170,
-              child: ListView(
-                scrollDirection: Axis.horizontal,
-                children:
-                    widget.movieData?["similarMovies"].map<Widget>((movie) {
-                  return Padding(
-                    padding: const EdgeInsets.only(right: 10),
-                    child: MoviePoster(
-                      movie: movie,
-                      currentFlickmemoUser: widget.currentFlickmemoUser,
+          widget.movieData?["similarMovies"].length > 0
+              ? Padding(
+                  padding: const EdgeInsets.fromLTRB(0, 0, 0, 15),
+                  child: SizedBox(
+                    height: 170,
+                    child: ListView(
+                      scrollDirection: Axis.horizontal,
+                      children: widget.movieData?["similarMovies"]
+                          .map<Widget>((movie) {
+                        return Padding(
+                          padding: const EdgeInsets.only(right: 10),
+                          child: MoviePoster(
+                            movie: movie,
+                            currentFlickmemoUser: widget.currentFlickmemoUser,
+                          ),
+                        );
+                      }).toList(),
                     ),
-                  );
-                }).toList(),
-              ),
-            ),
-          ),
+                  ),
+                )
+              : Padding(
+                  padding: const EdgeInsets.only(bottom: 20.0),
+                  child: Container(
+                    height: 80,
+                    width: 400,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(20),
+                      color: Color(0xff1D1F24),
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.all(15.0),
+                      child: Column(children: [
+                        Icon(
+                          FontAwesomeIcons.triangleExclamation,
+                          color: Colors.grey.shade700,
+                        ),
+                        SizedBox(height: 5),
+                        Text(
+                          t.moviePage.body.emptySimilarMovies,
+                          style: Theme.of(context).textTheme.titleSmall,
+                        )
+                      ]),
+                    ),
+                  ),
+                ),
         ],
       ),
     );

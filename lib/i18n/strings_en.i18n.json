@@ -67,7 +67,7 @@
       "empty": "There are no movies to show",
       "noMoreMovies": {
         "title": "Wow, we ran out of movies!",
-        "subtitle": "Try to re-enter the page to see more movies."
+        "subtitle": "Try to re-enter the page to see more movies"
       }
     }
   },
@@ -78,7 +78,7 @@
     },
     "body": {
       "title": "Trending Movies",
-      "subtitle": "Get in touch with the latest releases.",
+      "subtitle": "Get in touch with the latest releases",
       "error": "Oops, something went wrong! Please try again.",
       "empty": "No movies found"
     }
@@ -109,6 +109,7 @@
     "body": {
       "overview": {
         "title": "Overview",
+        "empty": "No overview available.",
         "readMore": "Read more",
         "showLess": "Show less"
       },
@@ -122,7 +123,8 @@
       "yourReview": "Your review",
       "favorite": "Favorite",
       "similarMovies": "Similar Movies",
-      "emptyReviews": "There are no reviews to show."
+      "emptySimilarMovies": "There are no similar movies available",
+      "emptyReviews": "There are no reviews to show"
     },
     "reviewModal": {
       "title": "Adding review for...",

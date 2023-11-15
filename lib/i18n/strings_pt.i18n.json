@@ -109,6 +109,7 @@
     "body": {
       "overview": {
         "title": "Sinopse",
+        "empty": "Não há uma sinopse disponível.",
         "readMore": "Ler mais",
         "showLess": "Mostrar menos"
       },
@@ -122,7 +123,8 @@
       "yourReview": "Sua review",
       "favorite": "Favorito",
       "similarMovies": "Filmes similares",
-      "emptyReviews": "Não há reviews para mostrar."
+      "emptySimilarMovies": "Não há filmes similares disponíveis",
+      "emptyReviews": "Não há reviews para mostrar"
     },
     "reviewModal": {
       "title": "Adicionando review para...",

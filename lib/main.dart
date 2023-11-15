@@ -10,6 +10,7 @@ import 'package:flickmemo/providers/language_provider.dart';
 import 'package:flickmemo/theme/theme.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'firebase_options.dart';
 
 void main() async {
@@ -27,7 +28,12 @@ void main() async {
   LocaleSettings.setLocale(languageProvider
       .convertLocaleToAppLocale(languageProvider.currentLocale));
 
-  runApp(TranslationProvider(child: FlickmemoApp()));
+  runApp(MultiProvider(
+    providers: [
+      ChangeNotifierProvider.value(value: languageProvider),
+    ],
+    child: TranslationProvider(child: FlickmemoApp()),
+  ));
 }
 
 class FlickmemoApp extends StatelessWidget {

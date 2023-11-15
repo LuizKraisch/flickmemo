@@ -98,62 +98,77 @@ class _MoviePageState extends State<MoviePage> {
               currentFlickmemoUser: currentFlickmemoUser)
           : SizedBox(),
       backgroundColor: Theme.of(context).colorScheme.background,
-      body: movieData != null
-          ? CustomScrollView(slivers: [
-              SliverAppBar(
-                pinned: true,
-                backgroundColor: Theme.of(context).colorScheme.secondary,
-                leading: IconButton(
-                  icon: Icon(FontAwesomeIcons.arrowLeft),
-                  onPressed: () {
-                    Navigator.pop(context);
-                  },
-                ),
-                actions: [
-                  Padding(
-                    padding: const EdgeInsets.only(right: 15.0),
-                    child: CircleAvatar(
-                      radius: 20,
-                      backgroundColor: Color.fromARGB(139, 60, 60, 60),
-                      child: IconButton(
-                        icon: isWatchlistLoading
-                            ? Container(
-                                width: 24,
-                                height: 24,
-                                padding: const EdgeInsets.all(2.0),
-                                child: LoadingAnimationWidget.fourRotatingDots(
-                                  color: Colors.white,
-                                  size: 20.0,
-                                ),
-                              )
-                            : addedToWatchlist
-                                ? const Icon(FontAwesomeIcons.solidBookmark,
-                                    size: 20, color: Colors.white)
-                                : const Icon(FontAwesomeIcons.bookmark,
-                                    size: 20, color: Colors.white),
-                        onPressed: () => handleWatchlist(),
+      body: RefreshIndicator(
+        onRefresh: () {
+          return movieService
+              .getMovieInfo(widget.movieId, currentFlickmemoUser)
+              .then((result) {
+            setState(() {
+              movieData = result;
+              addedToWatchlist = movieData?["addedToUserWatchlist"] ?? false;
+            });
+          }).catchError((error) {
+            throw Exception('Failed to find movie info.');
+          });
+        },
+        child: movieData != null
+            ? CustomScrollView(slivers: [
+                SliverAppBar(
+                  pinned: true,
+                  backgroundColor: Theme.of(context).colorScheme.secondary,
+                  leading: IconButton(
+                    icon: Icon(FontAwesomeIcons.arrowLeft),
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
+                  ),
+                  actions: [
+                    Padding(
+                      padding: const EdgeInsets.only(right: 15.0),
+                      child: CircleAvatar(
+                        radius: 20,
+                        backgroundColor: Color.fromARGB(139, 60, 60, 60),
+                        child: IconButton(
+                          icon: isWatchlistLoading
+                              ? Container(
+                                  width: 24,
+                                  height: 24,
+                                  padding: const EdgeInsets.all(2.0),
+                                  child:
+                                      LoadingAnimationWidget.fourRotatingDots(
+                                    color: Colors.white,
+                                    size: 20.0,
+                                  ),
+                                )
+                              : addedToWatchlist
+                                  ? const Icon(FontAwesomeIcons.solidBookmark,
+                                      size: 20, color: Colors.white)
+                                  : const Icon(FontAwesomeIcons.bookmark,
+                                      size: 20, color: Colors.white),
+                          onPressed: () => handleWatchlist(),
+                        ),
                       ),
                     ),
+                  ],
+                  expandedHeight: 500,
+                  flexibleSpace: FlexibleSpaceBar(
+                    background: MoviePageHeader(movie: movieData?["data"]),
                   ),
-                ],
-                expandedHeight: 500,
-                flexibleSpace: FlexibleSpaceBar(
-                  background: MoviePageHeader(movie: movieData?["data"]),
+                ),
+                SliverToBoxAdapter(
+                  child: MoviePageBody(
+                    movieData: movieData,
+                    currentFlickmemoUser: currentFlickmemoUser,
+                  ),
+                )
+              ])
+            : Center(
+                child: LoadingAnimationWidget.fourRotatingDots(
+                  color: Theme.of(context).colorScheme.primary,
+                  size: 50.0,
                 ),
               ),
-              SliverToBoxAdapter(
-                child: MoviePageBody(
-                  movieData: movieData,
-                  currentFlickmemoUser: currentFlickmemoUser,
-                ),
-              )
-            ])
-          : Center(
-              child: LoadingAnimationWidget.fourRotatingDots(
-                color: Theme.of(context).colorScheme.primary,
-                size: 50.0,
-              ),
-            ),
+      ),
     );
   }
 }

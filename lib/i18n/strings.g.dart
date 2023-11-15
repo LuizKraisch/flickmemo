@@ -4,9 +4,9 @@
 /// To regenerate, run: `dart run slang`
 ///
 /// Locales: 2
-/// Strings: 168 (84 per locale)
+/// Strings: 172 (86 per locale)
 ///
-/// Built on 2023-11-13 at 21:12 UTC
+/// Built on 2023-11-15 at 03:18 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -348,7 +348,7 @@ class _StringsSearchPageBodyEn {
 
 	// Translations
 	String get title => 'Trending Movies';
-	String get subtitle => 'Get in touch with the latest releases.';
+	String get subtitle => 'Get in touch with the latest releases';
 	String get error => 'Oops, something went wrong! Please try again.';
 	String get empty => 'No movies found';
 }
@@ -400,7 +400,8 @@ class _StringsMoviePageBodyEn {
 	String get yourReview => 'Your review';
 	String get favorite => 'Favorite';
 	String get similarMovies => 'Similar Movies';
-	String get emptyReviews => 'There are no reviews to show.';
+	String get emptySimilarMovies => 'There are no similar movies available';
+	String get emptyReviews => 'There are no reviews to show';
 }
 
 // Path: moviePage.reviewModal
@@ -475,7 +476,7 @@ class _StringsHomePageMovieCardsNoMoreMoviesEn {
 
 	// Translations
 	String get title => 'Wow, we ran out of movies!';
-	String get subtitle => 'Try to re-enter the page to see more movies.';
+	String get subtitle => 'Try to re-enter the page to see more movies';
 }
 
 // Path: profilePage.header.counts
@@ -498,6 +499,7 @@ class _StringsMoviePageBodyOverviewEn {
 
 	// Translations
 	String get title => 'Overview';
+	String get empty => 'No overview available.';
 	String get readMore => 'Read more';
 	String get showLess => 'Show less';
 }
@@ -851,7 +853,8 @@ class _StringsMoviePageBodyPt implements _StringsMoviePageBodyEn {
 	@override String get yourReview => 'Sua review';
 	@override String get favorite => 'Favorito';
 	@override String get similarMovies => 'Filmes similares';
-	@override String get emptyReviews => 'Não há reviews para mostrar.';
+	@override String get emptySimilarMovies => 'Não há filmes similares disponíveis';
+	@override String get emptyReviews => 'Não há reviews para mostrar';
 }
 
 // Path: moviePage.reviewModal
@@ -949,6 +952,7 @@ class _StringsMoviePageBodyOverviewPt implements _StringsMoviePageBodyOverviewEn
 
 	// Translations
 	@override String get title => 'Sinopse';
+	@override String get empty => 'Não há uma sinopse disponível.';
 	@override String get readMore => 'Ler mais';
 	@override String get showLess => 'Mostrar menos';
 }
@@ -1072,11 +1076,11 @@ extension on _StringsEn {
 			case 'homePage.movieCards.error': return 'Oops, something went wrong! Please try again.';
 			case 'homePage.movieCards.empty': return 'There are no movies to show';
 			case 'homePage.movieCards.noMoreMovies.title': return 'Wow, we ran out of movies!';
-			case 'homePage.movieCards.noMoreMovies.subtitle': return 'Try to re-enter the page to see more movies.';
+			case 'homePage.movieCards.noMoreMovies.subtitle': return 'Try to re-enter the page to see more movies';
 			case 'searchPage.header.title': return 'Search by the movie\'s title';
 			case 'searchPage.header.searchBarPlaceholder': return 'Search for movies...';
 			case 'searchPage.body.title': return 'Trending Movies';
-			case 'searchPage.body.subtitle': return 'Get in touch with the latest releases.';
+			case 'searchPage.body.subtitle': return 'Get in touch with the latest releases';
 			case 'searchPage.body.error': return 'Oops, something went wrong! Please try again.';
 			case 'searchPage.body.empty': return 'No movies found';
 			case 'profilePage.header.profileCreation': return ({required Object date}) => 'User since ${date}';
@@ -1090,6 +1094,7 @@ extension on _StringsEn {
 			case 'profilePage.recentMovies.empty': return 'There are no recent movies';
 			case 'licensesPage.title': return 'Licenses';
 			case 'moviePage.body.overview.title': return 'Overview';
+			case 'moviePage.body.overview.empty': return 'No overview available.';
 			case 'moviePage.body.overview.readMore': return 'Read more';
 			case 'moviePage.body.overview.showLess': return 'Show less';
 			case 'moviePage.body.stats.popularity': return 'POPULARITY';
@@ -1100,7 +1105,8 @@ extension on _StringsEn {
 			case 'moviePage.body.yourReview': return 'Your review';
 			case 'moviePage.body.favorite': return 'Favorite';
 			case 'moviePage.body.similarMovies': return 'Similar Movies';
-			case 'moviePage.body.emptyReviews': return 'There are no reviews to show.';
+			case 'moviePage.body.emptySimilarMovies': return 'There are no similar movies available';
+			case 'moviePage.body.emptyReviews': return 'There are no reviews to show';
 			case 'moviePage.reviewModal.title': return 'Adding review for...';
 			case 'moviePage.reviewModal.movieTitlePlaceholder': return 'Movie title';
 			case 'moviePage.reviewModal.fields.score': return 'Score';
@@ -1182,6 +1188,7 @@ extension on _StringsPt {
 			case 'profilePage.recentMovies.empty': return 'Não há filmes recentes';
 			case 'licensesPage.title': return 'Licenças';
 			case 'moviePage.body.overview.title': return 'Sinopse';
+			case 'moviePage.body.overview.empty': return 'Não há uma sinopse disponível.';
 			case 'moviePage.body.overview.readMore': return 'Ler mais';
 			case 'moviePage.body.overview.showLess': return 'Mostrar menos';
 			case 'moviePage.body.stats.popularity': return 'POPULARIDADE';
@@ -1192,7 +1199,8 @@ extension on _StringsPt {
 			case 'moviePage.body.yourReview': return 'Sua review';
 			case 'moviePage.body.favorite': return 'Favorito';
 			case 'moviePage.body.similarMovies': return 'Filmes similares';
-			case 'moviePage.body.emptyReviews': return 'Não há reviews para mostrar.';
+			case 'moviePage.body.emptySimilarMovies': return 'Não há filmes similares disponíveis';
+			case 'moviePage.body.emptyReviews': return 'Não há reviews para mostrar';
 			case 'moviePage.reviewModal.title': return 'Adicionando review para...';
 			case 'moviePage.reviewModal.movieTitlePlaceholder': return 'Título do filme';
 			case 'moviePage.reviewModal.fields.score': return 'Nota';
