@@ -69,11 +69,33 @@ class UserService {
     }
   }
 
+  getWatchlistMovies(FlickmemoUser? user) async {
+    String userParams = buildBaseUserParams(user);
+
+    final response = await http.get(
+      Uri.parse('$baseUsersUrl/${user?.internalID}/watchlist?$userParams'),
+      headers: <String, String>{
+        'Content-Type': 'application/json',
+      },
+    );
+
+    if (response.statusCode == 200) {
+      List<dynamic> decodedResponse = json.decode(response.body);
+      List<Movie> movies = decodedResponse.map((movieData) {
+        return Movie.fromJson(movieData);
+      }).toList();
+      return movies;
+    } else {
+      throw Exception('Failed to find movie data.');
+    }
+  }
+
   addMovieToWatchlist(String movieId, FlickmemoUser? user) async {
     String userParams = buildBaseUserParams(user);
 
     final response = await http.get(
-      Uri.parse('$baseUsersUrl/${user?.internalID}/add_to_watchlist?$userParams&movieId=$movieId'),
+      Uri.parse(
+          '$baseUsersUrl/${user?.internalID}/add_to_watchlist?$userParams&movieId=$movieId'),
       headers: <String, String>{
         'Content-Type': 'application/json',
       },
@@ -93,7 +115,8 @@ class UserService {
     String userParams = buildBaseUserParams(user);
 
     final response = await http.get(
-      Uri.parse('$baseUsersUrl/${user?.internalID}/remove_from_watchlist?$userParams&movieId=$movieId'),
+      Uri.parse(
+          '$baseUsersUrl/${user?.internalID}/remove_from_watchlist?$userParams&movieId=$movieId'),
       headers: <String, String>{
         'Content-Type': 'application/json',
       },

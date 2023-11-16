@@ -8,30 +8,30 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
 
-class RecentMovies extends StatefulWidget {
+class WatchlistMovies extends StatefulWidget {
   final FlickmemoUser? currentFlickmemoUser;
 
-  const RecentMovies({super.key, this.currentFlickmemoUser});
+  const WatchlistMovies({super.key, this.currentFlickmemoUser});
 
   @override
-  State<RecentMovies> createState() => _RecentMoviesState();
+  State<WatchlistMovies> createState() => _WatchlistMoviesState();
 }
 
-class _RecentMoviesState extends State<RecentMovies> {
+class _WatchlistMoviesState extends State<WatchlistMovies> {
   Future<List<Movie>>? _moviesFuture;
   late int _moviesCount = 2;
 
   @override
   void initState() {
     super.initState();
-    _moviesFuture = _fetchRecentMovies();
+    _moviesFuture = _fetchWatchlistMovies();
   }
 
-  Future<List<Movie>> _fetchRecentMovies() async {
+  Future<List<Movie>> _fetchWatchlistMovies() async {
     try {
       UserService userService = UserService();
       final result =
-          await userService.getRecentMovies(widget.currentFlickmemoUser);
+          await userService.getWatchlistMovies(widget.currentFlickmemoUser);
       _moviesCount = result.length;
       return result;
     } catch (error) {
