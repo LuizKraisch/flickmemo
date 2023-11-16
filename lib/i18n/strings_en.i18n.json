@@ -152,5 +152,9 @@
       "review": "Review",
       "editReview": "Edit Review"
     }
+  },
+  "externalReviewPage": {
+    "title": "Review by $name",
+    "subtitle": "Created at $date on TMDB"
   }
 }

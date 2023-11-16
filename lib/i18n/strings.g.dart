@@ -4,9 +4,9 @@
 /// To regenerate, run: `dart run slang`
 ///
 /// Locales: 2
-/// Strings: 172 (86 per locale)
+/// Strings: 176 (88 per locale)
 ///
-/// Built on 2023-11-15 at 18:03 UTC
+/// Built on 2023-11-16 at 00:01 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -158,6 +158,7 @@ class _StringsEn implements BaseTranslations<AppLocale, _StringsEn> {
 	late final _StringsProfilePageEn profilePage = _StringsProfilePageEn._(_root);
 	late final _StringsLicensesPageEn licensesPage = _StringsLicensesPageEn._(_root);
 	late final _StringsMoviePageEn moviePage = _StringsMoviePageEn._(_root);
+	late final _StringsExternalReviewPageEn externalReviewPage = _StringsExternalReviewPageEn._(_root);
 }
 
 // Path: common
@@ -250,6 +251,17 @@ class _StringsMoviePageEn {
 	late final _StringsMoviePageBodyEn body = _StringsMoviePageBodyEn._(_root);
 	late final _StringsMoviePageReviewModalEn reviewModal = _StringsMoviePageReviewModalEn._(_root);
 	late final _StringsMoviePageFooterEn footer = _StringsMoviePageFooterEn._(_root);
+}
+
+// Path: externalReviewPage
+class _StringsExternalReviewPageEn {
+	_StringsExternalReviewPageEn._(this._root);
+
+	final _StringsEn _root; // ignore: unused_field
+
+	// Translations
+	String title({required Object name}) => 'Review by ${name}';
+	String subtitle({required Object date}) => 'Created at ${date} on TMDB';
 }
 
 // Path: common.bottomNavBar
@@ -611,6 +623,7 @@ class _StringsPt implements _StringsEn {
 	@override late final _StringsProfilePagePt profilePage = _StringsProfilePagePt._(_root);
 	@override late final _StringsLicensesPagePt licensesPage = _StringsLicensesPagePt._(_root);
 	@override late final _StringsMoviePagePt moviePage = _StringsMoviePagePt._(_root);
+	@override late final _StringsExternalReviewPagePt externalReviewPage = _StringsExternalReviewPagePt._(_root);
 }
 
 // Path: common
@@ -703,6 +716,17 @@ class _StringsMoviePagePt implements _StringsMoviePageEn {
 	@override late final _StringsMoviePageBodyPt body = _StringsMoviePageBodyPt._(_root);
 	@override late final _StringsMoviePageReviewModalPt reviewModal = _StringsMoviePageReviewModalPt._(_root);
 	@override late final _StringsMoviePageFooterPt footer = _StringsMoviePageFooterPt._(_root);
+}
+
+// Path: externalReviewPage
+class _StringsExternalReviewPagePt implements _StringsExternalReviewPageEn {
+	_StringsExternalReviewPagePt._(this._root);
+
+	@override final _StringsPt _root; // ignore: unused_field
+
+	// Translations
+	@override String title({required Object name}) => 'Review de ${name}';
+	@override String subtitle({required Object date}) => 'Criada em ${date} no TMDB';
 }
 
 // Path: common.bottomNavBar
@@ -1123,6 +1147,8 @@ extension on _StringsEn {
 			case 'moviePage.reviewModal.deleteReview.confirmButton': return 'Yes, delete';
 			case 'moviePage.footer.review': return 'Review';
 			case 'moviePage.footer.editReview': return 'Edit Review';
+			case 'externalReviewPage.title': return ({required Object name}) => 'Review by ${name}';
+			case 'externalReviewPage.subtitle': return ({required Object date}) => 'Created at ${date} on TMDB';
 			default: return null;
 		}
 	}
@@ -1217,6 +1243,8 @@ extension on _StringsPt {
 			case 'moviePage.reviewModal.deleteReview.confirmButton': return 'Sim, excluia';
 			case 'moviePage.footer.review': return 'Review';
 			case 'moviePage.footer.editReview': return 'Editar Review';
+			case 'externalReviewPage.title': return ({required Object name}) => 'Review de ${name}';
+			case 'externalReviewPage.subtitle': return ({required Object date}) => 'Criada em ${date} no TMDB';
 			default: return null;
 		}
 	}

@@ -1,4 +1,6 @@
+import 'package:flickmemo/i18n/strings.g.dart';
 import 'package:flickmemo/models/external_review.dart';
+import 'package:flickmemo/pages/external_review_page.dart';
 import 'package:flickmemo/services/formatters.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -23,7 +25,7 @@ class ExternalReviewBox extends StatelessWidget {
             color: Color(0xff1D1F24),
           ),
           child: Padding(
-            padding: const EdgeInsets.all(12.0),
+            padding: const EdgeInsets.all(10.0),
             child: Column(children: [
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -43,15 +45,12 @@ class ExternalReviewBox extends StatelessWidget {
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          SizedBox(
-                            width: 180.0,
-                            child: Text(
-                              review.authorDetails["name"] != ""
-                                  ? review.authorDetails["name"]
-                                  : 'TMDB User',
-                              overflow: TextOverflow.ellipsis,
-                              style: Theme.of(context).textTheme.titleSmall,
-                            ),
+                          Text(
+                            review.authorDetails["name"] != ""
+                                ? review.authorDetails["name"]
+                                : 'TMDB User',
+                            overflow: TextOverflow.ellipsis,
+                            style: Theme.of(context).textTheme.titleSmall,
                           ),
                           Text(
                             formatExternalReviewDate(review.createdAt),
@@ -96,15 +95,42 @@ class ExternalReviewBox extends StatelessWidget {
               SizedBox(height: 10),
               SizedBox(
                 width: 300.00,
-                height: 50.00,
+                height: 40.00,
                 child: Text(
-                  formatExternalReviewContent(review
-                      .content), // TODO: Add separate place to show full review.
+                  formatExternalReviewContent(review.content),
                   overflow: TextOverflow.ellipsis,
-                  maxLines: 3,
+                  maxLines: 2,
                   style: Theme.of(context).textTheme.titleSmall,
                 ),
-              )
+              ),
+              SizedBox(height: 3),
+              GestureDetector(
+                onTap: () => Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => ExternalReviewPage(
+                      review: review,
+                    ),
+                  ),
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(right: 3.0),
+                      child: Text(
+                        t.moviePage.body.overview.readMore,
+                        style: TextStyle(
+                          fontSize: 11,
+                          color: Colors.grey.shade400,
+                          fontWeight: FontWeight.w400,
+                          fontFamily: GoogleFonts.poppins().fontFamily,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
             ]),
           ),
         ),

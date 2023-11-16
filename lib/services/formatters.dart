@@ -39,7 +39,7 @@ String formatExternalReviewDate(String inputDate) {
 }
 
 String formatExternalReviewContent(String content) {
-  RegExp pattern = RegExp(r'[!@#\$%^&*()_+={}\[\]:;"\<>,.?/\\|]');
+  RegExp pattern = RegExp(r'[@\$%^&*_+={}\[\]\<>/\\|]');
 
   return content.replaceAll(pattern, '');
 }
