@@ -27,7 +27,7 @@ class UserService {
     }
   }
 
-  getFavoriteMovies(FlickmemoUser? user) async {
+  Future<List<Movie>> getFavoriteMovies(FlickmemoUser? user) async {
     String userParams = buildBaseUserParams(user);
 
     final response = await http.get(
@@ -48,7 +48,7 @@ class UserService {
     }
   }
 
-  getRecentMovies(FlickmemoUser? user) async {
+  Future<List<Movie>> getRecentMovies(FlickmemoUser? user) async {
     String userParams = buildBaseUserParams(user);
 
     final response = await http.get(
@@ -69,7 +69,7 @@ class UserService {
     }
   }
 
-  getWatchlistMovies(FlickmemoUser? user) async {
+  Future<List<Movie>> getWatchlistMovies(FlickmemoUser? user) async {
     String userParams = buildBaseUserParams(user);
 
     final response = await http.get(

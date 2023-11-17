@@ -4,9 +4,9 @@
 /// To regenerate, run: `dart run slang`
 ///
 /// Locales: 2
-/// Strings: 176 (88 per locale)
+/// Strings: 180 (90 per locale)
 ///
-/// Built on 2023-11-16 at 00:01 UTC
+/// Built on 2023-11-16 at 23:56 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -227,6 +227,7 @@ class _StringsProfilePageEn {
 
 	// Translations
 	late final _StringsProfilePageHeaderEn header = _StringsProfilePageHeaderEn._(_root);
+	late final _StringsProfilePageBodyEn body = _StringsProfilePageBodyEn._(_root);
 	late final _StringsProfilePageFavoriteMoviesEn favoriteMovies = _StringsProfilePageFavoriteMoviesEn._(_root);
 	late final _StringsProfilePageRecentMoviesEn recentMovies = _StringsProfilePageRecentMoviesEn._(_root);
 }
@@ -376,6 +377,16 @@ class _StringsProfilePageHeaderEn {
 	late final _StringsProfilePageHeaderCountsEn counts = _StringsProfilePageHeaderCountsEn._(_root);
 }
 
+// Path: profilePage.body
+class _StringsProfilePageBodyEn {
+	_StringsProfilePageBodyEn._(this._root);
+
+	final _StringsEn _root; // ignore: unused_field
+
+	// Translations
+	late final _StringsProfilePageBodyTabsEn tabs = _StringsProfilePageBodyTabsEn._(_root);
+}
+
 // Path: profilePage.favoriteMovies
 class _StringsProfilePageFavoriteMoviesEn {
 	_StringsProfilePageFavoriteMoviesEn._(this._root);
@@ -500,6 +511,17 @@ class _StringsProfilePageHeaderCountsEn {
 	// Translations
 	String get watched => 'Watched';
 	String get favorites => 'Favorites';
+	String get watchlist => 'Watchlist';
+}
+
+// Path: profilePage.body.tabs
+class _StringsProfilePageBodyTabsEn {
+	_StringsProfilePageBodyTabsEn._(this._root);
+
+	final _StringsEn _root; // ignore: unused_field
+
+	// Translations
+	String get recents => 'Recents';
 	String get watchlist => 'Watchlist';
 }
 
@@ -692,6 +714,7 @@ class _StringsProfilePagePt implements _StringsProfilePageEn {
 
 	// Translations
 	@override late final _StringsProfilePageHeaderPt header = _StringsProfilePageHeaderPt._(_root);
+	@override late final _StringsProfilePageBodyPt body = _StringsProfilePageBodyPt._(_root);
 	@override late final _StringsProfilePageFavoriteMoviesPt favoriteMovies = _StringsProfilePageFavoriteMoviesPt._(_root);
 	@override late final _StringsProfilePageRecentMoviesPt recentMovies = _StringsProfilePageRecentMoviesPt._(_root);
 }
@@ -841,6 +864,16 @@ class _StringsProfilePageHeaderPt implements _StringsProfilePageHeaderEn {
 	@override late final _StringsProfilePageHeaderCountsPt counts = _StringsProfilePageHeaderCountsPt._(_root);
 }
 
+// Path: profilePage.body
+class _StringsProfilePageBodyPt implements _StringsProfilePageBodyEn {
+	_StringsProfilePageBodyPt._(this._root);
+
+	@override final _StringsPt _root; // ignore: unused_field
+
+	// Translations
+	@override late final _StringsProfilePageBodyTabsPt tabs = _StringsProfilePageBodyTabsPt._(_root);
+}
+
 // Path: profilePage.favoriteMovies
 class _StringsProfilePageFavoriteMoviesPt implements _StringsProfilePageFavoriteMoviesEn {
 	_StringsProfilePageFavoriteMoviesPt._(this._root);
@@ -966,6 +999,17 @@ class _StringsProfilePageHeaderCountsPt implements _StringsProfilePageHeaderCoun
 	@override String get watched => 'Assistidos';
 	@override String get favorites => 'Favoritos';
 	@override String get watchlist => 'Vou assistir';
+}
+
+// Path: profilePage.body.tabs
+class _StringsProfilePageBodyTabsPt implements _StringsProfilePageBodyTabsEn {
+	_StringsProfilePageBodyTabsPt._(this._root);
+
+	@override final _StringsPt _root; // ignore: unused_field
+
+	// Translations
+	@override String get recents => 'Recentes';
+	@override String get watchlist => 'Watchlist';
 }
 
 // Path: moviePage.body.overview
@@ -1111,6 +1155,8 @@ extension on _StringsEn {
 			case 'profilePage.header.counts.watched': return 'Watched';
 			case 'profilePage.header.counts.favorites': return 'Favorites';
 			case 'profilePage.header.counts.watchlist': return 'Watchlist';
+			case 'profilePage.body.tabs.recents': return 'Recents';
+			case 'profilePage.body.tabs.watchlist': return 'Watchlist';
 			case 'profilePage.favoriteMovies.title': return 'Favorite Movies';
 			case 'profilePage.favoriteMovies.empty': return 'There are no favorite movies';
 			case 'profilePage.recentMovies.title': return 'Recent Movies';
@@ -1207,6 +1253,8 @@ extension on _StringsPt {
 			case 'profilePage.header.counts.watched': return 'Assistidos';
 			case 'profilePage.header.counts.favorites': return 'Favoritos';
 			case 'profilePage.header.counts.watchlist': return 'Vou assistir';
+			case 'profilePage.body.tabs.recents': return 'Recentes';
+			case 'profilePage.body.tabs.watchlist': return 'Watchlist';
 			case 'profilePage.favoriteMovies.title': return 'Filmes favoritos';
 			case 'profilePage.favoriteMovies.empty': return 'Não há filmes favoritos';
 			case 'profilePage.recentMovies.title': return 'Filmes recentes';
