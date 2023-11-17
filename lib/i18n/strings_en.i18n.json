@@ -92,6 +92,12 @@
         "watchlist": "Watchlist"
       }
     },
+    "body": {
+      "tabs": {
+        "recents": "Recents",
+        "watchlist": "Watchlist"
+      }
+    },
     "favoriteMovies": {
       "title": "Favorite Movies",
       "empty": "There are no favorite movies"
