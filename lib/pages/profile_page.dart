@@ -2,6 +2,7 @@ import 'package:flickmemo/components/error_info.dart';
 import 'package:flickmemo/components/favorite_movies.dart';
 import 'package:flickmemo/components/profile_header.dart';
 import 'package:flickmemo/components/grid_movies.dart';
+import 'package:flickmemo/components/skeleton.dart';
 import 'package:flickmemo/i18n/strings.g.dart';
 import 'package:flickmemo/models/flickmemo_user.dart';
 import 'package:flickmemo/models/movie.dart';
@@ -9,7 +10,6 @@ import 'package:flickmemo/services/user_service.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:loading_animation_widget/loading_animation_widget.dart';
 
 class ProfilePage extends StatefulWidget {
   final FlickmemoUser? currentFlickmemoUser;
@@ -120,21 +120,27 @@ class _ProfilePageState extends State<ProfilePage> {
                 child: FutureBuilder<List<Movie>>(
                   future: favoriteMoviesFuture,
                   builder: (context, snapshot) {
-                    if (snapshot.connectionState == ConnectionState.waiting) {
-                      return Center(
-                          child: LoadingAnimationWidget.fourRotatingDots(
-                        color: Theme.of(context).colorScheme.primary,
-                        size: 50.0,
-                      ));
+                    if (snapshot.hasData) {
+                      final movies = snapshot.data ?? [];
+                      return FavoriteMovies(
+                        currentFlickmemoUser: currentFlickmemoUser,
+                        movies: movies,
+                      );
                     } else if (snapshot.hasError) {
                       return Center(
                         child:
                             ErrorInfo(errorMessage: snapshot.error.toString()),
                       );
                     } else {
-                      return FavoriteMovies(
-                        currentFlickmemoUser: currentFlickmemoUser,
-                        movies: snapshot.data,
+                      return Padding(
+                        padding: const EdgeInsets.only(bottom: 15.0),
+                        child: Row(
+                          children: const [
+                            Skeleton(width: 110, height: 170, radius: 20),
+                            SizedBox(width: 10),
+                            Skeleton(width: 110, height: 170, radius: 20),
+                          ],
+                        ),
                       );
                     }
                   },
@@ -212,13 +218,33 @@ class _ProfilePageState extends State<ProfilePage> {
                                               snapshot.error.toString()),
                                     );
                                   } else {
-                                    return Center(
-                                        child: LoadingAnimationWidget
-                                            .fourRotatingDots(
-                                      color:
-                                          Theme.of(context).colorScheme.primary,
-                                      size: 50.0,
-                                    ));
+                                    return Padding(
+                                      padding: const EdgeInsets.only(top: 15),
+                                      child: Column(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.start,
+                                        children: const [
+                                          Row(
+                                            children: [
+                                              Skeleton(
+                                                  width: 110,
+                                                  height: 170,
+                                                  radius: 20),
+                                              SizedBox(width: 10),
+                                              Skeleton(
+                                                  width: 110,
+                                                  height: 170,
+                                                  radius: 20),
+                                              SizedBox(width: 10),
+                                              Skeleton(
+                                                  width: 110,
+                                                  height: 170,
+                                                  radius: 20),
+                                            ],
+                                          ),
+                                        ],
+                                      ),
+                                    );
                                   }
                                 },
                               ),
@@ -265,13 +291,33 @@ class _ProfilePageState extends State<ProfilePage> {
                                               snapshot.error.toString()),
                                     );
                                   } else {
-                                    return Center(
-                                        child: LoadingAnimationWidget
-                                            .fourRotatingDots(
-                                      color:
-                                          Theme.of(context).colorScheme.primary,
-                                      size: 50.0,
-                                    ));
+                                    return Padding(
+                                      padding: const EdgeInsets.only(top: 15),
+                                      child: Column(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.start,
+                                        children: const [
+                                          Row(
+                                            children: [
+                                              Skeleton(
+                                                  width: 110,
+                                                  height: 170,
+                                                  radius: 20),
+                                              SizedBox(width: 10),
+                                              Skeleton(
+                                                  width: 110,
+                                                  height: 170,
+                                                  radius: 20),
+                                              SizedBox(width: 10),
+                                              Skeleton(
+                                                  width: 110,
+                                                  height: 170,
+                                                  radius: 20),
+                                            ],
+                                          ),
+                                        ],
+                                      ),
+                                    );
                                   }
                                 },
                               ),

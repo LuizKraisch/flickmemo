@@ -31,7 +31,7 @@ class _FavoriteMoviesState extends State<FavoriteMovies> {
           height: 170,
           child: Scrollbar(
               child: Padding(
-            padding: const EdgeInsets.fromLTRB(0, 0, 0, 15),
+            padding: const EdgeInsets.only(bottom: 15.0),
             child: ListView(
               scrollDirection: Axis.horizontal,
               children: movies.map((movie) {
