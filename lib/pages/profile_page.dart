@@ -29,8 +29,8 @@ class _ProfilePageState extends State<ProfilePage> {
   Future<List<Movie>>? recentMoviesFuture;
   Future<List<Movie>>? watchlistMoviesFuture;
 
-  int recentMoviesCount = 0;
-  int watchlistMoviesCount = 0;
+  int recentMoviesCount = 10;
+  int watchlistMoviesCount = 10;
 
   @override
   void initState() {

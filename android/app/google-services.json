@@ -14,6 +14,22 @@
       },
       "oauth_client": [
         {
+          "client_id": "740459610244-97g3n9nv7harnusn2tpc9gs7qoje90us.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.flickmemo",
+            "certificate_hash": "e97238267681735da75950fb7fcd9b39ccd11fc4"
+          }
+        },
+        {
+          "client_id": "740459610244-pnj5d6kdlgkcn0lvjfb507nm9oqq00os.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.flickmemo",
+            "certificate_hash": "8cd3c6b13e5beacc0143656b6e0f1e1527702abd"
+          }
+        },
+        {
           "client_id": "740459610244-4afru7utjv3bn42tdnaakqgg8916us61.apps.googleusercontent.com",
           "client_type": 3
         }

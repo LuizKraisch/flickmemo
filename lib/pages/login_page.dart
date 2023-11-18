@@ -30,14 +30,18 @@ class LoginPageState extends State<LoginPage> {
           Column(
             children: [
               Padding(
-                padding: const EdgeInsets.fromLTRB(0, 50, 0, 0),
+                padding: const EdgeInsets.only(top: 50.0),
                 child: Image.asset(
                   'assets/images/app-presentation.png',
-                  height: 500,
+                  fit: BoxFit.fill,
                 ),
               ),
-              MainContainer(
-                setLoading: _setLoading,
+              Spacer(),
+              Padding(
+                padding: const EdgeInsets.only(bottom: 30.0),
+                child: MainContainer(
+                  setLoading: _setLoading,
+                ),
               ),
             ],
           ),
