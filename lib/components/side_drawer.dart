@@ -69,13 +69,11 @@ class _SideDrawerState extends State<SideDrawer> {
         children: [
           Expanded(
             child: Column(children: [
-              DrawerHeader(
-                padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
-                child: Center(
-                  child: Image.asset(
-                    'assets/logos/flickmemo-logo.png',
-                    width: 180,
-                  ),
+              Padding(
+                padding: const EdgeInsets.fromLTRB(0, 80, 0, 30),
+                child: Image.asset(
+                  'assets/logos/flickmemo-logo.png',
+                  width: 180,
                 ),
               ),
               SizedBox(height: 20),
