@@ -3,7 +3,6 @@ import 'package:flickmemo/components/movie_page_body.dart';
 import 'package:flickmemo/components/movie_page_header.dart';
 import 'package:flickmemo/models/flickmemo_user.dart';
 import 'package:flickmemo/services/movie_service.dart';
-import 'package:flickmemo/services/user_service.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
@@ -55,8 +54,8 @@ class _MoviePageState extends State<MoviePage> {
   }
 
   void addToWatchlist() async {
-    UserService userService = UserService();
-    userService
+    MovieService movieService = MovieService();
+    movieService
         .addMovieToWatchlist(movieData?["data"].id, currentFlickmemoUser)
         .then((result) {
       setState(() {
@@ -72,8 +71,8 @@ class _MoviePageState extends State<MoviePage> {
   }
 
   void removeFromWatchlist() async {
-    UserService userService = UserService();
-    userService
+    MovieService movieService = MovieService();
+    movieService
         .removeMovieFromWatchlist(movieData?["data"].id, currentFlickmemoUser)
         .then((result) {
       setState(() {

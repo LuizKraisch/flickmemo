@@ -6,7 +6,6 @@ import 'package:flickmemo/components/progress_bar.dart';
 import 'package:flickmemo/models/flickmemo_user.dart';
 import 'package:flickmemo/models/movie.dart';
 import 'package:flickmemo/services/movie_service.dart';
-import 'package:flickmemo/services/user_service.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:flickmemo/i18n/strings.g.dart';
@@ -67,8 +66,8 @@ class _HomePageState extends State<HomePage> {
   }
 
   void handleAddWatchlist(String movieId) async {
-    UserService userService = UserService();
-    await userService.addMovieToWatchlist(movieId, currentFlickmemoUser);
+    MovieService movieService = MovieService();
+    await movieService.addMovieToWatchlist(movieId, currentFlickmemoUser);
   }
 
   @override

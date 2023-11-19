@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'package:flickmemo/env.dart';
+import 'package:flickmemo/i18n/strings.g.dart';
 import 'package:flickmemo/models/external_review.dart';
 import 'package:flickmemo/models/movie.dart';
 import 'package:flickmemo/models/review.dart';
@@ -101,6 +102,46 @@ class MovieService {
       return movies;
     } else {
       throw Exception('Failed to find movies related to the query.');
+    }
+  }
+
+  Future<void> addMovieToWatchlist(String movieId, FlickmemoUser? user) async {
+    String userParams = buildBaseUserParams(user);
+
+    final response = await http.get(
+      Uri.parse('$baseMoviesUrl/add_to_watchlist?$userParams&movieId=$movieId'),
+      headers: <String, String>{
+        'Content-Type': 'application/json',
+      },
+    );
+
+    if (response.statusCode == 200) {
+      return addToast(t.toast.movies.movieAddedToWatchlist);
+    } else if (response.statusCode == 409) {
+      return addToast(t.toast.movies.movieAlreadyOnWatchlist);
+    } else {
+      addToast(t.toast.movies.failedtoAddToWatchlist);
+      throw Exception('Failed to add movie to watchlist.');
+    }
+  }
+
+  Future<void> removeMovieFromWatchlist(
+      String movieId, FlickmemoUser? user) async {
+    String userParams = buildBaseUserParams(user);
+
+    final response = await http.get(
+      Uri.parse(
+          '$baseMoviesUrl/remove_from_watchlist?$userParams&movieId=$movieId'),
+      headers: <String, String>{
+        'Content-Type': 'application/json',
+      },
+    );
+
+    if (response.statusCode == 200) {
+      return addToast(t.toast.movies.movieRemovedFromWatchlist);
+    } else {
+      addToast(t.toast.movies.failedtoRemoveFromWatchlist);
+      throw Exception('Failed to remove movie from watchlist.');
     }
   }
 }
