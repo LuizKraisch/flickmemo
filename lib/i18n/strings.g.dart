@@ -4,9 +4,9 @@
 /// To regenerate, run: `dart run slang`
 ///
 /// Locales: 2
-/// Strings: 180 (90 per locale)
+/// Strings: 184 (92 per locale)
 ///
-/// Built on 2023-11-16 at 23:56 UTC
+/// Built on 2023-11-19 at 18:07 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -313,6 +313,7 @@ class _StringsToastHelpersEn {
 	String get emailFailed => 'Could not launch email. Please, try again.';
 	String get emailSubject => 'Hello! I want to talk about Flickmemo';
 	String get emailBody => 'Here you write a nice message for me :)';
+	String get statusPageFailed => 'Could not launch status page. Please, try again.';
 	String get imdbFailed => 'Could not launch IMDb page. Please, try again.';
 }
 
@@ -475,6 +476,7 @@ class _StringsCommonSideDrawerOptionsEn {
 	String get changeLanguage => 'Change language';
 	String get licenses => 'Licenses';
 	String get logOut => 'Log out';
+	String get status => 'Status';
 	String get developer => 'Talk with the developer';
 }
 
@@ -800,6 +802,7 @@ class _StringsToastHelpersPt implements _StringsToastHelpersEn {
 	@override String get emailFailed => 'Não foi possível abrir o e-mail. Por favor, tente novamente.';
 	@override String get emailSubject => 'Olá! Quero falar sobre o Flickmemo';
 	@override String get emailBody => 'Aqui você escreve uma mensagem legal para mim :)';
+	@override String get statusPageFailed => 'Não foi possível acessar a página de status. Por favor, tente novamente.';
 	@override String get imdbFailed => 'Não foi possível acessar o IMDB. Por favor, tente novamente.';
 }
 
@@ -962,6 +965,7 @@ class _StringsCommonSideDrawerOptionsPt implements _StringsCommonSideDrawerOptio
 	@override String get changeLanguage => 'Mudar idioma';
 	@override String get licenses => 'Licenças';
 	@override String get logOut => 'Sair';
+	@override String get status => 'Status';
 	@override String get developer => 'Falar com o desenvolvedor';
 }
 
@@ -1115,6 +1119,7 @@ extension on _StringsEn {
 			case 'common.sideDrawer.options.changeLanguage': return 'Change language';
 			case 'common.sideDrawer.options.licenses': return 'Licenses';
 			case 'common.sideDrawer.options.logOut': return 'Log out';
+			case 'common.sideDrawer.options.status': return 'Status';
 			case 'common.sideDrawer.options.developer': return 'Talk with the developer';
 			case 'common.sideDrawer.languageDialog.title': return 'Change language';
 			case 'common.sideDrawer.languageDialog.help': return 'Changing the language will also change the external movie data language. The change will be applied on the next requests.';
@@ -1130,6 +1135,7 @@ extension on _StringsEn {
 			case 'toast.helpers.emailFailed': return 'Could not launch email. Please, try again.';
 			case 'toast.helpers.emailSubject': return 'Hello! I want to talk about Flickmemo';
 			case 'toast.helpers.emailBody': return 'Here you write a nice message for me :)';
+			case 'toast.helpers.statusPageFailed': return 'Could not launch status page. Please, try again.';
 			case 'toast.helpers.imdbFailed': return 'Could not launch IMDb page. Please, try again.';
 			case 'toast.review.fillAllTheFields': return 'Please, fill all the mandatory fields';
 			case 'toast.review.reviewSaved': return 'Review saved';
@@ -1213,6 +1219,7 @@ extension on _StringsPt {
 			case 'common.sideDrawer.options.changeLanguage': return 'Mudar idioma';
 			case 'common.sideDrawer.options.licenses': return 'Licenças';
 			case 'common.sideDrawer.options.logOut': return 'Sair';
+			case 'common.sideDrawer.options.status': return 'Status';
 			case 'common.sideDrawer.options.developer': return 'Falar com o desenvolvedor';
 			case 'common.sideDrawer.languageDialog.title': return 'Mudar o idioma';
 			case 'common.sideDrawer.languageDialog.help': return 'Mudar o idioma também mudará o idioma dos dados externos dos filmes. A mudança será aplicada nas próximas requisições.';
@@ -1228,6 +1235,7 @@ extension on _StringsPt {
 			case 'toast.helpers.emailFailed': return 'Não foi possível abrir o e-mail. Por favor, tente novamente.';
 			case 'toast.helpers.emailSubject': return 'Olá! Quero falar sobre o Flickmemo';
 			case 'toast.helpers.emailBody': return 'Aqui você escreve uma mensagem legal para mim :)';
+			case 'toast.helpers.statusPageFailed': return 'Não foi possível acessar a página de status. Por favor, tente novamente.';
 			case 'toast.helpers.imdbFailed': return 'Não foi possível acessar o IMDB. Por favor, tente novamente.';
 			case 'toast.review.fillAllTheFields': return 'Por favor, preencha todos os campos';
 			case 'toast.review.reviewSaved': return 'Review salva';

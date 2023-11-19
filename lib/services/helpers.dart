@@ -31,6 +31,16 @@ Future<void> launchDeveloperEmail() async {
   }
 }
 
+Future<void> launchStatusPage() async {
+  final statusPageUrl =
+      Uri.parse('https://luizkraisch.github.io/flickmemo-status/');
+  if (await canLaunchUrl(statusPageUrl)) {
+    await launchUrl(statusPageUrl);
+  } else {
+    addToast(t.toast.helpers.statusPageFailed);
+  }
+}
+
 Future<void> launchIMDbPage(String imdbId) async {
   final imdbUrl = Uri.parse('https://www.imdb.com/title/$imdbId/');
   if (await canLaunchUrl(imdbUrl)) {

@@ -142,6 +142,19 @@ class _SideDrawerState extends State<SideDrawer> {
                   padding: const EdgeInsets.fromLTRB(10, 0, 0, 0),
                   child: ListTile(
                     minLeadingWidth: 10,
+                    leading: FaIcon(FontAwesomeIcons.signal,
+                        color: Theme.of(context).colorScheme.outline),
+                    title: Text(
+                      t.common.sideDrawer.options.status,
+                      style: Theme.of(context).textTheme.headlineSmall,
+                    ),
+                    onTap: () => launchStatusPage(),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(10, 0, 0, 0),
+                  child: ListTile(
+                    minLeadingWidth: 10,
                     leading: FaIcon(FontAwesomeIcons.code,
                         color: Theme.of(context).colorScheme.outline),
                     title: Text(
@@ -150,6 +163,17 @@ class _SideDrawerState extends State<SideDrawer> {
                     ),
                     onTap: () => launchDeveloperEmail(),
                   ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(10, 0, 0, 0),
+                  child: Text('Flickmemo App • Ver. 1.1.0 "WALL-E"',
+                      textAlign: TextAlign.start,
+                      style: TextStyle(
+                        fontSize: 11,
+                        color: Colors.grey.shade400,
+                        fontWeight: FontWeight.w400,
+                        fontFamily: GoogleFonts.poppins().fontFamily,
+                      )),
                 ),
               ],
             ),

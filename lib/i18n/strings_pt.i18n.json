@@ -16,6 +16,7 @@
         "changeLanguage": "Mudar idioma",
         "licenses": "Licenças",
         "logOut": "Sair",
+        "status": "Status",
         "developer": "Falar com o desenvolvedor"
       },
       "languageDialog": {
@@ -44,6 +45,7 @@
       "emailFailed": "Não foi possível abrir o e-mail. Por favor, tente novamente.",
       "emailSubject": "Olá! Quero falar sobre o Flickmemo",
       "emailBody": "Aqui você escreve uma mensagem legal para mim :)",
+      "statusPageFailed": "Não foi possível acessar a página de status. Por favor, tente novamente.",
       "imdbFailed": "Não foi possível acessar o IMDB. Por favor, tente novamente."
     },
     "review": {

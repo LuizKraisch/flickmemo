@@ -16,6 +16,7 @@
         "changeLanguage": "Change language",
         "licenses": "Licenses",
         "logOut": "Log out",
+        "status": "Status",
         "developer": "Talk with the developer"
       },
       "languageDialog": {
@@ -44,6 +45,7 @@
       "emailFailed": "Could not launch email. Please, try again.",
       "emailSubject": "Hello! I want to talk about Flickmemo",
       "emailBody": "Here you write a nice message for me :)",
+      "statusPageFailed": "Could not launch status page. Please, try again.",
       "imdbFailed": "Could not launch IMDb page. Please, try again."
     },
     "review": {
