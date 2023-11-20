@@ -21,8 +21,10 @@ class ErrorInfo extends StatelessWidget {
         SizedBox(height: 10),
         Text(
           t.homePage.movieCards.error,
+          textAlign: TextAlign.center,
           style: Theme.of(context).textTheme.headlineMedium,
         ),
+        SizedBox(height: 5),
         Text(errorMessage),
       ],
     );

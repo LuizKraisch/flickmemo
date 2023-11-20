@@ -183,7 +183,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                 : 400,
                             child: Scrollbar(
                               child: FutureBuilder<List<Movie>>(
-                                future: fetchRecentMovies(),
+                                future: recentMoviesFuture,
                                 builder: (context, snapshot) {
                                   if (snapshot.hasData) {
                                     final movies = snapshot.data ?? [];
@@ -214,8 +214,8 @@ class _ProfilePageState extends State<ProfilePage> {
                                   } else if (snapshot.hasError) {
                                     return Center(
                                       child: ErrorInfo(
-                                          errorMessage:
-                                              snapshot.error.toString()),
+                                        errorMessage: snapshot.error.toString(),
+                                      ),
                                     );
                                   } else {
                                     return Padding(
@@ -253,10 +253,10 @@ class _ProfilePageState extends State<ProfilePage> {
                           SizedBox(
                             height: watchlistMoviesCount != 0
                                 ? ((watchlistMoviesCount / 3).ceil() * 200.0)
-                                : 400,
+                                : 200,
                             child: Scrollbar(
                               child: FutureBuilder<List<Movie>>(
-                                future: fetchWatchlistMovies(),
+                                future: watchlistMoviesFuture,
                                 builder: (context, snapshot) {
                                   if (snapshot.hasData) {
                                     final movies = snapshot.data ?? [];

@@ -8,7 +8,7 @@ import 'package:flickmemo/models/flickmemo_user.dart';
 class UserService {
   String baseUsersUrl = '$baseApiUrl/api/v1/users';
 
-  getUserInfo(FlickmemoUser? user) async {
+  Future<FlickmemoUser> getUserInfo(FlickmemoUser? user) async {
     String userParams = buildBaseUserParams(user);
 
     final response = await http.get(

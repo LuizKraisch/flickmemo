@@ -1,9 +1,10 @@
+import 'package:flickmemo/components/error_info.dart';
+import 'package:flickmemo/components/skeleton.dart';
 import 'package:flickmemo/i18n/strings.g.dart';
 import 'package:flickmemo/models/flickmemo_user.dart';
 import 'package:flickmemo/services/formatters.dart';
 import 'package:flickmemo/services/user_service.dart';
 import 'package:flutter/material.dart';
-import 'package:loading_animation_widget/loading_animation_widget.dart';
 
 class ProfileHeader extends StatefulWidget {
   final FlickmemoUser? currentFlickmemoUser;
@@ -18,28 +19,34 @@ class ProfileHeader extends StatefulWidget {
 }
 
 class _ProfileHeaderState extends State<ProfileHeader> {
-  UserService userService = UserService();
   FlickmemoUser? currentFlickmemoUser;
-  FlickmemoUser? user;
+  Future<FlickmemoUser>? flickmemoUserFuture;
 
   @override
   void initState() {
     super.initState();
     currentFlickmemoUser = widget.currentFlickmemoUser;
+    flickmemoUserFuture = fetchUserInfo();
+  }
 
-    userService.getUserInfo(currentFlickmemoUser).then((result) {
-      setState(() {
-        user = result;
-      });
-    }).catchError((error) {
+  Future<FlickmemoUser> fetchUserInfo() async {
+    try {
+      UserService userService = UserService();
+      final result = await userService.getUserInfo(currentFlickmemoUser);
+      return result;
+    } catch (error) {
       throw Exception('Failed to find user info.');
-    });
+    }
   }
 
   @override
   Widget build(BuildContext context) {
-    return user != null
-        ? Container(
+    return FutureBuilder<FlickmemoUser>(
+      future: fetchUserInfo(),
+      builder: (context, snapshot) {
+        if (snapshot.hasData) {
+          final user = snapshot.data;
+          return Container(
             alignment: Alignment.center,
             child: Column(
               children: [
@@ -55,7 +62,7 @@ class _ProfileHeaderState extends State<ProfileHeader> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          "${user!.firstName} ${user!.lastName}",
+                          "${user.firstName} ${user.lastName}",
                           style: Theme.of(context).textTheme.displaySmall,
                         ),
                         SizedBox(width: 5),
@@ -75,7 +82,7 @@ class _ProfileHeaderState extends State<ProfileHeader> {
                     Column(
                       children: [
                         Text(
-                          user!.watchedCount.toString(),
+                          user.watchedCount.toString(),
                           style: Theme.of(context).textTheme.displaySmall,
                         ),
                         Text(
@@ -86,7 +93,7 @@ class _ProfileHeaderState extends State<ProfileHeader> {
                     ),
                     Column(
                       children: [
-                        Text(user!.favoritesCount.toString(),
+                        Text(user.favoritesCount.toString(),
                             style: Theme.of(context).textTheme.displaySmall),
                         Text(
                           t.profilePage.header.counts.favorites,
@@ -97,7 +104,7 @@ class _ProfileHeaderState extends State<ProfileHeader> {
                     Column(
                       children: [
                         Text(
-                          user!.watchlistCount.toString(),
+                          user.watchlistCount.toString(),
                           style: Theme.of(context).textTheme.displaySmall,
                         ),
                         Text(
@@ -110,12 +117,46 @@ class _ProfileHeaderState extends State<ProfileHeader> {
                 )
               ],
             ),
-          )
-        : Center(
-            child: LoadingAnimationWidget.fourRotatingDots(
-              color: Theme.of(context).colorScheme.primary,
-              size: 50.0,
+          );
+        } else if (snapshot.hasError) {
+          return Center(
+            child: ErrorInfo(errorMessage: snapshot.error.toString()),
+          );
+        } else {
+          return Padding(
+            padding: const EdgeInsets.only(bottom: 15.0),
+            child: Column(
+              children: const [
+                Row(
+                  children: [
+                    Skeleton(width: 70, height: 70, radius: 100),
+                    SizedBox(width: 10),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Skeleton(width: 200, height: 20, radius: 20),
+                        SizedBox(height: 10),
+                        Skeleton(width: 100, height: 20, radius: 20),
+                      ],
+                    ),
+                  ],
+                ),
+                SizedBox(height: 20),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    Skeleton(width: 50, height: 50, radius: 100),
+                    SizedBox(width: 10),
+                    Skeleton(width: 50, height: 50, radius: 100),
+                    SizedBox(width: 10),
+                    Skeleton(width: 50, height: 50, radius: 100),
+                  ],
+                )
+              ],
             ),
           );
+        }
+      },
+    );
   }
 }
