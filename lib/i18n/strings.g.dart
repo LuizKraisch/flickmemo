@@ -6,7 +6,7 @@
 /// Locales: 2
 /// Strings: 184 (92 per locale)
 ///
-/// Built on 2023-11-19 at 18:07 UTC
+/// Built on 2023-11-20 at 00:39 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -488,7 +488,7 @@ class _StringsCommonSideDrawerLanguageDialogEn {
 
 	// Translations
 	String get title => 'Change language';
-	String get help => 'Changing the language will also change the external movie data language. The change will be applied on the next requests.';
+	String get help => 'Changing the language will also change the external movie data language. The change will be applied after restarting the app';
 	late final _StringsCommonSideDrawerLanguageDialogOptionsEn options = _StringsCommonSideDrawerLanguageDialogOptionsEn._(_root);
 	late final _StringsCommonSideDrawerLanguageDialogToastsEn toasts = _StringsCommonSideDrawerLanguageDialogToastsEn._(_root);
 }
@@ -610,8 +610,8 @@ class _StringsCommonSideDrawerLanguageDialogToastsEn {
 	final _StringsEn _root; // ignore: unused_field
 
 	// Translations
-	String get portugueseConfirmation => 'Idioma alterado para Português';
-	String get englishConfirmation => 'Idioma alterado para Inglês';
+	String get portugueseConfirmation => 'Language changed to Portuguese. Please, restart the app to apply the changes';
+	String get englishConfirmation => 'Language changed to English. Please, restart the app to apply the changes';
 }
 
 // Path: <root>
@@ -977,7 +977,7 @@ class _StringsCommonSideDrawerLanguageDialogPt implements _StringsCommonSideDraw
 
 	// Translations
 	@override String get title => 'Mudar o idioma';
-	@override String get help => 'Mudar o idioma também mudará o idioma dos dados externos dos filmes. A mudança será aplicada nas próximas requisições.';
+	@override String get help => 'Mudar o idioma também mudará o idioma dos dados externos dos filmes. A mudança será aplicada após reiniciar o app';
 	@override late final _StringsCommonSideDrawerLanguageDialogOptionsPt options = _StringsCommonSideDrawerLanguageDialogOptionsPt._(_root);
 	@override late final _StringsCommonSideDrawerLanguageDialogToastsPt toasts = _StringsCommonSideDrawerLanguageDialogToastsPt._(_root);
 }
@@ -1099,8 +1099,8 @@ class _StringsCommonSideDrawerLanguageDialogToastsPt implements _StringsCommonSi
 	@override final _StringsPt _root; // ignore: unused_field
 
 	// Translations
-	@override String get portugueseConfirmation => 'Language changed to Portuguese';
-	@override String get englishConfirmation => 'Language changed to English';
+	@override String get portugueseConfirmation => 'Idioma alterado para Português. Por favor, reinicie o app para aplicar as mudanças';
+	@override String get englishConfirmation => 'Idioma alterado para Inglês. Por favor, reinicie o app para aplicar as mudanças';
 }
 
 /// Flat map(s) containing all translations.
@@ -1122,11 +1122,11 @@ extension on _StringsEn {
 			case 'common.sideDrawer.options.status': return 'Status';
 			case 'common.sideDrawer.options.developer': return 'Talk with the developer';
 			case 'common.sideDrawer.languageDialog.title': return 'Change language';
-			case 'common.sideDrawer.languageDialog.help': return 'Changing the language will also change the external movie data language. The change will be applied on the next requests.';
+			case 'common.sideDrawer.languageDialog.help': return 'Changing the language will also change the external movie data language. The change will be applied after restarting the app';
 			case 'common.sideDrawer.languageDialog.options.en': return 'Use English';
 			case 'common.sideDrawer.languageDialog.options.pt': return 'Use Portuguese';
-			case 'common.sideDrawer.languageDialog.toasts.portugueseConfirmation': return 'Idioma alterado para Português';
-			case 'common.sideDrawer.languageDialog.toasts.englishConfirmation': return 'Idioma alterado para Inglês';
+			case 'common.sideDrawer.languageDialog.toasts.portugueseConfirmation': return 'Language changed to Portuguese. Please, restart the app to apply the changes';
+			case 'common.sideDrawer.languageDialog.toasts.englishConfirmation': return 'Language changed to English. Please, restart the app to apply the changes';
 			case 'toast.movies.movieAddedToWatchlist': return 'Movie added to your watchlist';
 			case 'toast.movies.movieAlreadyOnWatchlist': return 'This movie is already in your watchlist';
 			case 'toast.movies.failedtoAddToWatchlist': return 'Something went wrong when adding this movie to your watchlist. Please, try again';
@@ -1222,11 +1222,11 @@ extension on _StringsPt {
 			case 'common.sideDrawer.options.status': return 'Status';
 			case 'common.sideDrawer.options.developer': return 'Falar com o desenvolvedor';
 			case 'common.sideDrawer.languageDialog.title': return 'Mudar o idioma';
-			case 'common.sideDrawer.languageDialog.help': return 'Mudar o idioma também mudará o idioma dos dados externos dos filmes. A mudança será aplicada nas próximas requisições.';
+			case 'common.sideDrawer.languageDialog.help': return 'Mudar o idioma também mudará o idioma dos dados externos dos filmes. A mudança será aplicada após reiniciar o app';
 			case 'common.sideDrawer.languageDialog.options.en': return 'Usar Inglês';
 			case 'common.sideDrawer.languageDialog.options.pt': return 'Usar Português';
-			case 'common.sideDrawer.languageDialog.toasts.portugueseConfirmation': return 'Language changed to Portuguese';
-			case 'common.sideDrawer.languageDialog.toasts.englishConfirmation': return 'Language changed to English';
+			case 'common.sideDrawer.languageDialog.toasts.portugueseConfirmation': return 'Idioma alterado para Português. Por favor, reinicie o app para aplicar as mudanças';
+			case 'common.sideDrawer.languageDialog.toasts.englishConfirmation': return 'Idioma alterado para Inglês. Por favor, reinicie o app para aplicar as mudanças';
 			case 'toast.movies.movieAddedToWatchlist': return 'Filme adicionado à sua watchlist';
 			case 'toast.movies.movieAlreadyOnWatchlist': return 'Este filme já está em sua watchlist';
 			case 'toast.movies.failedtoAddToWatchlist': return 'Ocorreu um erro ao adicionar o filme à sua watchlist. Por favor, tente novamente';

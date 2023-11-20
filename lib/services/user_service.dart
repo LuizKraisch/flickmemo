@@ -26,6 +26,28 @@ class UserService {
     }
   }
 
+  static Future<void> updateUser(
+      FlickmemoUser? user, String preferredLanguage) async {
+    String userParams = buildBaseUserParams(user);
+    String baseUsersUrl = '$baseApiUrl/api/v1/users';
+
+    final response = await http.put(
+      Uri.parse('$baseUsersUrl/${user?.internalID}?$userParams'),
+      headers: <String, String>{
+        'Content-Type': 'application/json',
+      },
+      body: jsonEncode(<String, dynamic>{
+        "user": {"preferred_language": preferredLanguage}
+      }),
+    );
+
+    if (response.statusCode == 200) {
+      return;
+    } else {
+      throw Exception('Failed to update user.');
+    }
+  }
+
   Future<List<Movie>> getFavoriteMovies(FlickmemoUser? user) async {
     String userParams = buildBaseUserParams(user);
 

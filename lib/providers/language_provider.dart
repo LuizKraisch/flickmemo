@@ -17,7 +17,7 @@ class LanguageProvider extends ChangeNotifier {
     } else if (locale.languageCode == 'pt') {
       return AppLocale.pt;
     } else {
-      return AppLocale.en;
+      return AppLocale.pt;
     }
   }
 }

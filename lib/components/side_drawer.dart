@@ -1,14 +1,14 @@
 import 'package:flickmemo/helpers/auth_helper.dart';
+import 'package:flickmemo/helpers/language_helper.dart';
 import 'package:flickmemo/i18n/strings.g.dart';
 import 'package:flickmemo/pages/licenses_page.dart';
 import 'package:flickmemo/pages/login_page.dart';
-import 'package:flickmemo/providers/language_provider.dart';
 import 'package:flickmemo/services/helpers.dart';
+import 'package:flickmemo/services/user_service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 
 class SideDrawer extends StatefulWidget {
   const SideDrawer({super.key});
@@ -187,7 +187,18 @@ class SelectAppLanguageModal extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var languageProvider = Provider.of<LanguageProvider>(context);
+    Future<void> handleLanguageChange(String language) async {
+      final flickmemoUser = await AuthHelper.getFlickmemoUser();
+
+      await LanguageHelper.saveLanguage(language);
+      await UserService.updateUser(flickmemoUser, language);
+
+      addToast(language == 'en-US'
+          ? t.common.sideDrawer.languageDialog.toasts.englishConfirmation
+          : t.common.sideDrawer.languageDialog.toasts.portugueseConfirmation);
+      // ignore: use_build_context_synchronously
+      Navigator.pop(context);
+    }
 
     return Container(
       decoration: BoxDecoration(
@@ -268,13 +279,7 @@ class SelectAppLanguageModal extends StatelessWidget {
                 shape: StadiumBorder(),
                 backgroundColor: Colors.blue,
               ),
-              onPressed: () {
-                var newLocale = Locale('en');
-                languageProvider.updateLocale(newLocale);
-                addToast(t.common.sideDrawer.languageDialog.toasts
-                    .englishConfirmation);
-                Navigator.pop(context);
-              },
+              onPressed: () => handleLanguageChange('en-US'),
               child: Text(
                 t.common.sideDrawer.languageDialog.options.en,
                 style: GoogleFonts.poppins(
@@ -292,13 +297,7 @@ class SelectAppLanguageModal extends StatelessWidget {
                 shape: StadiumBorder(),
                 backgroundColor: Colors.green,
               ),
-              onPressed: () {
-                var newLocale = Locale('pt');
-                languageProvider.updateLocale(newLocale);
-                addToast(t.common.sideDrawer.languageDialog.toasts
-                    .portugueseConfirmation);
-                Navigator.pop(context);
-              },
+              onPressed: () => handleLanguageChange('pt-BR'),
               child: Text(
                 t.common.sideDrawer.languageDialog.options.pt,
                 style: GoogleFonts.poppins(

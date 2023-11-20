@@ -68,7 +68,7 @@ class _ProfileHeaderState extends State<ProfileHeader> {
                         SizedBox(width: 5),
                         Text(
                           t.profilePage.header.profileCreation(
-                              date: formatProfileCreationDate(user!.createdAt)),
+                              date: formatProfileCreationDate(user.createdAt)),
                           style: Theme.of(context).textTheme.headlineSmall,
                         ),
                       ],

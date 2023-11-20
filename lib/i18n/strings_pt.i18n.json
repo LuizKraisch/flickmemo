@@ -21,14 +21,14 @@
       },
       "languageDialog": {
         "title": "Mudar o idioma",
-        "help": "Mudar o idioma também mudará o idioma dos dados externos dos filmes. A mudança será aplicada nas próximas requisições.",
+        "help": "Mudar o idioma também mudará o idioma dos dados externos dos filmes. A mudança será aplicada após reiniciar o app",
         "options": {
           "en": "Usar Inglês",
           "pt": "Usar Português"
         },
         "toasts": {
-          "portugueseConfirmation": "Language changed to Portuguese",
-          "englishConfirmation": "Language changed to English"
+          "portugueseConfirmation": "Idioma alterado para Português. Por favor, reinicie o app para aplicar as mudanças",
+          "englishConfirmation": "Idioma alterado para Inglês. Por favor, reinicie o app para aplicar as mudanças"
         }
       }
     }
