@@ -62,9 +62,7 @@ class _BottomMoviePageState extends State<BottomMoviePage> {
             );
           },
           child: Text(
-            userReview == null
-                ? t.moviePage.footer.review
-                : t.moviePage.footer.editReview,
+            t.moviePage.footer.review,
             style: Theme.of(context).textTheme.headlineMedium,
           ),
         ),

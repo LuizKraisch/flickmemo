@@ -246,21 +246,11 @@ class _ReviewModalState extends State<ReviewModal> {
                                     size: 20.0,
                                   ),
                                   elevation: 4,
-                                  hint: Padding(
-                                    padding: const EdgeInsets.only(left: 8.0),
-                                    child: Text('Your score'),
-                                  ),
                                   value: formScore,
                                   onChanged: (value) {
                                     setState(() {
                                       formScore = value;
                                     });
-                                  },
-                                  validator: (value) {
-                                    if (value == null) {
-                                      return 'Please select an score';
-                                    }
-                                    return null;
                                   },
                                   items: options.map((String value) {
                                     return DropdownMenuItem<String>(

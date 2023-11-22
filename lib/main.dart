@@ -11,6 +11,7 @@ import 'package:flickmemo/providers/language_provider.dart';
 import 'package:flickmemo/theme/theme.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/date_symbol_data_local.dart';
 import 'package:provider/provider.dart';
 import 'firebase_options.dart';
 
@@ -29,6 +30,8 @@ void main() async {
 
   var languageProvider = LanguageProvider();
   LocaleSettings.setLocale(language == 'pt-BR' ? AppLocale.pt : AppLocale.en);
+
+  await initializeDateFormatting(language, 'pt-BR');
 
   runApp(MultiProvider(
     providers: [

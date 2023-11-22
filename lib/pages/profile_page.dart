@@ -1,5 +1,5 @@
 import 'package:flickmemo/components/error_info.dart';
-import 'package:flickmemo/components/favorite_movies.dart';
+import 'package:flickmemo/components/movie_poster.dart';
 import 'package:flickmemo/components/profile_header.dart';
 import 'package:flickmemo/components/grid_movies.dart';
 import 'package:flickmemo/components/skeleton.dart';
@@ -121,10 +121,50 @@ class _ProfilePageState extends State<ProfilePage> {
                   future: favoriteMoviesFuture,
                   builder: (context, snapshot) {
                     if (snapshot.hasData) {
-                      final movies = snapshot.data ?? [];
-                      return FavoriteMovies(
-                        currentFlickmemoUser: currentFlickmemoUser,
-                        movies: movies,
+                      final movies = snapshot.data;
+                      return SizedBox(
+                        height: 170,
+                        child: Scrollbar(
+                          child: Padding(
+                            padding: const EdgeInsets.only(bottom: 15.0),
+                            child: movies!.isNotEmpty
+                                ? ListView(
+                                    scrollDirection: Axis.horizontal,
+                                    children: movies.map((movie) {
+                                      return Padding(
+                                        padding:
+                                            const EdgeInsets.only(right: 10),
+                                        child: MoviePoster(
+                                          movie: movie,
+                                          currentFlickmemoUser:
+                                              widget.currentFlickmemoUser,
+                                        ),
+                                      );
+                                    }).toList(),
+                                  )
+                                : Center(
+                                    child: Center(
+                                      child: Column(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.center,
+                                        children: [
+                                          Icon(FontAwesomeIcons.solidStar,
+                                              size: 40),
+                                          SizedBox(height: 10),
+                                          Text(
+                                            t.profilePage.favoriteMovies.empty,
+                                            style: Theme.of(context)
+                                                .textTheme
+                                                .headlineMedium,
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                          ),
+                        ),
                       );
                     } else if (snapshot.hasError) {
                       return Center(
@@ -265,11 +305,12 @@ class _ProfilePageState extends State<ProfilePage> {
                                         child: Column(
                                           children: [
                                             SizedBox(height: 80.0),
-                                            Icon(FontAwesomeIcons.solidClock,
+                                            Icon(FontAwesomeIcons.solidBookmark,
                                                 size: 40.0),
                                             SizedBox(height: 10.0),
                                             Text(
-                                              t.profilePage.recentMovies.empty,
+                                              t.profilePage.watchlistMovies
+                                                  .empty,
                                               style: Theme.of(context)
                                                   .textTheme
                                                   .headlineMedium,

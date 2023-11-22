@@ -8,10 +8,12 @@ String formatMovieReleaseYear(String releaseDate) {
   return 'N/A';
 }
 
-String formatProfileCreationDate(String inputDate) {
-  if (inputDate != "") {
+String formatProfileCreationDate(String inputDate, String languageCode) {
+  if (inputDate.isNotEmpty) {
     final DateTime date = DateTime.parse(inputDate);
-    final String formattedDate = DateFormat('MMMM, y').format(date);
+
+    final String formattedDate =
+        DateFormat('MMMM, y', languageCode).format(date);
     return formattedDate;
   }
 

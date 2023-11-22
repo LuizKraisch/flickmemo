@@ -32,10 +32,9 @@ class ExternalReviewPage extends StatelessWidget {
           child: ListView(
             children: [
               Row(
-                mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   CircleAvatar(
-                    radius: 30,
+                    radius: 40,
                     backgroundImage: NetworkImage(review
                                 .authorDetails["avatar_path"] !=
                             null
@@ -65,6 +64,23 @@ class ExternalReviewPage extends StatelessWidget {
                       fontWeight: FontWeight.w400,
                       fontFamily: GoogleFonts.poppins().fontFamily,
                     ),
+                  ),
+                  SizedBox(height: 10),
+                  Row(
+                    children: [
+                      Icon(
+                        FontAwesomeIcons.solidStar,
+                        color: Theme.of(context).colorScheme.scrim,
+                        size: 25,
+                      ),
+                      SizedBox(width: 6),
+                      Text(
+                        review.authorDetails["rating"] != null
+                            ? review.authorDetails["rating"].toString()
+                            : '--',
+                        style: Theme.of(context).textTheme.bodySmall,
+                      ),
+                    ],
                   ),
                   SizedBox(height: 10),
                   SelectableText(formatExternalReviewContent(review.content),

@@ -84,7 +84,7 @@ class ExternalReviewBox extends StatelessWidget {
                         Text(
                           review.authorDetails["rating"] != null
                               ? review.authorDetails["rating"].toString()
-                              : 'N/A',
+                              : '--',
                           style: Theme.of(context).textTheme.bodySmall,
                         ),
                       ],

@@ -6,7 +6,7 @@
 /// Locales: 2
 /// Strings: 184 (92 per locale)
 ///
-/// Built on 2023-11-20 at 00:39 UTC
+/// Built on 2023-11-22 at 02:43 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -229,6 +229,7 @@ class _StringsProfilePageEn {
 	late final _StringsProfilePageHeaderEn header = _StringsProfilePageHeaderEn._(_root);
 	late final _StringsProfilePageBodyEn body = _StringsProfilePageBodyEn._(_root);
 	late final _StringsProfilePageFavoriteMoviesEn favoriteMovies = _StringsProfilePageFavoriteMoviesEn._(_root);
+	late final _StringsProfilePageWatchlistMoviesEn watchlistMovies = _StringsProfilePageWatchlistMoviesEn._(_root);
 	late final _StringsProfilePageRecentMoviesEn recentMovies = _StringsProfilePageRecentMoviesEn._(_root);
 }
 
@@ -399,6 +400,16 @@ class _StringsProfilePageFavoriteMoviesEn {
 	String get empty => 'There are no favorite movies';
 }
 
+// Path: profilePage.watchlistMovies
+class _StringsProfilePageWatchlistMoviesEn {
+	_StringsProfilePageWatchlistMoviesEn._(this._root);
+
+	final _StringsEn _root; // ignore: unused_field
+
+	// Translations
+	String get empty => 'There are no watchlist movies';
+}
+
 // Path: profilePage.recentMovies
 class _StringsProfilePageRecentMoviesEn {
 	_StringsProfilePageRecentMoviesEn._(this._root);
@@ -406,8 +417,6 @@ class _StringsProfilePageRecentMoviesEn {
 	final _StringsEn _root; // ignore: unused_field
 
 	// Translations
-	String get title => 'Recent Movies';
-	String get subtitle => 'Your recent reviews and watchlist\'s movies';
 	String get empty => 'There are no recent movies';
 }
 
@@ -420,8 +429,8 @@ class _StringsMoviePageBodyEn {
 	// Translations
 	late final _StringsMoviePageBodyOverviewEn overview = _StringsMoviePageBodyOverviewEn._(_root);
 	late final _StringsMoviePageBodyStatsEn stats = _StringsMoviePageBodyStatsEn._(_root);
+	late final _StringsMoviePageBodyUserReviewEn userReview = _StringsMoviePageBodyUserReviewEn._(_root);
 	String get reviews => 'Reviews';
-	String get yourReview => 'Your review';
 	String get favorite => 'Favorite';
 	String get similarMovies => 'Similar Movies';
 	String get emptySimilarMovies => 'There are no similar movies available';
@@ -551,6 +560,17 @@ class _StringsMoviePageBodyStatsEn {
 	String get imdbLink => 'SEE IT ON IMDB';
 	String get visitImdb => 'Visit';
 	String get releaseDate => 'RELEASE DATE';
+}
+
+// Path: moviePage.body.userReview
+class _StringsMoviePageBodyUserReviewEn {
+	_StringsMoviePageBodyUserReviewEn._(this._root);
+
+	final _StringsEn _root; // ignore: unused_field
+
+	// Translations
+	String get title => 'Your review';
+	String get empty => 'Nothing was written, yet.';
 }
 
 // Path: moviePage.reviewModal.fields
@@ -718,6 +738,7 @@ class _StringsProfilePagePt implements _StringsProfilePageEn {
 	@override late final _StringsProfilePageHeaderPt header = _StringsProfilePageHeaderPt._(_root);
 	@override late final _StringsProfilePageBodyPt body = _StringsProfilePageBodyPt._(_root);
 	@override late final _StringsProfilePageFavoriteMoviesPt favoriteMovies = _StringsProfilePageFavoriteMoviesPt._(_root);
+	@override late final _StringsProfilePageWatchlistMoviesPt watchlistMovies = _StringsProfilePageWatchlistMoviesPt._(_root);
 	@override late final _StringsProfilePageRecentMoviesPt recentMovies = _StringsProfilePageRecentMoviesPt._(_root);
 }
 
@@ -888,6 +909,16 @@ class _StringsProfilePageFavoriteMoviesPt implements _StringsProfilePageFavorite
 	@override String get empty => 'Não há filmes favoritos';
 }
 
+// Path: profilePage.watchlistMovies
+class _StringsProfilePageWatchlistMoviesPt implements _StringsProfilePageWatchlistMoviesEn {
+	_StringsProfilePageWatchlistMoviesPt._(this._root);
+
+	@override final _StringsPt _root; // ignore: unused_field
+
+	// Translations
+	@override String get empty => 'Não há filmes na sua watchlist';
+}
+
 // Path: profilePage.recentMovies
 class _StringsProfilePageRecentMoviesPt implements _StringsProfilePageRecentMoviesEn {
 	_StringsProfilePageRecentMoviesPt._(this._root);
@@ -895,8 +926,6 @@ class _StringsProfilePageRecentMoviesPt implements _StringsProfilePageRecentMovi
 	@override final _StringsPt _root; // ignore: unused_field
 
 	// Translations
-	@override String get title => 'Filmes recentes';
-	@override String get subtitle => 'Suas reviews mais recentes e filmes da watchlist';
 	@override String get empty => 'Não há filmes recentes';
 }
 
@@ -909,8 +938,8 @@ class _StringsMoviePageBodyPt implements _StringsMoviePageBodyEn {
 	// Translations
 	@override late final _StringsMoviePageBodyOverviewPt overview = _StringsMoviePageBodyOverviewPt._(_root);
 	@override late final _StringsMoviePageBodyStatsPt stats = _StringsMoviePageBodyStatsPt._(_root);
+	@override late final _StringsMoviePageBodyUserReviewPt userReview = _StringsMoviePageBodyUserReviewPt._(_root);
 	@override String get reviews => 'Reviews';
-	@override String get yourReview => 'Sua review';
 	@override String get favorite => 'Favorito';
 	@override String get similarMovies => 'Filmes similares';
 	@override String get emptySimilarMovies => 'Não há filmes similares disponíveis';
@@ -1042,6 +1071,17 @@ class _StringsMoviePageBodyStatsPt implements _StringsMoviePageBodyStatsEn {
 	@override String get releaseDate => 'LANÇAMENTO';
 }
 
+// Path: moviePage.body.userReview
+class _StringsMoviePageBodyUserReviewPt implements _StringsMoviePageBodyUserReviewEn {
+	_StringsMoviePageBodyUserReviewPt._(this._root);
+
+	@override final _StringsPt _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'Sua review';
+	@override String get empty => 'Nada foi escrito, ainda.';
+}
+
 // Path: moviePage.reviewModal.fields
 class _StringsMoviePageReviewModalFieldsPt implements _StringsMoviePageReviewModalFieldsEn {
 	_StringsMoviePageReviewModalFieldsPt._(this._root);
@@ -1165,8 +1205,7 @@ extension on _StringsEn {
 			case 'profilePage.body.tabs.watchlist': return 'Watchlist';
 			case 'profilePage.favoriteMovies.title': return 'Favorite Movies';
 			case 'profilePage.favoriteMovies.empty': return 'There are no favorite movies';
-			case 'profilePage.recentMovies.title': return 'Recent Movies';
-			case 'profilePage.recentMovies.subtitle': return 'Your recent reviews and watchlist\'s movies';
+			case 'profilePage.watchlistMovies.empty': return 'There are no watchlist movies';
 			case 'profilePage.recentMovies.empty': return 'There are no recent movies';
 			case 'licensesPage.title': return 'Licenses';
 			case 'moviePage.body.overview.title': return 'Overview';
@@ -1177,8 +1216,9 @@ extension on _StringsEn {
 			case 'moviePage.body.stats.imdbLink': return 'SEE IT ON IMDB';
 			case 'moviePage.body.stats.visitImdb': return 'Visit';
 			case 'moviePage.body.stats.releaseDate': return 'RELEASE DATE';
+			case 'moviePage.body.userReview.title': return 'Your review';
+			case 'moviePage.body.userReview.empty': return 'Nothing was written, yet.';
 			case 'moviePage.body.reviews': return 'Reviews';
-			case 'moviePage.body.yourReview': return 'Your review';
 			case 'moviePage.body.favorite': return 'Favorite';
 			case 'moviePage.body.similarMovies': return 'Similar Movies';
 			case 'moviePage.body.emptySimilarMovies': return 'There are no similar movies available';
@@ -1265,8 +1305,7 @@ extension on _StringsPt {
 			case 'profilePage.body.tabs.watchlist': return 'Watchlist';
 			case 'profilePage.favoriteMovies.title': return 'Filmes favoritos';
 			case 'profilePage.favoriteMovies.empty': return 'Não há filmes favoritos';
-			case 'profilePage.recentMovies.title': return 'Filmes recentes';
-			case 'profilePage.recentMovies.subtitle': return 'Suas reviews mais recentes e filmes da watchlist';
+			case 'profilePage.watchlistMovies.empty': return 'Não há filmes na sua watchlist';
 			case 'profilePage.recentMovies.empty': return 'Não há filmes recentes';
 			case 'licensesPage.title': return 'Licenças';
 			case 'moviePage.body.overview.title': return 'Sinopse';
@@ -1277,8 +1316,9 @@ extension on _StringsPt {
 			case 'moviePage.body.stats.imdbLink': return 'VER NO IMDB';
 			case 'moviePage.body.stats.visitImdb': return 'Visitar';
 			case 'moviePage.body.stats.releaseDate': return 'LANÇAMENTO';
+			case 'moviePage.body.userReview.title': return 'Sua review';
+			case 'moviePage.body.userReview.empty': return 'Nada foi escrito, ainda.';
 			case 'moviePage.body.reviews': return 'Reviews';
-			case 'moviePage.body.yourReview': return 'Sua review';
 			case 'moviePage.body.favorite': return 'Favorito';
 			case 'moviePage.body.similarMovies': return 'Filmes similares';
 			case 'moviePage.body.emptySimilarMovies': return 'Não há filmes similares disponíveis';

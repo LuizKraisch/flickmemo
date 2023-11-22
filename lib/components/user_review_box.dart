@@ -30,7 +30,7 @@ class UserReviewBox extends StatelessWidget {
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(t.moviePage.body.yourReview,
+                  Text(t.moviePage.body.userReview.title,
                       style: Theme.of(context).textTheme.headlineMedium),
                   Text(
                     formatExternalReviewDate(review.createdAt),
@@ -71,29 +71,27 @@ class UserReviewBox extends StatelessWidget {
                         )
                       : SizedBox(),
                   SizedBox(width: 5.0),
-                  review.score != '0'
-                      ? Container(
-                          width: 60,
-                          decoration: BoxDecoration(
-                            color: Colors.white.withOpacity(0.1),
-                            borderRadius: BorderRadius.circular(100),
-                          ),
-                          padding: EdgeInsets.all(3),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Icon(FontAwesomeIcons.solidStar,
-                                  color: Theme.of(context).colorScheme.scrim,
-                                  size: 15),
-                              SizedBox(width: 6),
-                              Text(
-                                review.score,
-                                style: Theme.of(context).textTheme.bodySmall,
-                              ),
-                            ],
-                          ),
-                        )
-                      : SizedBox(),
+                  Container(
+                    width: 60,
+                    decoration: BoxDecoration(
+                      color: Colors.white.withOpacity(0.1),
+                      borderRadius: BorderRadius.circular(100),
+                    ),
+                    padding: EdgeInsets.all(3),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Icon(FontAwesomeIcons.solidStar,
+                            color: Theme.of(context).colorScheme.scrim,
+                            size: 15),
+                        SizedBox(width: 6),
+                        Text(
+                          review.score != '0' ? review.score : '--',
+                          style: Theme.of(context).textTheme.bodySmall,
+                        ),
+                      ],
+                    ),
+                  ),
                 ],
               ),
             ],
@@ -109,7 +107,9 @@ class UserReviewBox extends StatelessWidget {
                   maxHeight: 50.0,
                 ),
                 child: Text(
-                  review.note,
+                  review.note == ''
+                      ? t.moviePage.body.userReview.empty
+                      : review.note,
                   style: Theme.of(context).textTheme.titleSmall,
                 ),
               ),

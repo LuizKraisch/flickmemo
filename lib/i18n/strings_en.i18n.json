@@ -104,9 +104,10 @@
       "title": "Favorite Movies",
       "empty": "There are no favorite movies"
     },
+    "watchlistMovies": {
+      "empty": "There are no watchlist movies"
+    },
     "recentMovies": {
-      "title": "Recent Movies",
-      "subtitle": "Your recent reviews and watchlist's movies",
       "empty": "There are no recent movies"
     }
   },
@@ -127,8 +128,11 @@
         "visitImdb": "Visit",
         "releaseDate": "RELEASE DATE"
       },
+      "userReview": {
+        "title": "Your review",
+        "empty": "Nothing was written, yet."
+      },
       "reviews": "Reviews",
-      "yourReview": "Your review",
       "favorite": "Favorite",
       "similarMovies": "Similar Movies",
       "emptySimilarMovies": "There are no similar movies available",

@@ -104,9 +104,10 @@
       "title": "Filmes favoritos",
       "empty": "Não há filmes favoritos"
     },
+    "watchlistMovies": {
+      "empty": "Não há filmes na sua watchlist"
+    },
     "recentMovies": {
-      "title": "Filmes recentes",
-      "subtitle": "Suas reviews mais recentes e filmes da watchlist",
       "empty": "Não há filmes recentes"
     }
   },
@@ -127,8 +128,11 @@
         "visitImdb": "Visitar",
         "releaseDate": "LANÇAMENTO"
       },
+      "userReview": {
+        "title": "Sua review",
+        "empty": "Nada foi escrito, ainda."
+      },
       "reviews": "Reviews",
-      "yourReview": "Sua review",
       "favorite": "Favorito",
       "similarMovies": "Filmes similares",
       "emptySimilarMovies": "Não há filmes similares disponíveis",
