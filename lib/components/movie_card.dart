@@ -1,3 +1,4 @@
+import 'package:flickmemo/env.dart';
 import 'package:flickmemo/models/flickmemo_user.dart';
 import 'package:flickmemo/models/movie.dart';
 import 'package:flickmemo/pages/movie_page.dart';
@@ -34,9 +35,13 @@ class MovieCard extends StatelessWidget {
           color: Colors.grey.shade900,
           borderRadius: BorderRadius.circular(20),
           image: DecorationImage(
-              image: NetworkImage(
-                  'https://www.themoviedb.org/t/p/original/${movie.posterPath}'),
-              fit: BoxFit.cover),
+            fit: BoxFit.cover,
+            image: NetworkImage(
+              movie.posterPath.isNotEmpty
+                  ? '$tmdbImagesUrl/${movie.posterPath}'
+                  : 'https://wallpapers.com/images/featured/solid-grey-ew5fya1gh2bgc49b.jpg',
+            ),
+          ),
           boxShadow: [
             BoxShadow(
                 color:
@@ -145,7 +150,7 @@ class MovieCard extends StatelessWidget {
                               size: 20),
                           SizedBox(width: 5),
                           Text(
-                            movie.voteAverage.toString(),
+                            movie.voteAverage == '0' ? '--' : movie.voteAverage,
                             style: Theme.of(context).textTheme.bodySmall,
                           ),
                         ],

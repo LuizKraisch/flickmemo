@@ -1,3 +1,4 @@
+import 'package:flickmemo/env.dart';
 import 'package:flickmemo/models/flickmemo_user.dart';
 import 'package:flickmemo/pages/movie_page.dart';
 import 'package:flutter/material.dart';
@@ -37,8 +38,7 @@ class MovieBox extends StatelessWidget {
             color: Colors.grey.shade900,
             borderRadius: BorderRadius.circular(20),
             image: DecorationImage(
-                image: NetworkImage(
-                    'https://www.themoviedb.org/t/p/original/${movie.backdropPath}'),
+                image: NetworkImage('$tmdbImagesUrl/${movie.backdropPath}'),
                 fit: BoxFit.cover),
             boxShadow: [
               BoxShadow(

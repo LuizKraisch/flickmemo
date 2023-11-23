@@ -1,3 +1,4 @@
+import 'package:flickmemo/env.dart';
 import 'package:flickmemo/i18n/strings.g.dart';
 import 'package:flickmemo/models/external_review.dart';
 import 'package:flickmemo/services/formatters.dart';
@@ -38,7 +39,7 @@ class ExternalReviewPage extends StatelessWidget {
                     backgroundImage: NetworkImage(review
                                 .authorDetails["avatar_path"] !=
                             null
-                        ? 'https://www.themoviedb.org/t/p/original/${review.authorDetails["avatar_path"]}'
+                        ? '$tmdbImagesUrl/${review.authorDetails["avatar_path"]}'
                         : 'https://i.stack.imgur.com/l60Hf.png'),
                     backgroundColor: Colors.transparent,
                   ),
