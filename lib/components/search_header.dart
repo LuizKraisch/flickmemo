@@ -18,8 +18,10 @@ class SearchHeader extends StatelessWidget {
     return Column(
       children: [
         SizedBox(height: 70),
-        Text(t.searchPage.header.title,
-            style: Theme.of(context).textTheme.headlineMedium),
+        Text(
+          t.searchPage.header.title,
+          style: Theme.of(context).textTheme.headlineMedium,
+        ),
         SizedBox(height: 15),
         SizedBox(
           width: 325.0,

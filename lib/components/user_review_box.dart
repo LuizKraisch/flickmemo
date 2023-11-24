@@ -30,8 +30,10 @@ class UserReviewBox extends StatelessWidget {
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(t.moviePage.body.userReview.title,
-                      style: Theme.of(context).textTheme.headlineMedium),
+                  Text(
+                    t.moviePage.body.userReview.title,
+                    style: Theme.of(context).textTheme.headlineMedium,
+                  ),
                   Text(
                     formatExternalReviewDate(review.createdAt),
                     style: TextStyle(
