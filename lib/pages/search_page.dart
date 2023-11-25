@@ -52,7 +52,7 @@ class _SearchPageState extends State<SearchPage> {
         SliverAppBar(
           backgroundColor: Theme.of(context).colorScheme.secondary,
           floating: true,
-          expandedHeight: 130,
+          expandedHeight: 120,
           flexibleSpace: FlexibleSpaceBar(
             background:
                 SearchHeader(currentFlickmemoUser: widget.currentFlickmemoUser),

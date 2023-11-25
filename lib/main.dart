@@ -52,10 +52,10 @@ class FlickmemoApp extends StatelessWidget {
       theme: defaultTheme,
       home: AuthPage(),
       routes: {
-        '/login-page': (context) => const LoginPage(),
-        '/home-page': (context) => const HomePage(),
-        '/search-page': (context) => const SearchPage(),
-        '/profile-page': (context) => const ProfilePage(),
+        '/login-page': (context) => LoginPage(),
+        '/home-page': (context) => HomePage(),
+        '/search-page': (context) => SearchPage(),
+        '/profile-page': (context) => ProfilePage(),
       },
     );
   }

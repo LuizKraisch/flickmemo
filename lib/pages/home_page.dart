@@ -25,7 +25,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  int currentIndex = 0;
+  int currentCardIndex = 0;
   int totalItems = 20;
   FlickmemoUser? currentFlickmemoUser;
   Future<List<Movie>>? _moviesFuture;
@@ -50,18 +50,18 @@ class _HomePageState extends State<HomePage> {
 
   void handleDiscoverReload() {
     setState(() {
-      currentIndex = 0;
+      currentCardIndex = 0;
       _moviesFuture = _fetchDiscoverMovies();
     });
   }
 
   bool allCardsSwapped() {
-    return currentIndex == totalItems;
+    return currentCardIndex == totalItems;
   }
 
   void onSwap(int index) {
     setState(() {
-      currentIndex = index;
+      currentCardIndex = index;
     });
   }
 
@@ -72,6 +72,8 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+    final AppinioSwiperController controller = AppinioSwiperController();
+
     return Scaffold(
       backgroundColor: Theme.of(context).colorScheme.background,
       body: Column(
@@ -131,7 +133,10 @@ class _HomePageState extends State<HomePage> {
                     return Stack(
                       children: [
                         AppinioSwiper(
+                          controller: controller,
                           cardsCount: movies.length,
+                          unlimitedUnswipe: true,
+                          allowUnswipe: true,
                           onSwipe: (index, AppinioSwiperDirection direction) {
                             if (direction == AppinioSwiperDirection.right) {
                               handleAddWatchlist(movies[index - 1].id);
@@ -144,8 +149,9 @@ class _HomePageState extends State<HomePage> {
                           ),
                           cardsBuilder: (BuildContext context, int index) {
                             return MovieCard(
-                                movie: movies[index],
-                                currentFlickmemoUser: currentFlickmemoUser);
+                              movie: movies[index],
+                              currentFlickmemoUser: currentFlickmemoUser,
+                            );
                           },
                         ),
                         if (allCardsSwapped())
@@ -197,7 +203,9 @@ class _HomePageState extends State<HomePage> {
               },
             ),
           ),
-          ProgressBar(currentIndex: currentIndex, totalItems: totalItems),
+          Spacer(),
+          ProgressBar(currentIndex: currentCardIndex, totalItems: totalItems),
+          Spacer(),
         ],
       ),
     );

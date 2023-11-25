@@ -6,7 +6,7 @@
 /// Locales: 2
 /// Strings: 184 (92 per locale)
 ///
-/// Built on 2023-11-22 at 02:43 UTC
+/// Built on 2023-11-25 at 01:52 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -182,6 +182,7 @@ class _StringsToastEn {
 	late final _StringsToastMoviesEn movies = _StringsToastMoviesEn._(_root);
 	late final _StringsToastHelpersEn helpers = _StringsToastHelpersEn._(_root);
 	late final _StringsToastReviewEn review = _StringsToastReviewEn._(_root);
+	String get error => 'Oops, something went wrong! Please try again.';
 }
 
 // Path: loginPage
@@ -325,7 +326,6 @@ class _StringsToastReviewEn {
 	final _StringsEn _root; // ignore: unused_field
 
 	// Translations
-	String get fillAllTheFields => 'Please, fill all the mandatory fields';
 	String get reviewSaved => 'Review saved';
 	String get reviewUpdated => 'Review updated';
 	String get reviewRemoved => 'Review removed';
@@ -444,7 +444,7 @@ class _StringsMoviePageReviewModalEn {
 	final _StringsEn _root; // ignore: unused_field
 
 	// Translations
-	String get title => 'Adding review for...';
+	String get title => 'Writing review for...';
 	String get movieTitlePlaceholder => 'Movie title';
 	late final _StringsMoviePageReviewModalFieldsEn fields = _StringsMoviePageReviewModalFieldsEn._(_root);
 	late final _StringsMoviePageReviewModalButtonsEn buttons = _StringsMoviePageReviewModalButtonsEn._(_root);
@@ -691,6 +691,7 @@ class _StringsToastPt implements _StringsToastEn {
 	@override late final _StringsToastMoviesPt movies = _StringsToastMoviesPt._(_root);
 	@override late final _StringsToastHelpersPt helpers = _StringsToastHelpersPt._(_root);
 	@override late final _StringsToastReviewPt review = _StringsToastReviewPt._(_root);
+	@override String get error => 'Oops, algo deu errado! Por favor, tente novamente.';
 }
 
 // Path: loginPage
@@ -834,7 +835,6 @@ class _StringsToastReviewPt implements _StringsToastReviewEn {
 	@override final _StringsPt _root; // ignore: unused_field
 
 	// Translations
-	@override String get fillAllTheFields => 'Por favor, preencha todos os campos';
 	@override String get reviewSaved => 'Review salva';
 	@override String get reviewUpdated => 'Review atualizada';
 	@override String get reviewRemoved => 'Review excluía';
@@ -953,7 +953,7 @@ class _StringsMoviePageReviewModalPt implements _StringsMoviePageReviewModalEn {
 	@override final _StringsPt _root; // ignore: unused_field
 
 	// Translations
-	@override String get title => 'Adicionando review para...';
+	@override String get title => 'Escrevendo review para...';
 	@override String get movieTitlePlaceholder => 'Título do filme';
 	@override late final _StringsMoviePageReviewModalFieldsPt fields = _StringsMoviePageReviewModalFieldsPt._(_root);
 	@override late final _StringsMoviePageReviewModalButtonsPt buttons = _StringsMoviePageReviewModalButtonsPt._(_root);
@@ -1177,11 +1177,11 @@ extension on _StringsEn {
 			case 'toast.helpers.emailBody': return 'Here you write a nice message for me :)';
 			case 'toast.helpers.statusPageFailed': return 'Could not launch status page. Please, try again.';
 			case 'toast.helpers.imdbFailed': return 'Could not launch IMDb page. Please, try again.';
-			case 'toast.review.fillAllTheFields': return 'Please, fill all the mandatory fields';
 			case 'toast.review.reviewSaved': return 'Review saved';
 			case 'toast.review.reviewUpdated': return 'Review updated';
 			case 'toast.review.reviewRemoved': return 'Review removed';
 			case 'toast.review.error': return 'Error when loading the review. Please, try again';
+			case 'toast.error': return 'Oops, something went wrong! Please try again.';
 			case 'loginPage.title': return 'Review films you\'ve watched. Save those you want to see.';
 			case 'loginPage.subtitle': return 'Welcome to Flickmemo. Let\'s start your lists!';
 			case 'loginPage.googleButton': return 'Continue with Google';
@@ -1223,7 +1223,7 @@ extension on _StringsEn {
 			case 'moviePage.body.similarMovies': return 'Similar Movies';
 			case 'moviePage.body.emptySimilarMovies': return 'There are no similar movies available';
 			case 'moviePage.body.emptyReviews': return 'There are no reviews to show';
-			case 'moviePage.reviewModal.title': return 'Adding review for...';
+			case 'moviePage.reviewModal.title': return 'Writing review for...';
 			case 'moviePage.reviewModal.movieTitlePlaceholder': return 'Movie title';
 			case 'moviePage.reviewModal.fields.score': return 'Score';
 			case 'moviePage.reviewModal.fields.note': return 'Note';
@@ -1277,11 +1277,11 @@ extension on _StringsPt {
 			case 'toast.helpers.emailBody': return 'Aqui você escreve uma mensagem legal para mim :)';
 			case 'toast.helpers.statusPageFailed': return 'Não foi possível acessar a página de status. Por favor, tente novamente.';
 			case 'toast.helpers.imdbFailed': return 'Não foi possível acessar o IMDB. Por favor, tente novamente.';
-			case 'toast.review.fillAllTheFields': return 'Por favor, preencha todos os campos';
 			case 'toast.review.reviewSaved': return 'Review salva';
 			case 'toast.review.reviewUpdated': return 'Review atualizada';
 			case 'toast.review.reviewRemoved': return 'Review excluía';
 			case 'toast.review.error': return 'Ocorreu um erro com a review. Por favor, tente novamente';
+			case 'toast.error': return 'Oops, algo deu errado! Por favor, tente novamente.';
 			case 'loginPage.title': return 'Organize seus filmes favoritos e descubra novos.';
 			case 'loginPage.subtitle': return 'Boas-vindas ao Flickmemo. Vamos começas suas listas!';
 			case 'loginPage.googleButton': return 'Continuar com Google';
@@ -1323,7 +1323,7 @@ extension on _StringsPt {
 			case 'moviePage.body.similarMovies': return 'Filmes similares';
 			case 'moviePage.body.emptySimilarMovies': return 'Não há filmes similares disponíveis';
 			case 'moviePage.body.emptyReviews': return 'Não há reviews para mostrar';
-			case 'moviePage.reviewModal.title': return 'Adicionando review para...';
+			case 'moviePage.reviewModal.title': return 'Escrevendo review para...';
 			case 'moviePage.reviewModal.movieTitlePlaceholder': return 'Título do filme';
 			case 'moviePage.reviewModal.fields.score': return 'Nota';
 			case 'moviePage.reviewModal.fields.note': return 'Comentário';

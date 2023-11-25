@@ -10,7 +10,7 @@ import 'package:flickmemo/models/flickmemo_user.dart';
 class ReviewService {
   String baseReviewsUrl = '$baseApiUrl/api/v1/reviews';
 
-  getReview({
+  Future<Review> getReview({
     required FlickmemoUser? user,
     required String reviewId,
   }) async {
@@ -32,7 +32,7 @@ class ReviewService {
     }
   }
 
-  createReview({
+  Future<void> createReview({
     required BuildContext context,
     required FlickmemoUser? user,
     required dynamic reviewData,
@@ -64,7 +64,7 @@ class ReviewService {
     }
   }
 
-  updateReview({
+  Future<void> updateReview({
     required BuildContext context,
     required FlickmemoUser? user,
     required dynamic reviewData,
@@ -94,7 +94,7 @@ class ReviewService {
     }
   }
 
-  deleteReview({
+  Future<void> deleteReview({
     required FlickmemoUser? user,
     required String reviewId,
   }) async {

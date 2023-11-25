@@ -49,12 +49,12 @@
       "imdbFailed": "Não foi possível acessar o IMDB. Por favor, tente novamente."
     },
     "review": {
-      "fillAllTheFields": "Por favor, preencha todos os campos",
       "reviewSaved": "Review salva",
       "reviewUpdated": "Review atualizada",
       "reviewRemoved": "Review excluía",
       "error": "Ocorreu um erro com a review. Por favor, tente novamente"
-    }
+    },
+    "error": "Oops, algo deu errado! Por favor, tente novamente."
   },
   "loginPage": {
     "title": "Organize seus filmes favoritos e descubra novos.",
@@ -139,7 +139,7 @@
       "emptyReviews": "Não há reviews para mostrar"
     },
     "reviewModal": {
-      "title": "Adicionando review para...",
+      "title": "Escrevendo review para...",
       "movieTitlePlaceholder": "Título do filme",
       "fields": {
         "score": "Nota",

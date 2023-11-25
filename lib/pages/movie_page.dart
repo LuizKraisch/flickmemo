@@ -140,10 +140,16 @@ class _MoviePageState extends State<MoviePage> {
                                   ),
                                 )
                               : addedToWatchlist
-                                  ? const Icon(FontAwesomeIcons.solidBookmark,
-                                      size: 20, color: Colors.white)
-                                  : const Icon(FontAwesomeIcons.bookmark,
-                                      size: 20, color: Colors.white),
+                                  ? Icon(
+                                      FontAwesomeIcons.solidBookmark,
+                                      size: 20,
+                                      color: Colors.white,
+                                    )
+                                  : Icon(
+                                      FontAwesomeIcons.bookmark,
+                                      size: 20,
+                                      color: Colors.white,
+                                    ),
                           onPressed: () => handleWatchlist(),
                         ),
                       ),

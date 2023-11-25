@@ -49,12 +49,12 @@
       "imdbFailed": "Could not launch IMDb page. Please, try again."
     },
     "review": {
-      "fillAllTheFields": "Please, fill all the mandatory fields",
       "reviewSaved": "Review saved",
       "reviewUpdated": "Review updated",
       "reviewRemoved": "Review removed",
       "error": "Error when loading the review. Please, try again"
-    }
+    },
+    "error": "Oops, something went wrong! Please try again."
   },
   "loginPage": {
     "title": "Review films you've watched. Save those you want to see.",
@@ -139,7 +139,7 @@
       "emptyReviews": "There are no reviews to show"
     },
     "reviewModal": {
-      "title": "Adding review for...",
+      "title": "Writing review for...",
       "movieTitlePlaceholder": "Movie title",
       "fields": {
         "score": "Score",
