@@ -32,10 +32,9 @@ Future<void> launchDeveloperEmail() async {
 }
 
 Future<void> launchStatusPage() async {
-  final statusPageUrl =
-      Uri.parse('https://github.com/LuizKraisch/flickmemo-status#readme');
-  if (await canLaunchUrl(statusPageUrl)) {
-    await launchUrl(statusPageUrl);
+  final statusUrl = Uri.parse(statusPageUrl);
+  if (await canLaunchUrl(statusUrl)) {
+    await launchUrl(statusUrl);
   } else {
     addToast(t.toast.helpers.statusPageFailed);
   }

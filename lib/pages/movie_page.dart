@@ -94,7 +94,8 @@ class _MoviePageState extends State<MoviePage> {
           ? BottomMoviePage(
               movie: movieData?["data"],
               review: movieData?["userReview"],
-              currentFlickmemoUser: currentFlickmemoUser)
+              currentFlickmemoUser: currentFlickmemoUser,
+            )
           : SizedBox(),
       backgroundColor: Theme.of(context).colorScheme.background,
       body: RefreshIndicator(
