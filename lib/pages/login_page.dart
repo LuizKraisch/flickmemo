@@ -29,6 +29,7 @@ class LoginPageState extends State<LoginPage> {
         children: [
           Column(
             children: [
+              Spacer(),
               Padding(
                 padding: const EdgeInsets.only(top: 50.0),
                 child: Image.asset(

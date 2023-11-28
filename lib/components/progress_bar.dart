@@ -13,7 +13,7 @@ class ProgressBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.fromLTRB(60, 22, 60, 0),
+      padding: const EdgeInsets.fromLTRB(60, 0, 60, 0),
       child: TweenAnimationBuilder<double>(
         duration: const Duration(milliseconds: 250),
         curve: Curves.easeInOut,

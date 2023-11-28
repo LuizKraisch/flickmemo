@@ -94,7 +94,6 @@ class ExternalReviewBox extends StatelessWidget {
               ),
               SizedBox(height: 10),
               SizedBox(
-                width: 300.00,
                 height: 40.00,
                 child: Text(
                   formatExternalReviewContent(review.content),

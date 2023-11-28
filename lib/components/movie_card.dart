@@ -2,6 +2,7 @@ import 'package:flickmemo/env.dart';
 import 'package:flickmemo/models/flickmemo_user.dart';
 import 'package:flickmemo/models/movie.dart';
 import 'package:flickmemo/pages/movie_page.dart';
+import 'package:flickmemo/services/formatters.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -96,9 +97,7 @@ class MovieCard extends StatelessWidget {
                                 ),
                                 SizedBox(width: 5),
                                 Text(
-                                  DateTime.parse(movie.releaseDate)
-                                      .year
-                                      .toString(),
+                                  formatMovieReleaseYear(movie.releaseDate),
                                   style: Theme.of(context).textTheme.titleSmall,
                                 ),
                               ],

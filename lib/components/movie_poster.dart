@@ -36,7 +36,7 @@ class MoviePoster extends StatelessWidget {
           borderRadius: BorderRadius.circular(15),
           image: DecorationImage(
               image: NetworkImage(
-                movie.posterPath.isNotEmpty
+                movie.posterPath != ''
                     ? '$tmdbImagesUrl/${movie.posterPath}'
                     : 'https://wallpapers.com/images/featured/solid-grey-ew5fya1gh2bgc49b.jpg',
               ),

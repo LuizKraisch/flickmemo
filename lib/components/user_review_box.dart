@@ -99,24 +99,35 @@ class UserReviewBox extends StatelessWidget {
             ],
           ),
           SizedBox(height: 5),
-          Row(
-            children: [
-              ConstrainedBox(
-                constraints: BoxConstraints(
-                  minWidth: 200.0,
-                  maxWidth: 290.0,
-                  minHeight: 30.0,
-                  maxHeight: 50.0,
+          review.note != ''
+              ? Row(
+                  children: [
+                    ConstrainedBox(
+                      constraints: BoxConstraints(
+                        minWidth: 200.0,
+                        maxWidth: 290.0,
+                        minHeight: 30.0,
+                        maxHeight: 50.0,
+                      ),
+                      child: Text(
+                        review.note,
+                        style: Theme.of(context).textTheme.titleSmall,
+                      ),
+                    ),
+                  ],
+                )
+              : Center(
+                  child: Padding(
+                    padding: const EdgeInsets.only(top: 12.0),
+                    child: Text(
+                      t.moviePage.body.userReview.empty,
+                      style: GoogleFonts.poppins(
+                        color: Color(0xff646464),
+                        fontStyle: FontStyle.italic,
+                      ),
+                    ),
+                  ),
                 ),
-                child: Text(
-                  review.note == ''
-                      ? t.moviePage.body.userReview.empty
-                      : review.note,
-                  style: Theme.of(context).textTheme.titleSmall,
-                ),
-              ),
-            ],
-          ),
         ]),
       ),
     );

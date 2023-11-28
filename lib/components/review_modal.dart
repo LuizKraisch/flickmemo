@@ -32,6 +32,10 @@ class _ReviewModalState extends State<ReviewModal> {
 
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
   ReviewService reviewService = ReviewService();
+
+  bool isReviewLoading = false;
+  bool isReviewButtonLoading = false;
+
   String? formScore;
   String? formNote;
   bool? formNoteHasSpoilers;
@@ -50,74 +54,89 @@ class _ReviewModalState extends State<ReviewModal> {
     userFavorite = false;
 
     if (widget.review != null) {
+      setState(() {
+        isReviewLoading = true;
+      });
       reviewService
           .getReview(
-        user: currentFlickmemoUser,
-        reviewId: widget.review?.uuid ?? '',
-      )
+              user: currentFlickmemoUser, reviewId: widget.review?.uuid ?? '')
           .then((result) {
         setState(() {
-          formScore = result?.score ?? '0';
-          formNote = result?.note ?? "";
-          formNoteHasSpoilers = result?.noteHasSpoilers ?? false;
-          userFavorite = result?.favorite ?? false;
+          formScore = result.score;
+          formNote = result.note;
+          formNoteHasSpoilers = result.noteHasSpoilers;
+          userFavorite = result.favorite;
+        });
+        setState(() {
+          isReviewLoading = false;
         });
       }).catchError((error) {
+        setState(() {
+          isReviewLoading = false;
+        });
+        addToast(t.toast.error);
         throw Exception('Failed to find review info.');
       });
     }
   }
 
-  List<String> options = [
-    '0',
-    '1',
-    '2',
-    '3',
-    '4',
-    '5',
-    '6',
-    '7',
-    '8',
-    '9',
-    '10'
-  ];
+  List<String> options = List.generate(11, (index) => '$index');
 
-  void submitReview() {
-    if (formKey.currentState!.validate()) {
-      widget.review != null ? updateReview() : createReview();
+  void submitReview() async {
+    setState(() {
+      isReviewButtonLoading = true;
+    });
+
+    widget.review != null ? updateReview() : createReview();
+  }
+
+  void createReview() async {
+    try {
+      await reviewService.createReview(
+        context: context,
+        user: currentFlickmemoUser,
+        reviewData: {
+          "uuid": userReview?.uuid ?? '',
+          "score": formScore,
+          "note": formNote,
+          "noteHasSpoilers": formNoteHasSpoilers,
+          "favorite": userFavorite,
+        },
+        movieId: movie!.id,
+      );
+      // ignore: use_build_context_synchronously
       Navigator.pop(context);
-    } else {
-      addToast(t.toast.review.fillAllTheFields);
+    } catch (error) {
+      setState(() {
+        isReviewButtonLoading = false;
+      });
+      addToast(t.toast.error);
+      throw Exception('Failed to create review.');
     }
   }
 
-  void createReview() {
-    reviewService.createReview(
-      context: context,
-      user: currentFlickmemoUser,
-      reviewData: {
-        "uuid": userReview?.uuid ?? '',
-        "score": formScore,
-        "note": formNote,
-        "noteHasSpoilers": formNoteHasSpoilers,
-        "favorite": userFavorite,
-      },
-      movieId: movie!.id,
-    );
-  }
-
-  void updateReview() {
-    reviewService.updateReview(
-      context: context,
-      user: currentFlickmemoUser,
-      reviewData: {
-        "uuid": userReview?.uuid ?? '',
-        "score": formScore,
-        "note": formNote,
-        "noteHasSpoilers": formNoteHasSpoilers,
-        "favorite": userFavorite,
-      },
-    );
+  void updateReview() async {
+    try {
+      await reviewService.updateReview(
+        context: context,
+        user: currentFlickmemoUser,
+        reviewData: {
+          "uuid": userReview?.uuid ?? '',
+          "score": formScore,
+          "note": formNote,
+          "noteHasSpoilers": formNoteHasSpoilers,
+          "favorite": userFavorite,
+        },
+      );
+      // ignore: use_build_context_synchronously
+      Navigator.pop(context);
+    } catch (error) {
+      setState(() {
+        isReviewButtonLoading = false;
+      });
+      addToast(t.toast.error);
+      throw Exception('Failed to update review.');
+    }
   }
 
   void removeReview() {
@@ -147,7 +166,7 @@ class _ReviewModalState extends State<ReviewModal> {
             ),
           ),
           height: 550,
-          child: formScore != null
+          child: !isReviewLoading
               ? Padding(
                   padding: const EdgeInsets.fromLTRB(20, 10, 20, 0),
                   child: Center(
@@ -222,6 +241,7 @@ class _ReviewModalState extends State<ReviewModal> {
                             ),
                           ),
                           Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Container(
                                 padding:
@@ -252,106 +272,110 @@ class _ReviewModalState extends State<ReviewModal> {
                                       formScore = value;
                                     });
                                   },
+                                  borderRadius: BorderRadius.all(
+                                    Radius.circular(20.0),
+                                  ),
+                                  dropdownColor: Color(0xff2B2D33),
                                   items: options.map((String value) {
                                     return DropdownMenuItem<String>(
                                       value: value,
                                       child: Padding(
                                         padding:
                                             const EdgeInsets.only(left: 15.0),
-                                        child: Text(value),
+                                        child: Text(
+                                          value,
+                                          style: GoogleFonts.poppins(
+                                            fontSize: 16,
+                                            color: Colors.white,
+                                            fontWeight: FontWeight.w400,
+                                          ),
+                                        ),
                                       ),
                                     );
                                   }).toList(),
                                 ),
                               ),
                               SizedBox(width: 15.0),
-                              SizedBox(
-                                width: 185.0,
-                                child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.end,
-                                  children: [
-                                    Column(
-                                      children: [
-                                        CircleAvatar(
-                                          radius: 20,
-                                          backgroundColor: userFavorite == false
-                                              ? Color.fromARGB(139, 60, 60, 60)
-                                              : Color.fromARGB(
-                                                  255, 171, 49, 49),
-                                          child: IconButton(
-                                            icon: const Icon(
-                                                FontAwesomeIcons.solidHeart,
-                                                size: 20,
-                                                color: Colors.white),
-                                            onPressed: () => {
-                                              setState(() {
-                                                userFavorite = !userFavorite!;
-                                              }),
-                                            },
-                                          ),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.end,
+                                children: [
+                                  Column(
+                                    children: [
+                                      CircleAvatar(
+                                        radius: 20,
+                                        backgroundColor: userFavorite == false
+                                            ? Color.fromARGB(139, 60, 60, 60)
+                                            : Color.fromARGB(255, 171, 49, 49),
+                                        child: IconButton(
+                                          icon: const Icon(
+                                              FontAwesomeIcons.solidHeart,
+                                              size: 20,
+                                              color: Colors.white),
+                                          onPressed: () => {
+                                            setState(() {
+                                              userFavorite = !userFavorite!;
+                                            }),
+                                          },
                                         ),
-                                        Text(
-                                          t.moviePage.reviewModal.buttons
-                                              .favorite,
-                                          style: GoogleFonts.poppins(
-                                            fontSize: 14,
-                                            color: Colors.white,
-                                            fontWeight: FontWeight.w400,
-                                          ),
+                                      ),
+                                      Text(
+                                        t.moviePage.reviewModal.buttons
+                                            .favorite,
+                                        style: GoogleFonts.poppins(
+                                          fontSize: 14,
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.w400,
                                         ),
-                                      ],
-                                    ),
-                                    userReview != null
-                                        ? Padding(
-                                            padding: const EdgeInsets.only(
-                                              left: 15.0,
-                                            ),
-                                            child: Column(
-                                              children: [
-                                                CircleAvatar(
-                                                  radius: 20,
-                                                  backgroundColor:
-                                                      Color.fromARGB(
-                                                          139, 60, 60, 60),
-                                                  child: IconButton(
-                                                    icon: const Icon(
-                                                        FontAwesomeIcons.trash,
-                                                        size: 20,
-                                                        color: Colors.white),
-                                                    onPressed: () {
-                                                      showModalBottomSheet<
-                                                          void>(
-                                                        isScrollControlled:
-                                                            true,
-                                                        context: context,
-                                                        backgroundColor:
-                                                            Colors.transparent,
-                                                        builder: (BuildContext
-                                                            context) {
-                                                          return ConfirmReviewRemovalModal(
-                                                            removeReview:
-                                                                removeReview,
-                                                          );
-                                                        },
-                                                      );
-                                                    },
-                                                  ),
+                                      ),
+                                    ],
+                                  ),
+                                  userReview != null
+                                      ? Padding(
+                                          padding: const EdgeInsets.only(
+                                            left: 15.0,
+                                          ),
+                                          child: Column(
+                                            children: [
+                                              CircleAvatar(
+                                                radius: 20,
+                                                backgroundColor: Color.fromARGB(
+                                                    139, 60, 60, 60),
+                                                child: IconButton(
+                                                  icon: const Icon(
+                                                      FontAwesomeIcons.trash,
+                                                      size: 20,
+                                                      color: Colors.white),
+                                                  onPressed: () {
+                                                    showModalBottomSheet<void>(
+                                                      isScrollControlled: true,
+                                                      context: context,
+                                                      backgroundColor:
+                                                          Colors.transparent,
+                                                      builder: (BuildContext
+                                                          context) {
+                                                        return ConfirmReviewRemovalModal(
+                                                          removeReview:
+                                                              removeReview,
+                                                        );
+                                                      },
+                                                    );
+                                                  },
                                                 ),
-                                                Text(
-                                                  t.moviePage.reviewModal
-                                                      .buttons.remove,
-                                                  style: GoogleFonts.poppins(
-                                                    fontSize: 14,
-                                                    color: Colors.white,
-                                                    fontWeight: FontWeight.w400,
-                                                  ),
+                                              ),
+                                              Text(
+                                                t.moviePage.reviewModal.buttons
+                                                    .remove,
+                                                style: GoogleFonts.poppins(
+                                                  fontSize: 14,
+                                                  color: Colors.white,
+                                                  fontWeight: FontWeight.w400,
                                                 ),
-                                              ],
-                                            ),
-                                          )
-                                        : SizedBox(),
-                                  ],
-                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        )
+                                      : SizedBox(),
+                                ],
                               )
                             ],
                           ),
@@ -467,11 +491,17 @@ class _ReviewModalState extends State<ReviewModal> {
                                     Theme.of(context).colorScheme.primary,
                               ),
                               onPressed: () => submitReview(),
-                              child: Text(
-                                t.moviePage.reviewModal.buttons.save,
-                                style:
-                                    Theme.of(context).textTheme.headlineMedium,
-                              ),
+                              child: isReviewButtonLoading
+                                  ? LoadingAnimationWidget.fourRotatingDots(
+                                      color: Colors.white,
+                                      size: 24.0,
+                                    )
+                                  : Text(
+                                      t.moviePage.reviewModal.buttons.save,
+                                      style: Theme.of(context)
+                                          .textTheme
+                                          .headlineMedium,
+                                    ),
                             ),
                           ),
                         ],

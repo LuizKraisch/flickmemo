@@ -94,7 +94,8 @@ class _MoviePageState extends State<MoviePage> {
           ? BottomMoviePage(
               movie: movieData?["data"],
               review: movieData?["userReview"],
-              currentFlickmemoUser: currentFlickmemoUser)
+              currentFlickmemoUser: currentFlickmemoUser,
+            )
           : SizedBox(),
       backgroundColor: Theme.of(context).colorScheme.background,
       body: RefreshIndicator(
@@ -140,10 +141,16 @@ class _MoviePageState extends State<MoviePage> {
                                   ),
                                 )
                               : addedToWatchlist
-                                  ? const Icon(FontAwesomeIcons.solidBookmark,
-                                      size: 20, color: Colors.white)
-                                  : const Icon(FontAwesomeIcons.bookmark,
-                                      size: 20, color: Colors.white),
+                                  ? Icon(
+                                      FontAwesomeIcons.solidBookmark,
+                                      size: 20,
+                                      color: Colors.white,
+                                    )
+                                  : Icon(
+                                      FontAwesomeIcons.bookmark,
+                                      size: 20,
+                                      color: Colors.white,
+                                    ),
                           onPressed: () => handleWatchlist(),
                         ),
                       ),

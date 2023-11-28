@@ -242,17 +242,19 @@ class _MoviePageBodyState extends State<MoviePageBody> {
                     ),
                     child: Padding(
                       padding: const EdgeInsets.all(15.0),
-                      child: Column(children: [
-                        Icon(
-                          FontAwesomeIcons.triangleExclamation,
-                          color: Colors.grey.shade700,
-                        ),
-                        SizedBox(height: 5),
-                        Text(
-                          t.moviePage.body.emptySimilarMovies,
-                          style: Theme.of(context).textTheme.titleSmall,
-                        )
-                      ]),
+                      child: Column(
+                        children: [
+                          Icon(
+                            FontAwesomeIcons.triangleExclamation,
+                            color: Colors.grey.shade700,
+                          ),
+                          SizedBox(height: 5),
+                          Text(
+                            t.moviePage.body.emptySimilarMovies,
+                            style: Theme.of(context).textTheme.titleSmall,
+                          )
+                        ],
+                      ),
                     ),
                   ),
                 ),
