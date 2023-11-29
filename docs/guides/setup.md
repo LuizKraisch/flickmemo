@@ -29,3 +29,7 @@ This will depend on the simualtor that you're using.
 `flutter run`
 
 You can do this from your IDE, you can follow the guide to configure it.
+
+6 - Configure the `env.dart` file
+
+Put your variables in there so that the app will work with all resources.
