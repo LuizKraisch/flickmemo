@@ -28,6 +28,8 @@ To see more about data modeling and context diagrams, check [here](https://githu
 
 Check the tech stack [here](https://github.com/LuizKraisch/flickmemo/blob/main/docs/guides/stack.md).
 
+To check about monitoring tools, check [here](https://github.com/LuizKraisch/flickmemo/blob/main/docs/guides/monitoring.md).
+
 Check how to make it work in your machine [here](https://github.com/LuizKraisch/flickmemo/blob/main/docs/guides/setup.md).
 
 ## Wiki
