@@ -19,7 +19,7 @@ class UserReviewBox extends StatelessWidget {
       height: 130,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20),
-        color: Color(0xff1D1F24),
+        color: Theme.of(context).colorScheme.secondary,
       ),
       child: Padding(
         padding: const EdgeInsets.all(12.0),
@@ -120,7 +120,7 @@ class UserReviewBox extends StatelessWidget {
                     child: Text(
                       t.moviePage.body.userReview.empty,
                       style: GoogleFonts.poppins(
-                        color: Color(0xff646464),
+                        color: Theme.of(context).colorScheme.onTertiary,
                         fontStyle: FontStyle.italic,
                       ),
                     ),

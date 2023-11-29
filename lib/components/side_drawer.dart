@@ -64,7 +64,7 @@ class _SideDrawerState extends State<SideDrawer> {
   @override
   Widget build(BuildContext context) {
     return Drawer(
-      backgroundColor: Color(0xff131417),
+      backgroundColor: Theme.of(context).colorScheme.background,
       child: Column(
         children: [
           Expanded(

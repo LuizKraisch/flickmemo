@@ -35,7 +35,7 @@ class SearchHeader extends StatelessWidget {
             child: Container(
               padding: EdgeInsets.fromLTRB(0.0, 3.0, 15.0, 3.0),
               decoration: BoxDecoration(
-                color: Color(0xff2B2D33),
+                color: Theme.of(context).colorScheme.secondaryContainer,
                 borderRadius: BorderRadius.circular(100.0),
               ),
               child: Row(

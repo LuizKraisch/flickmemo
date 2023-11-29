@@ -47,7 +47,7 @@ class _BasePageState extends State<BasePage> {
     ];
 
     return Scaffold(
-      backgroundColor: Color(0xff131417),
+      backgroundColor: Theme.of(context).colorScheme.background,
       drawer: const SideDrawer(),
       body: PageView(
         physics: NeverScrollableScrollPhysics(),

@@ -249,7 +249,9 @@ class _ReviewModalState extends State<ReviewModal> {
                                 width: 150.0,
                                 height: 45.0,
                                 decoration: BoxDecoration(
-                                  color: Color(0xff2B2D33),
+                                  color: Theme.of(context)
+                                      .colorScheme
+                                      .secondaryContainer,
                                   borderRadius: BorderRadius.circular(100.0),
                                 ),
                                 child: DropdownButtonFormField<String>(
@@ -275,7 +277,9 @@ class _ReviewModalState extends State<ReviewModal> {
                                   borderRadius: BorderRadius.all(
                                     Radius.circular(20.0),
                                   ),
-                                  dropdownColor: Color(0xff2B2D33),
+                                  dropdownColor: Theme.of(context)
+                                      .colorScheme
+                                      .secondaryContainer,
                                   items: options.map((String value) {
                                     return DropdownMenuItem<String>(
                                       value: value,
@@ -413,7 +417,9 @@ class _ReviewModalState extends State<ReviewModal> {
                               padding:
                                   EdgeInsets.fromLTRB(15.0, 3.0, 15.0, 3.0),
                               decoration: BoxDecoration(
-                                color: Color(0xff2B2D33),
+                                color: Theme.of(context)
+                                    .colorScheme
+                                    .secondaryContainer,
                                 borderRadius: BorderRadius.circular(20.0),
                               ),
                               child: TextFormField(

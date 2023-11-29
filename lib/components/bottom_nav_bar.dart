@@ -19,7 +19,7 @@ class BottomNavBar extends StatelessWidget {
             backgroundColor: Theme.of(context).colorScheme.secondary,
             color: Colors.white,
             activeColor: Colors.white,
-            tabBackgroundColor: Theme.of(context).colorScheme.surface,
+            tabBackgroundColor: Theme.of(context).colorScheme.primary,
             padding: EdgeInsets.fromLTRB(15, 10, 10, 8),
             gap: 100,
             onTabChange: (value) => onTabChange!(value),

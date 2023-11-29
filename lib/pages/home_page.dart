@@ -187,7 +187,7 @@ class _HomePageState extends State<HomePage> {
                                   child: Text(
                                     'Recarregar',
                                     style: GoogleFonts.poppins(
-                                      color: Color(0xff1D1F24),
+                                      color: Theme.of(context).colorScheme.secondary,
                                       fontWeight: FontWeight.w500,
                                       fontSize: 14,
                                     ),

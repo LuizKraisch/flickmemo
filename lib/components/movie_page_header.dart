@@ -99,7 +99,7 @@ class MoviePageHeader extends StatelessWidget {
                     height: 25,
                     alignment: Alignment.center,
                     decoration: BoxDecoration(
-                      color: Color(0xFF32363F),
+                      color: Theme.of(context).colorScheme.tertiaryContainer,
                       borderRadius: BorderRadius.circular(100),
                     ),
                     child: Text(
@@ -114,7 +114,7 @@ class MoviePageHeader extends StatelessWidget {
                     height: 25,
                     alignment: Alignment.center,
                     decoration: BoxDecoration(
-                      color: Color(0xFF32363F),
+                      color: Theme.of(context).colorScheme.tertiaryContainer,
                       borderRadius: BorderRadius.circular(100),
                     ),
                     child: Text(
@@ -129,7 +129,7 @@ class MoviePageHeader extends StatelessWidget {
                     height: 25,
                     alignment: Alignment.center,
                     decoration: BoxDecoration(
-                      color: Color(0xFF32363F),
+                      color: Theme.of(context).colorScheme.tertiaryContainer,
                       borderRadius: BorderRadius.circular(100),
                     ),
                     child: Text(
